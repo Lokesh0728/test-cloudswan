@@ -17,3 +17,104 @@
     @apply font-heading tracking-tight;
   }
 }
+
+@layer components {
+  /* ========================================================
+     UNIFIED TYPOGRAPHY SYSTEM
+     Font Pairing:
+     - Headings & Badges: Montserrat (Google Fonts)
+     - Body, Paragraphs & UI: Plus Jakarta Sans (Google Fonts)
+     ======================================================== */
+  .display-h1 {
+    @apply font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-[54px] tracking-tight leading-[1.15];
+  }
+
+  .display-h2 {
+    @apply font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-tight;
+  }
+
+  .display-h3 {
+    @apply font-heading font-bold text-xl sm:text-2xl tracking-tight leading-snug;
+  }
+
+  .display-card-title {
+    @apply font-heading font-bold text-lg sm:text-xl tracking-tight leading-snug;
+  }
+
+  .display-h4 {
+    @apply font-heading font-bold text-base sm:text-lg tracking-tight leading-snug;
+  }
+
+  .display-h5 {
+    @apply font-heading font-bold text-sm sm:text-base tracking-tight leading-snug;
+  }
+
+  .lead-paragraph {
+    @apply font-sans font-normal text-base sm:text-lg text-slate-600 leading-relaxed;
+  }
+
+  .body-paragraph {
+    @apply font-sans font-normal text-sm sm:text-base text-slate-600 leading-relaxed;
+  }
+
+  .body-subtext {
+    @apply font-sans font-normal text-xs sm:text-sm text-slate-600 leading-relaxed;
+  }
+
+  .caption-text {
+    @apply font-sans font-medium text-xs text-slate-500 leading-normal;
+  }
+
+  .eyebrow-badge {
+    @apply font-heading font-bold text-xs uppercase tracking-wider;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 38s linear infinite;
+}
+
+.pause-animation {
+  animation-play-state: paused !important;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}

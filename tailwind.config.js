@@ -7,9 +7,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', '"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['Montserrat', 'system-ui', 'sans-serif'],
-        nav: ['Montserrat', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Montserrat', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Montserrat', 'system-ui', '-apple-system', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        nav: ['Montserrat', 'system-ui', '-apple-system', 'sans-serif'],
       },
       colors: {
         brand: {

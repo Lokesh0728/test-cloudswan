@@ -297,10 +297,10 @@ export const HeroStudentsVisual: React.FC = () => {
 
               {/* Badge Typography */}
               <div className="flex flex-col text-left leading-tight">
-                <span className="text-[11px] sm:text-xs font-bold text-slate-800 tracking-tight">
+                <span className="font-heading text-[11px] sm:text-xs font-bold text-slate-800 tracking-tight">
                   {badge.name}
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
+                <span className="font-sans text-[9px] sm:text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
                   {badge.tag}
                 </span>
               </div>

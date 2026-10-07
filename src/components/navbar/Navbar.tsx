@@ -151,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         }}
                         aria-expanded={isCoursesOpen}
                         aria-haspopup="true"
-                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 text-sm xl:text-[15px] font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 rounded-lg ${isCoursesOpen || isActive
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 text-sm xl:text-[15px] font-heading font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 rounded-lg ${isCoursesOpen || isActive
                           ? 'text-accent-600 font-bold bg-accent-50/60'
                           : 'text-slate-700 hover:text-accent-600 hover:bg-slate-50'
                           }`}
@@ -180,14 +180,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                       setIsCoursesOpen(false)
                       onNavigate(link.href)
                     }}
-                    className={`relative inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 text-sm xl:text-[15px] font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 rounded-lg ${isActive
+                    className={`relative inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 text-sm xl:text-[15px] font-heading font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 rounded-lg ${isActive
                       ? 'text-accent-600 font-bold bg-accent-50/60'
                       : 'text-slate-700 hover:text-accent-600 hover:bg-slate-50'
                       }`}
                   >
                     <span>{link.name}</span>
                     {link.badge && (
-                      <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 leading-none">
+                      <span className="eyebrow-badge text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 leading-none">
                         {link.badge}
                       </span>
                     )}
@@ -200,7 +200,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Phone Quick Dial Pill (Desktop Large) */}
               <a
                 href={`tel:${CONTACT_INFO.phone}`}
-                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs xl:text-sm font-semibold text-slate-700 hover:text-accent-600 border border-slate-200/80 hover:border-accent-200 hover:bg-slate-50 transition-all"
+                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs xl:text-sm font-heading font-semibold text-slate-700 hover:text-accent-600 border border-slate-200/80 hover:border-accent-200 hover:bg-slate-50 transition-all"
                 title="Direct Admissions Helpline"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-accent-500" />
@@ -211,7 +211,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => onOpenEnquiry('Admissions Inquiry')}
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-xs shadow-accent-500/25 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
+                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs sm:text-sm font-heading font-bold tracking-wide text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-xs shadow-accent-500/25 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
               >
                 <Sparkles className="w-3.5 h-3.5 text-orange-100" />
                 <span>Enquire Now</span>
@@ -222,7 +222,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => onOpenEnquiry('Mobile Quick Inquiry')}
-                className="sm:hidden inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-accent-500 hover:bg-accent-600"
+                className="sm:hidden inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-heading font-bold tracking-wide text-white bg-accent-500 hover:bg-accent-600"
               >
                 Enquire
               </button>

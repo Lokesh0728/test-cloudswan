@@ -191,61 +191,15 @@ export const BatchCard: React.FC<
             TOP LEFT PROGRAM LABEL
         ================================================= */}
 
-          <div
-            className="
-            absolute
-            left-4
-            top-4
-            flex
-            items-center
-            gap-1.5
-            rounded-full
-            border
-            border-white/20
-            bg-slate-950/55
-            px-3
-            py-1.5
-            text-[9px]
-            font-bold
-            uppercase
-            tracking-[0.12em]
-            text-white
-            backdrop-blur-md
-          "
-          >
-            <Sparkles
-              className="
-              h-3
-              w-3
-              text-orange-400
-            "
-            />
-
-            Career Program
+          <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full border border-white/20 bg-slate-950/55 px-3 py-1.5 eyebrow-badge text-white backdrop-blur-md">
+            <Sparkles className="h-3 w-3 text-orange-400" />
+            <span>Career Program</span>
           </div>
 
           {/* =================================================
             SEATS
         ================================================= */}
-
-          <div
-            className="
-            absolute
-            right-4
-            top-4
-            rounded-full
-            border
-            border-white/30
-            bg-white/95
-            px-3
-            py-1.5
-            text-[9px]
-            font-black
-            text-slate-900
-            shadow-lg
-            backdrop-blur-md
-          "
-          >
+          <div className="absolute right-4 top-4 rounded-full border border-white/30 bg-white/95 px-3 py-1.5 eyebrow-badge text-slate-900 shadow-lg backdrop-blur-md">
             <span className="text-orange-500">
               {seatsLeft}
             </span>{' '}
@@ -255,25 +209,8 @@ export const BatchCard: React.FC<
           {/* =================================================
             COURSE NAME ON IMAGE
         ================================================= */}
-
-          <div
-            className="
-            absolute
-            bottom-4
-            left-4
-            right-4
-          "
-          >
-            <h3
-              className="
-              text-2xl
-              font-black
-              leading-tight
-              tracking-tight
-              text-white
-              drop-shadow-lg
-            "
-            >
+          <div className="absolute bottom-4 left-4 right-4">
+            <h3 className="display-card-title text-white drop-shadow-lg">
               {batch.title}
             </h3>
           </div>
@@ -306,54 +243,18 @@ export const BatchCard: React.FC<
               bg-emerald-50
               px-3
               py-1.5
-              text-[10px]
-              font-bold
+              eyebrow-badge
               text-emerald-700
             "
             >
-              <span
-                className="
-                relative
-                flex
-                h-1.5
-                w-1.5
-              "
-              >
-                <span
-                  className="
-                  absolute
-                  h-full
-                  w-full
-                  animate-ping
-                  rounded-full
-                  bg-emerald-400
-                  opacity-60
-                "
-                />
-
-                <span
-                  className="
-                  relative
-                  h-1.5
-                  w-1.5
-                  rounded-full
-                  bg-emerald-500
-                "
-                />
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative h-1.5 w-1.5 rounded-full bg-emerald-500" />
               </span>
-
-              Enrolling Now
+              <span>Enrolling Now</span>
             </span>
 
-            <span
-              className="
-              text-[9px]
-              font-bold
-              uppercase
-              tracking-wider
-              text-slate-400
-            "
-            >
+            <span className="caption-text font-semibold text-slate-400">
               2026
             </span>
           </div>
@@ -566,9 +467,11 @@ export const BatchCard: React.FC<
             bg-slate-950
             px-4
             py-3.5
-            text-xs
+            text-xs sm:text-sm
             font-bold
             text-white
+            font-heading
+            tracking-wide
             transition-all
             duration-300
             hover:bg-orange-500
@@ -679,29 +582,15 @@ const InfoBox: React.FC<InfoBoxProps> = ({
           {icon}
         </span>
 
-        <span
-          className="
-            text-[8px]
-            font-bold
-            uppercase
-            tracking-wider
-            text-slate-400
-          "
-        >
+        <span className="caption-text font-semibold uppercase tracking-wider text-slate-400">
           {label}
         </span>
       </div>
 
       <p
-        className={`
-          truncate
-          text-[10px]
-          font-bold
-          ${highlight
-            ? 'text-orange-700'
-            : 'text-slate-800'
-          }
-        `}
+        className={`truncate text-xs font-bold font-heading ${
+          highlight ? 'text-orange-700' : 'text-slate-800'
+        }`}
         title={value}
       >
         {value}
