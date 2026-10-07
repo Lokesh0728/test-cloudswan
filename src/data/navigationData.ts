@@ -39,6 +39,7 @@ export const COURSE_CATEGORIES: CourseCategory[] = [
     iconName: 'Code2',
     badge: 'Popular',
     courses: [
+      { id: 'cybersecurity', name: 'Cybersecurity Training', slug: '/courses/cybersecurity', isPopular: true, badge: 'Hot' },
       { id: 'full-stack', name: 'Full Stack Development', slug: '/courses/full-stack-development', isPopular: true, badge: 'Hot' },
       { id: 'frontend', name: 'Frontend Development', slug: '/courses/frontend-development' },
       { id: 'backend', name: 'Backend Development', slug: '/courses/backend-development' },
@@ -121,3 +122,26 @@ export const CONTACT_INFO = {
   location: 'Gandhipuram & Saravanampatti Campuses, Coimbatore',
   operatingHours: 'Mon - Sat: 9:00 AM - 7:30 PM',
 }
+
+/**
+ * Helper to look up any course item and its parent category by slug or id
+ */
+export function findCourseBySlugOrId(identifier: string): { course: CourseItem; category: CourseCategory } | null {
+  if (!identifier) return null
+  const clean = identifier.trim().toLowerCase().replace(/^\/+/, '').replace(/\/+$/, '')
+  const stripped = clean.replace(/^courses\//, '')
+
+  for (const category of COURSE_CATEGORIES) {
+    for (const course of category.courses) {
+      const cSlug = course.slug.toLowerCase().replace(/^\/+/, '').replace(/\/+$/, '')
+      const cSlugStripped = cSlug.replace(/^courses\//, '')
+      const cId = course.id.toLowerCase()
+
+      if (cId === clean || cId === stripped || cSlug === clean || cSlugStripped === stripped) {
+        return { course, category }
+      }
+    }
+  }
+  return null
+}
+
