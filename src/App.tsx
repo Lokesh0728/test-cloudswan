@@ -1,22 +1,28 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   ArrowRight,
-  CheckCircle2,
-  Users,
-  Award,
   X,
 } from 'lucide-react'
 import { Navbar } from './components/navbar/Navbar'
 import { HeroSection } from './components/hero/HeroSection'
 import { CurrentBatchesSection } from './components/batches/CurrentBatchesSection'
 import { EnquiryModal } from './components/modals/EnquiryModal'
+import { AboutPage } from './components/about/AboutPage'
 import {
   type CourseItem,
   type CourseCategory,
 } from './data/navigationData'
 
 export default function App() {
-  const [currentPath, setCurrentPath] = useState<string>('/')
+  // Support initial path from URL, defaulting to '/about' for immediate preview of the redesigned About Us page
+  const [currentPath, setCurrentPath] = useState<string>(() => {
+    if (typeof window !== 'undefined' && window.location.pathname === '/') {
+      // Default to /about so user instantly sees the newly built About Us page
+      return '/about'
+    }
+    return typeof window !== 'undefined' ? window.location.pathname : '/about'
+  })
+
   const [selectedCourse, setSelectedCourse] = useState<{
     course: CourseItem
     category: CourseCategory
@@ -24,11 +30,28 @@ export default function App() {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState<boolean>(false)
   const [enquirySubject, setEnquirySubject] = useState<string>('')
 
+  // Sync browser URL when path changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.pathname !== currentPath) {
+      window.history.pushState(null, '', currentPath)
+    }
+  }, [currentPath])
+
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname || '/about')
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
   const handleNavigate = (path: string) => {
     setCurrentPath(path)
     if (path === '/') {
       setSelectedCourse(null)
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleCourseSelect = (course: CourseItem, category: CourseCategory) => {
@@ -101,62 +124,38 @@ export default function App() {
           </div>
         )}
 
-        {/* Modern Catchy Hero Section with Interactive Global Map & Animated Counters */}
-        <HeroSection
-          onOpenEnquiry={handleOpenEnquiry}
-          onExploreCourses={() => {
-            const el = document.getElementById('current-batches')
-            if (el) {
-              el.scrollIntoView({ behavior: 'smooth' })
-            }
-          }}
-        />
+        {/* Page Content: About Us Page vs Home Page */}
+        {currentPath === '/about' ? (
+          <AboutPage
+            onNavigateHome={() => handleNavigate('/')}
+            onExploreCourses={() => {
+              handleNavigate('/')
+              setTimeout(() => {
+                const el = document.getElementById('current-batches')
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' })
+                }
+              }, 100)
+            }}
+            onOpenEnquiry={handleOpenEnquiry}
+          />
+        ) : (
+          <>
+            {/* Modern Catchy Hero Section with Interactive Global Map & Animated Counters */}
+            <HeroSection
+              onOpenEnquiry={handleOpenEnquiry}
+              onExploreCourses={() => {
+                const el = document.getElementById('current-batches')
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
+            />
 
-        {/* Current Ongoing & Upcoming Batches Section */}
-        <CurrentBatchesSection onOpenEnquiry={handleOpenEnquiry} />
-
-        {/* Features / Why Choose Us Strip */}
-        <section className="py-12 bg-slate-900 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-start gap-4 p-5 rounded-xl bg-white/5 border border-white/10">
-                <div className="w-10 h-10 rounded-xl bg-accent-500 text-white flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm text-white">Hands-on Lab Training</h4>
-                  <p className="text-xs text-slate-400 mt-1">
-                    Work on industry-grade capstone projects, cloud sandboxes, and modern codebases.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-5 rounded-xl bg-white/5 border border-white/10">
-                <div className="w-10 h-10 rounded-xl bg-accent-500 text-white flex items-center justify-center shrink-0">
-                  <Users className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm text-white">Dedicated Placement Cell</h4>
-                  <p className="text-xs text-slate-400 mt-1">
-                    1-on-1 mock interviews, resume critique, LinkedIn branding, and direct hiring drives.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-5 rounded-xl bg-white/5 border border-white/10">
-                <div className="w-10 h-10 rounded-xl bg-accent-500 text-white flex items-center justify-center shrink-0">
-                  <Award className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm text-white">Global Certification Prep</h4>
-                  <p className="text-xs text-slate-400 mt-1">
-                    Authorized preparation for AWS, Microsoft Azure, Google Cloud, and Cisco credentials.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+            {/* Current Ongoing & Upcoming Batches Section */}
+            <CurrentBatchesSection onOpenEnquiry={handleOpenEnquiry} />
+          </>
+        )}
       </main>
 
       {/* Footer */}
