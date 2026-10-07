@@ -8,6 +8,7 @@ import { HeroSection } from './components/hero/HeroSection'
 import { CurrentBatchesSection } from './components/batches/CurrentBatchesSection'
 import { ITTrainingSection } from './components/training/ITTrainingSection'
 import { EnquiryModal } from './components/modals/EnquiryModal'
+import { AboutPage } from './components/about/AboutPage'
 import { CourseDetailPage } from './components/course/CourseDetailPage'
 import { getCourseByIdOrSlug } from './data/courses'
 import {
@@ -18,14 +19,25 @@ import {
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
-    return window.location.pathname || '/'
+    if (typeof window !== 'undefined' && window.location.pathname) {
+      return window.location.pathname
+    }
+    return '/'
   })
+
   const [selectedCourse, setSelectedCourse] = useState<{
     course: CourseItem
     category: CourseCategory
   } | null>(null)
   const [enquiryModalOpen, setEnquiryModalOpen] = useState<boolean>(false)
   const [enquirySubject, setEnquirySubject] = useState<string>('')
+
+  // Sync browser URL when path changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.pathname !== currentPath) {
+      window.history.pushState(null, '', currentPath)
+    }
+  }, [currentPath])
 
   // Handle browser back and forward navigation
   useEffect(() => {
@@ -148,22 +160,41 @@ export default function App() {
               </div>
             )}
 
-            {/* Modern Catchy Hero Section with Interactive Global Map & Animated Counters */}
-            <HeroSection
-              onOpenEnquiry={handleOpenEnquiry}
-              onExploreCourses={() => {
-                const el = document.getElementById('current-batches')
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' })
-                }
-              }}
-            />
+            {/* Page Content: About Us Page vs Home Page */}
+            {currentPath === '/about' ? (
+              <AboutPage
+                onNavigateHome={() => handleNavigate('/')}
+                onExploreCourses={() => {
+                  handleNavigate('/')
+                  setTimeout(() => {
+                    const el = document.getElementById('current-batches')
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }, 100)
+                }}
+                onOpenEnquiry={handleOpenEnquiry}
+              />
+            ) : (
+              <>
+                {/* Modern Catchy Hero Section with Interactive Global Map & Animated Counters */}
+                <HeroSection
+                  onOpenEnquiry={handleOpenEnquiry}
+                  onExploreCourses={() => {
+                    const el = document.getElementById('current-batches')
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }}
+                />
 
-            {/* Current Ongoing & Upcoming Batches Section */}
-            <CurrentBatchesSection onOpenEnquiry={handleOpenEnquiry} />
+                {/* Current Ongoing & Upcoming Batches Section */}
+                <CurrentBatchesSection onOpenEnquiry={handleOpenEnquiry} />
 
-            {/* IT Training for Students and Professionals in Coimbatore */}
-            <ITTrainingSection onOpenEnquiry={handleOpenEnquiry} />
+                {/* IT Training for Students and Professionals in Coimbatore */}
+                <ITTrainingSection onOpenEnquiry={handleOpenEnquiry} />
+              </>
+            )}
           </>
         )}
       </main>
