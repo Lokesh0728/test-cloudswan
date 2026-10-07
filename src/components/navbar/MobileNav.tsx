@@ -107,7 +107,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                     <button
                       type="button"
                       onClick={() => setIsCoursesExpanded(!isCoursesExpanded)}
-                      className={`w-full flex items-center justify-between py-2.5 px-3 rounded-xl text-base sm:text-lg font-semibold transition-colors ${isCoursesExpanded || isActive
+                      className={`w-full flex items-center justify-between py-2.5 px-3 rounded-xl text-base sm:text-lg font-heading font-semibold transition-colors ${isCoursesExpanded || isActive
                           ? 'text-accent-600 font-bold'
                           : 'text-slate-800 hover:text-accent-600'
                         }`}
@@ -147,10 +147,10 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                                     <IconComp className="w-4 h-4" />
                                   </div>
                                   <div>
-                                    <span className="text-xs font-bold text-slate-900 block">
+                                    <span className="font-heading text-xs font-bold text-slate-900 block">
                                       {category.title}
                                     </span>
-                                    <span className="text-[10px] text-slate-400 block font-normal">
+                                    <span className="caption-text text-slate-400 block font-normal">
                                       {category.courses.length} Courses
                                     </span>
                                   </div>
@@ -174,14 +174,14 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                                             onCourseSelect(course, category)
                                             onClose()
                                           }}
-                                          className="flex items-center justify-between py-2 px-2.5 rounded-lg text-xs font-medium text-slate-700 hover:text-accent-600 hover:bg-white transition-colors"
+                                          className="flex items-center justify-between py-2 px-2.5 rounded-lg text-xs font-medium font-sans text-slate-700 hover:text-accent-600 hover:bg-white transition-colors"
                                         >
                                           <div className="flex items-center gap-1.5 truncate pr-2">
-                                            <span className="text-accent-500 font-bold">→</span>
+                                            <span className="text-accent-500 font-bold font-heading">→</span>
                                             <span className="truncate">{course.name}</span>
                                           </div>
                                           {course.badge && (
-                                            <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-accent-50 text-accent-600 shrink-0">
+                                            <span className="eyebrow-badge text-[9px] px-1.5 py-0.5 rounded bg-accent-50 text-accent-600 shrink-0">
                                               {course.badge}
                                             </span>
                                           )}
@@ -197,7 +197,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                                         onOpenEnquiry(category.title)
                                         onClose()
                                       }}
-                                      className="w-full text-center py-2 text-[11px] font-bold text-accent-600 hover:text-accent-700 bg-white border border-accent-100 rounded-lg transition-colors flex items-center justify-center gap-1.5 shadow-2xs"
+                                      className="w-full text-center py-2 text-[11px] font-bold font-heading text-accent-600 hover:text-accent-700 bg-white border border-accent-100 rounded-lg transition-colors flex items-center justify-center gap-1.5 shadow-2xs"
                                     >
                                       <span>Enquire about {category.title}</span>
                                       <ArrowRight className="w-3 h-3" />
@@ -223,14 +223,14 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                     onNavigate(link.href)
                     onClose()
                   }}
-                  className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-base sm:text-lg font-semibold transition-colors ${isActive
+                  className={`flex items-center justify-between py-2.5 px-3 rounded-xl text-base sm:text-lg font-heading font-semibold transition-colors ${isActive
                       ? 'text-accent-600 font-bold'
                       : 'text-slate-800 hover:text-accent-600'
                     }`}
                 >
                   <span>{link.name}</span>
                   {link.badge && (
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 uppercase tracking-wide">
+                    <span className="eyebrow-badge text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 uppercase tracking-wide">
                       {link.badge}
                     </span>
                   )}
@@ -241,7 +241,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
 
           {/* Quick Contact Info */}
           <div className="py-4 space-y-3">
-            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+            <h4 className="eyebrow-badge text-slate-400">
               Direct Contact
             </h4>
             <a
@@ -252,8 +252,8 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                 <Phone className="w-4 h-4" />
               </div>
               <div>
-                <span className="block text-[11px] text-slate-400">Coimbatore Campus</span>
-                <span className="font-semibold">{CONTACT_INFO.coimbatoreDisplayPhone}</span>
+                <span className="block caption-text text-slate-400">Coimbatore Campus</span>
+                <span className="font-heading font-semibold text-slate-800">{CONTACT_INFO.coimbatoreDisplayPhone}</span>
               </div>
             </a>
 
@@ -265,8 +265,8 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                 <Phone className="w-4 h-4" />
               </div>
               <div>
-                <span className="block text-[11px] text-slate-400">Saravanampatti Campus</span>
-                <span className="font-semibold">{CONTACT_INFO.saravanampattiDisplayPhone}</span>
+                <span className="block caption-text text-slate-400">Saravanampatti Campus</span>
+                <span className="font-heading font-semibold text-slate-800">{CONTACT_INFO.saravanampattiDisplayPhone}</span>
               </div>
             </a>
           </div>
@@ -280,12 +280,12 @@ export const MobileNav: React.FC<MobileNavProps> = ({
               onClose()
               onOpenEnquiry()
             }}
-            className="w-full py-3 px-4 rounded-xl text-sm font-bold text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-md shadow-accent-500/25 transition-all text-center flex items-center justify-center gap-2"
+            className="w-full py-3 px-4 rounded-xl text-sm font-bold font-heading tracking-wide text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-md shadow-accent-500/25 transition-all text-center flex items-center justify-center gap-2"
           >
             <span>Enquire Now / Free Demo</span>
             <ArrowRight className="w-4 h-4" />
           </button>
-          <p className="text-center text-[10px] text-slate-400">
+          <p className="text-center caption-text text-slate-400">
             ISO 9001:2015 Certified • 100% Placement Assistance
           </p>
         </div>

@@ -73,12 +73,12 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
               <span className="text-sm sm:text-base font-bold text-slate-800 tracking-tight font-heading">
                 Explore Industry-Certified Programs & Career Tracks
               </span>
-              <span className="hidden md:inline-flex text-xs font-bold px-2.5 py-0.5 rounded-full bg-accent-50 text-accent-600 border border-accent-200/70">
+              <span className="hidden md:inline-flex eyebrow-badge px-2.5 py-0.5 rounded-full bg-accent-50 text-accent-600 border border-accent-200/70">
                 5 Verticals • 30+ Specializations
               </span>
             </div>
 
-            <div className="hidden lg:flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-500">
+            <div className="hidden lg:flex items-center gap-1.5 caption-text text-slate-500">
               <span>Select any vertical on the left to view programs</span>
             </div>
           </div>
@@ -87,7 +87,7 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
           <div className="grid grid-cols-12 min-h-[380px]">
             {/* Left Sub-menu / Navigation Rail (Main 5 Categories) */}
             <div className="col-span-12 md:col-span-5 border-r border-slate-200/80 bg-slate-50/70 p-3 sm:p-4 space-y-1.5">
-              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider px-3 mb-1.5 font-heading">
+              <p className="eyebrow-badge text-slate-400 px-3 mb-1.5">
                 Select Training Vertical
               </p>
               {COURSE_CATEGORIES.map((cat) => {
@@ -117,10 +117,10 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
                         <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       <div>
-                        <div className="text-sm sm:text-[15px] font-bold tracking-tight">
+                        <div className="font-heading text-sm sm:text-[15px] font-bold tracking-tight">
                           {cat.title}
                         </div>
-                        <div className="text-xs text-slate-500 font-medium mt-0.5">
+                        <div className="caption-text text-slate-500 mt-0.5">
                           {cat.courses.length} Specializations
                         </div>
                       </div>
@@ -141,15 +141,15 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
                 {/* Active Category Header */}
                 <div className="pb-3 border-b border-slate-200 flex items-center justify-between gap-3">
                   <div>
-                    <h4 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight font-heading">
+                    <h4 className="display-card-title text-slate-900">
                       {activeCategory.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-0.5 font-medium">
+                    <p className="body-subtext mt-0.5">
                       {activeCategory.subtitle}
                     </p>
                   </div>
                   {activeCategory.badge && (
-                    <span className="text-xs uppercase font-bold px-2.5 py-0.5 rounded-full bg-accent-50 text-accent-600 border border-accent-200/70 shrink-0">
+                    <span className="eyebrow-badge px-2.5 py-0.5 rounded-full bg-accent-50 text-accent-600 border border-accent-200/70 shrink-0">
                       {activeCategory.badge}
                     </span>
                   )}
@@ -165,10 +165,10 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
                         e.preventDefault()
                         onCourseSelect(course, activeCategory)
                       }}
-                      className="group flex items-center justify-between py-2 px-2.5 rounded-lg text-sm sm:text-[15px] text-slate-700 hover:text-accent-600 hover:bg-accent-50/70 transition-all font-semibold"
+                      className="group flex items-center justify-between py-2 px-2.5 rounded-lg text-sm sm:text-[15px] font-heading font-semibold text-slate-700 hover:text-accent-600 hover:bg-accent-50/70 transition-all"
                     >
                       <div className="flex items-center gap-2 truncate pr-2">
-                        <span className="text-accent-500 font-bold text-base transition-transform duration-150 group-hover:translate-x-1 shrink-0">
+                        <span className="text-accent-500 font-bold text-base transition-transform duration-150 group-hover:translate-x-1 shrink-0 font-heading">
                           →
                         </span>
                         <span className="truncate group-hover:font-bold">
@@ -178,7 +178,7 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
 
                       {course.badge && (
                         <span
-                          className={`text-[11px] font-bold px-1.5 py-0.5 rounded leading-none shrink-0 ${
+                          className={`eyebrow-badge text-[10px] px-1.5 py-0.5 rounded leading-none shrink-0 ${
                             course.badge === 'Hot' || course.badge === 'Trending'
                               ? 'bg-rose-50 text-rose-600 border border-rose-200/60'
                               : course.badge === 'Flagship'
@@ -196,7 +196,7 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
 
               {/* Inquiry prompt at bottom of active courses view */}
               <div className="mt-6 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
-                <span className="text-xs text-slate-600 font-medium">
+                <span className="caption-text text-slate-600">
                   Looking for the complete syllabus, batch timings & fee structure?
                 </span>
                 <button
@@ -205,7 +205,7 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
                     onClose()
                     onOpenEnquiry(activeCategory.title)
                   }}
-                  className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-accent-600 hover:text-accent-700 transition-colors"
+                  className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold font-heading text-accent-600 hover:text-accent-700 transition-colors"
                 >
                   <span>Enquire about {activeCategory.title}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -218,7 +218,7 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
           <div className="bg-slate-50/95 border-t border-slate-200 px-6 sm:px-8 py-2.5 sm:py-3 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-600">
             <div className="flex items-center gap-2">
               <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 text-accent-500" />
-              <span className="font-semibold text-slate-700">Need customized corporate or college training batches?</span>
+              <span className="font-heading font-semibold text-slate-700 text-xs sm:text-sm">Need customized corporate or college training batches?</span>
             </div>
 
             <div className="flex items-center gap-2.5">
@@ -228,7 +228,7 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
                   onClose()
                   onOpenEnquiry('Download Syllabus')
                 }}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg shadow-2xs transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs sm:text-sm font-heading font-bold text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg shadow-2xs transition-all"
               >
                 <FileDown className="w-3.5 h-3.5 text-slate-500" />
                 <span>Download Syllabus</span>
@@ -240,7 +240,7 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
                   onClose()
                   onOpenEnquiry('Book Free Demo')
                 }}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs sm:text-sm font-bold text-white bg-accent-500 hover:bg-accent-600 rounded-lg shadow-sm shadow-accent-500/25 transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs sm:text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 rounded-lg shadow-sm shadow-accent-500/25 transition-all"
               >
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Book Free Demo</span>
