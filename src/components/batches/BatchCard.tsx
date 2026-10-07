@@ -7,7 +7,7 @@ import {
   Laptop,
   Sparkles,
 } from 'lucide-react'
-
+   
 import type {
   BatchItem,
   BranchLocation,
