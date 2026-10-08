@@ -23,7 +23,7 @@ export const TopUtilityBar: React.FC<TopUtilityBarProps> = ({ onOpenEnquiry, onM
             >
               <Phone className="w-3 h-3 text-accent-500 shrink-0" />
               <span>
-                Coimbatore:{' '}
+                Gandhipuram:{' '}
                 <span className="text-slate-200 font-semibold font-heading">
                   {CONTACT_INFO.coimbatoreDisplayPhone}
                 </span>

@@ -208,48 +208,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               ))}
             </div>
 
-            {/* Social Proof & Rating Bar */}
-            <div className="pt-2 flex flex-wrap items-center gap-4 border-t border-slate-200/70">
-              {/* Overlapping Student Avatars */}
-              <div className="flex items-center -space-x-2">
-                <img
-                  className="w-9 h-9 rounded-full border-2 border-white object-cover shadow-xs"
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                  alt="Student Graduate"
-                />
-                <img
-                  className="w-9 h-9 rounded-full border-2 border-white object-cover shadow-xs"
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
-                  alt="Student Graduate"
-                />
-                <img
-                  className="w-9 h-9 rounded-full border-2 border-white object-cover shadow-xs"
-                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80"
-                  alt="Student Graduate"
-                />
-                <img
-                  className="w-9 h-9 rounded-full border-2 border-white object-cover shadow-xs"
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80"
-                  alt="Student Graduate"
-                />
-                <div className="w-9 h-9 rounded-full border-2 border-white bg-accent-500 text-white font-bold text-[11px] flex items-center justify-center shadow-xs font-heading">
-                  10k+
-                </div>
-              </div>
 
-              {/* Rating text */}
-              <div className="text-xs font-sans">
-                <div className="flex items-center gap-1 text-amber-500 font-bold font-heading">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  ))}
-                  <span className="text-slate-900 ml-1">4.9 / 5.0</span>
-                </div>
-                <p className="caption-text text-slate-500 mt-0.5">
-                  Over <span className="font-semibold text-slate-700">1,850+ verified reviews</span> in Coimbatore & Abroad
-                </p>
-              </div>
-            </div>
           </div>
 
           {/* Right Column: Creative Interactive Global Map & Career Mobility Centerpiece */}
@@ -350,7 +309,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="font-bold text-slate-900 font-heading">Coimbatore Innovation Campuses:</span>
             <span className="text-slate-600 font-sans">
-              📍 Gandhipuram (Opposite Cross-cut) & 📍 Saravanampatti (IT Corridor)
+              📍 Gandhipuram (Opposite Cross-cut , Ram Nagar) & 📍 Saravanampatti (Main bus stand)
             </span>
           </div>
           <div className="flex items-center gap-3 text-slate-700">
