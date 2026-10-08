@@ -24,7 +24,7 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
     <section
       id="about-intro"
       aria-label="Who We Are - Cloudswan Solution"
-      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-28"
+      className="relative overflow-hidden bg-white pt-12 pb-6 sm:py-16 lg:py-24"
     >
       {/* =========================================================
           BACKGROUND
@@ -38,7 +38,7 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-16">
+        <div className="grid grid-cols-1 items-center gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-16">
 
           {/* =====================================================
               LEFT CONTENT
@@ -158,7 +158,8 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
               RIGHT SIDE - LEARNING ORBIT
           ===================================================== */}
 
-          <div className="relative flex min-h-[500px] items-center justify-center lg:col-span-6 animate-about-right">
+          <div className="relative flex h-[290px] xs:h-[320px] sm:h-[400px] lg:h-[500px] w-full items-center justify-center lg:col-span-6 animate-about-right overflow-visible my-2 sm:my-4 lg:my-0">
+            <div className="learning-orbit-stage relative flex items-center justify-center">
 
             {/* Ambient glow */}
             <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-100/60 blur-3xl animate-orbit-glow" />
@@ -253,9 +254,14 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
                   CS
                 </span>
 
-                <span className="mt-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-slate-400">
-                  Cloudswan Solution
-                </span>
+                <div className="mt-1 flex flex-col items-center justify-center text-center leading-none">
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                    Cloudswan
+                  </span>
+                  <span className="mt-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.14em] text-orange-500">
+                    Solution
+                  </span>
+                </div>
 
               </div>
             </div>
@@ -281,6 +287,7 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
               +
             </span>
 
+            </div>
           </div>
         </div>
       </div>
@@ -457,12 +464,47 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
            ORBIT ITEMS
         --------------------------------------------- */
 
+        .learning-orbit-stage {
+          transform-origin: center center;
+          transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 380px) {
+          .learning-orbit-stage {
+            transform: scale(0.56);
+          }
+        }
+
+        @media (min-width: 381px) and (max-width: 480px) {
+          .learning-orbit-stage {
+            transform: scale(0.64);
+          }
+        }
+
+        @media (min-width: 481px) and (max-width: 639px) {
+          .learning-orbit-stage {
+            transform: scale(0.74);
+          }
+        }
+
+        @media (min-width: 640px) and (max-width: 1023px) {
+          .learning-orbit-stage {
+            transform: scale(0.88);
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .learning-orbit-stage {
+            transform: scale(1);
+          }
+        }
+
         .orbit-item {
           position: absolute;
           left: 50%;
           top: 50%;
-          width: 145px;
-          margin-left: -72.5px;
+          width: 152px;
+          margin-left: -76px;
           margin-top: -32px;
 
           animation-duration: 18s;
@@ -773,12 +815,12 @@ const OrbitCard: React.FC<OrbitCardProps> = ({
           {icon}
         </div>
 
-        <div className="min-w-0">
-          <div className="truncate text-xs font-bold text-slate-800 sm:text-sm">
+        <div className="min-w-0 flex-1">
+          <div className="whitespace-nowrap text-xs font-bold text-slate-800 sm:text-sm">
             {title}
           </div>
 
-          <div className="mt-0.5 truncate text-[9px] font-medium uppercase tracking-wide text-slate-400 sm:text-[10px]">
+          <div className="mt-0.5 whitespace-nowrap text-[9px] font-medium uppercase tracking-wide text-slate-400 sm:text-[10px]">
             {description}
           </div>
         </div>

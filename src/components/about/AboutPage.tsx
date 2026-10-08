@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { AboutHero } from './AboutHero'
 import { AboutIntro } from './AboutIntro'
 import { WhyCloudswan } from './WhyCloudswan'
+import { TrainingApproach } from './TrainingApproach'
 import { StudentReviews } from './StudentReviews'
 
 interface AboutPageProps {
@@ -43,7 +44,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       {/* 3. WHY WE ARE BEST */}
       <WhyCloudswan />
 
-      {/* 4. GOOGLE REVIEWS / STUDENT EXPERIENCES */}
+      {/* 4. OUR TRAINING APPROACH */}
+      <TrainingApproach />
+
+      {/* 5. GOOGLE REVIEWS / STUDENT EXPERIENCES */}
       <StudentReviews />
     </article>
   )

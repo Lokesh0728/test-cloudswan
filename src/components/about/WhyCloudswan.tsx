@@ -93,7 +93,7 @@ export const WhyCloudswan: React.FC = () => {
       ref={sectionRef}
       id="why-we-are-best"
       aria-label="Why We Are Best"
-      className="relative overflow-hidden bg-slate-50 py-20 sm:py-24 lg:py-28"
+      className="relative overflow-hidden bg-slate-50 pt-8 pb-16 sm:pt-14 sm:pb-20 lg:py-28"
     >
       {/* =====================================================
           BACKGROUND
@@ -186,11 +186,11 @@ export const WhyCloudswan: React.FC = () => {
           </div>
 
           {/* =================================================
-              CONNECTING LINES
+    CONNECTING LINES
 
-              These lines remain hidden until the section
-              enters the viewport.
-          ================================================= */}
+    These lines remain hidden until the section
+    enters the viewport.
+================================================= */}
 
           <div className="pointer-events-none absolute inset-0 hidden lg:block">
 
@@ -233,11 +233,34 @@ export const WhyCloudswan: React.FC = () => {
             >
               <span className="line-travel-dot" />
             </span>
+
+          </div>
+          {/* =================================================
+              MOBILE & TABLET CLOUDSWAN TRAINING (BROUGHT TO TOP)
+              Appears above all feature cards on screens < lg
+          ================================================= */}
+
+          <div className="mb-10 flex justify-center sm:mb-14 lg:hidden">
+            <div className="relative flex h-[170px] w-[170px] items-center justify-center sm:h-[190px] sm:w-[190px]">
+              {/* Outer pulse ring */}
+              <div className="absolute inset-0 rounded-full border border-orange-200 animate-core-ring" />
+
+              {/* Second rotating ring */}
+              <div className="absolute inset-4 rounded-full border border-dashed border-orange-200/70 animate-core-ring-reverse sm:inset-5" />
+
+              {/* Center */}
+              <div className="relative z-20 flex h-28 w-28 flex-col items-center justify-center rounded-full border border-orange-200 bg-orange-100 shadow-[0_15px_50px_rgba(15,23,42,0.08)] animate-core-float sm:h-32 sm:w-32">
+                <span className="text-sm font-extrabold tracking-tight text-slate-900 sm:text-base">
+                  Cloudswan
+                </span>
+                <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-orange-600 sm:text-[10px]">
+                  Training
+                </span>
+              </div>
+            </div>
           </div>
 
-          {/* =================================================
-              FEATURE CARDS
-          ================================================= */}
+          {/* ================================================= FEATURE CARDS ================================================= */}
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
 
@@ -248,97 +271,88 @@ export const WhyCloudswan: React.FC = () => {
                 <div
                   key={feature.id}
                   className={`
-                    group relative
-                    lg:col-span-4
-                    ${index === 0 ? 'lg:col-start-1' : ''}
-                    ${index === 1 ? 'lg:col-start-9' : ''}
-                    ${index === 2 ? 'lg:col-start-1' : ''}
-                    ${index === 3 ? 'lg:col-start-9' : ''}
-                    ${index === 4 ? 'lg:col-start-5' : ''}
-                    ${getAnimationClass(index)}
-                  `}
+          group relative
+          lg:col-span-4
+          ${index === 0 ? 'lg:col-start-1' : ''}
+          ${index === 1 ? 'lg:col-start-9' : ''}
+          ${index === 2 ? 'lg:col-start-1' : ''}
+          ${index === 3 ? 'lg:col-start-9' : ''}
+          ${index === 4 ? 'lg:col-start-5' : ''}
+          ${getAnimationClass(index)}
+        `}
                 >
 
-                  <div className="relative h-full overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-orange-200 hover:shadow-2xl hover:shadow-slate-200/60">
+                  {/* ================================================= CARD ================================================= */}
+
+                  <div className="relative h-full overflow-hidden rounded-2xl border border-orange-100 bg-white p-6 shadow-[0_10px_35px_rgba(249,115,22,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-orange-300 hover:shadow-2xl hover:shadow-orange-100/60">
+
+                    {/* Primary Orange Top Accent */}
+                    <span className="absolute left-0 top-0 h-1 w-full bg-orange-500" />
+
+                    {/* Soft Orange Corner Glow */}
+                    <span className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-orange-100/60 blur-3xl transition-all duration-500 group-hover:bg-orange-200/70" />
 
                     {/* Top number */}
-                    <div className="mb-5 flex items-center justify-between">
+                    <div className="relative z-10 mb-5 flex items-center justify-between">
 
-                      <span className="text-xs font-bold tracking-[0.15em] text-orange-500">
+                      <span className="text-xs font-bold tracking-[0.15em] text-orange-600">
                         0{index + 1}
                       </span>
 
-                      <ArrowUpRight className="h-4 w-4 text-slate-300 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-orange-500" />
+                      <ArrowUpRight
+                        className="h-4 w-4 text-slate-300 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-orange-500"
+                      />
+
                     </div>
 
+
                     {/* Icon */}
-                    <div className="relative mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-50 text-orange-500 transition-all duration-500 group-hover:rotate-3 group-hover:bg-orange-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-orange-500/20">
+                    <div className="relative z-10 mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 transition-all duration-500 group-hover:rotate-3 group-hover:bg-orange-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-orange-500/25">
 
                       <Icon className="h-5 w-5 transition-transform duration-500 group-hover:scale-110" />
 
                       {/* Icon pulse */}
                       <span className="absolute inset-0 rounded-2xl border border-orange-300 opacity-0 group-hover:animate-icon-pulse" />
+
                     </div>
 
+
                     {/* Heading */}
-                    <h3 className="text-lg font-bold tracking-tight text-slate-900 transition-colors duration-300 group-hover:text-orange-600 sm:text-xl">
+                    <h3 className="relative z-10 text-lg font-bold tracking-tight text-orange-600 sm:text-xl">
                       {feature.title}
                     </h3>
 
+
                     {/* Description */}
-                    <p className="mt-2.5 text-sm leading-6 text-slate-500">
+                    <p className="relative z-10 mt-2.5 text-sm leading-6 text-slate-500">
                       {feature.description}
                     </p>
 
-                    {/* Bottom check */}
-                    <div className="mt-6 flex items-center gap-2 border-t border-slate-100 pt-4">
 
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-50 text-orange-500">
+                    {/* Bottom check */}
+                    <div className="relative z-10 mt-6 flex items-center gap-2 border-t border-orange-100 pt-4">
+
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600">
                         <Check className="h-3 w-3" />
                       </span>
 
                       <span className="text-[11px] font-semibold uppercase tracking-wide text-slate-400 transition-colors duration-300 group-hover:text-slate-600">
                         Cloudswan Standard
                       </span>
-                    </div>
 
-                    {/* Animated bottom line */}
-                    <span className="absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 bg-orange-500 transition-transform duration-500 group-hover:scale-x-100" />
+                    </div>
 
                     {/* Hover glow */}
                     <span className="pointer-events-none absolute -right-12 -top-12 h-28 w-28 rounded-full bg-orange-100/0 blur-2xl transition-all duration-500 group-hover:bg-orange-100/70" />
 
                   </div>
+
                 </div>
               )
             })}
+
           </div>
 
-          {/* =================================================
-              MOBILE & TABLET CLOUDSWAN TRAINING
-              Appears below all feature cards on screens < lg,
-              comfortably spaced and centered without clipping.
-          ================================================= */}
-
-          <div className="mt-12 sm:mt-16 flex justify-center lg:hidden">
-            <div className="relative flex h-[170px] w-[170px] sm:h-[190px] sm:w-[190px] items-center justify-center">
-              {/* Outer pulse ring */}
-              <div className="absolute inset-0 rounded-full border border-orange-200 animate-core-ring" />
-
-              {/* Second rotating ring */}
-              <div className="absolute inset-4 sm:inset-5 rounded-full border border-dashed border-orange-200/70 animate-core-ring-reverse" />
-
-              {/* Center */}
-              <div className="relative z-20 flex h-28 w-28 sm:h-32 sm:w-32 flex-col items-center justify-center rounded-full border border-orange-200 bg-orange-100 shadow-[0_15px_50px_rgba(15,23,42,0.08)] animate-core-float">
-                <span className="text-sm sm:text-base font-extrabold tracking-tight text-slate-900">
-                  Cloudswan
-                </span>
-                <span className="mt-0.5 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.16em] text-orange-600">
-                  Training
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* =====================================================
