@@ -62,7 +62,7 @@ export const CourseDetailsTable: React.FC<CourseDetailsTableProps> = ({
 
             <button
               type="button"
-              onClick={() => onOpenEnquiry('Cybersecurity - Enroll in Next Batch')}
+              onClick={() => onOpenEnquiry(`${quickSpecs.courseName} - Enroll in Next Batch`)}
               className="px-3.5 py-1.5 rounded-lg text-xs font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 transition-colors hidden sm:inline-flex items-center gap-1.5"
             >
               <span>Apply Now</span>
@@ -92,7 +92,7 @@ export const CourseDetailsTable: React.FC<CourseDetailsTableProps> = ({
             </span>
             <button
               type="button"
-              onClick={() => onOpenEnquiry('Cybersecurity - Custom Schedule Inquiry')}
+              onClick={() => onOpenEnquiry(`${quickSpecs.courseName} - Custom Schedule Inquiry`)}
               className="text-xs font-bold font-heading text-accent-600 hover:text-accent-700 transition-colors inline-flex items-center gap-1"
             >
               <span>Contact Admissions Team</span>

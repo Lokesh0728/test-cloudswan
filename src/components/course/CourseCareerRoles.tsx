@@ -52,7 +52,7 @@ export const CourseCareerRoles: React.FC<CourseCareerRolesProps> = ({
                   <div className="w-8 h-8 rounded-lg bg-white group-hover:bg-accent-50 border border-slate-200 group-hover:border-accent-200 text-slate-700 group-hover:text-accent-600 flex items-center justify-center transition-colors">
                     <ShieldCheck className="w-4 h-4" />
                   </div>
-                  <span className="caption-text font-mono text-slate-400">0{idx + 1}</span>
+                  <span className="caption-text font-mono text-slate-400">{String(idx + 1).padStart(2, '0')}</span>
                 </div>
 
                 <h4 className="font-heading font-bold text-sm sm:text-base text-slate-900 group-hover:text-accent-600 transition-colors">
@@ -82,7 +82,7 @@ export const CourseCareerRoles: React.FC<CourseCareerRolesProps> = ({
 
           <button
             type="button"
-            onClick={() => onOpenEnquiry('Cybersecurity - Placement Assistance Inquiry')}
+            onClick={() => onOpenEnquiry(`${careerOpportunities.title} - Placement Assistance Inquiry`)}
             className="shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 transition-all flex items-center gap-2 shadow-xs"
           >
             <span>Explore Placement Assistance</span>

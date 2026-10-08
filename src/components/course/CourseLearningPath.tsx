@@ -40,7 +40,7 @@ export const CourseLearningPath: React.FC<CourseLearningPathProps> = ({
         {/* Visual Progression Journey Flow */}
         <div className="relative mb-12">
           {/* Progression Step Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 sm:gap-4">
             {learningPath.steps.map((step, idx) => {
               const isLast = idx === learningPath.steps.length - 1
 
@@ -61,7 +61,7 @@ export const CourseLearningPath: React.FC<CourseLearningPathProps> = ({
                           : 'bg-accent-50 text-accent-600 border border-accent-100'
                       }`}
                     >
-                      Step 0{idx + 1}
+                      Step {String(idx + 1).padStart(2, '0')}
                     </span>
 
                     {idx < learningPath.steps.length - 1 ? (
@@ -106,7 +106,7 @@ export const CourseLearningPath: React.FC<CourseLearningPathProps> = ({
 
           <button
             type="button"
-            onClick={() => onOpenEnquiry('Cybersecurity - Learning Path Counselling')}
+            onClick={() => onOpenEnquiry(`${learningPath.title} - Learning Path Counselling`)}
             className="shrink-0 px-4 py-2 text-xs sm:text-sm font-bold font-heading text-slate-700 hover:text-accent-600 bg-slate-50 hover:bg-accent-50 border border-slate-200 rounded-xl transition-all"
           >
             Get Counselling Call

@@ -64,13 +64,13 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
         onOpenEnquiry={onOpenEnquiry}
       />
 
-      {/* 5. Comprehensive 10-Module Curriculum with Filter & Accordion */}
+      {/* 5. Comprehensive Modular Curriculum with Filter & Accordion */}
       <CourseCurriculum
         curriculum={course.curriculum}
         onOpenEnquiry={onOpenEnquiry}
       />
 
-      {/* 6. Practical Cybersecurity Projects */}
+      {/* 6. Practical Projects */}
       <CourseProjects
         projects={course.projects}
         onOpenEnquiry={onOpenEnquiry}
@@ -82,7 +82,7 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
         onOpenEnquiry={onOpenEnquiry}
       />
 
-      {/* 8. Build Your Cybersecurity Portfolio */}
+      {/* 8. Build Your Portfolio */}
       <CoursePortfolio
         portfolio={course.portfolio}
         onOpenEnquiry={onOpenEnquiry}

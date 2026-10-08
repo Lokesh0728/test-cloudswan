@@ -84,12 +84,20 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
             </div>
 
             {/* Course Title */}
-            <h1 className="display-h1 text-slate-900">
-              Cybersecurity Training{' '}
-              <span className="bg-gradient-to-r from-accent-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
-                in Coimbatore
-              </span>
-            </h1>
+            {(() => {
+              const hasInCoimbatore = course.title.includes(' in Coimbatore')
+              const mainTitle = hasInCoimbatore
+                ? course.title.replace(' in Coimbatore', '')
+                : course.title
+              return (
+                <h1 className="display-h1 text-slate-900">
+                  {mainTitle}{' '}
+                  <span className="bg-gradient-to-r from-accent-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
+                    in Coimbatore
+                  </span>
+                </h1>
+              )
+            })()}
 
             {/* Tagline / Subtitle */}
             <p className="font-heading text-lg sm:text-xl font-bold text-slate-800 leading-snug">
@@ -142,7 +150,7 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Authorized Virtual Security Labs</span>
+                <span>{course.id.includes('aws') ? 'Hands-on Production AWS Cloud Labs' : 'Authorized Virtual Security Labs'}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -166,7 +174,7 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
                   </div>
                   <div>
                     <h3 className="font-heading font-bold text-base text-white">Course Fast Facts</h3>
-                    <p className="caption-text text-slate-400">Industry-Aligned Cybersecurity Track</p>
+                    <p className="caption-text text-slate-400">Industry-Aligned {course.shortTitle} Track</p>
                   </div>
                 </div>
                 <span className="eyebrow-badge px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[11px]">
@@ -224,12 +232,27 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
                     <div className="w-2 h-2 rounded-full bg-rose-500" />
                     <div className="w-2 h-2 rounded-full bg-amber-500" />
                     <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span className="ml-1 text-slate-400">cybersec-lab@cloudswan:~$</span>
+                    <span className="ml-1 text-slate-400">
+                      {course.id.includes('aws')
+                        ? 'aws-cloud@cloudswan:~$'
+                        : 'cybersec-lab@cloudswan:~$'}
+                    </span>
                   </div>
-                  <div className="pt-2 text-emerald-400">$ nmap -sS -A 192.168.1.0/24</div>
-                  <div className="text-slate-400">Host is up (0.0024s latency).</div>
-                  <div className="text-amber-300">22/tcp open ssh | 80/tcp open http</div>
-                  <div className="text-accent-400">$ wireshark --analyze-tls-handshake</div>
+                  {course.id.includes('aws') ? (
+                    <>
+                      <div className="pt-2 text-emerald-400">$ aws ec2 run-instances --image-id ami-0c55b159cbfafe1f0</div>
+                      <div className="text-slate-400">Instance i-0812af91 created in us-east-1a (running)</div>
+                      <div className="text-amber-300">VPC: vpc-0a4f (10.0.0.0/16) | Subnet: subnet-public-1</div>
+                      <div className="text-accent-400">$ aws s3 sync ./dist s3://cloudswan-production-app</div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="pt-2 text-emerald-400">$ nmap -sS -A 192.168.1.0/24</div>
+                      <div className="text-slate-400">Host is up (0.0024s latency).</div>
+                      <div className="text-amber-300">22/tcp open ssh | 80/tcp open http</div>
+                      <div className="text-accent-400">$ wireshark --analyze-tls-handshake</div>
+                    </>
+                  )}
                 </div>
               </div>
 

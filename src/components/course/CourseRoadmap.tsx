@@ -83,7 +83,7 @@ export const CourseRoadmap: React.FC<CourseRoadmapProps> = ({
 
                 <div className="pt-3 mt-3 border-t border-slate-200/60 flex items-center justify-between">
                   <span className="caption-text text-slate-400 text-[11px]">
-                    {item.step <= 4 ? 'Foundations' : item.step <= 8 ? 'Core Security' : 'Career Readiness'}
+                    {item.step <= 4 ? 'Foundations' : item.step <= 8 ? 'Core Services' : 'Career Readiness'}
                   </span>
                   <CheckCircle2 className={`w-3.5 h-3.5 ${isMilestone ? 'text-accent-500' : 'text-slate-300'}`} />
                 </div>
@@ -96,7 +96,7 @@ export const CourseRoadmap: React.FC<CourseRoadmapProps> = ({
         <div className="text-center">
           <button
             type="button"
-            onClick={() => onOpenEnquiry('Cybersecurity - Career Roadmap Consultation')}
+            onClick={() => onOpenEnquiry(`${roadmap.title} - Career Roadmap Consultation`)}
             className="px-6 py-3 rounded-xl text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-md shadow-accent-500/25 transition-all inline-flex items-center gap-2"
           >
             <span>Start Step 1: Book Free Orientation</span>

@@ -94,7 +94,7 @@ export const CourseWhyCloudswan: React.FC<CourseWhyCloudswanProps> = ({
         <div className="text-center">
           <button
             type="button"
-            onClick={() => onOpenEnquiry('Cybersecurity - Why Choose CloudSwan Inquiry')}
+            onClick={() => onOpenEnquiry(`${whyCloudSwan.title} - Inquiry`)}
             className="px-6 py-3 rounded-xl text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-md shadow-accent-500/25 transition-all inline-flex items-center gap-2"
           >
             <span>Experience Our Practical Training</span>

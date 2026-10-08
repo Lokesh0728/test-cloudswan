@@ -44,7 +44,7 @@ export const CourseFinalCTA: React.FC<CourseFinalCTAProps> = ({
             </h2>
 
             <p className="body-paragraph text-slate-300 max-w-2xl mx-auto text-base sm:text-lg">
-              Take the first step towards high-demand cybersecurity roles. Join hands-on labs led by certified security practitioners in Coimbatore.
+              Take the first step towards high-demand {courseTitle} careers. Join hands-on practical labs led by certified practitioners in Coimbatore.
             </p>
 
             {/* 6 Key Checkpoints */}

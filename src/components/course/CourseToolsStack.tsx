@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Wrench,
   Terminal,
@@ -8,6 +7,14 @@ import {
   Layers,
   Lock,
   ArrowRight,
+  Database,
+  Activity,
+  TrendingUp,
+  Building2,
+  GitBranch,
+  Search,
+  Megaphone,
+  Sparkles,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
 
@@ -22,6 +29,47 @@ const CATEGORY_ICONS: Record<string, React.ElementType> = {
   'Web Security': Shield,
   'Security Testing': Cpu,
   'Security Concepts & Defense': Lock,
+  Compute: Cpu,
+  Storage: Layers,
+  Networking: Network,
+  'Identity & Security': Lock,
+  Database: Database,
+  Monitoring: Activity,
+  Scalability: TrendingUp,
+  Architecture: Building2,
+  'Programming & Libraries': Terminal,
+  'Deep Learning & Neural Networks': Cpu,
+  'Development & Experimentation': Terminal,
+  'Deployment & APIs': Layers,
+  'Data Analysis': Database,
+  'Data Visualization': TrendingUp,
+  'Data Science': Cpu,
+  'Business Intelligence': Building2,
+  'Version Control': GitBranch,
+  'CI/CD': Activity,
+  Containers: Layers,
+  Automation: Wrench,
+  'Cloud Platforms': Network,
+  'Search & SEO': Search,
+  Advertising: Megaphone,
+  AI: Sparkles,
+  Analytics: Activity,
+  'ERP Platforms': Building2,
+  'Functional Modules': Layers,
+  'User Interface': Terminal,
+  'Database & In-Memory': Database,
+  'Data Migration & Cutover': GitBranch,
+  'Integration & Testing': Activity,
+  'Reporting & Analytics': TrendingUp,
+  Methodologies: Shield,
+  'CRM Platforms & Clouds': Building2,
+  'Automation & Low-Code': Wrench,
+  'Developer Tools & IDEs': Terminal,
+  'Backend Programming': Cpu,
+  'Frontend Frameworks': Layers,
+  'APIs & Web Services': Network,
+  'Data Management Tools': Database,
+  'DevOps & Version Control': GitBranch,
 }
 
 export const CourseToolsStack: React.FC<CourseToolsStackProps> = ({
@@ -108,11 +156,11 @@ export const CourseToolsStack: React.FC<CourseToolsStackProps> = ({
         {/* Labs Guarantee Banner & Action */}
         <div className="mt-8 p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="caption-text text-slate-500 text-center sm:text-left">
-            * All security tools are practiced inside dedicated, isolated sandbox virtual lab environments compliant with ethical standards.
+            * All services, tools and architectures are practiced inside dedicated, hands-on virtual lab environments.
           </p>
           <button
             type="button"
-            onClick={() => onOpenEnquiry('Cybersecurity - Tools & Virtual Lab Inquiry')}
+            onClick={() => onOpenEnquiry(`${toolsStack.title} - Tools & Virtual Lab Inquiry`)}
             className="shrink-0 px-4 py-2 text-xs font-bold font-heading text-accent-600 hover:text-accent-700 bg-accent-50 hover:bg-accent-100 rounded-xl transition-colors flex items-center gap-1.5"
           >
             <span>Request Lab Access Demo</span>

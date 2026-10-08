@@ -113,13 +113,13 @@ export const CourseWhyLearn: React.FC<CourseWhyLearnProps> = ({
               {whyLearn.summaryNote}
             </p>
             <p className="body-paragraph text-slate-600 text-sm">
-              From zero foundation to hands-on security auditing and vulnerability reports.
+              Progress smoothly from foundational concepts to real-world cloud infrastructure and deployment.
             </p>
           </div>
 
           <button
             type="button"
-            onClick={() => onOpenEnquiry('Cybersecurity Course - Learning Path Inquiry')}
+            onClick={() => onOpenEnquiry(`${whyLearn.title} - Career Transition Inquiry`)}
             className="shrink-0 px-5 py-3 rounded-xl text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-sm shadow-accent-500/25 transition-all flex items-center gap-2"
           >
             <span>Discuss Your Career Transition</span>

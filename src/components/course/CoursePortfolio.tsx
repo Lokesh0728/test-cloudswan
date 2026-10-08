@@ -54,7 +54,7 @@ export const CoursePortfolio: React.FC<CoursePortfolioProps> = ({
                 </div>
                 <div className="text-left">
                   <span className="caption-text text-slate-400 text-[10px] uppercase font-mono tracking-wider">
-                    Deliverable 0{idx + 1}
+                    Deliverable {String(idx + 1).padStart(2, '0')}
                   </span>
                   <p className="font-heading font-bold text-sm sm:text-[15px] text-white">
                     {item}
@@ -68,14 +68,14 @@ export const CoursePortfolio: React.FC<CoursePortfolioProps> = ({
           <div className="relative z-10 text-center">
             <button
               type="button"
-              onClick={() => onOpenEnquiry('Cybersecurity - Portfolio Mentorship Inquiry')}
+              onClick={() => onOpenEnquiry(`${portfolio.title} - Mentorship Inquiry`)}
               className="px-8 py-3.5 rounded-xl text-sm sm:text-base font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-lg shadow-accent-500/30 transition-all inline-flex items-center gap-2"
             >
               <span>{portfolio.ctaText}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <p className="caption-text text-slate-400 mt-3">
-              Included free with all Cybersecurity training batches at CloudSwan.
+              Included free with all training batches at CloudSwan.
             </p>
           </div>
         </div>

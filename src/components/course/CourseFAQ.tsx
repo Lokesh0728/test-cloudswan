@@ -60,7 +60,7 @@ export const CourseFAQ: React.FC<CourseFAQProps> = ({
           </h2>
 
           <p className="mt-4 body-paragraph text-slate-600 max-w-2xl mx-auto">
-            Everything you need to know about the cybersecurity curriculum, eligibility, certifications, tools, and placement support.
+            Everything you need to know about curriculum modules, eligibility, certifications, tools, and placement support.
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export const CourseFAQ: React.FC<CourseFAQProps> = ({
               </p>
               <button
                 type="button"
-                onClick={() => onOpenEnquiry('Cybersecurity - General FAQ Query')}
+                onClick={() => onOpenEnquiry('Course - General FAQ Query')}
                 className="mt-4 px-4 py-2 text-xs font-bold font-heading text-white bg-accent-500 rounded-xl"
               >
                 Ask a Question
@@ -189,13 +189,13 @@ export const CourseFAQ: React.FC<CourseFAQProps> = ({
             </div>
             <div>
               <h4 className="font-heading font-bold text-sm text-slate-800">Have a specific or unlisted question?</h4>
-              <p className="caption-text text-slate-500">Speak directly with our senior Cybersecurity trainers</p>
+              <p className="caption-text text-slate-500">Speak directly with our senior instructors and mentors</p>
             </div>
           </div>
 
           <button
             type="button"
-            onClick={() => onOpenEnquiry('Cybersecurity - Unlisted Question Enquiry')}
+            onClick={() => onOpenEnquiry('Course - Unlisted Question Enquiry')}
             className="px-4 py-2 text-xs sm:text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 rounded-xl transition-all shrink-0"
           >
             Speak with an Instructor

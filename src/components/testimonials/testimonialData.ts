@@ -9,7 +9,6 @@ export interface TestimonialItem {
   postedTime: string
   courseTaken: string
   category: 'all' | 'placements' | 'freshers' | 'career-switch' | 'cloud-devops' | 'fullstack'
-  headline: string
   content: string
   highlightMetric?: string
   collegeOrBackground?: string
@@ -21,14 +20,16 @@ export interface TestimonialItem {
 export interface GoogleReviewStats {
   averageRating: number
   totalReviews: number
+  rankingText: string
+  verifiedPlaceName: string
+  location: string
+  satisfactionRate: number
+  placedAlumniCount: string
   starBreakdown: {
     stars: number
     percentage: number
     count: number
   }[]
-  rankingText: string
-  verifiedPlaceName: string
-  location: string
 }
 
 export const GOOGLE_REVIEW_STATS: GoogleReviewStats = {
@@ -37,6 +38,8 @@ export const GOOGLE_REVIEW_STATS: GoogleReviewStats = {
   rankingText: '#1 Rated IT Training Institute in Coimbatore',
   verifiedPlaceName: 'Cloudswan Solution IT Training Institute',
   location: 'Saravanampatti & Gandhipuram, Coimbatore',
+  satisfactionRate: 98,
+  placedAlumniCount: '12,000+',
   starBreakdown: [
     { stars: 5, percentage: 96, count: 1776 },
     { stars: 4, percentage: 3, count: 56 },
@@ -48,11 +51,10 @@ export const GOOGLE_REVIEW_STATS: GoogleReviewStats = {
 
 export const TESTIMONIAL_CATEGORIES = [
   { id: 'all', label: 'All Reviews', count: '1,850+' },
-  { id: 'placements', label: '100% Placements', count: '940+' },
-  { id: 'fullstack', label: 'Full Stack & Web', count: '620+' },
-  { id: 'career-switch', label: 'Career Switchers', count: '480+' },
+  { id: 'placements', label: 'Placements', count: '940+' },
+  { id: 'fullstack', label: 'Full Stack', count: '620+' },
   { id: 'cloud-devops', label: 'Cloud & DevOps', count: '390+' },
-  { id: 'freshers', label: 'College Freshers', count: '550+' },
+  { id: 'career-switch', label: 'Career Switch', count: '480+' },
 ] as const
 
 export const TESTIMONIALS_DATA: TestimonialItem[] = [
@@ -67,11 +69,10 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     postedTime: '2 weeks ago',
     courseTaken: 'Python Full Stack Development',
     category: 'career-switch',
-    headline: 'From Mechanical Degree to Full Stack Developer in 4 Months!',
     content:
-      'Coming from a non-CS mechanical background, I was apprehensive about coding. The mentors at Cloudswan Saravanampatti broke down Python, Django, and React into easy-to-grasp concepts with daily lab assignments. The mock technical interviews gave me immense confidence during Zoho recruitment.',
-    highlightMetric: '140% Salary Hike',
-    collegeOrBackground: 'Mechanical Grad (CIT Coimbatore)',
+      'Coming from a non-CS mechanical background, I was apprehensive about coding. The mentors broke down Python, Django, and React into easy concepts with daily practical labs. The mock technical interviews gave me immense confidence to crack Zoho recruitment.',
+    highlightMetric: '140% Hike',
+    collegeOrBackground: 'Mechanical Grad',
     campus: 'Saravanampatti',
     isFeatured: true,
     verifiedGoogle: true,
@@ -87,11 +88,10 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     postedTime: '3 weeks ago',
     courseTaken: 'MERN Stack Web Development',
     category: 'freshers',
-    headline: 'Best Hands-On Lab Infrastructure & Placement Guidance',
     content:
-      'Unlike other training institutes in Coimbatore that only teach theory with slides, Cloudswan makes you build 4 real-world production projects from scratch. My trainer was extremely patient with JavaScript and Next.js architectures. Cleared CTS campus off-drive on my first attempt!',
+      'Unlike institutes that only teach theory with slides, Cloudswan makes you build real-world production projects from scratch. The 1-on-1 mentor guidance on modern React and JavaScript helped me clear Cognizant campus drive on my first attempt.',
     highlightMetric: 'Placed in 35 Days',
-    collegeOrBackground: 'B.Sc Computer Science (PSG CAS)',
+    collegeOrBackground: 'B.Sc CS',
     campus: 'Gandhipuram',
     isFeatured: true,
     verifiedGoogle: true,
@@ -107,11 +107,10 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     postedTime: '1 month ago',
     courseTaken: 'AWS Cloud & DevOps Masterclass',
     category: 'cloud-devops',
-    headline: 'Transitioned from L1 Support to High-Paying Cloud Role',
     content:
-      'I was stuck in a technical support job for 3 years without salary growth. Joined the weekend batch for AWS & DevOps at Cloudswan. Hands-on Docker, Kubernetes clusters, and Terraform CI/CD pipelines completely transformed my career trajectory. Received two top offers within 3 weeks of completion.',
+      'I was stuck in technical support for 3 years without salary growth. The weekend AWS & DevOps batch completely transformed my trajectory. Hands-on Docker, Kubernetes clusters, and Terraform CI/CD pipelines enabled me to secure two high-paying offers.',
     highlightMetric: '110% CTC Growth',
-    collegeOrBackground: '3 Years IT Support Experience',
+    collegeOrBackground: 'IT Support to Cloud',
     campus: 'Saravanampatti',
     isFeatured: true,
     verifiedGoogle: true,
@@ -125,13 +124,12 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     avatarBg: 'bg-gradient-to-br from-purple-500 to-pink-600',
     rating: 5,
     postedTime: '1 month ago',
-    courseTaken: 'Selenium & Java Automation Testing',
+    courseTaken: 'Selenium & Automation Testing',
     category: 'placements',
-    headline: 'Restarted My Career After a 2-Year Break with 1-on-1 Mentorship',
     content:
-      'I had a 2-year career gap due to family relocation. Cloudswan counselors analyzed my profile and recommended Automation Testing with API testing. The personal mentorship, resume revamp, and LinkedIn optimization were game changers. Successfully cleared technical rounds at Bosch Coimbatore!',
-    highlightMetric: 'Career Reboot',
-    collegeOrBackground: '2-Year Career Break Restart',
+      'Restarted my career after a 2-year break. Cloudswan’s personalized mentorship, real-time Selenium framework building, and resume revamp were incredible game changers. Successfully cleared technical rounds at Bosch Coimbatore.',
+    highlightMetric: 'Career Restart',
+    collegeOrBackground: 'Career Break Restart',
     campus: 'Gandhipuram',
     isFeatured: false,
     verifiedGoogle: true,
@@ -147,11 +145,10 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     postedTime: '5 weeks ago',
     courseTaken: 'Java Full Stack & Spring Boot',
     category: 'fullstack',
-    headline: 'Microservices & Real-Time REST APIs Taught by Senior Architects',
     content:
-      'The Spring Boot and Microservices modules were taught with enterprise-grade coding standards. We developed end-to-end banking API simulations with JWT security and PostgreSQL. The placement cell scheduled 4 back-to-back corporate interviews. Couldn’t have asked for a better institute in Coimbatore.',
-    highlightMetric: '3 Placement Offers',
-    collegeOrBackground: 'BCA Grad (Kumaraguru College)',
+      'The Spring Boot and Microservices modules were taught with enterprise-grade coding standards. We developed end-to-end banking API simulations with JWT security and PostgreSQL. The placement cell scheduled back-to-back corporate interviews until I got selected.',
+    highlightMetric: '3 Job Offers',
+    collegeOrBackground: 'BCA Grad',
     campus: 'Saravanampatti',
     isFeatured: false,
     verifiedGoogle: true,
@@ -167,11 +164,10 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     postedTime: '6 weeks ago',
     courseTaken: 'Data Analytics with Power BI & SQL',
     category: 'placements',
-    headline: 'Practical Business Intelligence Dashboards That Got Me Hired',
     content:
-      'I was looking for a specialized Data Analytics course in Coimbatore with Power BI and Advanced SQL. The case studies on retail analytics and financial forecasting gave me portfolio projects that interviewers loved discussing. Cloudswan’s placement assistance was 100% transparent and supportive.',
+      'The hands-on Power BI dashboards and advanced SQL case studies gave me practical portfolio projects that interviewers loved discussing. Cloudswan’s placement assistance was 100% transparent and supportive throughout my journey.',
     highlightMetric: 'Direct Campus Drive',
-    collegeOrBackground: 'B.Com CA to IT Analytics',
+    collegeOrBackground: 'Commerce to IT',
     campus: 'Gandhipuram',
     isFeatured: false,
     verifiedGoogle: true,
@@ -187,11 +183,10 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     postedTime: '2 months ago',
     courseTaken: 'AWS Solutions Architect & Cloud Security',
     category: 'cloud-devops',
-    headline: 'Cleared AWS Certification in 1st Attempt with Cloudswan Prep',
     content:
-      'Cloudswan provided complete voucher exam prep, scenario-based architecture challenges, and unlimited lab hours. Both the Saravanampatti and Gandhipuram centers have great smart lab equipment with high-speed internet. Passed AWS Solutions Architect Associate with an 880/1000 score!',
+      'Cloudswan provided scenario-based architecture prep and unlimited lab access. Passed the AWS Solutions Architect Associate exam with an 880/1000 score. Outstanding smart lab equipment and guidance across both Coimbatore centers.',
     highlightMetric: 'AWS Certified SAA',
-    collegeOrBackground: 'B.E ECE (Sri Krishna College)',
+    collegeOrBackground: 'B.E ECE',
     campus: 'Saravanampatti',
     isFeatured: false,
     verifiedGoogle: true,
@@ -205,11 +200,10 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     avatarBg: 'bg-gradient-to-br from-teal-500 to-emerald-600',
     rating: 5,
     postedTime: '2 months ago',
-    courseTaken: 'Full Stack Web Development & System Design',
+    courseTaken: 'Full Stack Web & System Design',
     category: 'fullstack',
-    headline: 'In-Depth Code Reviews & Clean Architecture Discipline',
     content:
-      'The code reviews by trainers here are thorough. They teach you clean code, modular architecture, Git flow, and test-driven development. It felt exactly like working in a professional software development sprint. Highly recommended to anyone serious about becoming a software engineer.',
+      'The code reviews by trainers here are thorough. They teach clean code, modular architecture, Git flow, and test-driven development — exactly like working in a professional software development sprint. Highly recommended to anyone serious about coding.',
     highlightMetric: 'Tier-1 Product Firm',
     collegeOrBackground: 'MCA Post-Graduate',
     campus: 'Saravanampatti',

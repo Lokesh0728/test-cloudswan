@@ -67,7 +67,7 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/80 text-accent-700 eyebrow-badge mb-4 shadow-2xs">
             <BookOpen className="w-3.5 h-3.5 text-accent-600" />
-            <span>10 Comprehensive Modules • {totalTopics}+ Topics</span>
+            <span>{curriculum.modules.length} Comprehensive Modules • {totalTopics}+ Topics</span>
           </div>
 
           <h2 className="display-h2 text-slate-900">
@@ -92,7 +92,7 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search topics (e.g. Wireshark, Nmap, Cloud, Firewalls)..."
+              placeholder="Search topics in curriculum (e.g. EC2, S3, VPC, Linux, Security)..."
               className="w-full pl-10 pr-4 py-2.5 rounded-xl text-xs sm:text-sm bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent text-slate-800 placeholder-slate-400 transition-all"
             />
             {searchQuery && (
@@ -124,7 +124,7 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({
             </button>
             <button
               type="button"
-              onClick={() => onOpenEnquiry('Cybersecurity - Download Complete Syllabus')}
+              onClick={() => onOpenEnquiry(`${curriculum.title} - Download Complete Syllabus`)}
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 rounded-lg shadow-2xs transition-colors"
             >
               <FileDown className="w-3.5 h-3.5" />
@@ -239,14 +239,14 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({
               Want the Full Printable Syllabus Breakdown?
             </h4>
             <p className="caption-text text-slate-400">
-              Download the comprehensive week-by-week security curriculum or attend a live walkthrough demo.
+              Download the comprehensive week-by-week curriculum or attend a live walkthrough demo.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <button
               type="button"
-              onClick={() => onOpenEnquiry('Cybersecurity - Download Complete Syllabus')}
+              onClick={() => onOpenEnquiry(`${curriculum.title} - Download Complete Syllabus`)}
               className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-heading text-slate-900 bg-white hover:bg-slate-100 transition-all flex items-center gap-1.5 shadow-sm"
             >
               <FileDown className="w-4 h-4 text-accent-500" />
@@ -254,7 +254,7 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({
             </button>
             <button
               type="button"
-              onClick={() => onOpenEnquiry('Cybersecurity - Book Free Demo')}
+              onClick={() => onOpenEnquiry(`${curriculum.title} - Book Free Demo`)}
               className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 transition-all flex items-center gap-1.5 shadow-sm shadow-accent-500/30"
             >
               <Calendar className="w-4 h-4" />

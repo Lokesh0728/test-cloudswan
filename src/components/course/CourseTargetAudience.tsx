@@ -19,6 +19,7 @@ interface CourseTargetAudienceProps {
 const AUDIENCE_ICONS: Record<string, React.ElementType> = {
   students: GraduationCap,
   'fresh-graduates': Sparkles,
+  'software-developers': Laptop,
   'it-professionals': Laptop,
   'network-professionals': Network,
   'system-administrators': Server,
@@ -79,7 +80,7 @@ export const CourseTargetAudience: React.FC<CourseTargetAudienceProps> = ({
                 <div className="pt-4 mt-4 border-t border-slate-100">
                   <button
                     type="button"
-                    onClick={() => onOpenEnquiry(`Cybersecurity - Consultation for ${aud.title}`)}
+                    onClick={() => onOpenEnquiry(`${targetAudiences.title} - Consultation for ${aud.title}`)}
                     className="text-xs font-bold font-heading text-accent-600 hover:text-accent-700 transition-colors inline-flex items-center gap-1.5"
                   >
                     <span>Check eligibility for {aud.title}</span>

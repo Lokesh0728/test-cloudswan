@@ -52,7 +52,7 @@ export const CourseCertification: React.FC<CourseCertificationProps> = ({
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-base sm:text-lg text-slate-900">
-                    Core Security Areas Validated
+                    Core Competencies Validated
                   </h3>
                   <p className="caption-text text-slate-500">During your learning journey</p>
                 </div>
@@ -76,7 +76,7 @@ export const CourseCertification: React.FC<CourseCertificationProps> = ({
             </div>
           </div>
 
-          {/* Right Column: Regional Focus & Ethical Compliance Notice */}
+          {/* Right Column: Regional Focus & Specialization Notice */}
           <div className="lg:col-span-6 space-y-6">
             {/* Regional Focus Card */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-2xs">
@@ -102,18 +102,43 @@ export const CourseCertification: React.FC<CourseCertificationProps> = ({
               </div>
             </div>
 
-            {/* Ethical Compliance Warning Box */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-amber-50/70 border border-amber-200/80">
+            {/* Specialization / Architecture & Ethics Card */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-50/70 via-orange-50/30 to-slate-50 border border-amber-200/80">
               <div className="flex items-start gap-3">
                 <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <h4 className="font-heading font-bold text-sm text-amber-900">
+                <div className="space-y-2 flex-1">
+                  <h4 className="font-heading font-bold text-sm sm:text-base text-amber-950">
                     {certification.ethicalHackingNote.title}
                   </h4>
-                  <p className="caption-text text-amber-800">
+                  {certification.ethicalHackingNote.subtitle && (
+                    <p className="font-heading text-xs font-semibold text-amber-800">
+                      {certification.ethicalHackingNote.subtitle}
+                    </p>
+                  )}
+                  <p className="caption-text text-slate-700 leading-relaxed">
                     {certification.ethicalHackingNote.description}
                   </p>
-                  <p className="caption-text font-bold text-amber-900 pt-1">
+
+                  {certification.ethicalHackingNote.keyFocusAreas &&
+                    certification.ethicalHackingNote.keyFocusAreas.length > 0 && (
+                      <div className="pt-2">
+                        <span className="caption-text font-bold text-slate-800 text-[11px] block mb-1.5">
+                          Key Coverage & Focus:
+                        </span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {certification.ethicalHackingNote.keyFocusAreas.map((area, fIdx) => (
+                            <span
+                              key={fIdx}
+                              className="px-2 py-0.5 rounded-md bg-white border border-amber-200/80 text-[11px] font-semibold text-slate-800"
+                            >
+                              {area}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                  <p className="caption-text font-bold text-amber-900 pt-1 border-t border-amber-200/60">
                     {certification.ethicalHackingNote.complianceWarning}
                   </p>
                 </div>
@@ -126,7 +151,7 @@ export const CourseCertification: React.FC<CourseCertificationProps> = ({
         <div className="text-center">
           <button
             type="button"
-            onClick={() => onOpenEnquiry('Cybersecurity - Certification Consultation')}
+            onClick={() => onOpenEnquiry(`${certification.title} - Certification Consultation`)}
             className="px-6 py-3 rounded-xl text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-md shadow-accent-500/25 transition-all inline-flex items-center gap-2"
           >
             <span>Ask About Certification Guidance</span>

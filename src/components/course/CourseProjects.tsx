@@ -112,7 +112,7 @@ export const CourseProjects: React.FC<CourseProjectsProps> = ({
 
                   <button
                     type="button"
-                    onClick={() => onOpenEnquiry(`Cybersecurity - Project ${proj.number}: ${proj.title}`)}
+                    onClick={() => onOpenEnquiry(`${projects.title} - Project ${proj.number}: ${proj.title}`)}
                     className="w-full py-2 px-3 rounded-xl text-xs font-bold font-heading text-accent-600 hover:text-accent-700 hover:bg-accent-50/70 transition-colors flex items-center justify-center gap-1.5"
                   >
                     <span>View Project Lab Scope</span>
