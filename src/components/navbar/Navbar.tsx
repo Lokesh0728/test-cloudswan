@@ -130,7 +130,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               aria-label="Main Navigation"
             >
               {MAIN_NAV_LINKS.map((link) => {
-                const isActive = currentPath === link.href
+                const isActive =
+                  currentPath === link.href ||
+                  (link.href === '/courses' && (currentPath === '/courses' || currentPath.startsWith('/courses/')))
 
                 if (link.hasMegaMenu) {
                   return (
@@ -247,6 +249,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClose={() => setIsCoursesOpen(false)}
           onMouseEnter={handleMouseEnterCourses}
           onMouseLeave={handleMouseLeaveCourses}
+          onViewAllCourses={() => {
+            setIsCoursesOpen(false)
+            onNavigate('/courses')
+          }}
           onCourseSelect={(course, category) => {
             setIsCoursesOpen(false)
             onCourseSelect(course, category)

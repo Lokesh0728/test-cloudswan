@@ -23,6 +23,7 @@ interface CoursesMegaMenuProps {
   onClose: () => void
   onMouseEnter?: () => void
   onMouseLeave?: () => void
+  onViewAllCourses?: () => void
 }
 
 const CATEGORY_ICONS = {
@@ -39,6 +40,7 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
   onClose,
   onMouseEnter,
   onMouseLeave,
+  onViewAllCourses,
 }) => {
   // Pure Category Browser View
   const [activeCategoryId, setActiveCategoryId] = useState<string>('it-training')
@@ -76,8 +78,19 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
               </span>
             </div>
 
-            <div className="hidden lg:flex items-center gap-1.5 caption-text text-slate-500">
-              <span>Select any vertical on the left to view programs</span>
+            <div className="flex items-center gap-2.5">
+              <button
+                type="button"
+                onClick={() => {
+                  onClose()
+                  if (onViewAllCourses) onViewAllCourses()
+                }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 shadow-xs shadow-accent-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-orange-200" />
+                <span>View All Courses (30+)</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </div>
           </div>
 
@@ -85,6 +98,31 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
           <div className="grid grid-cols-12 min-h-[380px]">
             {/* Left Sub-menu / Navigation Rail (Main 5 Categories) */}
             <div className="col-span-12 md:col-span-5 border-r border-slate-200/80 bg-slate-50/70 p-3 sm:p-4 space-y-1.5">
+              {/* Highlighted View All Courses Tile in Category Rail */}
+              <button
+                type="button"
+                onClick={() => {
+                  onClose()
+                  if (onViewAllCourses) onViewAllCourses()
+                }}
+                className="w-full flex items-center justify-between p-2.5 sm:p-3 rounded-xl text-left transition-all border border-accent-300/80 bg-gradient-to-r from-accent-50 to-orange-50/80 text-accent-700 hover:border-accent-400 hover:shadow-xs group font-bold mb-2"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shrink-0 bg-accent-500 text-white shadow-2xs group-hover:scale-105 transition-transform">
+                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-heading text-sm sm:text-[15px] font-bold tracking-tight text-accent-700">
+                      View All Courses
+                    </div>
+                    <div className="caption-text text-accent-600/90 mt-0.5">
+                      All 30+ Programs & Filters
+                    </div>
+                  </div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-accent-600 group-hover:translate-x-1 transition-transform" />
+              </button>
+
               <p className="eyebrow-badge text-slate-400 px-3 mb-1.5">
                 Select Training Vertical
               </p>
@@ -220,6 +258,19 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
             </div>
 
             <div className="flex items-center gap-2.5">
+              <button
+                type="button"
+                onClick={() => {
+                  onClose()
+                  if (onViewAllCourses) onViewAllCourses()
+                }}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs sm:text-sm font-heading font-bold text-accent-600 hover:text-accent-700 bg-accent-50 hover:bg-accent-100/80 border border-accent-200/90 rounded-lg shadow-2xs transition-all"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-accent-500" />
+                <span>Explore All 30+ Courses</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+
               <button
                 type="button"
                 onClick={() => {

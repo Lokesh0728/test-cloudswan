@@ -124,6 +124,22 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                     {/* Collapsible Courses Section */}
                     {isCoursesExpanded && (
                       <div className="mt-2 pl-2 space-y-2.5 border-l-2 border-accent-200 ml-3">
+                        {/* Prominent View All Courses Button in Mobile Navigation */}
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onNavigate('/courses')
+                            onClose()
+                          }}
+                          className="w-full flex items-center justify-between p-2.5 px-3 rounded-xl bg-gradient-to-r from-accent-500 to-accent-600 text-white font-heading font-bold text-xs sm:text-sm shadow-xs shadow-accent-500/25 transition-all hover:bg-accent-600"
+                        >
+                          <div className="flex items-center gap-2">
+                            <Sparkles className="w-4 h-4 text-orange-200" />
+                            <span>View All Courses (30+)</span>
+                          </div>
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+
                         {COURSE_CATEGORIES.map((category) => {
                           const IconComp = CATEGORY_ICONS[category.iconName] || Sparkles
                           const isCatOpen = expandedCategoryId === category.id
