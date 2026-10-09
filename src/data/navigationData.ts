@@ -11,7 +11,7 @@ export interface CourseCategory {
   id: string
   title: string
   subtitle: string
-  iconName: 'Code2' | 'Briefcase' | 'Languages' | 'BadgeCheck' | 'Sparkles'
+  iconName: 'Code2' | 'Languages' | 'BadgeCheck' | 'Sparkles'
   badge?: string
   courses: CourseItem[]
 }
@@ -54,21 +54,6 @@ export const COURSE_CATEGORIES: CourseCategory[] = [
     ],
   },
   {
-    id: 'job-assured',
-    title: 'Job Assured Training',
-    subtitle: 'Guaranteed placement tracks',
-    iconName: 'Briefcase',
-    badge: '100% Placement',
-    courses: [
-      { id: 'job-assured-prog', name: 'Job-Assured Programs', slug: '/courses/job-assured-programs', isPopular: true, badge: 'Flagship' },
-      { id: 'placement-training', name: 'Placement Training', slug: '/courses/placement-training' },
-      { id: 'career-programs', name: 'Career Programs', slug: '/courses/career-programs' },
-      { id: 'interview-prep', name: 'Interview Preparation', slug: '/courses/interview-preparation' },
-      { id: 'resume-linkedin', name: 'Resume & LinkedIn', slug: '/courses/resume-linkedin' },
-      { id: 'industry-readiness', name: 'Industry Readiness', slug: '/courses/industry-readiness' },
-    ],
-  },
-  {
     id: 'language-training',
     title: 'Language Training',
     subtitle: 'Global languages & communication',
@@ -90,7 +75,7 @@ export const COURSE_CATEGORIES: CourseCategory[] = [
     iconName: 'BadgeCheck',
     badge: 'Certified',
     courses: [
-      { id: 'aws-cert', name: 'AWS', slug: '/courses/aws', isPopular: true, badge: 'Cloud' },
+      { id: 'aws-cert', name: 'AWS', slug: '/courses/aws-certification', isPopular: true, badge: 'Cloud' },
       { id: 'microsoft-cert', name: 'Microsoft', slug: '/courses/microsoft-certification' },
       { id: 'google-cert', name: 'Google', slug: '/courses/google-certification' },
       { id: 'cisco-cert', name: 'Cisco', slug: '/courses/cisco-certification' },

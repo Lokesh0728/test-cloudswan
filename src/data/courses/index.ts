@@ -28,17 +28,14 @@ export const COURSES_REGISTRY: Record<string, CourseData> = {
   '/courses/cybersecurity': cybersecurityCourseData,
   '/courses/cyber-security': cybersecurityCourseData,
 
-  // AWS mappings
+  // AWS mappings (IT Training)
   aws: awsCourseData,
   'aws-cloud': awsCourseData,
   'aws-cloud-training': awsCourseData,
-  'aws-certification': awsCourseData,
-  'aws-cert': awsCourseData,
   '/aws': awsCourseData,
   '/courses/aws': awsCourseData,
   '/courses/aws-cloud': awsCourseData,
   '/courses/aws-cloud-training': awsCourseData,
-  '/courses/aws-certification': awsCourseData,
 
   // Full Stack Development mappings
   'full-stack': fullstackCourseData,

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   Code2,
-  Briefcase,
   Languages,
   BadgeCheck,
   Sparkles,
@@ -28,7 +27,6 @@ interface CoursesMegaMenuProps {
 
 const CATEGORY_ICONS = {
   Code2,
-  Briefcase,
   Languages,
   BadgeCheck,
   Sparkles,
@@ -74,7 +72,7 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
                 Explore Industry-Certified Programs & Career Tracks
               </span>
               <span className="hidden md:inline-flex eyebrow-badge px-2.5 py-0.5 rounded-full bg-accent-50 text-accent-600 border border-accent-200/70">
-                5 Verticals • 30+ Specializations
+                {COURSE_CATEGORIES.length} Verticals • 30 Specializations
               </span>
             </div>
 

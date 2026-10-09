@@ -4,7 +4,6 @@ import {
   ChevronDown,
   ChevronRight,
   Code2,
-  Briefcase,
   Languages,
   BadgeCheck,
   Sparkles,
@@ -32,7 +31,6 @@ interface MobileNavProps {
 
 const CATEGORY_ICONS = {
   Code2,
-  Briefcase,
   Languages,
   BadgeCheck,
   Sparkles,

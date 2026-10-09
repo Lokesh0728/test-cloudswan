@@ -141,17 +141,15 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenEnquiry }) => {
                 role="tab"
                 aria-selected={isSelected}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold font-heading tracking-wide transition-all flex items-center gap-1.5 cursor-pointer ${
-                  isSelected
+                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold font-heading tracking-wide transition-all flex items-center gap-1.5 cursor-pointer ${isSelected
                     ? 'bg-slate-900 text-white shadow-sm'
                     : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/90'
-                }`}
+                  }`}
               >
                 <span>{cat.label}</span>
                 <span
-                  className={`text-[10px] px-1.5 py-0.5 rounded-full font-heading ${
-                    isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
-                  }`}
+                  className={`text-[10px] px-1.5 py-0.5 rounded-full font-heading ${isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
+                    }`}
                 >
                   {count}
                 </span>
@@ -191,11 +189,10 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenEnquiry }) => {
             return (
               <div
                 key={faq.id}
-                className={`rounded-2xl transition-all duration-200 border bg-white overflow-hidden ${
-                  isOpen
+                className={`rounded-2xl transition-all duration-200 border bg-white overflow-hidden ${isOpen
                     ? 'border-accent-400 shadow-md ring-1 ring-accent-400/20'
                     : 'border-slate-200/90 shadow-2xs hover:border-slate-300 hover:shadow-xs'
-                }`}
+                  }`}
               >
                 {/* Question Header Button */}
                 <button
@@ -207,11 +204,10 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenEnquiry }) => {
                   <div className="flex items-start gap-3">
                     {/* Index / Accent indicator */}
                     <span
-                      className={`w-7 h-7 rounded-xl flex items-center justify-center text-xs font-bold font-heading shrink-0 transition-colors ${
-                        isOpen
+                      className={`w-7 h-7 rounded-xl flex items-center justify-center text-xs font-bold font-heading shrink-0 transition-colors ${isOpen
                           ? 'bg-accent-500 text-white'
                           : 'bg-slate-100 text-slate-600 group-hover:bg-slate-200'
-                      }`}
+                        }`}
                     >
                       {index + 1}
                     </span>
@@ -233,9 +229,8 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenEnquiry }) => {
                       </div>
 
                       <h3
-                        className={`display-card-title text-sm sm:text-base font-bold transition-colors ${
-                          isOpen ? 'text-accent-600' : 'text-slate-900 group-hover:text-accent-600'
-                        }`}
+                        className={`display-card-title text-sm sm:text-base font-bold transition-colors ${isOpen ? 'text-accent-600' : 'text-slate-900 group-hover:text-accent-600'
+                          }`}
                       >
                         {faq.question}
                       </h3>
@@ -244,11 +239,10 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenEnquiry }) => {
 
                   {/* Sleek rotating chevron */}
                   <div
-                    className={`p-2 rounded-xl transition-all shrink-0 mt-0.5 ${
-                      isOpen
+                    className={`p-2 rounded-xl transition-all shrink-0 mt-0.5 ${isOpen
                         ? 'bg-accent-50 text-accent-600 rotate-180'
                         : 'bg-slate-50 text-slate-400 group-hover:text-slate-700'
-                    }`}
+                      }`}
                   >
                     <ChevronDown className="w-4 h-4 transition-transform duration-200" />
                   </div>

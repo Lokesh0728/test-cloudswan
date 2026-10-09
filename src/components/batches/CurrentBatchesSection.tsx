@@ -125,11 +125,10 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
                     key={branch}
                     type="button"
                     onClick={() => setSelectedBranch(branch)}
-                    className={`shrink-0 whitespace-nowrap rounded-xl px-4 py-2.5 text-xs font-bold font-heading transition-all duration-300 ${
-                      isSelected
+                    className={`shrink-0 whitespace-nowrap rounded-xl px-4 py-2.5 text-xs font-bold font-heading transition-all duration-300 ${isSelected
                         ? 'bg-orange-500 text-white shadow-md'
                         : 'text-slate-500 hover:bg-orange-50 hover:text-orange-600'
-                    }`}
+                      }`}
                   >
                     {branch === 'All' ? 'All Campuses' : branch}
                   </button>
