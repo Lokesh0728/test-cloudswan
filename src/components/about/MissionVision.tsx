@@ -1,5 +1,5 @@
 import React from 'react'
-import { Target, Compass, Sparkles } from 'lucide-react'
+import { Target, Compass } from 'lucide-react'
 
 export const MissionVision: React.FC = () => {
   return (
@@ -14,14 +14,14 @@ export const MissionVision: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Pill & Title */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-50 border border-accent-200 text-accent-600 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-accent-500" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-accent-500" />
             <span>PURPOSE & DIRECTION</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="display-h2 text-slate-900">
             Our Purpose & Future Focus
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
+          <p className="lead-paragraph text-slate-600">
             Guided by a commitment to high-impact career outcomes and industry excellence.
           </p>
         </div>
@@ -40,18 +40,18 @@ export const MissionVision: React.FC = () => {
 
             <div className="relative z-10 space-y-6">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200 text-accent-600 text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge">
                 <Target className="w-3.5 h-3.5 text-accent-500" />
                 <span>OUR MISSION</span>
               </div>
 
               {/* Heading */}
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+              <h3 className="display-h3 text-slate-900">
                 Practical Training That Builds Real Careers
               </h3>
 
               {/* Text */}
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
+              <p className="body-paragraph text-slate-600">
                 To deliver high-quality, practical, and career-focused training
                 that equips students and professionals with the skills needed to
                 succeed in today’s competitive job market.
@@ -77,13 +77,13 @@ export const MissionVision: React.FC = () => {
 
             <div className="relative z-10 space-y-6">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-500/20 border border-accent-500/40 text-accent-400 text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-500/20 border border-accent-500/40 text-accent-400 eyebrow-badge">
                 <Compass className="w-3.5 h-3.5 text-accent-500" />
                 <span>OUR VISION</span>
               </div>
 
               {/* Heading */}
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              <h3 className="display-h3 text-white">
                 Creating Skilled Professionals for the Future
               </h3>
 

@@ -4,7 +4,6 @@ import {
   Laptop,
   CheckCircle2,
   Users2,
-  Sparkles,
   ArrowRight,
   TrendingUp,
 } from 'lucide-react'
@@ -133,30 +132,28 @@ export const TrainingApproach: React.FC = () => {
             SECTION HEADER (Scroll Entrance: Fade + Slide Up)
         ========================================================= */}
         <div
-          className={`text-center max-w-3xl mx-auto mb-16 sm:mb-20 transition-all duration-700 ease-out ${
-            isVisible
+          className={`text-center max-w-3xl mx-auto mb-16 sm:mb-20 transition-all duration-700 ease-out ${isVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-8'
-          }`}
+            }`}
         >
-          {/* Eyebrow badge with pulse ring */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-accent-600 text-xs font-bold tracking-wider uppercase mb-4 shadow-2xs relative">
+          {/* Eyebrow badge matching Home Page */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge mb-4 shadow-2xs relative">
             <span className="w-2 h-2 rounded-full bg-accent-500 animate-ping absolute left-3" />
             <span className="w-2 h-2 rounded-full bg-accent-500" />
-            <Sparkles className="w-3.5 h-3.5 text-accent-500 ml-1" />
             <span>Structured Methodology</span>
           </div>
 
-          {/* Main Title */}
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold font-heading text-slate-900 tracking-tight leading-[1.18]">
+          {/* Main Title matching Home Page Section H2 */}
+          <h2 className="display-h2 text-slate-900">
             Our Training{' '}
             <span className="relative inline-block text-accent-500">
               Approach
             </span>
           </h2>
 
-          {/* Subtitle */}
-          <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-sans">
+          {/* Subtitle matching Home Page lead-paragraph */}
+          <p className="mt-4 lead-paragraph text-slate-600 max-w-2xl mx-auto">
             Learning that takes you from fundamentals to real-world confidence.
           </p>
         </div>
@@ -186,11 +183,10 @@ export const TrainingApproach: React.FC = () => {
                 <div
                   key={item.step}
                   onMouseEnter={() => setActiveStep(index)}
-                  className={`group flex flex-col items-center text-center cursor-pointer transition-all duration-700 ease-out ${
-                    isVisible
+                  className={`group flex flex-col items-center text-center cursor-pointer transition-all duration-700 ease-out ${isVisible
                       ? 'opacity-100 translate-y-0 scale-100'
                       : 'opacity-0 translate-y-10 scale-95 pointer-events-none'
-                  }`}
+                    }`}
                   style={{ transitionDelay: stepDelays[index] }}
                 >
                   {/* Top Node Container on Connecting Spine */}
@@ -198,38 +194,34 @@ export const TrainingApproach: React.FC = () => {
                     {/* Radar Pulse Ring on Active Node */}
                     <span
                       aria-hidden="true"
-                      className={`absolute -inset-3 rounded-2xl border-2 border-accent-400/60 transition-all duration-500 ${
-                        isActive
+                      className={`absolute -inset-3 rounded-2xl border-2 border-accent-400/60 transition-all duration-500 ${isActive
                           ? 'opacity-100 scale-110 animate-radar-pulse'
                           : 'opacity-0 scale-95 group-hover:opacity-70 group-hover:scale-105'
-                      }`}
+                        }`}
                     />
 
                     {/* Milestone Hub / Icon Frame */}
                     <div
-                      className={`relative z-10 w-[76px] h-[76px] rounded-2xl bg-white border-2 transition-all duration-300 flex items-center justify-center ${
-                        isActive
+                      className={`relative z-10 w-[76px] h-[76px] rounded-2xl bg-white border-2 transition-all duration-300 flex items-center justify-center ${isActive
                           ? 'border-accent-500 shadow-xl shadow-accent-500/25 -translate-y-1.5'
                           : 'border-slate-200/90 shadow-sm group-hover:border-accent-500 group-hover:shadow-lg group-hover:shadow-accent-500/20 group-hover:-translate-y-1'
-                      }`}
+                        }`}
                     >
                       {/* Floating Icon with Active Glow */}
                       <div className="animate-approach-float">
                         <Icon
-                          className={`w-7 h-7 transition-colors duration-300 ${
-                            isActive
+                          className={`w-7 h-7 transition-colors duration-300 ${isActive
                               ? 'text-accent-500'
                               : 'text-slate-700 group-hover:text-accent-500'
-                          }`}
+                            }`}
                         />
                       </div>
 
                       {/* Small Orange Accent Dot on top right with glowing ping */}
                       <span className="absolute -top-1.5 -right-1.5 flex h-3.5 w-3.5 items-center justify-center">
                         <span
-                          className={`absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75 ${
-                            isActive ? 'animate-ping' : ''
-                          }`}
+                          className={`absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75 ${isActive ? 'animate-ping' : ''
+                            }`}
                         />
                         <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-500 ring-2 ring-white" />
                       </span>
@@ -242,11 +234,10 @@ export const TrainingApproach: React.FC = () => {
                         className="absolute left-[calc(100%+14px)] top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none"
                       >
                         <span
-                          className={`flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300 ${
-                            isActive
+                          className={`flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300 ${isActive
                               ? 'bg-accent-500 text-white shadow-sm shadow-accent-500/40 translate-x-1'
                               : 'bg-orange-50 text-accent-500 border border-orange-200/70 group-hover:translate-x-1'
-                          }`}
+                            }`}
                         >
                           <ArrowRight className="w-3.5 h-3.5 animate-arrow-nudge" />
                         </span>
@@ -256,43 +247,38 @@ export const TrainingApproach: React.FC = () => {
 
                   {/* Clean Modern Milestone Details */}
                   <div
-                    className={`w-full rounded-2xl border p-6 pt-5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[235px] text-left ${
-                      isActive
+                    className={`w-full rounded-2xl border p-6 pt-5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[235px] text-left ${isActive
                         ? 'bg-white border-orange-300 shadow-xl shadow-orange-500/10 -translate-y-2'
                         : 'bg-slate-50/60 hover:bg-white border-slate-200/80 hover:border-orange-200/90 hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1.5'
-                    }`}
+                      }`}
                   >
                     {/* Animated Orange Accent Top Glow Line */}
                     <span
-                      className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent-500 to-transparent transition-opacity duration-300 ${
-                        isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                      }`}
+                      className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent-500 to-transparent transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                        }`}
                     />
 
                     <div>
                       {/* Step Number & Stage Badge */}
                       <div className="flex items-center justify-between mb-3.5">
                         <span
-                          className={`font-heading font-black text-3xl tracking-tighter transition-colors duration-300 select-none ${
-                            isActive
+                          className={`font-heading font-black text-3xl tracking-tighter transition-colors duration-300 select-none ${isActive
                               ? 'text-accent-500/90'
                               : 'text-slate-200 group-hover:text-accent-500/70'
-                          }`}
+                            }`}
                         >
                           {item.step}
                         </span>
 
                         <span
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-colors duration-300 ${
-                            isActive
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-colors duration-300 ${isActive
                               ? 'bg-accent-500 text-white shadow-2xs'
                               : 'bg-orange-50 text-accent-600 border border-orange-100 group-hover:bg-orange-100'
-                          }`}
+                            }`}
                         >
                           <span
-                            className={`w-1.5 h-1.5 rounded-full ${
-                              isActive ? 'bg-white' : 'bg-accent-500'
-                            }`}
+                            className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-white' : 'bg-accent-500'
+                              }`}
                           />
                           <span>{item.stage}</span>
                         </span>
@@ -300,17 +286,16 @@ export const TrainingApproach: React.FC = () => {
 
                       {/* Title */}
                       <h3
-                        className={`text-lg font-bold font-heading transition-colors duration-200 leading-snug ${
-                          isActive
+                        className={`display-card-title transition-colors duration-200 ${isActive
                             ? 'text-accent-600'
                             : 'text-slate-900 group-hover:text-accent-600'
-                        }`}
+                          }`}
                       >
                         {item.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="mt-2 text-sm text-slate-600 leading-relaxed font-sans">
+                      <p className="mt-2 body-paragraph text-slate-600">
                         {item.description}
                       </p>
                     </div>
@@ -319,20 +304,18 @@ export const TrainingApproach: React.FC = () => {
                     <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
                       <span className="flex items-center gap-1">
                         <TrendingUp
-                          className={`w-3.5 h-3.5 ${
-                            isActive ? 'text-accent-500' : 'text-slate-400 group-hover:text-accent-500'
-                          }`}
+                          className={`w-3.5 h-3.5 ${isActive ? 'text-accent-500' : 'text-slate-400 group-hover:text-accent-500'
+                            }`}
                         />
                         <span>Phase {index + 1} of 4</span>
                       </span>
 
                       {/* Animated expandable orange accent pill */}
                       <span
-                        className={`h-1 rounded-full transition-all duration-300 ${
-                          isActive
+                        className={`h-1 rounded-full transition-all duration-300 ${isActive
                             ? 'w-14 bg-accent-500 shadow-xs'
                             : 'w-6 bg-slate-200 group-hover:w-12 group-hover:bg-accent-500'
-                        }`}
+                          }`}
                       />
                     </div>
                   </div>
@@ -364,38 +347,34 @@ export const TrainingApproach: React.FC = () => {
                 <div
                   key={item.step}
                   onClick={() => setActiveStep(index)}
-                  className={`group flex items-start gap-4 sm:gap-6 transition-all duration-700 ease-out ${
-                    isVisible
+                  className={`group flex items-start gap-4 sm:gap-6 transition-all duration-700 ease-out ${isVisible
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-8 pointer-events-none'
-                  }`}
+                    }`}
                   style={{ transitionDelay: mobileDelays[index] }}
                 >
                   {/* Spine Node / Hub */}
                   <div className="relative shrink-0">
                     <div
-                      className={`w-[54px] h-[54px] sm:w-[62px] sm:h-[62px] rounded-2xl bg-white border-2 flex items-center justify-center transition-all duration-300 ${
-                        isActive
+                      className={`w-[54px] h-[54px] sm:w-[62px] sm:h-[62px] rounded-2xl bg-white border-2 flex items-center justify-center transition-all duration-300 ${isActive
                           ? 'border-accent-500 shadow-lg shadow-accent-500/25 scale-105'
                           : 'border-slate-200/90 shadow-sm group-hover:border-accent-500'
-                      }`}
+                        }`}
                     >
                       <div className="animate-approach-float">
                         <Icon
-                          className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${
-                            isActive
+                          className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${isActive
                               ? 'text-accent-500'
                               : 'text-slate-700 group-hover:text-accent-500'
-                          }`}
+                            }`}
                         />
                       </div>
 
                       {/* Small Orange Accent Dot */}
                       <span className="absolute -top-1 -right-1 flex h-3 w-3 items-center justify-center">
                         <span
-                          className={`absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75 ${
-                            isActive ? 'animate-ping' : ''
-                          }`}
+                          className={`absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75 ${isActive ? 'animate-ping' : ''
+                            }`}
                         />
                         <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-500 ring-2 ring-white" />
                       </span>
@@ -403,11 +382,10 @@ export const TrainingApproach: React.FC = () => {
 
                     {/* Step number badge below icon */}
                     <div
-                      className={`absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full font-mono text-[9px] font-bold tracking-tight shadow-xs transition-colors ${
-                        isActive
+                      className={`absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full font-mono text-[9px] font-bold tracking-tight shadow-xs transition-colors ${isActive
                           ? 'bg-accent-500 text-white'
                           : 'bg-slate-900 text-white'
-                      }`}
+                        }`}
                     >
                       {item.step}
                     </div>
@@ -415,25 +393,22 @@ export const TrainingApproach: React.FC = () => {
 
                   {/* Clean Content Item */}
                   <div
-                    className={`flex-1 rounded-2xl border p-4 sm:p-5 transition-all duration-300 ${
-                      isActive
+                    className={`flex-1 rounded-2xl border p-4 sm:p-5 transition-all duration-300 ${isActive
                         ? 'bg-white border-orange-300 shadow-md -translate-y-0.5'
                         : 'bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-orange-200 shadow-xs'
-                    }`}
+                      }`}
                   >
                     {/* Header with Phase & Title */}
                     <div className="flex items-center justify-between gap-2 mb-1.5">
                       <span
-                        className={`inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
-                          isActive
+                        className={`inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${isActive
                             ? 'bg-accent-500 text-white border-accent-500'
                             : 'bg-orange-50 text-accent-600 border-orange-100'
-                        }`}
+                          }`}
                       >
                         <span
-                          className={`w-1.5 h-1.5 rounded-full ${
-                            isActive ? 'bg-white' : 'bg-accent-500'
-                          }`}
+                          className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-white' : 'bg-accent-500'
+                            }`}
                         />
                         <span>Step {item.step} • {item.stage}</span>
                       </span>
@@ -444,16 +419,15 @@ export const TrainingApproach: React.FC = () => {
                     </div>
 
                     <h3
-                      className={`text-base sm:text-lg font-bold font-heading transition-colors ${
-                        isActive
+                      className={`display-card-title transition-colors ${isActive
                           ? 'text-accent-600'
                           : 'text-slate-900 group-hover:text-accent-600'
-                      }`}
+                        }`}
                     >
                       {item.title}
                     </h3>
 
-                    <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
+                    <p className="mt-1 body-paragraph text-slate-600">
                       {item.description}
                     </p>
 
@@ -461,9 +435,8 @@ export const TrainingApproach: React.FC = () => {
                     <div className="mt-3 flex items-center justify-between pt-2 border-t border-slate-100 text-[10px] text-slate-400">
                       <span>Phase {index + 1} of 4</span>
                       <span
-                        className={`h-0.5 rounded-full transition-all duration-300 ${
-                          isActive ? 'w-10 bg-accent-500' : 'w-6 bg-slate-200'
-                        }`}
+                        className={`h-0.5 rounded-full transition-all duration-300 ${isActive ? 'w-10 bg-accent-500' : 'w-6 bg-slate-200'
+                          }`}
                       />
                     </div>
                   </div>

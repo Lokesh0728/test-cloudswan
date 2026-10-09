@@ -4,7 +4,6 @@ import {
   Award,
   Briefcase,
   BookOpen,
-  Sparkles,
 } from 'lucide-react'
 import { AnimatedCounter } from '../hero/AnimatedCounter'
 
@@ -66,14 +65,14 @@ export const Achievements: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2.5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-50 border border-accent-200 text-accent-600 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-accent-500" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-accent-500" />
             <span>MEASURABLE IMPACT</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="display-h2 text-slate-900">
             Our Achievements in Numbers
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
+          <p className="lead-paragraph text-slate-600">
             Proven track record of empowering aspiring tech talent across Coimbatore and beyond.
           </p>
         </div>
@@ -93,7 +92,7 @@ export const Achievements: React.FC = () => {
                 </div>
 
                 {/* Number Counter */}
-                <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                <div className="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 tracking-tight">
                   <AnimatedCounter
                     target={stat.value}
                     suffix={stat.suffix}
@@ -103,12 +102,12 @@ export const Achievements: React.FC = () => {
                 </div>
 
                 {/* Primary Label */}
-                <h3 className="text-base font-bold text-slate-900 mt-2">
+                <h3 className="display-card-title text-slate-900 mt-2">
                   {stat.label}
                 </h3>
 
                 {/* Subtitle description */}
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="body-subtext text-slate-500 mt-1">
                   {stat.sublabel}
                 </p>
 

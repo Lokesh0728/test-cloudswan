@@ -5,6 +5,7 @@ import { CurrentBatchesSection } from './components/batches/CurrentBatchesSectio
 import { ITTrainingSection } from './components/training/ITTrainingSection'
 import { EnquiryModal } from './components/modals/EnquiryModal'
 import { AboutPage } from './components/about/AboutPage'
+import { CareersPage } from './components/careers/CareersPage'
 import { CourseDetailPage } from './components/course/CourseDetailPage'
 import { GeneralCoursePage } from './components/generalCourse/GeneralCoursePage'
 import { getCourseByIdOrSlug } from './data/courses'
@@ -45,6 +46,10 @@ export default function App() {
     setCurrentPath(path)
     if (path === '/') {
       document.title = 'IT Training Institute In Coimbatore | CloudSwan'
+    } else if (path === '/careers') {
+      document.title = 'Careers | Cloudswan Solution - Join Our Team'
+    } else if (path === '/about') {
+      document.title = 'About Us | Cloudswan Solution - No.1 IT Training Institute Coimbatore'
     }
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -102,6 +107,11 @@ export default function App() {
             }}
             onOpenEnquiry={handleOpenEnquiry}
           />
+        ) : currentPath === '/careers' ? (
+          <CareersPage
+            onNavigateHome={() => handleNavigate('/')}
+            onOpenEnquiry={handleOpenEnquiry}
+          />
         ) : (
           <>
             {/* Modern Catchy Hero Section with Interactive Global Map & Animated Counters */}
@@ -129,6 +139,8 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© 2026 CloudSwan Institute. All rights reserved.</p>
           <div className="flex items-center gap-6">
+            <a href="/about" onClick={(e) => { e.preventDefault(); handleNavigate('/about'); }} className="hover:text-slate-200 transition-colors">About Us</a>
+            <a href="/careers" onClick={(e) => { e.preventDefault(); handleNavigate('/careers'); }} className="hover:text-slate-200 transition-colors">Careers</a>
             <a href="/privacy" className="hover:text-slate-200 transition-colors">Privacy Policy</a>
             <a href="/terms" className="hover:text-slate-200 transition-colors">Terms of Service</a>
             <a href="/verification" className="hover:text-slate-200 transition-colors">Certificate Verification</a>
