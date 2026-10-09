@@ -124,8 +124,7 @@ export const WhyCloudswan: React.FC = () => {
           <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs animate-why-header">
             <span className="w-2 h-2 rounded-full bg-accent-500" />
             <span>Why Cloudswan</span>
-            <span className="text-accent-300">•</span>
-            <span className="text-slate-600 font-medium normal-case">02 Core Advantage</span>
+
           </div>
 
           {/* Heading matching Home Page Section H2 */}

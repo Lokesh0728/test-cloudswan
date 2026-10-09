@@ -3,9 +3,9 @@ import {
   Briefcase,
   ArrowRight,
   CheckCircle2,
-  TrendingUp,
-  GraduationCap,
-  Laptop,
+  Users,
+  BriefcaseBusiness,
+  MapPin,
 } from 'lucide-react'
 import { CAREER_STATS } from './careersData'
 
@@ -48,7 +48,7 @@ export const CareersHero: React.FC<CareersHeroProps> = ({
               <span className="w-2 h-2 rounded-full bg-accent-500 animate-pulse" />
               <span>CAREERS AT CLOUDSWAN</span>
               <span className="text-accent-300">•</span>
-              <span className="text-slate-600 font-medium normal-case">Coimbatore HQ</span>
+              <span className="text-slate-600 font-medium normal-case">Coimbatore </span>
             </div>
 
             {/* Main Heading with Stylized SVG Underline */}
@@ -117,133 +117,115 @@ export const CareersHero: React.FC<CareersHeroProps> = ({
             </div>
           </div>
 
-          {/* Right Column: Modern Visual Representation of Teamwork, Growth & Tech */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Main Visual Showcase Card */}
-              <div className="relative rounded-3xl bg-gradient-to-br from-white via-white to-slate-50 border border-slate-200/90 p-6 sm:p-7 shadow-xl shadow-slate-200/60 overflow-hidden">
-                {/* Top Header Row of Dashboard */}
-                <div className="flex items-center justify-between pb-5 border-b border-slate-100">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-accent-500 text-white flex items-center justify-center font-heading font-extrabold text-sm shadow-md shadow-accent-500/30">
-                      CS
-                    </div>
-                    <div>
-                      <div className="font-heading font-bold text-sm text-slate-900">
-                        Cloudswan Tech Guild
-                      </div>
-                      <div className="caption-text text-slate-500">
-                        Coimbatore Hub • Engineering & Design
-                      </div>
-                    </div>
-                  </div>
-                  <span className="eyebrow-badge px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/70 text-[10px]">
-                    Actively Hiring
-                  </span>
-                </div>
+          {/* Right Column: Modern Careers Visual */}
+          <div className="relative lg:col-span-5">
+            <div className="relative mx-auto max-w-lg lg:max-w-none">
 
-                {/* Team Culture & Growth Snapshot */}
-                <div className="py-5 space-y-4">
-                  {/* Spotlight Item 1: Real-time Growth Track */}
-                  <div className="p-3.5 rounded-2xl bg-slate-50/90 border border-slate-100 flex items-center justify-between transition-transform hover:-translate-y-0.5">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-orange-100 text-accent-600 flex items-center justify-center">
-                        <TrendingUp className="w-4 h-4 text-accent-500" />
-                      </div>
-                      <div>
-                        <div className="font-heading text-xs sm:text-sm font-bold text-slate-900">
-                          Clear Career Trajectory
-                        </div>
-                        <div className="text-[11px] text-slate-500 font-sans">
-                          Structured milestones & review cycles
-                        </div>
-                      </div>
-                    </div>
-                    <span className="font-heading text-xs font-bold text-accent-600">
-                      Level 1 → Lead
-                    </span>
-                  </div>
+              {/* Main Careers Showcase */}
+              <div className="relative overflow-hidden rounded-[2rem] border border-orange-100 bg-white p-6 shadow-[0_24px_70px_rgba(15,23,42,0.08)] sm:p-8">
 
-                  {/* Spotlight Item 2: Sponsored Global Certifications */}
-                  <div className="p-3.5 rounded-2xl bg-slate-50/90 border border-slate-100 flex items-center justify-between transition-transform hover:-translate-y-0.5">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center">
-                        <GraduationCap className="w-4 h-4 text-blue-600" />
-                      </div>
-                      <div>
-                        <div className="font-heading text-xs sm:text-sm font-bold text-slate-900">
-                          100% Upskilling Budget
-                        </div>
-                        <div className="text-[11px] text-slate-500 font-sans">
-                          AWS, GCP, Azure, RedHat & Seminars
-                        </div>
-                      </div>
-                    </div>
-                    <span className="eyebrow-badge text-[10px] text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md">
-                      Sponsored
-                    </span>
-                  </div>
+                {/* Soft background accents */}
+                <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-orange-100/70 blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-20 -left-16 h-56 w-56 rounded-full bg-orange-50 blur-3xl" />
 
-                  {/* Spotlight Item 3: Modern Tech Stack Grid */}
-                  <div className="p-3.5 rounded-2xl bg-slate-50/90 border border-slate-100 space-y-2">
-                    <div className="flex items-center justify-between text-xs font-heading font-semibold text-slate-700">
-                      <span className="flex items-center gap-1.5">
-                        <Laptop className="w-3.5 h-3.5 text-accent-500" />
-                        <span>Core Technology Stacks</span>
+                {/* Header */}
+                <div className="relative z-10 flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-orange-600">
+                      Careers at Cloudswan
+                    </p>
+
+                    <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
+                      Grow with
+                      <span className="block text-orange-500">
+                        Great People.
                       </span>
-                      <span className="text-[11px] text-slate-400">Production Tier</span>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {['React / Next.js', 'TypeScript', 'Node.js', 'Python AI', 'AWS Cloud', 'Docker', 'Figma', 'PostgreSQL'].map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 rounded-md bg-white border border-slate-200/80 text-[11px] font-heading font-medium text-slate-700 shadow-2xs"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                    </h3>
+                  </div>
+
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange-500 text-white shadow-lg shadow-orange-500/20 sm:h-16 sm:w-16">
+                    <Users className="h-7 w-7 sm:h-8 sm:w-8" />
                   </div>
                 </div>
 
-                {/* Bottom Community Quote Card */}
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2">
-                    <div className="flex -space-x-1.5">
-                      <div className="w-6 h-6 rounded-full bg-accent-500 text-white font-bold text-[9px] flex items-center justify-center border-2 border-white shadow-2xs">
-                        R
-                      </div>
-                      <div className="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-[9px] flex items-center justify-center border-2 border-white shadow-2xs">
-                        S
-                      </div>
-                      <div className="w-6 h-6 rounded-full bg-emerald-600 text-white font-bold text-[9px] flex items-center justify-center border-2 border-white shadow-2xs">
-                        K
-                      </div>
-                    </div>
-                    <span className="text-slate-600 font-sans text-[11px]">
-                      Collaborative, energetic & growing team
-                    </span>
+                <p className="relative z-10 mt-4 max-w-sm text-sm leading-6 text-slate-500">
+                  Share your expertise, inspire learners, and help shape the next
+                  generation of technology professionals.
+                </p>
+
+                {/* Hiring Status */}
+                <div className="relative z-10 mt-6 flex items-center gap-3 rounded-2xl border border-orange-100 bg-orange-50/80 p-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-orange-500 shadow-sm">
+                    <BriefcaseBusiness className="h-5 w-5" />
                   </div>
-                  <span className="eyebrow-badge text-accent-600 font-bold">
-                    Join Us
+
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-bold text-slate-900">
+                      Trainer Opportunities
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500">
+                      Full-time & part-time positions
+                    </p>
+                  </div>
+
+                  <span className="shrink-0 rounded-full border border-orange-200 bg-white px-2.5 py-1 text-[10px] font-bold text-orange-600">
+                    JOIN US
                   </span>
                 </div>
+
+                {/* Opportunity Highlights */}
+                <div className="relative z-10 mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+
+                  {/* Branch 1 */}
+                  <div className="group rounded-2xl border border-slate-200/80 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/50">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 transition-colors duration-300 group-hover:bg-orange-500 group-hover:text-white">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+
+                    <h4 className="mt-4 text-sm font-bold text-slate-900">
+                      Gandhipuram
+                    </h4>
+
+                    <p className="mt-1 text-xs leading-5 text-slate-500">
+                      Coimbatore Branch
+                    </p>
+
+                    <div className="mt-3 h-1 w-8 rounded-full bg-orange-500 transition-all duration-300 group-hover:w-14" />
+                  </div>
+
+                  {/* Branch 2 */}
+                  <div className="group rounded-2xl border border-slate-200/80 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/50">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 transition-colors duration-300 group-hover:bg-orange-500 group-hover:text-white">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+
+                    <h4 className="mt-4 text-sm font-bold text-slate-900">
+                      Saravanampatti
+                    </h4>
+
+                    <p className="mt-1 text-xs leading-5 text-slate-500">
+                      Coimbatore Branch
+                    </p>
+
+                    <div className="mt-3 h-1 w-8 rounded-full bg-orange-500 transition-all duration-300 group-hover:w-14" />
+                  </div>
+                </div>
+
+                {/* Bottom Message */}
+                <div className="relative z-10 mt-5 border-t border-slate-100 pt-5 text-left">
+                  <p className="text-sm font-bold text-slate-900">
+                    Make an Impact Through Teaching
+                  </p>
+                  <p className="mt-1 text-xs leading-5 text-slate-500">
+                    Bring your knowledge, experience, and passion for learning
+                    to the Cloudswan team.
+                  </p>
+                </div>
+
               </div>
 
-              {/* Decorative Corner Floating Badge */}
-              <div className="absolute -bottom-4 -left-4 sm:-left-6 p-3 rounded-2xl bg-white border border-slate-200 shadow-lg shadow-slate-200/70 flex items-center gap-2.5 animate-[float_4s_ease-in-out_infinite]">
-                <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center">
-                  <CheckCircle2 className="w-4.5 h-4.5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold font-heading text-slate-900">
-                    High Work-Life Trust
-                  </div>
-                  <div className="text-[10px] text-slate-500">
-                    Transparent & Empathetic
-                  </div>
-                </div>
-              </div>
+
+
             </div>
           </div>
         </div>
