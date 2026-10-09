@@ -82,7 +82,7 @@ export default function App() {
     // For other courses without dedicated page yet, display the spotlight preview
     setSelectedCourse({ course, category })
     handleNavigate(course.slug || `/courses/${course.id}`)
-    window.scrollTo({ top: 380, behavior: 'smooth' })
+    window.scrollTo({ top: 380, behavior: 'smooth' }) 
   }
 
   const handleOpenEnquiry = (subject?: string) => {
