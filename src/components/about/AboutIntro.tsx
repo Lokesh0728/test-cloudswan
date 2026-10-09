@@ -1,4 +1,5 @@
 import React from 'react'
+import logoImg from '../../assets/logo.png'
 import {
   ArrowRight,
   Headphones,
@@ -49,8 +50,8 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
             <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs">
               <span className="w-2 h-2 rounded-full bg-accent-500" />
               <span>Who We Are</span>
-              <span className="text-accent-300">•</span>
-              <span className="text-slate-600 font-medium normal-case">01 Overview</span>
+
+
             </div>
 
             {/* Heading matching Home Page Section H2 */}
@@ -155,129 +156,117 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
           <div className="relative flex h-[290px] xs:h-[320px] sm:h-[400px] lg:h-[500px] w-full items-center justify-center lg:col-span-6 animate-about-right overflow-visible my-2 sm:my-4 lg:my-0">
             <div className="learning-orbit-stage relative flex items-center justify-center">
 
-            {/* Ambient glow */}
-            <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-100/60 blur-3xl animate-orbit-glow" />
+              {/* Ambient glow */}
+              <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-100/60 blur-3xl animate-orbit-glow" />
 
-            {/* =================================================
+              {/* =================================================
                 OUTER ROTATING RING
             ================================================= */}
 
-            <div className="absolute h-[390px] w-[390px] rounded-full border border-orange-100 sm:h-[440px] sm:w-[440px] animate-ring-rotate">
-              <div className="absolute inset-5 rounded-full border border-dashed border-orange-200/70" />
-            </div>
+              <div className="absolute h-[390px] w-[390px] rounded-full border border-orange-100 sm:h-[440px] sm:w-[440px] animate-ring-rotate">
+                <div className="absolute inset-5 rounded-full border border-dashed border-orange-200/70" />
+              </div>
 
-            {/* =================================================
+              {/* =================================================
                 INNER ROTATING RING
             ================================================= */}
 
-            <div className="absolute h-[300px] w-[300px] rounded-full border border-slate-100 sm:h-[340px] sm:w-[340px] animate-ring-reverse">
+              <div className="absolute h-[300px] w-[300px] rounded-full border border-slate-100 sm:h-[340px] sm:w-[340px] animate-ring-reverse">
 
-              {/* Traveling dot */}
-              <span className="absolute -top-1 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-orange-500 shadow-lg shadow-orange-500/50 animate-travel-dot" />
+                {/* Traveling dot */}
+                <span className="absolute -top-1 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-orange-500 shadow-lg shadow-orange-500/50 animate-travel-dot" />
 
-            </div>
+              </div>
 
-            {/* =================================================
+              {/* =================================================
                 ORBIT PATH
             ================================================= */}
 
-            <div className="absolute h-[420px] w-[420px] rounded-full sm:h-[470px] sm:w-[470px]">
+              <div className="absolute h-[420px] w-[420px] rounded-full sm:h-[470px] sm:w-[470px]">
 
-              {/* Orbit item 1 */}
-              <div className="orbit-item orbit-item-1">
-                <OrbitCard
-                  icon={<Code2 className="h-5 w-5" />}
-                  title="Technology"
-                  description="Industry Skills"
-                />
+                {/* Orbit item 1 */}
+                <div className="orbit-item orbit-item-1">
+                  <OrbitCard
+                    icon={<Code2 className="h-5 w-5" />}
+                    title="Technology"
+                    description="Industry Skills"
+                  />
+                </div>
+
+                {/* Orbit item 2 */}
+                <div className="orbit-item orbit-item-2">
+                  <OrbitCard
+                    icon={<Wrench className="h-5 w-5" />}
+                    title="Practical"
+                    description="Real Projects"
+                  />
+                </div>
+
+                {/* Orbit item 3 */}
+                <div className="orbit-item orbit-item-3">
+                  <OrbitCard
+                    icon={<Target className="h-5 w-5" />}
+                    title="Career"
+                    description="Career Growth"
+                  />
+                </div>
+
+                {/* Orbit item 4 */}
+                <div className="orbit-item orbit-item-4">
+                  <OrbitCard
+                    icon={<GraduationCap className="h-5 w-5" />}
+                    title="Mentorship"
+                    description="Expert Guidance"
+                  />
+                </div>
+
               </div>
 
-              {/* Orbit item 2 */}
-              <div className="orbit-item orbit-item-2">
-                <OrbitCard
-                  icon={<Wrench className="h-5 w-5" />}
-                  title="Practical"
-                  description="Real Projects"
-                />
-              </div>
-
-              {/* Orbit item 3 */}
-              <div className="orbit-item orbit-item-3">
-                <OrbitCard
-                  icon={<Target className="h-5 w-5" />}
-                  title="Career"
-                  description="Career Growth"
-                />
-              </div>
-
-              {/* Orbit item 4 */}
-              <div className="orbit-item orbit-item-4">
-                <OrbitCard
-                  icon={<GraduationCap className="h-5 w-5" />}
-                  title="Mentorship"
-                  description="Expert Guidance"
-                />
-              </div>
-
-            </div>
-
-            {/* =================================================
+              {/* =================================================
                 CENTER
             ================================================= */}
 
-            <div className="relative z-20 flex h-40 w-40 items-center justify-center sm:h-48 sm:w-48">
+              <div className="relative z-20 flex h-40 w-40 items-center justify-center sm:h-48 sm:w-48">
 
-              {/* Outer center ring */}
-              <div className="absolute inset-0 rounded-full border border-orange-200 animate-center-ring" />
+                {/* Outer center ring */}
+                <div className="absolute inset-0 rounded-full border border-orange-200 animate-center-ring" />
 
-              {/* Inner circle */}
-              <div className="relative flex h-32 w-32 flex-col items-center justify-center rounded-full border border-orange-100 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.10)] sm:h-40 sm:w-40">
+                {/* Inner circle */}
+                <div className="relative flex h-32 w-32 items-center justify-center rounded-full border border-orange-100 bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.10)] sm:h-40 sm:w-40 sm:p-6">
 
-                {/* Orange top accent */}
-                <div className="absolute -top-1 left-1/2 h-2 w-10 -translate-x-1/2 rounded-full bg-orange-500" />
+                  {/* Orange top accent */}
+                  <div className="absolute -top-1 left-1/2 h-2 w-10 -translate-x-1/2 rounded-full bg-orange-500" />
 
-                <div className="mb-1 flex items-center justify-center">
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-500 font-heading">
-                    Learn
-                  </span>
+                  {/* Cloudswan Solution Logo */}
+                  <img
+                    src={logoImg}
+                    alt="Cloudswan Solution"
+                    className="h-auto w-full max-w-[110px] object-contain sm:max-w-[135px]"
+                  />
+
                 </div>
-
-                <span className="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
-                  CS
-                </span>
-
-                <div className="mt-1 flex flex-col items-center justify-center text-center leading-none">
-                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
-                    Cloudswan
-                  </span>
-                  <span className="mt-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.14em] text-orange-500">
-                    Solution
-                  </span>
-                </div>
-
               </div>
-            </div>
 
-            {/* =================================================
+              {/* =================================================
                 FLOATING PARTICLES
             ================================================= */}
 
-            <span className="absolute left-[15%] top-[25%] h-2 w-2 rounded-full bg-orange-400 animate-particle-1" />
+              <span className="absolute left-[15%] top-[25%] h-2 w-2 rounded-full bg-orange-400 animate-particle-1" />
 
-            <span className="absolute right-[13%] top-[18%] h-1.5 w-1.5 rounded-full bg-orange-300 animate-particle-2" />
+              <span className="absolute right-[13%] top-[18%] h-1.5 w-1.5 rounded-full bg-orange-300 animate-particle-2" />
 
-            <span className="absolute bottom-[22%] left-[18%] h-1.5 w-1.5 rounded-full bg-orange-400 animate-particle-3" />
+              <span className="absolute bottom-[22%] left-[18%] h-1.5 w-1.5 rounded-full bg-orange-400 animate-particle-3" />
 
-            <span className="absolute bottom-[18%] right-[20%] h-2 w-2 rounded-full bg-orange-200 animate-particle-4" />
+              <span className="absolute bottom-[18%] right-[20%] h-2 w-2 rounded-full bg-orange-200 animate-particle-4" />
 
-            {/* Decorative plus */}
-            <span className="absolute left-[8%] top-[48%] text-2xl font-light text-orange-200 animate-floating-symbol">
-              +
-            </span>
+              {/* Decorative plus */}
+              <span className="absolute left-[8%] top-[48%] text-2xl font-light text-orange-200 animate-floating-symbol">
+                +
+              </span>
 
-            <span className="absolute right-[8%] bottom-[40%] text-xl font-light text-orange-200 animate-floating-symbol-reverse">
-              +
-            </span>
+              <span className="absolute right-[8%] bottom-[40%] text-xl font-light text-orange-200 animate-floating-symbol-reverse">
+                +
+              </span>
 
             </div>
           </div>

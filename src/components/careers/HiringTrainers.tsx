@@ -13,9 +13,9 @@ import {
   Brain,
   Sparkles,
   PhoneCall,
-  X,
   Send,
   Info,
+  Check,
 } from 'lucide-react'
 
 export interface TrainerJob {
@@ -105,13 +105,16 @@ interface HiringTrainersProps {
 export const HiringTrainers: React.FC<HiringTrainersProps> = ({
   onOpenEnquiry,
 }) => {
-  // Modal state
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  // Currently selected role for the inline form
   const [selectedRoleTitle, setSelectedRoleTitle] = useState(
     TRAINER_JOBS[0].title
   )
-  const [employmentPreference, setEmploymentPreference] = useState<'Full-Time' | 'Part-Time' | 'Both / Flexible'>('Both / Flexible')
-  const [branchPreference, setBranchPreference] = useState<'Both Branches' | 'Gandhipuram' | 'Saravanampatti'>('Both Branches')
+  const [employmentPreference, setEmploymentPreference] = useState<
+    'Full-Time' | 'Part-Time' | 'Both / Flexible'
+  >('Both / Flexible')
+  const [branchPreference, setBranchPreference] = useState<
+    'Both Branches' | 'Gandhipuram' | 'Saravanampatti'
+  >('Both Branches')
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -123,28 +126,23 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleOpenApplyModal = (roleTitle: string) => {
+  const handleSelectRole = (roleTitle: string) => {
     setSelectedRoleTitle(roleTitle)
-    setIsModalOpen(true)
     setIsSubmitted(false)
-    setFormErrors({})
-  }
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-    setIsSubmitted(false)
-    setFormErrors({})
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      experienceYears: '1 - 2 Years',
-      message: '',
-    })
+    // Smooth scroll to form on mobile screens
+    if (window.innerWidth < 1024) {
+      const formEl = document.getElementById('trainer-application-form')
+      if (formEl) {
+        formEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
   }
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -176,14 +174,26 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
     setTimeout(() => {
       setIsSubmitting(false)
       setIsSubmitted(true)
-    }, 600)
+    }, 500)
+  }
+
+  const handleResetForm = () => {
+    setIsSubmitted(false)
+    setFormData({
+      fullName: '',
+      email: '',
+      phone: '',
+      experienceYears: '1 - 2 Years',
+      message: '',
+    })
+    setFormErrors({})
   }
 
   return (
     <section
       id="trainer-roles"
       aria-label="We're Hiring Trainers"
-      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24 border-b border-slate-200/80 scroll-mt-20"
+      className="relative overflow-hidden bg-slate-50/50 py-16 sm:py-20 lg:py-24 border-b border-slate-200/80 scroll-mt-20"
     >
       {/* Background Soft Glows */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10">
@@ -205,13 +215,15 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
         {/* =========================================================
             1. SECTION HEADER
         ========================================================= */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           {/* Eyebrow */}
           <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-accent-500 animate-pulse" />
             <span>JOIN OUR TEAM</span>
             <span className="text-accent-300">•</span>
-            <span className="text-slate-600 font-medium normal-case">Coimbatore Branches</span>
+            <span className="text-slate-600 font-medium normal-case">
+              Coimbatore Branches
+            </span>
           </div>
 
           {/* Heading */}
@@ -225,268 +237,316 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
 
           {/* Description */}
           <p className="lead-paragraph mt-4 text-slate-600 max-w-2xl mx-auto">
-            Explore opportunities to teach, mentor, and share your expertise with aspiring professionals at our Coimbatore branches.
+            Explore opportunities to teach, mentor, and share your expertise
+            with aspiring professionals at our Coimbatore branches. Select a
+            role from the list to apply directly.
           </p>
 
           {/* Summary Pills Bar */}
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200/90 text-slate-800 font-heading font-semibold text-xs sm:text-sm shadow-2xs">
-              <Briefcase className="w-4 h-4 text-accent-500" />
-              <span>6 Trainer Roles</span>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/90 text-slate-800 font-heading font-semibold text-xs shadow-2xs">
+              <Briefcase className="w-3.5 h-3.5 text-accent-500" />
+              <span>6 Open Trainer Roles</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accent-50/80 border border-accent-200/80 text-accent-800 font-heading font-semibold text-xs sm:text-sm shadow-2xs">
-              <Clock className="w-4 h-4 text-accent-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-accent-50 border border-accent-200/80 text-accent-800 font-heading font-semibold text-xs shadow-2xs">
+              <Clock className="w-3.5 h-3.5 text-accent-600" />
               <span>Full-Time & Part-Time</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200/90 text-slate-800 font-heading font-semibold text-xs sm:text-sm shadow-2xs">
-              <MapPin className="w-4 h-4 text-accent-500" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/90 text-slate-800 font-heading font-semibold text-xs shadow-2xs">
+              <MapPin className="w-3.5 h-3.5 text-accent-500" />
               <span>Gandhipuram & Saravanampatti</span>
             </div>
           </div>
         </div>
 
         {/* =========================================================
-            2. SIX TRAINER JOB CARDS (RESPONSIVE GRID)
+            2. TWO-COLUMN LAYOUT: ROLES LIST (LEFT) & FORM (RIGHT)
         ========================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-          {TRAINER_JOBS.map((job) => {
-            const Icon = job.icon
-            return (
-              <div
-                key={job.id}
-                className="group relative rounded-2xl bg-white border border-orange-100/90 hover:border-accent-400 p-6 sm:p-7 shadow-xs hover:shadow-xl hover:shadow-accent-500/10 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden"
-              >
-                {/* Top Orange Accent Line Detail */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-500 via-orange-400 to-accent-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          {/* =======================================================
+              LEFT COLUMN: LIST OF TRAINER ROLES
+          ======================================================= */}
+          <div className="lg:col-span-7 space-y-4">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-200/80">
+              <div>
+                <h3 className="font-heading font-bold text-lg text-slate-900">
+                  Available Trainer Positions
+                </h3>
+                <p className="text-xs text-slate-500 font-sans mt-0.5">
+                  Click any role to auto-select it in the application form
+                </p>
+              </div>
+              <span className="text-xs font-heading font-bold text-accent-600 bg-accent-50 px-2.5 py-1 rounded-lg border border-accent-200/80">
+                {TRAINER_JOBS.length} Open Roles
+              </span>
+            </div>
 
-                <div>
-                  {/* Top Row: Icon Container and Location Badge */}
-                  <div className="flex items-center justify-between gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-accent-50 border border-accent-100/90 text-accent-600 flex items-center justify-center shadow-2xs group-hover:scale-105 group-hover:bg-accent-500 group-hover:text-white transition-all duration-300">
-                      <Icon className="w-6 h-6 transition-colors" />
-                    </div>
+            {/* The List of Roles */}
+            <div className="space-y-3.5">
+              {TRAINER_JOBS.map((job) => {
+                const Icon = job.icon
+                const isSelected = selectedRoleTitle === job.title
 
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200/80 text-slate-700 text-xs font-heading font-medium">
-                      <MapPin className="w-3.5 h-3.5 text-accent-500 shrink-0" />
-                      <span>{job.location}</span>
+                return (
+                  <div
+                    key={job.id}
+                    onClick={() => handleSelectRole(job.title)}
+                    className={`group rounded-2xl bg-white border p-5 sm:p-6 transition-all duration-200 cursor-pointer relative overflow-hidden ${
+                      isSelected
+                        ? 'border-accent-500 ring-2 ring-accent-500/15 shadow-md shadow-accent-500/10'
+                        : 'border-slate-200/90 hover:border-accent-300 hover:shadow-md'
+                    }`}
+                  >
+                    {/* Active Left Indicator Bar */}
+                    <div
+                      className={`absolute top-0 bottom-0 left-0 w-1.5 transition-colors ${
+                        isSelected
+                          ? 'bg-accent-500'
+                          : 'bg-transparent group-hover:bg-accent-300'
+                      }`}
+                    />
+
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                      {/* Left Side: Icon & Details */}
+                      <div className="flex items-start gap-3.5 flex-1">
+                        <div
+                          className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                            isSelected
+                              ? 'bg-accent-500 text-white shadow-sm shadow-accent-500/30'
+                              : 'bg-accent-50 border border-accent-100 text-accent-600 group-hover:bg-accent-100'
+                          }`}
+                        >
+                          <Icon className="w-5 h-5" />
+                        </div>
+
+                        <div className="space-y-1.5 flex-1">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <h4
+                              className={`font-heading font-bold text-base sm:text-lg transition-colors leading-snug ${
+                                isSelected
+                                  ? 'text-accent-600'
+                                  : 'text-slate-900 group-hover:text-accent-600'
+                              }`}
+                            >
+                              {job.title}
+                            </h4>
+
+                            {isSelected && (
+                              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-accent-100 text-accent-700 font-heading text-[10px] font-bold">
+                                <Check className="w-3 h-3 text-accent-600" />
+                                Selected
+                              </span>
+                            )}
+                          </div>
+
+                          <p className="text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
+                            {job.description}
+                          </p>
+
+                          {/* Skill Pills */}
+                          <div className="flex flex-wrap gap-1.5 pt-1">
+                            {job.skills.map((skill) => (
+                              <span
+                                key={skill}
+                                className="px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/70 text-[11px] font-heading font-medium text-slate-600"
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right Side: Badges & Action Button */}
+                      <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2.5 pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-100 shrink-0">
+                        {/* Badges */}
+                        <div className="flex items-center gap-1.5">
+                          <span className="px-2 py-0.5 rounded-md bg-accent-50 border border-accent-200 text-accent-700 font-heading font-bold text-[10px]">
+                            Full-Time
+                          </span>
+                          <span className="text-slate-300">•</span>
+                          <span className="px-2 py-0.5 rounded-md bg-orange-50 border border-orange-200 text-orange-800 font-heading font-bold text-[10px]">
+                            Part-Time
+                          </span>
+                        </div>
+
+                        {/* Experience & Location */}
+                        <div className="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
+                          <span>{job.experience}</span>
+                          <span>•</span>
+                          <span className="flex items-center gap-1">
+                            <MapPin className="w-3 h-3 text-accent-500" />
+                            {job.location}
+                          </span>
+                        </div>
+
+                        {/* Select / Apply Trigger */}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            handleSelectRole(job.title)
+                          }}
+                          className={`mt-1 px-3.5 py-1.5 rounded-xl font-heading font-bold text-xs transition-all flex items-center gap-1.5 cursor-pointer ${
+                            isSelected
+                              ? 'bg-accent-500 text-white shadow-xs'
+                              : 'bg-slate-100 hover:bg-accent-500 hover:text-white text-slate-700'
+                          }`}
+                        >
+                          <span>{isSelected ? 'Selected' : 'Apply for Role'}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </div>
                   </div>
+                )
+              })}
+            </div>
 
-                  {/* Job Title */}
-                  <h3 className="font-heading font-bold text-lg sm:text-xl text-slate-900 group-hover:text-accent-600 transition-colors leading-snug">
-                    {job.title}
-                  </h3>
-
-                  {/* Short Description */}
-                  <p className="body-paragraph text-slate-600 text-xs sm:text-sm mt-2.5 line-clamp-3 leading-relaxed">
-                    {job.description}
-                  </p>
-
-                  {/* Skills Pills */}
-                  <div className="flex flex-wrap gap-1.5 mt-3.5">
-                    {job.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/70 text-[11px] font-heading font-medium text-slate-600"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+            {/* Both Branches Quick Card */}
+            <div className="mt-8 pt-6 border-t border-slate-200/80">
+              <h4 className="font-heading font-bold text-sm text-slate-900 mb-3">
+                Coimbatore Campus Locations
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-accent-50 text-accent-600 flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4 text-accent-500" />
                   </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-600">
+                      Branch 01
+                    </span>
+                    <h5 className="font-heading font-bold text-xs text-slate-900">
+                      Gandhipuram, Coimbatore
+                    </h5>
+                    <p className="text-[11px] text-slate-500 font-sans mt-0.5">
+                      Central city hub • Walkable from Gandhipuram Bus Stand
+                    </p>
+                  </div>
+                </div>
 
-                  {/* Metadata Rows: Employment Type & Experience */}
-                  <div className="mt-5 pt-4 border-t border-slate-100 space-y-2.5 text-xs">
-                    {/* Employment Type Badges */}
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-slate-500 font-medium font-sans">
-                        Employment:
-                      </span>
-                      <div className="flex items-center gap-1.5">
-                        <span className="px-2 py-0.5 rounded-md bg-accent-50 border border-accent-200 text-accent-700 font-heading font-bold text-[11px]">
-                          Full-Time
-                        </span>
-                        <span className="text-slate-300">•</span>
-                        <span className="px-2 py-0.5 rounded-md bg-orange-50/80 border border-orange-200 text-orange-800 font-heading font-bold text-[11px]">
-                          Part-Time
-                        </span>
+                <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-orange-50 text-accent-600 flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4 text-accent-500" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-600">
+                      Branch 02
+                    </span>
+                    <h5 className="font-heading font-bold text-xs text-slate-900">
+                      Saravanampatti, Coimbatore
+                    </h5>
+                    <p className="text-[11px] text-slate-500 font-sans mt-0.5">
+                      IT Corridor Hub • Near CHIL SEZ & tech campuses
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Note */}
+            <div className="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/70 flex items-start gap-2.5 text-amber-900 text-xs font-sans">
+              <Info className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+              <span>
+                <strong>Draft Hiring Information:</strong> Role descriptions and
+                experience preferences are open to discussion based on your
+                industry background.
+              </span>
+            </div>
+          </div>
+
+          {/* =======================================================
+              RIGHT COLUMN: INLINE TRAINER APPLICATION FORM
+          ======================================================= */}
+          <div
+            id="trainer-application-form"
+            className="lg:col-span-5 lg:sticky lg:top-24"
+          >
+            <div className="rounded-3xl bg-white border-2 border-slate-200/90 shadow-xl overflow-hidden">
+              {/* Form Card Header */}
+              <div className="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white p-6 relative">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-500/20 border border-accent-500/40 text-accent-300 eyebrow-badge text-[10px] mb-2">
+                  <Sparkles className="w-3 h-3 text-accent-400" />
+                  <span>DIRECT APPLICATION FORM</span>
+                </div>
+                <h3 className="font-heading font-bold text-xl text-white">
+                  Apply for Trainer Position
+                </h3>
+                <p className="text-slate-300 text-xs font-sans mt-1">
+                  Fill in your details below and our academic hiring team will
+                  review your profile.
+                </p>
+              </div>
+
+              {/* Form Body */}
+              <div className="p-6">
+                {isSubmitted ? (
+                  <div className="py-6 text-center space-y-4">
+                    <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+                      <CheckCircle2 className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <h4 className="font-heading font-bold text-lg text-slate-900">
+                        Application Details Received!
+                      </h4>
+                      <p className="text-slate-600 text-xs sm:text-sm font-sans mt-1.5 leading-relaxed">
+                        Thank you for applying for{' '}
+                        <strong className="text-slate-900">
+                          {selectedRoleTitle}
+                        </strong>
+                        . Our team will contact you shortly for a preliminary
+                        conversation.
+                      </p>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-600 text-left space-y-1">
+                      <div>
+                        <strong>Employment:</strong> {employmentPreference}
+                      </div>
+                      <div>
+                        <strong>Branch:</strong> {branchPreference}
+                      </div>
+                      <div>
+                        <strong>Applicant:</strong> {formData.fullName} ({formData.phone})
                       </div>
                     </div>
 
-                    {/* Experience Requirement */}
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-slate-500 font-medium font-sans">
-                        Experience:
-                      </span>
-                      <span className="font-heading font-semibold text-slate-800 text-[11px] bg-slate-100 px-2 py-0.5 rounded-md">
-                        {job.experience}
-                      </span>
+                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5">
+                      <button
+                        type="button"
+                        onClick={handleResetForm}
+                        className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-heading font-bold text-xs shadow-md transition-all cursor-pointer"
+                      >
+                        Submit Another Application
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          onOpenEnquiry?.(
+                            `Application follow-up for ${selectedRoleTitle}`
+                          )
+                        }
+                        className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-heading font-semibold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                      >
+                        <PhoneCall className="w-3.5 h-3.5 text-accent-500" />
+                        <span>Contact Recruiter</span>
+                      </button>
                     </div>
                   </div>
-                </div>
-
-                {/* Card Action Button */}
-                <div className="mt-6 pt-4 border-t border-slate-100">
-                  <button
-                    type="button"
-                    onClick={() => handleOpenApplyModal(job.title)}
-                    className="w-full py-3 px-4 rounded-xl bg-accent-500 hover:bg-accent-600 active:scale-[0.98] text-white font-heading font-bold text-xs sm:text-sm shadow-md shadow-accent-500/20 hover:shadow-accent-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer group-hover:translate-y-0"
-                  >
-                    <span>Apply Now</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </button>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* =========================================================
-            3. DRAFT HIRING NOTE & BRANCH SUMMARY
-        ========================================================= */}
-        <div className="mt-10 p-4 rounded-2xl bg-amber-50/70 border border-amber-200/70 flex items-start sm:items-center gap-3 text-amber-900 text-xs sm:text-sm">
-          <Info className="w-5 h-5 text-amber-600 shrink-0 mt-0.5 sm:mt-0" />
-          <p className="font-sans leading-relaxed">
-            <strong>Draft Hiring Notice:</strong> Proposed role descriptions and experience preferences represent current hiring plans and are open to candidates with suitable industry skills. Positions are available across both branches.
-          </p>
-        </div>
-
-        {/* =========================================================
-            4. BOTH BRANCH LOCATIONS BANNER
-        ========================================================= */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {/* Branch 1 */}
-          <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-accent-50 border border-accent-100 text-accent-600 flex items-center justify-center shrink-0">
-              <MapPin className="w-5 h-5 text-accent-500" />
-            </div>
-            <div className="space-y-1">
-              <div className="eyebrow-badge text-[10px] text-accent-600">Branch 01</div>
-              <h4 className="font-heading font-bold text-base text-slate-900">
-                Gandhipuram, Coimbatore
-              </h4>
-              <p className="text-xs text-slate-600 font-sans leading-relaxed">
-                Central city hub walkable from Gandhipuram Bus Stand. Equipped with modern software training suites & interactive labs.
-              </p>
-            </div>
-          </div>
-
-          {/* Branch 2 */}
-          <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-orange-50 border border-orange-100 text-accent-600 flex items-center justify-center shrink-0">
-              <MapPin className="w-5 h-5 text-accent-500" />
-            </div>
-            <div className="space-y-1">
-              <div className="eyebrow-badge text-[10px] text-accent-600">Branch 02</div>
-              <h4 className="font-heading font-bold text-base text-slate-900">
-                Saravanampatti, Coimbatore
-              </h4>
-              <p className="text-xs text-slate-600 font-sans leading-relaxed">
-                Coimbatore IT Corridor location near CHIL SEZ & engineering campuses with state-of-the-art tech workspaces.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* =========================================================
-          5. TRAINER APPLICATION MODAL
-      ========================================================= */}
-      {isModalOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="trainer-modal-title"
-        >
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
-            onClick={handleCloseModal}
-          />
-
-          {/* Dialog Container */}
-          <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden z-10 animate-[fadeDown_.3s_ease-out]">
-            {/* Header */}
-            <div className="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white p-6 sm:p-7 relative">
-              <button
-                type="button"
-                onClick={handleCloseModal}
-                className="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
-                aria-label="Close dialog"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-500/20 border border-accent-500/40 text-accent-300 eyebrow-badge text-[10px] mb-2">
-                <Sparkles className="w-3 h-3 text-accent-400" />
-                <span>TRAINER APPLICATION</span>
-              </div>
-              <h3 id="trainer-modal-title" className="font-heading font-bold text-xl sm:text-2xl text-white">
-                Apply for Trainer Position
-              </h3>
-              <p className="text-slate-300 text-xs sm:text-sm font-sans mt-1">
-                Share your background and we will connect for an initial technical conversation.
-              </p>
-            </div>
-
-            {/* Content / Body */}
-            <div className="p-6 sm:p-7 max-h-[75vh] overflow-y-auto">
-              {isSubmitted ? (
-                <div className="text-center py-8 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h4 className="font-heading font-bold text-xl text-slate-900">
-                    Application Details Received!
-                  </h4>
-                  <p className="text-slate-600 text-sm max-w-md mx-auto font-sans leading-relaxed">
-                    Thank you for your interest in joining Cloudswan Solution as a{' '}
-                    <strong className="text-slate-900">{selectedRoleTitle}</strong>. Our academic coordinator will review your profile and reach out shortly.
-                  </p>
-                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 text-xs text-slate-600 max-w-sm mx-auto space-y-1">
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* Selected Role Dropdown */}
                     <div>
-                      <strong>Employment Preference:</strong> {employmentPreference}
-                    </div>
-                    <div>
-                      <strong>Branch Preference:</strong> {branchPreference}
-                    </div>
-                  </div>
-                  <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <button
-                      type="button"
-                      onClick={handleCloseModal}
-                      className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-heading font-bold text-xs shadow-md transition-all"
-                    >
-                      Close Window
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        handleCloseModal()
-                        onOpenEnquiry?.(`Inquiry for ${selectedRoleTitle}`)
-                      }}
-                      className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-heading font-semibold text-xs transition-all flex items-center justify-center gap-1.5"
-                    >
-                      <PhoneCall className="w-3.5 h-3.5 text-accent-500" />
-                      <span>Contact Directly</span>
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Selected Role */}
-                  <div>
-                    <label className="block text-xs font-heading font-bold text-slate-800 mb-1.5">
-                      Trainer Role <span className="text-red-500">*</span>
-                    </label>
-                    <div className="relative">
+                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+                        Applying for Role <span className="text-red-500">*</span>
+                      </label>
                       <select
-                        name="selectedRoleTitle"
                         value={selectedRoleTitle}
                         onChange={(e) => setSelectedRoleTitle(e.target.value)}
-                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white transition-all cursor-pointer"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white transition-all cursor-pointer font-medium"
                       >
                         {TRAINER_JOBS.map((job) => (
                           <option key={job.id} value={job.title}>
@@ -495,173 +555,184 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
                         ))}
                       </select>
                     </div>
-                  </div>
 
-                  {/* Row: Employment Preference & Branch Preference */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Preferred Employment & Branch */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+                          Employment
+                        </label>
+                        <select
+                          value={employmentPreference}
+                          onChange={(e) =>
+                            setEmploymentPreference(
+                              e.target.value as
+                                | 'Full-Time'
+                                | 'Part-Time'
+                                | 'Both / Flexible'
+                            )
+                          }
+                          className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white"
+                        >
+                          <option value="Both / Flexible">Both / Flexible</option>
+                          <option value="Full-Time">Full-Time</option>
+                          <option value="Part-Time">Part-Time</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+                          Preferred Branch
+                        </label>
+                        <select
+                          value={branchPreference}
+                          onChange={(e) =>
+                            setBranchPreference(
+                              e.target.value as
+                                | 'Both Branches'
+                                | 'Gandhipuram'
+                                | 'Saravanampatti'
+                            )
+                          }
+                          className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white"
+                        >
+                          <option value="Both Branches">Both Branches</option>
+                          <option value="Gandhipuram">Gandhipuram</option>
+                          <option value="Saravanampatti">Saravanampatti</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Full Name */}
                     <div>
-                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1.5">
-                        Preferred Employment
+                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+                        Full Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleInputChange}
+                        placeholder="e.g. Ramesh Kumar"
+                        className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border ${
+                          formErrors.fullName
+                            ? 'border-red-400 bg-red-50/30'
+                            : 'border-slate-200'
+                        } text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white`}
+                      />
+                      {formErrors.fullName && (
+                        <p className="text-red-500 text-[10px] mt-1 font-medium">
+                          {formErrors.fullName}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Row: Email & Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+                          Email Address <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          placeholder="ramesh@example.com"
+                          className={`w-full px-3 py-2.5 rounded-xl bg-slate-50 border ${
+                            formErrors.email
+                              ? 'border-red-400 bg-red-50/30'
+                              : 'border-slate-200'
+                          } text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white`}
+                        />
+                        {formErrors.email && (
+                          <p className="text-red-500 text-[10px] mt-1 font-medium">
+                            {formErrors.email}
+                          </p>
+                        )}
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+                          Phone Number <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          placeholder="+91 98765 43210"
+                          className={`w-full px-3 py-2.5 rounded-xl bg-slate-50 border ${
+                            formErrors.phone
+                              ? 'border-red-400 bg-red-50/30'
+                              : 'border-slate-200'
+                          } text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white`}
+                        />
+                        {formErrors.phone && (
+                          <p className="text-red-500 text-[10px] mt-1 font-medium">
+                            {formErrors.phone}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Experience */}
+                    <div>
+                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+                        Relevant Experience
                       </label>
                       <select
-                        value={employmentPreference}
-                        onChange={(e) =>
-                          setEmploymentPreference(
-                            e.target.value as 'Full-Time' | 'Part-Time' | 'Both / Flexible'
-                          )
-                        }
+                        name="experienceYears"
+                        value={formData.experienceYears}
+                        onChange={handleInputChange}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white"
                       >
-                        <option value="Both / Flexible">Both / Flexible</option>
-                        <option value="Full-Time">Full-Time Trainer</option>
-                        <option value="Part-Time">Part-Time / Weekend</option>
+                        <option value="Less than 1 Year">Less than 1 Year</option>
+                        <option value="1 - 2 Years">1 - 2 Years</option>
+                        <option value="3 - 5 Years">3 - 5 Years</option>
+                        <option value="5+ Years">5+ Years</option>
                       </select>
                     </div>
 
+                    {/* Short Message / Portfolio */}
                     <div>
-                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1.5">
-                        Preferred Branch
+                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+                        Short Summary / Profile Notes (Optional)
                       </label>
-                      <select
-                        value={branchPreference}
-                        onChange={(e) =>
-                          setBranchPreference(
-                            e.target.value as 'Both Branches' | 'Gandhipuram' | 'Saravanampatti'
-                          )
-                        }
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white"
+                      <textarea
+                        name="message"
+                        rows={2}
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder="Brief overview of your domains or previous teaching experience..."
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white resize-none"
+                      />
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-3.5 px-5 rounded-xl bg-accent-500 hover:bg-accent-600 disabled:opacity-70 text-white font-heading font-bold text-sm shadow-md shadow-accent-500/25 hover:shadow-accent-500/35 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
                       >
-                        <option value="Both Branches">Both Branches</option>
-                        <option value="Gandhipuram">Gandhipuram, Coimbatore</option>
-                        <option value="Saravanampatti">Saravanampatti, Coimbatore</option>
-                      </select>
+                        {isSubmitting ? (
+                          <span>Submitting...</span>
+                        ) : (
+                          <>
+                            <Send className="w-4 h-4" />
+                            <span>Submit Application</span>
+                          </>
+                        )}
+                      </button>
                     </div>
-                  </div>
-
-                  {/* Full Name */}
-                  <div>
-                    <label className="block text-xs font-heading font-bold text-slate-800 mb-1.5">
-                      Full Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleInputChange}
-                      placeholder="e.g. Anand Kumar"
-                      className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 border ${
-                        formErrors.fullName ? 'border-red-400 bg-red-50/30' : 'border-slate-200'
-                      } text-slate-900 font-sans text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white`}
-                    />
-                    {formErrors.fullName && (
-                      <p className="text-red-500 text-[11px] mt-1">{formErrors.fullName}</p>
-                    )}
-                  </div>
-
-                  {/* Row: Email & Phone */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1.5">
-                        Email Address <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="e.g. anand@example.com"
-                        className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border ${
-                          formErrors.email ? 'border-red-400 bg-red-50/30' : 'border-slate-200'
-                        } text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white`}
-                      />
-                      {formErrors.email && (
-                        <p className="text-red-500 text-[11px] mt-1">{formErrors.email}</p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1.5">
-                        Phone Number <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="e.g. +91 98765 43210"
-                        className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border ${
-                          formErrors.phone ? 'border-red-400 bg-red-50/30' : 'border-slate-200'
-                        } text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white`}
-                      />
-                      {formErrors.phone && (
-                        <p className="text-red-500 text-[11px] mt-1">{formErrors.phone}</p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Experience */}
-                  <div>
-                    <label className="block text-xs font-heading font-bold text-slate-800 mb-1.5">
-                      Relevant Technical / Teaching Experience
-                    </label>
-                    <select
-                      name="experienceYears"
-                      value={formData.experienceYears}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white"
-                    >
-                      <option value="Less than 1 Year">Less than 1 Year</option>
-                      <option value="1 - 2 Years">1 - 2 Years (Recommended)</option>
-                      <option value="3 - 5 Years">3 - 5 Years</option>
-                      <option value="5+ Years">5+ Years</option>
-                    </select>
-                  </div>
-
-                  {/* Brief Notes / Message */}
-                  <div>
-                    <label className="block text-xs font-heading font-bold text-slate-800 mb-1.5">
-                      Short Overview or Key Tech Skills (Optional)
-                    </label>
-                    <textarea
-                      name="message"
-                      rows={2}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Briefly highlight your core technical domains or teaching background..."
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white resize-none"
-                    />
-                  </div>
-
-                  {/* Action buttons */}
-                  <div className="pt-2 flex items-center justify-end gap-3">
-                    <button
-                      type="button"
-                      onClick={handleCloseModal}
-                      className="px-5 py-2.5 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-heading font-semibold text-xs sm:text-sm transition-colors"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="px-6 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 disabled:opacity-70 text-white font-heading font-bold text-xs sm:text-sm shadow-md shadow-accent-500/25 transition-all flex items-center gap-2 cursor-pointer"
-                    >
-                      {isSubmitting ? (
-                        <span>Submitting...</span>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          <span>Submit Application</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </form>
-              )}
+                  </form>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </section>
   )
 }

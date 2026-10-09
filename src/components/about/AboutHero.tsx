@@ -158,7 +158,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
             <div className="relative max-w-4xl space-y-2">
               <h1 className="display-h1 text-slate-900">
                 <span className="block animate-[titleReveal_.8s_cubic-bezier(.16,1,.3,1)_both]">
-                  Building Skills.
+                  Building Skills
                 </span>
                 <span className="block text-accent-500 animate-[titleReveal_.8s_cubic-bezier(.16,1,.3,1)_.2s_both]">
                   Shaping{' '}
@@ -504,13 +504,11 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
         @keyframes titleReveal {
           from {
             opacity: 0;
-            transform: translateY(45px);
-            clip-path: inset(100% 0 0 0);
+            transform: translateY(24px);
           }
           to {
             opacity: 1;
             transform: translateY(0);
-            clip-path: inset(0 0 0 0);
           }
         }
 
