@@ -4,7 +4,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Quote,
-  Sparkles,
 } from 'lucide-react'
 
 interface ReviewItem {
@@ -129,14 +128,14 @@ export const StudentReviews: React.FC = () => {
         {/* Section Header with Carousel Navigation Controls */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-50 border border-accent-200 text-accent-600 text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-accent-500" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-accent-500" />
               <span>VERIFIED LEARNER FEEDBACK</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="display-h2 text-slate-900">
               What Our Students Say
             </h2>
-            <p className="text-slate-600 text-base sm:text-lg">
+            <p className="lead-paragraph text-slate-600">
               Real experiences from learners who trained with Cloudswan Solution.
             </p>
           </div>
@@ -248,11 +247,11 @@ export const StudentReviews: React.FC = () => {
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     {/* Neutral Avatar with initial */}
-                    <div className="w-10 h-10 rounded-full bg-accent-50 border border-accent-200 text-accent-600 font-bold flex items-center justify-center text-sm shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-accent-50 border border-accent-200 text-accent-600 font-heading font-bold flex items-center justify-center text-sm shrink-0">
                       {review.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-slate-900 leading-tight">
+                      <div className="font-heading text-sm font-bold text-slate-900 leading-tight">
                         {review.name}
                       </div>
                       <div className="text-xs text-slate-500 mt-0.5">
@@ -261,7 +260,7 @@ export const StudentReviews: React.FC = () => {
                     </div>
                   </div>
 
-                  <span className="text-[11px] text-slate-400">Verified</span>
+                  <span className="eyebrow-badge text-[10px] text-slate-400 normal-case font-semibold">Verified</span>
                 </div>
               </div>
             )

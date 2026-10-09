@@ -143,94 +143,52 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
 
 
 
+            {/* Accreditation Badge / Eyebrow matching Home Page */}
+            <div className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-xs animate-[fadeDown_.6s_ease-out_both]">
+              <span className="w-2 h-2 rounded-full bg-accent-500" />
+              <span>About Cloudswan Solution</span>
+              <span className="text-accent-300">•</span>
+              <span className="text-slate-600 font-medium normal-case">Coimbatore</span>
+            </div>
+
             {/* =================================================
-                MAIN HEADING
+                MAIN HEADING (Same display-h1 font and size as Home Page)
             ================================================= */}
 
-            <div className="relative max-w-6xl">
-              {/* Animated orange underline */}
-              <div
-                className="
-                  pointer-events-none
-                  absolute
-                  bottom-[7px]
-                  left-0
-                  h-3
-                  w-[235px]
-                  origin-left
-                  bg-orange-100
-                  animate-[lineReveal_1s_ease-out_.7s_both]
-                  sm:w-[300px]
-                  lg:w-[390px]
-                "
-              />
-
-              <h1
-                className="
-                  relative
-                  text-5xl
-                  font-black
-                  leading-[0.98]
-                  tracking-[-0.045em]
-                  text-slate-950
-                  sm:text-6xl
-                  md:text-7xl
-                  lg:text-[82px]
-                  xl:text-[92px]
-                "
-              >
-                <span
-                  className="
-                    block
-                    animate-[titleReveal_.8s_cubic-bezier(.16,1,.3,1)_both]
-                  "
-                >
-                  Building
+            <div className="relative max-w-4xl space-y-2">
+              <h1 className="display-h1 text-slate-900">
+                <span className="block animate-[titleReveal_.8s_cubic-bezier(.16,1,.3,1)_both]">
+                  Building Skills.
                 </span>
-
-                <span
-                  className="
-                    block
-                    animate-[titleReveal_.8s_cubic-bezier(.16,1,.3,1)_.15s_both]
-                  "
-                >
-                  Skills.
-                </span>
-
-                <span
-                  className="
-                    relative
-                    z-10
-                    block
-                    text-orange-500
-                    animate-[titleReveal_.8s_cubic-bezier(.16,1,.3,1)_.3s_both]
-                  "
-                >
-                  Shaping Careers.
+                <span className="block text-accent-500 animate-[titleReveal_.8s_cubic-bezier(.16,1,.3,1)_.2s_both]">
+                  Shaping{' '}
+                  <span className="relative inline-block text-accent-500 whitespace-nowrap">
+                    Careers.
+                    {/* Stylized Curved Hand-drawn Underline Accent matching Home Page */}
+                    <svg
+                      className="absolute -bottom-2 left-0 w-full text-accent-500 fill-none overflow-visible"
+                      viewBox="0 0 250 18"
+                      height="14"
+                      preserveAspectRatio="none"
+                    >
+                      <path
+                        d="M 3,13 C 65,4 185,2 247,11 C 190,17 70,16 10,14"
+                        stroke="currentColor"
+                        strokeWidth="3.2"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </h1>
             </div>
 
             {/* =================================================
-                DESCRIPTION
+                DESCRIPTION (Same lead-paragraph as Home Page)
             ================================================= */}
 
-            <div
-              className="
-                mt-8
-                max-w-2xl
-                animate-[fadeUp_.8s_ease-out_.55s_both]
-              "
-            >
-              <p
-                className="
-                  text-base
-                  leading-7
-                  text-slate-600
-                  sm:text-lg
-                  sm:leading-8
-                "
-              >
+            <div className="mt-7 max-w-2xl animate-[fadeUp_.8s_ease-out_.45s_both]">
+              <p className="lead-paragraph text-slate-600">
                 Cloudswan Solution provides practical, career-focused
                 training programs that help students and professionals
                 develop the technical skills required to build a
@@ -244,12 +202,12 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
 
             <div
               className="
-                mt-9
+                mt-8
                 flex
                 flex-col
                 gap-3
                 sm:flex-row
-                animate-[fadeUp_.8s_ease-out_.7s_both]
+                animate-[fadeUp_.8s_ease-out_.6s_both]
               "
             >
               {/* Primary */}
@@ -263,19 +221,21 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                   justify-center
                   gap-2.5
                   rounded-xl
-                  bg-orange-500
+                  bg-accent-500
                   px-6
                   py-3.5
                   text-sm
                   font-bold
+                  font-heading
                   text-white
                   shadow-lg
-                  shadow-orange-500/20
+                  shadow-accent-500/20
                   transition-all
                   duration-300
                   hover:-translate-y-1
-                  hover:bg-orange-600
-                  hover:shadow-orange-500/30
+                  hover:bg-accent-600
+                  hover:shadow-accent-500/30
+                  cursor-pointer
                 "
               >
                 <BookOpen className="h-4 w-4" />
@@ -312,15 +272,17 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                   px-6
                   py-3.5
                   text-sm
-                  font-semibold
+                  font-bold
+                  font-heading
                   text-slate-700
-                  shadow-sm
+                  shadow-xs
                   transition-all
                   duration-300
                   hover:-translate-y-1
-                  hover:border-orange-200
-                  hover:bg-orange-50
-                  hover:text-orange-600
+                  hover:border-accent-200
+                  hover:bg-accent-50
+                  hover:text-accent-600
+                  cursor-pointer
                 "
               >
                 <span>
@@ -331,7 +293,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                   className="
                     h-4
                     w-4
-                    text-orange-500
+                    text-accent-500
                     transition-transform
                     duration-300
                     group-hover:translate-x-1
@@ -356,7 +318,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                 sm:flex-row
                 sm:items-center
                 sm:gap-8
-                animate-[fadeUp_.8s_ease-out_.85s_both]
+                animate-[fadeUp_.8s_ease-out_.75s_both]
               "
             >
               {/* Item 1 */}
@@ -369,18 +331,18 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                     items-center
                     justify-center
                     rounded-lg
-                    bg-orange-50
+                    bg-accent-50
                   "
                 >
-                  <CheckCircle2 className="h-4 w-4 text-orange-500" />
+                  <CheckCircle2 className="h-4 w-4 text-accent-500" />
                 </div>
 
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400">
+                  <p className="eyebrow-badge text-[10px] text-slate-400">
                     Learning
                   </p>
 
-                  <p className="text-xs font-bold text-slate-800">
+                  <p className="font-heading text-xs font-bold text-slate-800">
                     Practical Training
                   </p>
                 </div>
@@ -399,18 +361,18 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                     items-center
                     justify-center
                     rounded-lg
-                    bg-orange-50
+                    bg-accent-50
                   "
                 >
-                  <CheckCircle2 className="h-4 w-4 text-orange-500" />
+                  <CheckCircle2 className="h-4 w-4 text-accent-500" />
                 </div>
 
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400">
+                  <p className="eyebrow-badge text-[10px] text-slate-400">
                     Courses
                   </p>
 
-                  <p className="text-xs font-bold text-slate-800">
+                  <p className="font-heading text-xs font-bold text-slate-800">
                     Industry Focused
                   </p>
                 </div>
@@ -429,18 +391,18 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                     items-center
                     justify-center
                     rounded-lg
-                    bg-orange-50
+                    bg-accent-50
                   "
                 >
-                  <CheckCircle2 className="h-4 w-4 text-orange-500" />
+                  <CheckCircle2 className="h-4 w-4 text-accent-500" />
                 </div>
 
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400">
+                  <p className="eyebrow-badge text-[10px] text-slate-400">
                     Career
                   </p>
 
-                  <p className="text-xs font-bold text-slate-800">
+                  <p className="font-heading text-xs font-bold text-slate-800">
                     Guidance & Support
                   </p>
                 </div>

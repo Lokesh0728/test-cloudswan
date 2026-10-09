@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowRight, PhoneCall, Sparkles } from 'lucide-react'
+import { ArrowRight, PhoneCall } from 'lucide-react'
 
 interface CareerCTAProps {
   onExploreCourses?: () => void
@@ -30,13 +30,13 @@ export const CareerCTA: React.FC<CareerCTAProps> = ({
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
         {/* Small Highlight Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-500/15 border border-accent-500/30 text-accent-400 text-xs sm:text-sm font-semibold tracking-wider uppercase animate-fade-in">
-          <Sparkles className="w-3.5 h-3.5 text-accent-500" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-500/15 border border-accent-500/30 text-accent-400 eyebrow-badge animate-fade-in">
+          <span className="w-2 h-2 rounded-full bg-accent-400" />
           <span>CAREER ACCELERATION IN COIMBATORE</span>
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
+        <h2 className="display-h2 text-white max-w-4xl mx-auto">
           Join Us —{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 via-accent-500 to-accent-300">
             Let's Build Your Career
@@ -45,7 +45,7 @@ export const CareerCTA: React.FC<CareerCTAProps> = ({
         </h2>
 
         {/* Description */}
-        <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
+        <p className="lead-paragraph text-slate-300 max-w-3xl mx-auto">
           Whether you want to start a career, change fields, or upgrade your
           skills, Cloudswan Solution is here to guide you every step of the
           way.
@@ -63,7 +63,7 @@ export const CareerCTA: React.FC<CareerCTAProps> = ({
           <button
             type="button"
             onClick={onExploreCourses}
-            className="px-8 py-4 text-sm sm:text-base font-bold text-white bg-accent-500 hover:bg-accent-600 rounded-xl shadow-lg shadow-accent-500/30 hover:shadow-accent-500/50 transition-all duration-200 flex items-center gap-2 group cursor-pointer hover:-translate-y-0.5"
+            className="px-8 py-4 text-sm sm:text-base font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 rounded-xl shadow-lg shadow-accent-500/30 hover:shadow-accent-500/50 transition-all duration-200 flex items-center gap-2 group cursor-pointer hover:-translate-y-0.5"
           >
             <span>Explore Courses</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -72,7 +72,7 @@ export const CareerCTA: React.FC<CareerCTAProps> = ({
           <button
             type="button"
             onClick={onContactUs}
-            className="px-8 py-4 text-sm sm:text-base font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-accent-500/50 rounded-xl transition-all duration-200 flex items-center gap-2 cursor-pointer hover:-translate-y-0.5 shadow-xs"
+            className="px-8 py-4 text-sm sm:text-base font-bold font-heading text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-accent-500/50 rounded-xl transition-all duration-200 flex items-center gap-2 cursor-pointer hover:-translate-y-0.5 shadow-xs"
           >
             <PhoneCall className="w-4 h-4 text-accent-400" />
             <span>Contact Us</span>

@@ -120,33 +120,25 @@ export const WhyCloudswan: React.FC = () => {
 
         <div className="mx-auto max-w-3xl text-center">
 
-          {/* Number + label */}
-          <div className="mb-5 flex items-center justify-center gap-3 animate-why-header">
-
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-[11px] font-bold text-white shadow-md shadow-orange-500/20">
-              02
-            </span>
-
-            <span className="h-px w-8 bg-orange-300" />
-
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600">
-              Why Cloudswan
-            </span>
-
+          {/* Number + label matching Home Page eyebrow-badge */}
+          <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs animate-why-header">
+            <span className="w-2 h-2 rounded-full bg-accent-500" />
+            <span>Why Cloudswan</span>
+            <span className="text-accent-300">•</span>
+            <span className="text-slate-600 font-medium normal-case">02 Core Advantage</span>
           </div>
 
-          {/* Heading */}
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl animate-why-title">
+          {/* Heading matching Home Page Section H2 */}
+          <h2 className="display-h2 text-slate-900 animate-why-title">
             Learning designed around{' '}
-            <span className="relative inline-block text-orange-500">
+            <span className="relative inline-block text-accent-500">
               your growth
-
               <span className="absolute -bottom-1 left-0 h-1 w-full origin-left rounded-full bg-orange-200 animate-why-underline" />
             </span>
           </h2>
 
-          {/* Description */}
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base animate-why-description">
+          {/* Description matching Home Page lead-paragraph */}
+          <p className="mx-auto mt-4 max-w-2xl lead-paragraph text-slate-600 animate-why-description">
             Practical learning, industry guidance, and career-focused training
             designed to help students build confidence and develop relevant IT
             skills.
@@ -295,36 +287,36 @@ export const WhyCloudswan: React.FC = () => {
                     {/* Top number */}
                     <div className="relative z-10 mb-5 flex items-center justify-between">
 
-                      <span className="text-xs font-bold tracking-[0.15em] text-orange-600">
+                      <span className="font-heading text-xs font-bold tracking-[0.15em] text-accent-600">
                         0{index + 1}
                       </span>
 
                       <ArrowUpRight
-                        className="h-4 w-4 text-slate-300 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-orange-500"
+                        className="h-4 w-4 text-slate-300 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent-500"
                       />
 
                     </div>
 
 
                     {/* Icon */}
-                    <div className="relative z-10 mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 transition-all duration-500 group-hover:rotate-3 group-hover:bg-orange-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-orange-500/25">
+                    <div className="relative z-10 mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-50 text-accent-500 transition-all duration-500 group-hover:rotate-3 group-hover:bg-accent-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-accent-500/25">
 
                       <Icon className="h-5 w-5 transition-transform duration-500 group-hover:scale-110" />
 
                       {/* Icon pulse */}
-                      <span className="absolute inset-0 rounded-2xl border border-orange-300 opacity-0 group-hover:animate-icon-pulse" />
+                      <span className="absolute inset-0 rounded-2xl border border-accent-300 opacity-0 group-hover:animate-icon-pulse" />
 
                     </div>
 
 
-                    {/* Heading */}
-                    <h3 className="relative z-10 text-lg font-bold tracking-tight text-orange-600 sm:text-xl">
+                    {/* Heading matching Home Page card title */}
+                    <h3 className="relative z-10 display-card-title text-accent-600">
                       {feature.title}
                     </h3>
 
 
-                    {/* Description */}
-                    <p className="relative z-10 mt-2.5 text-sm leading-6 text-slate-500">
+                    {/* Description matching Home Page body-paragraph */}
+                    <p className="relative z-10 mt-2.5 body-paragraph text-slate-600">
                       {feature.description}
                     </p>
 
@@ -332,11 +324,11 @@ export const WhyCloudswan: React.FC = () => {
                     {/* Bottom check */}
                     <div className="relative z-10 mt-6 flex items-center gap-2 border-t border-orange-100 pt-4">
 
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-100 text-orange-600">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent-50 text-accent-500">
                         <Check className="h-3 w-3" />
                       </span>
 
-                      <span className="text-[11px] font-semibold uppercase tracking-wide text-slate-400 transition-colors duration-300 group-hover:text-slate-600">
+                      <span className="eyebrow-badge text-[11px] text-slate-400 transition-colors duration-300 group-hover:text-slate-600 normal-case font-semibold">
                         Cloudswan Standard
                       </span>
 
@@ -361,9 +353,9 @@ export const WhyCloudswan: React.FC = () => {
 
         <div className="mx-auto mt-14 max-w-3xl text-center sm:mt-16 animate-why-bottom">
 
-          <div className="mx-auto mb-4 h-px w-16 bg-orange-300" />
+          <div className="mx-auto mb-4 h-px w-16 bg-accent-300" />
 
-          <p className="text-sm font-medium leading-6 text-slate-500 sm:text-base">
+          <p className="lead-paragraph text-slate-600 max-w-2xl mx-auto">
             From learning technology to gaining practical experience and
             preparing for your career, every part of the learning journey is
             designed with your growth in mind.

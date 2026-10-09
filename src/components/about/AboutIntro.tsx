@@ -8,7 +8,6 @@ import {
   Wrench,
   Target,
   GraduationCap,
-  Sparkles,
 } from 'lucide-react'
 
 interface AboutIntroProps {
@@ -47,33 +46,28 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
           <div className="lg:col-span-6 animate-about-left">
 
             {/* Section label */}
-            <div className="mb-5 inline-flex items-center gap-2">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-50 text-[11px] font-bold text-orange-600 ring-1 ring-orange-100">
-                01
-              </span>
-
-              <span className="h-px w-8 bg-orange-300" />
-
-              <span className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">
-                Who We Are
-              </span>
+            <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-accent-500" />
+              <span>Who We Are</span>
+              <span className="text-accent-300">•</span>
+              <span className="text-slate-600 font-medium normal-case">01 Overview</span>
             </div>
 
-            {/* Heading */}
-            <h2 className="max-w-2xl text-3xl font-extrabold leading-[1.12] tracking-tight text-slate-900 sm:text-4xl lg:text-[46px]">
+            {/* Heading matching Home Page Section H2 */}
+            <h2 className="display-h2 text-slate-900 max-w-2xl">
               Training people to become{' '}
-              <span className="relative inline-block text-orange-500">
+              <span className="relative inline-block text-accent-500">
                 industry-ready
                 <span className="absolute -bottom-1 left-0 h-1 w-full origin-left rounded-full bg-orange-200 animate-heading-line" />
               </span>{' '}
               professionals.
             </h2>
 
-            {/* Description */}
-            <div className="mt-7 max-w-2xl space-y-4 text-sm leading-7 text-slate-600 sm:text-base">
+            {/* Description matching Home Page body-paragraph */}
+            <div className="mt-6 max-w-2xl space-y-4 body-paragraph text-slate-600">
 
               <p>
-                <strong className="font-semibold text-slate-800">
+                <strong className="font-bold text-slate-900 font-heading">
                   Cloudswan Solution is a training institute in Coimbatore
                 </strong>
                 , offering IT and cloud training programs. We help you choose
@@ -134,7 +128,7 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
               <button
                 type="button"
                 onClick={onExploreCourses}
-                className="group flex cursor-pointer items-center gap-2 rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-orange-500/30"
+                className="group flex cursor-pointer items-center gap-2 rounded-xl bg-accent-500 px-6 py-3.5 text-sm font-bold font-heading text-white shadow-lg shadow-accent-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-accent-600 hover:shadow-accent-500/30"
               >
                 <span>Explore Our Courses</span>
 
@@ -144,9 +138,9 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
               <button
                 type="button"
                 onClick={onTalkToCounselor}
-                className="group flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:text-orange-600"
+                className="group flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-bold font-heading text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-300 hover:text-accent-600"
               >
-                <Headphones className="h-4 w-4 text-orange-500 transition-transform duration-300 group-hover:rotate-12" />
+                <Headphones className="h-4 w-4 text-accent-500 transition-transform duration-300 group-hover:rotate-12" />
 
                 <span>Talk to a Counselor</span>
               </button>
@@ -242,10 +236,8 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
                 {/* Orange top accent */}
                 <div className="absolute -top-1 left-1/2 h-2 w-10 -translate-x-1/2 rounded-full bg-orange-500" />
 
-                <div className="mb-1 flex items-center gap-1.5">
-                  <Sparkles className="h-4 w-4 text-orange-500" />
-
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500">
+                <div className="mb-1 flex items-center justify-center">
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-500 font-heading">
                     Learn
                   </span>
                 </div>
@@ -781,11 +773,11 @@ interface FeatureItemProps {
 const FeatureItem: React.FC<FeatureItemProps> = ({ icon, text }) => {
   return (
     <div className="group flex items-center gap-2.5 rounded-lg border border-transparent px-2 py-2 transition-all duration-300 hover:border-orange-100 hover:bg-orange-50/50">
-      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-50 text-orange-500 transition-transform duration-300 group-hover:scale-110">
+      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent-50 text-accent-500 transition-transform duration-300 group-hover:scale-110">
         {icon}
       </span>
 
-      <span className="text-xs font-semibold text-slate-700 sm:text-sm">
+      <span className="font-heading text-xs font-semibold text-slate-700 sm:text-sm">
         {text}
       </span>
     </div>
@@ -808,19 +800,19 @@ const OrbitCard: React.FC<OrbitCardProps> = ({
   description,
 }) => {
   return (
-    <div className="group w-full cursor-pointer rounded-2xl border border-slate-200/80 bg-white/95 p-3 shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-100/70">
+    <div className="group w-full cursor-pointer rounded-2xl border border-slate-200/80 bg-white/95 p-3 shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-accent-100/70">
       <div className="flex items-center gap-2.5">
 
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-500 transition-all duration-300 group-hover:bg-orange-500 group-hover:text-white">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent-50 text-accent-500 transition-all duration-300 group-hover:bg-accent-500 group-hover:text-white">
           {icon}
         </div>
 
         <div className="min-w-0 flex-1">
-          <div className="whitespace-nowrap text-xs font-bold text-slate-800 sm:text-sm">
+          <div className="whitespace-nowrap font-heading text-xs font-bold text-slate-800 sm:text-sm">
             {title}
           </div>
 
-          <div className="mt-0.5 whitespace-nowrap text-[9px] font-medium uppercase tracking-wide text-slate-400 sm:text-[10px]">
+          <div className="mt-0.5 whitespace-nowrap eyebrow-badge text-[9px] text-slate-400 sm:text-[10px] normal-case font-medium">
             {description}
           </div>
         </div>
