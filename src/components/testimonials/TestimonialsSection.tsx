@@ -256,19 +256,17 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
                 role="tab"
                 aria-selected={isSelected}
                 onClick={() => handleCategoryChange(cat.id)}
-                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold font-heading tracking-wide transition-all flex items-center gap-2 cursor-pointer ${
-                  isSelected
+                className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold font-heading tracking-wide transition-all flex items-center gap-2 cursor-pointer ${isSelected
                     ? 'bg-accent-500 text-white shadow-sm shadow-accent-500/25'
                     : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-slate-200/80 shadow-2xs'
-                }`}
+                  }`}
               >
                 <span>{cat.label}</span>
                 <span
-                  className={`text-[10px] px-1.5 py-0.5 rounded-full font-heading ${
-                    isSelected
+                  className={`text-[10px] px-1.5 py-0.5 rounded-full font-heading ${isSelected
                       ? 'bg-white/20 text-white'
                       : 'bg-slate-100 text-slate-500'
-                  }`}
+                    }`}
                 >
                   {cat.count}
                 </span>
@@ -283,22 +281,20 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
             <button
               type="button"
               onClick={() => setViewMode('slider')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold font-heading transition-colors cursor-pointer ${
-                viewMode === 'slider'
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold font-heading transition-colors cursor-pointer ${viewMode === 'slider'
                   ? 'bg-slate-900 text-white shadow-2xs'
                   : 'text-slate-600 hover:text-slate-900'
-              }`}
+                }`}
             >
               Slider
             </button>
             <button
               type="button"
               onClick={() => setViewMode('grid')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold font-heading transition-colors cursor-pointer ${
-                viewMode === 'grid'
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold font-heading transition-colors cursor-pointer ${viewMode === 'grid'
                   ? 'bg-slate-900 text-white shadow-2xs'
                   : 'text-slate-600 hover:text-slate-900'
-              }`}
+                }`}
             >
               All Grid
             </button>
@@ -362,11 +358,10 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
               type="button"
               onClick={() => setCurrentPage(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              className={`h-2 rounded-full transition-all cursor-pointer ${
-                activePage === idx
+              className={`h-2 rounded-full transition-all cursor-pointer ${activePage === idx
                   ? 'w-7 bg-accent-500'
                   : 'w-2 bg-slate-300 hover:bg-slate-400'
-              }`}
+                }`}
             />
           ))}
         </div>

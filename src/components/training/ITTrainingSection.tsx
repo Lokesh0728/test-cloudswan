@@ -141,11 +141,10 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
                       key={audience.id}
                       type="button"
                       onClick={() => setActiveAudienceId(audience.id)}
-                      className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-heading transition-all ${
-                        isActive
+                      className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-heading transition-all ${isActive
                           ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-md shadow-accent-500/20'
                           : 'text-slate-300 hover:text-white hover:bg-slate-700/60'
-                      }`}
+                        }`}
                     >
                       <Icon className="w-4 h-4 shrink-0" />
                       <span>{audience.shortLabel}</span>

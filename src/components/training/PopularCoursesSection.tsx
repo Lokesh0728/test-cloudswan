@@ -34,11 +34,10 @@ const TechTile: React.FC<TechTileProps> = ({ course, onClick, isGrid }) => {
     <button
       type="button"
       onClick={onClick}
-      className={`group relative flex flex-col items-center justify-center rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer text-center select-none ${
-        isGrid
+      className={`group relative flex flex-col items-center justify-center rounded-3xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer text-center select-none ${isGrid
           ? 'w-full h-36 sm:h-40 p-4'
           : 'w-40 sm:w-44 h-36 sm:h-40 p-4 shrink-0'
-      }`}
+        }`}
     >
       {/* Ambient Radial Color Glow on Hover */}
       <div
@@ -170,11 +169,10 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
             <button
               type="button"
               onClick={() => setViewMode('marquee')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold font-heading transition-all flex items-center gap-1.5 cursor-pointer ${
-                viewMode === 'marquee'
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold font-heading transition-all flex items-center gap-1.5 cursor-pointer ${viewMode === 'marquee'
                   ? 'bg-white text-slate-900 shadow-xs'
                   : 'text-slate-500 hover:text-slate-800'
-              }`}
+                }`}
             >
               <Zap className="w-3.5 h-3.5 text-accent-500" />
               <span>Animated Stream</span>
@@ -183,11 +181,10 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
             <button
               type="button"
               onClick={() => setViewMode('grid')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold font-heading transition-all flex items-center gap-1.5 cursor-pointer ${
-                viewMode === 'grid'
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold font-heading transition-all flex items-center gap-1.5 cursor-pointer ${viewMode === 'grid'
                   ? 'bg-white text-slate-900 shadow-xs'
                   : 'text-slate-500 hover:text-slate-800'
-              }`}
+                }`}
             >
               <LayoutGrid className="w-3.5 h-3.5 text-accent-500" />
               <span>Grid View</span>
@@ -209,9 +206,8 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
             <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent z-10" />
 
             <div
-              className={`animate-marquee gap-4 sm:gap-5 ${
-                isPaused ? 'pause-animation' : ''
-              }`}
+              className={`animate-marquee gap-4 sm:gap-5 ${isPaused ? 'pause-animation' : ''
+                }`}
             >
               {[...track1Courses, ...track1Courses].map((course, idx) => (
                 <TechTile
@@ -230,9 +226,8 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
             <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent z-10" />
 
             <div
-              className={`animate-marquee-reverse gap-4 sm:gap-5 ${
-                isPaused ? 'pause-animation' : ''
-              }`}
+              className={`animate-marquee-reverse gap-4 sm:gap-5 ${isPaused ? 'pause-animation' : ''
+                }`}
             >
               {[...track2Courses, ...track2Courses].map((course, idx) => (
                 <TechTile
@@ -259,11 +254,10 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
                   key={tab.id}
                   type="button"
                   onClick={() => setSelectedCategory(tab.id)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold font-heading whitespace-nowrap transition-all cursor-pointer ${
-                    isActive
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold font-heading whitespace-nowrap transition-all cursor-pointer ${isActive
                       ? 'bg-slate-900 text-white'
                       : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-                  }`}
+                    }`}
                 >
                   {tab.label}
                 </button>
