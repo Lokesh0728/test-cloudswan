@@ -144,7 +144,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
 
 
             {/* Accreditation Badge / Eyebrow matching Home Page */}
-            <div className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-xs animate-[fadeDown_.6s_ease-out_both]">
+            <div className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-xs">
               <span className="w-2 h-2 rounded-full bg-accent-500" />
               <span>About Cloudswan Solution</span>
               <span className="text-accent-300">•</span>
@@ -157,10 +157,10 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
 
             <div className="relative max-w-4xl space-y-2">
               <h1 className="display-h1 text-slate-900">
-                <span className="block animate-[titleReveal_.8s_cubic-bezier(.16,1,.3,1)_both]">
+                <span className="block">
                   Building Skills
                 </span>
-                <span className="block text-accent-500 animate-[titleReveal_.8s_cubic-bezier(.16,1,.3,1)_.2s_both]">
+                <span className="block text-accent-500">
                   Shaping{' '}
                   <span className="relative inline-block text-accent-500 whitespace-nowrap">
                     Careers.
@@ -187,7 +187,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                 DESCRIPTION (Same lead-paragraph as Home Page)
             ================================================= */}
 
-            <div className="mt-7 max-w-2xl animate-[fadeUp_.8s_ease-out_.45s_both]">
+            <div className="mt-7 max-w-2xl">
               <p className="lead-paragraph text-slate-600">
                 Cloudswan Solution provides practical, career-focused
                 training programs that help students and professionals
@@ -207,7 +207,6 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                 flex-col
                 gap-3
                 sm:flex-row
-                animate-[fadeUp_.8s_ease-out_.6s_both]
               "
             >
               {/* Primary */}
@@ -318,7 +317,6 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                 sm:flex-row
                 sm:items-center
                 sm:gap-8
-                animate-[fadeUp_.8s_ease-out_.75s_both]
               "
             >
               {/* Item 1 */}
@@ -479,49 +477,6 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
       ===================================================== */}
 
       <style>{`
-        @keyframes fadeDown {
-          from {
-            opacity: 0;
-            transform: translateY(-12px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(24px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes titleReveal {
-          from {
-            opacity: 0;
-            transform: translateY(24px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes lineReveal {
-          from {
-            transform: scaleX(0);
-            opacity: 0;
-          }
-          to {
-            transform: scaleX(1);
-            opacity: 1;
-          }
-        }
 
         @keyframes float {
           0%,

@@ -3,6 +3,7 @@ import { AboutHero } from './AboutHero'
 import { AboutIntro } from './AboutIntro'
 import { WhyCloudswan } from './WhyCloudswan'
 import { TrainingApproach } from './TrainingApproach'
+import { AchievementsAndLearning } from './AchievementsAndLearning'
 import { StudentReviews } from './StudentReviews'
 
 interface AboutPageProps {
@@ -44,10 +45,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       {/* 3. WHY WE ARE BEST */}
       <WhyCloudswan />
 
-      {/* 4. OUR TRAINING APPROACH */}
+      {/* 4. OUR TRAINING APPROACH (Structured Methodology) */}
       <TrainingApproach />
 
-      {/* 5. GOOGLE REVIEWS / STUDENT EXPERIENCES */}
+      {/* 5. CERTIFICATES & ACHIEVEMENTS + CLASSES & LEARNING */}
+      <AchievementsAndLearning />
+
+      {/* 6. GOOGLE REVIEWS / STUDENT EXPERIENCES */}
       <StudentReviews />
     </article>
   )
