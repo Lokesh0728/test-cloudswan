@@ -118,7 +118,7 @@ export default function App() {
             onOpenEnquiry={handleOpenEnquiry}
             initialCategory={queryCategory}
           />
-        ) : currentPath === '/about' ? (
+        ) : normalizedPath === '/about' ? (
           <AboutPage
             onNavigateHome={() => handleNavigate('/')}
             onExploreCourses={() => {
@@ -126,7 +126,7 @@ export default function App() {
             }}
             onOpenEnquiry={handleOpenEnquiry}
           />
-        ) : currentPath === '/careers' ? (
+        ) : normalizedPath === '/careers' ? (
           <CareersPage
             onNavigateHome={() => handleNavigate('/')}
             onOpenEnquiry={handleOpenEnquiry}
