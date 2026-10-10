@@ -1,4 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
+import cardInternship from '../../assets/about/card-internship.jpg'
+import cardOnlineClasses from '../../assets/about/card-online-classes.jpg'
+import cardCorporateTraining from '../../assets/about/card-corporate-training.jpg'
+import cardOneOnOne from '../../assets/about/card-one-on-one.jpg'
+import cardPlacementSupport from '../../assets/about/card-placement-support.jpg'
 import {
   Briefcase,
   MonitorPlay,
@@ -14,6 +19,7 @@ interface FeatureCard {
   title: string
   description: string
   icon: React.ComponentType<{ className?: string }>
+  image?: string
 }
 
 const FEATURES: FeatureCard[] = [
@@ -23,6 +29,7 @@ const FEATURES: FeatureCard[] = [
     description:
       'Gain practical exposure through real-world projects and internship opportunities.',
     icon: Briefcase,
+    image: cardInternship,
   },
   {
     id: 'online-classes',
@@ -30,6 +37,7 @@ const FEATURES: FeatureCard[] = [
     description:
       'Learn from anywhere with flexible online learning options.',
     icon: MonitorPlay,
+    image: cardOnlineClasses,
   },
   {
     id: 'corporate-training',
@@ -37,6 +45,7 @@ const FEATURES: FeatureCard[] = [
     description:
       'Industry-focused training programs designed for organizations and teams.',
     icon: Building2,
+    image: cardCorporateTraining,
   },
   {
     id: 'one-on-one',
@@ -44,6 +53,7 @@ const FEATURES: FeatureCard[] = [
     description:
       'Personalized guidance to help students understand concepts clearly.',
     icon: UserCheck,
+    image: cardOneOnOne,
   },
   {
     id: 'placement-support',
@@ -51,6 +61,7 @@ const FEATURES: FeatureCard[] = [
     description:
       'Career guidance, interview preparation, and placement assistance.',
     icon: ShieldCheck,
+    image: cardPlacementSupport,
   },
 ]
 
@@ -60,7 +71,7 @@ export const WhyCloudswan: React.FC = () => {
   ========================================================== */
 
   const sectionRef = useRef<HTMLElement | null>(null)
-  const [linesActive, setLinesActive] = useState(false)
+  const [linesActive, setLinesActive] = useState(true)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -71,13 +82,11 @@ export const WhyCloudswan: React.FC = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setLinesActive(true)
-
-          // Trigger only once
           observer.disconnect()
         }
       },
       {
-        threshold: 0.35,
+        threshold: 0.1,
       },
     )
 
@@ -121,14 +130,14 @@ export const WhyCloudswan: React.FC = () => {
         <div className="mx-auto max-w-3xl text-center">
 
           {/* Number + label matching Home Page eyebrow-badge */}
-          <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs animate-why-header">
+          <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-accent-500" />
             <span>Why Cloudswan</span>
 
           </div>
 
           {/* Heading matching Home Page Section H2 */}
-          <h2 className="display-h2 text-slate-900 animate-why-title">
+          <h2 className="display-h2 text-slate-900">
             Learning designed around{' '}
             <span className="relative inline-block text-accent-500">
               your growth
@@ -137,7 +146,7 @@ export const WhyCloudswan: React.FC = () => {
           </h2>
 
           {/* Description matching Home Page lead-paragraph */}
-          <p className="mx-auto mt-4 max-w-2xl lead-paragraph text-slate-600 animate-why-description">
+          <p className="mx-auto mt-4 max-w-2xl lead-paragraph text-slate-600">
             Practical learning, industry guidance, and career-focused training
             designed to help students build confidence and develop relevant IT
             skills.
@@ -256,8 +265,6 @@ export const WhyCloudswan: React.FC = () => {
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
 
             {FEATURES.map((feature, index) => {
-              const Icon = feature.icon
-
               return (
                 <div
                   key={feature.id}
@@ -269,72 +276,79 @@ export const WhyCloudswan: React.FC = () => {
           ${index === 2 ? 'lg:col-start-1' : ''}
           ${index === 3 ? 'lg:col-start-9' : ''}
           ${index === 4 ? 'lg:col-start-5' : ''}
-          ${getAnimationClass(index)}
         `}
                 >
 
                   {/* ================================================= CARD ================================================= */}
 
-                  <div className="relative h-full overflow-hidden rounded-2xl border border-orange-100 bg-white p-6 shadow-[0_10px_35px_rgba(249,115,22,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-orange-300 hover:shadow-2xl hover:shadow-orange-100/60">
+                  <div className="relative h-full min-h-[320px] overflow-hidden rounded-2xl border border-slate-700/40 bg-slate-900 p-5 sm:p-6 shadow-[0_15px_40px_rgba(15,23,42,0.14)] transition-all duration-500 hover:-translate-y-2 hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/20 flex flex-col justify-between">
 
                     {/* Primary Orange Top Accent */}
-                    <span className="absolute left-0 top-0 h-1 w-full bg-orange-500" />
+                    <span className="absolute left-0 top-0 h-1.5 w-full bg-orange-500 z-20" />
+
+                    {/* Full-bleed Card Background Photo - Clearly Visible with Soft Shade */}
+                    {feature.image && (
+                      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                        <img
+                          src={feature.image}
+                          alt={feature.title}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                        />
+                        {/* Decreased black shade overlay: soft, gentle gradient allowing the photo to shine through clearly */}
+                        <div
+                          className="absolute inset-0"
+                          style={{
+                            background:
+                              'linear-gradient(to top, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.45) 40%, rgba(15, 23, 42, 0.08) 68%, transparent 100%)',
+                          }}
+                        />
+                      </div>
+                    )}
 
                     {/* Soft Orange Corner Glow */}
-                    <span className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-orange-100/60 blur-3xl transition-all duration-500 group-hover:bg-orange-200/70" />
+                    <span className="pointer-events-none absolute -right-16 -top-16 z-10 h-32 w-32 rounded-full bg-orange-500/15 blur-3xl transition-all duration-500 group-hover:bg-orange-500/30" />
 
-                    {/* Top number */}
-                    <div className="relative z-10 mb-5 flex items-center justify-between">
+                    <div className="relative z-10">
+                      {/* Top number & Arrow */}
+                      <div className="mb-8 flex items-center justify-between">
 
-                      <span className="font-heading text-xs font-bold tracking-[0.15em] text-accent-600">
-                        0{index + 1}
-                      </span>
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-950/50 backdrop-blur-md border border-white/20 font-heading text-xs font-bold tracking-[0.15em] text-orange-400 shadow-sm">
+                          0{index + 1}
+                        </span>
 
-                      <ArrowUpRight
-                        className="h-4 w-4 text-slate-300 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent-500"
-                      />
+                        <span className="flex h-7 w-7 items-center justify-center rounded-md bg-slate-950/50 backdrop-blur-md border border-white/20 shadow-sm text-white/80 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-orange-400 group-hover:border-orange-400/50">
+                          <ArrowUpRight className="h-4 w-4" />
+                        </span>
 
+                      </div>
+
+                      {/* Heading matching Home Page card title with drop shadow */}
+                      <h3 className="display-card-title text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] group-hover:text-orange-400 transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+
+                      {/* Description matching Home Page body-paragraph with drop shadow */}
+                      <p className="mt-2.5 body-paragraph text-slate-100 font-medium leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
+                        {feature.description}
+                      </p>
                     </div>
 
+                    {/* Bottom check with subtle frosted bar */}
+                    <div className="relative z-10 mt-6 flex items-center gap-2 border-t border-white/20 pt-4 bg-slate-950/20 backdrop-blur-xs -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 px-5 sm:px-6 pb-4 sm:pb-5 rounded-b-2xl">
 
-                    {/* Icon */}
-                    <div className="relative z-10 mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-50 text-accent-500 transition-all duration-500 group-hover:rotate-3 group-hover:bg-accent-500 group-hover:text-white group-hover:shadow-lg group-hover:shadow-accent-500/25">
-
-                      <Icon className="h-5 w-5 transition-transform duration-500 group-hover:scale-110" />
-
-                      {/* Icon pulse */}
-                      <span className="absolute inset-0 rounded-2xl border border-accent-300 opacity-0 group-hover:animate-icon-pulse" />
-
-                    </div>
-
-
-                    {/* Heading matching Home Page card title */}
-                    <h3 className="relative z-10 display-card-title text-accent-600">
-                      {feature.title}
-                    </h3>
-
-
-                    {/* Description matching Home Page body-paragraph */}
-                    <p className="relative z-10 mt-2.5 body-paragraph text-slate-600">
-                      {feature.description}
-                    </p>
-
-
-                    {/* Bottom check */}
-                    <div className="relative z-10 mt-6 flex items-center gap-2 border-t border-orange-100 pt-4">
-
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent-50 text-accent-500">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-500/25 text-orange-400 shrink-0 shadow-2xs">
                         <Check className="h-3 w-3" />
                       </span>
 
-                      <span className="eyebrow-badge text-[11px] text-slate-400 transition-colors duration-300 group-hover:text-slate-600 normal-case font-semibold">
+                      <span className="eyebrow-badge text-[11px] text-slate-200 transition-colors duration-300 group-hover:text-white normal-case font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
                         Cloudswan Standard
                       </span>
 
                     </div>
 
                     {/* Hover glow */}
-                    <span className="pointer-events-none absolute -right-12 -top-12 h-28 w-28 rounded-full bg-orange-100/0 blur-2xl transition-all duration-500 group-hover:bg-orange-100/70" />
+                    <span className="pointer-events-none absolute -right-12 -top-12 z-10 h-28 w-28 rounded-full bg-orange-500/0 blur-2xl transition-all duration-500 group-hover:bg-orange-500/20" />
 
                   </div>
 
@@ -350,7 +364,7 @@ export const WhyCloudswan: React.FC = () => {
             BOTTOM STATEMENT
         ===================================================== */}
 
-        <div className="mx-auto mt-14 max-w-3xl text-center sm:mt-16 animate-why-bottom">
+        <div className="mx-auto mt-14 max-w-3xl text-center sm:mt-16">
 
           <div className="mx-auto mb-4 h-px w-16 bg-accent-300" />
 
@@ -380,59 +394,7 @@ export const WhyCloudswan: React.FC = () => {
 
       <style>{`
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
 
-        @keyframes whyHeader {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-why-header {
-          animation: whyHeader 0.7s ease-out both;
-        }
-
-
-        @keyframes whyTitle {
-          from {
-            opacity: 0;
-            transform: translateY(25px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-why-title {
-          animation: whyTitle 0.8s ease-out 0.15s both;
-        }
-
-
-        @keyframes whyDescription {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-why-description {
-          animation: whyDescription 0.8s ease-out 0.3s both;
-        }
 
 
         /* =====================================================
@@ -550,41 +512,37 @@ export const WhyCloudswan: React.FC = () => {
         ===================================================== */
 
         .line-one {
-          width: 250px;
+          width: 210px;
           left: 29%;
-          top: 30%;
-          transform: rotate(-28deg);
+          top: 175px;
+          transform: rotate(-24deg);
         }
-
 
         .line-two {
-          width: 250px;
+          width: 210px;
           left: 57%;
-          top: 30%;
-          transform: rotate(28deg);
+          top: 100px;
+          transform: rotate(24deg);
         }
-
 
         .line-three {
-          width: 250px;
-          left: 29%;
-          top: 68%;
-          transform: rotate(28deg);
+          width: 210px;
+          left: 30%;
+          top: 510px;
+          transform: rotate(22deg);
         }
-
 
         .line-four {
-          width: 250px;
+          width: 210px;
           left: 57%;
-          top: 68%;
-          transform: rotate(-28deg);
+          top: 510px;
+          transform: rotate(-22deg);
         }
 
-
         .line-five {
-          width: 120px;
-          left: 46%;
-          top: 76%;
+          width: 70px;
+          left: 50%;
+          top: 830px;
           transform: rotate(90deg);
         }
 
@@ -704,75 +662,7 @@ export const WhyCloudswan: React.FC = () => {
         }
 
 
-        /* =====================================================
-           CARD REVEALS
-        ===================================================== */
 
-        @keyframes cardFromLeft {
-
-          from {
-            opacity: 0;
-            transform: translateX(-45px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-
-        @keyframes cardFromRight {
-
-          from {
-            opacity: 0;
-            transform: translateX(45px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-
-        @keyframes cardFromBottom {
-
-          from {
-            opacity: 0;
-            transform: translateY(45px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-
-        .animate-card-left {
-          animation: cardFromLeft 0.8s ease-out 0.5s both;
-        }
-
-
-        .animate-card-right {
-          animation: cardFromRight 0.8s ease-out 0.65s both;
-        }
-
-
-        .animate-card-left-two {
-          animation: cardFromLeft 0.8s ease-out 0.8s both;
-        }
-
-
-        .animate-card-right-two {
-          animation: cardFromRight 0.8s ease-out 0.95s both;
-        }
-
-
-        .animate-card-bottom {
-          animation: cardFromBottom 0.8s ease-out 1.1s both;
-        }
 
 
         /* =====================================================
@@ -847,27 +737,7 @@ export const WhyCloudswan: React.FC = () => {
         }
 
 
-        /* =====================================================
-           BOTTOM
-        ===================================================== */
 
-        @keyframes whyBottom {
-
-          from {
-            opacity: 0;
-            transform: translateY(25px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-
-        .animate-why-bottom {
-          animation: whyBottom 0.8s ease-out 1.2s both;
-        }
 
 
         /* =====================================================
@@ -973,22 +843,13 @@ export const WhyCloudswan: React.FC = () => {
 
         @media (prefers-reduced-motion: reduce) {
 
-          .animate-why-header,
-          .animate-why-title,
-          .animate-why-description,
           .animate-why-underline,
           .animate-core-ring,
           .animate-core-ring-reverse,
           .animate-core-float,
           .ecosystem-line,
-          .animate-card-left,
-          .animate-card-right,
-          .animate-card-left-two,
-          .animate-card-right-two,
-          .animate-card-bottom,
           .animate-why-glow,
           .animate-why-glow-reverse,
-          .animate-why-bottom,
           .animate-why-particle-one,
           .animate-why-particle-two,
           .animate-why-particle-three,
@@ -1006,30 +867,4 @@ export const WhyCloudswan: React.FC = () => {
       `}</style>
     </section>
   )
-}
-
-/* ============================================================
-   ANIMATION CLASS HELPER
-============================================================ */
-
-const getAnimationClass = (index: number): string => {
-  switch (index) {
-    case 0:
-      return 'animate-card-left'
-
-    case 1:
-      return 'animate-card-right'
-
-    case 2:
-      return 'animate-card-left-two'
-
-    case 3:
-      return 'animate-card-right-two'
-
-    case 4:
-      return 'animate-card-bottom'
-
-    default:
-      return 'animate-card-bottom'
-  }
 }

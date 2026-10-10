@@ -44,7 +44,7 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
               LEFT CONTENT
           ===================================================== */}
 
-          <div className="lg:col-span-6 animate-about-left">
+          <div className="lg:col-span-6">
 
             {/* Section label */}
             <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs">
@@ -153,7 +153,7 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
               RIGHT SIDE - LEARNING ORBIT
           ===================================================== */}
 
-          <div className="relative flex h-[290px] xs:h-[320px] sm:h-[400px] lg:h-[500px] w-full items-center justify-center lg:col-span-6 animate-about-right overflow-visible my-2 sm:my-4 lg:my-0">
+          <div className="relative flex h-[290px] xs:h-[320px] sm:h-[400px] lg:h-[500px] w-full items-center justify-center lg:col-span-6 overflow-visible my-2 sm:my-4 lg:my-0">
             <div className="learning-orbit-stage relative flex items-center justify-center">
 
               {/* Ambient glow */}
@@ -279,41 +279,7 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
 
       <style>{`
 
-        /* ---------------------------------------------
-           SECTION REVEAL
-        --------------------------------------------- */
 
-        @keyframes aboutLeftReveal {
-          from {
-            opacity: 0;
-            transform: translateX(-45px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes aboutRightReveal {
-          from {
-            opacity: 0;
-            transform: translateX(45px) scale(0.96);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateX(0) scale(1);
-          }
-        }
-
-        .animate-about-left {
-          animation: aboutLeftReveal 0.9s ease-out both;
-        }
-
-        .animate-about-right {
-          animation: aboutRightReveal 1s ease-out 0.15s both;
-        }
 
         /* ---------------------------------------------
            HEADING LINE
@@ -674,8 +640,6 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
         --------------------------------------------- */
 
         @media (prefers-reduced-motion: reduce) {
-          .animate-about-left,
-          .animate-about-right,
           .animate-heading-line,
           .animate-ring-rotate,
           .animate-ring-reverse,
