@@ -1,32 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
-  MapPin,
   Clock,
   Laptop,
   ArrowRight,
-  Sparkles,
   CalendarDays,
-  ChevronRight,
 } from 'lucide-react'
 import { CURRENT_BATCHES_DATA } from './batchData'
 
 interface CurrentBatchesSectionProps {
   onOpenEnquiry: (subject?: string) => void
+  onNavigate?: (path: string) => void
 }
-
-type BranchFilter = 'All' | 'Saravanampatti' | 'Gandhipuram'
 
 export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
   onOpenEnquiry,
+  onNavigate,
 }) => {
-  const [selectedBranch, setSelectedBranch] =
-    useState<BranchFilter>('All')
-
-  const branches: BranchFilter[] = [
-    'All',
-    'Saravanampatti',
-    'Gandhipuram',
-  ]
 
   return (
     <section
@@ -63,14 +52,14 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
           <div className="max-w-3xl animate-[fadeUp_0.6s_ease-out]">
 
             {/* Admission Badge */}
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1.5 eyebrow-badge text-orange-700 shadow-2xs">
-              <span className="relative flex h-2 w-2">
+            <div className="mb-4 inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-orange-200 bg-orange-50 px-3 sm:px-3.5 py-1 sm:py-1.5 eyebrow-badge text-orange-700 shadow-2xs text-[10.5px] sm:text-xs">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="absolute h-full w-full animate-ping rounded-full bg-orange-400 opacity-60" />
                 <span className="relative h-2 w-2 rounded-full bg-orange-500" />
               </span>
-              <span>2026 Admissions Open</span>
+              <span className="whitespace-nowrap">2026 Admissions Open</span>
               <span className="text-orange-400">•</span>
-              <span className="normal-case font-semibold text-orange-600">Limited Seats</span>
+              <span className="normal-case font-semibold text-orange-600 whitespace-nowrap">Limited Seats</span>
             </div>
 
             {/* Heading */}
@@ -111,30 +100,31 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
           {/* =====================================================
               CAMPUS FILTER
           ===================================================== */}
+          {/* =====================================================
+              PREMIUM VIEW ALL COURSES ACTION BUTTON
+          ===================================================== */}
           <div className="shrink-0 animate-[fadeLeft_0.6s_ease-out]">
-            <div className="mb-2 flex items-center gap-2 eyebrow-badge text-slate-500">
-              <MapPin className="h-3.5 w-3.5 text-orange-500" />
-              <span>Choose Campus</span>
-            </div>
-
-            <div className="flex w-fit max-w-full overflow-x-auto rounded-2xl border border-slate-200 bg-white p-1 shadow-sm">
-              {branches.map((branch) => {
-                const isSelected = selectedBranch === branch
-                return (
-                  <button
-                    key={branch}
-                    type="button"
-                    onClick={() => setSelectedBranch(branch)}
-                    className={`shrink-0 whitespace-nowrap rounded-xl px-4 py-2.5 text-xs font-bold font-heading transition-all duration-300 ${isSelected
-                        ? 'bg-orange-500 text-white shadow-md'
-                        : 'text-slate-500 hover:bg-orange-50 hover:text-orange-600'
-                      }`}
-                  >
-                    {branch === 'All' ? 'All Campuses' : branch}
-                  </button>
-                )
-              })}
-            </div>
+            <a
+              href="/courses"
+              onClick={(e) => {
+                e.preventDefault()
+                if (onNavigate) {
+                  onNavigate('/courses')
+                } else if (typeof window !== 'undefined') {
+                  window.location.href = '/courses'
+                }
+              }}
+              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-accent-500 via-orange-500 to-amber-500 p-[1.5px] shadow-lg shadow-orange-500/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-orange-500/30 active:scale-[0.98] cursor-pointer"
+            >
+              <div className="flex items-center gap-2.5 rounded-[14.5px] bg-slate-950 px-6 py-3.5 text-white transition-all duration-300 group-hover:bg-slate-900">
+                <span className="font-heading text-xs sm:text-sm font-bold tracking-wide">
+                  View All Courses
+                </span>
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 group-hover:bg-orange-500 group-hover:translate-x-1">
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </div>
+            </a>
           </div>
         </div>
 
@@ -143,8 +133,7 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
         ===================================================== */}
         <div className="mb-7 flex items-center gap-4">
           <div className="h-px flex-1 bg-slate-200" />
-          <div className="flex items-center gap-2 rounded-full border border-orange-100 bg-orange-50 px-3 py-1.5 eyebrow-badge text-orange-600 shadow-sm">
-            <Sparkles className="h-3 w-3 text-orange-500" />
+          <div className="flex items-center rounded-full border border-orange-100 bg-orange-50 px-3.5 py-1.5 eyebrow-badge text-orange-600 shadow-sm">
             <span>Current Programs</span>
           </div>
           <div className="h-px flex-1 bg-slate-200" />
@@ -161,7 +150,6 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
               key={batch.id}
               batch={batch}
               index={index}
-              selectedBranchFilter={selectedBranch}
               onOpenEnquiry={onOpenEnquiry}
             />
           ))}
@@ -239,19 +227,7 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
           </div>
         </div>
 
-        {/* =====================================================
-            LOCATIONS
-        ===================================================== */}
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-center caption-text text-slate-400 font-sans">
-          <MapPin className="h-3 w-3 text-orange-500" />
-          <span>Gandhipuram</span>
-          <span className="text-orange-300">•</span>
-          <span>Saravanampatti</span>
-          <span className="text-orange-300">•</span>
-          <span>Coimbatore</span>
-          <ChevronRight className="h-3 w-3 text-orange-400" />
-          <span>Live Online available</span>
-        </div>
+
 
       </div>
 
@@ -296,14 +272,12 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
 interface ModernCourseCardProps {
   batch: any
   index: number
-  selectedBranchFilter: BranchFilter
   onOpenEnquiry: (subject?: string) => void
 }
 
 const ModernCourseCard: React.FC<ModernCourseCardProps> = ({
   batch,
   index,
-  selectedBranchFilter,
   onOpenEnquiry,
 }) => {
 
@@ -317,12 +291,6 @@ const ModernCourseCard: React.FC<ModernCourseCardProps> = ({
     batch.image ??
     batch.imageUrl ??
     batch.thumbnail ??
-    ''
-
-  const campus =
-    batch.campus ??
-    batch.branch ??
-    batch.location ??
     ''
 
   const batchType =
@@ -344,24 +312,6 @@ const ModernCourseCard: React.FC<ModernCourseCardProps> = ({
     batch.availableSeats ??
     batch.seats ??
     ''
-
-  /* =====================================================
-     FILTER
-  ===================================================== */
-
-  const normalizedCampus =
-    String(campus).toLowerCase()
-
-  const normalizedFilter =
-    String(selectedBranchFilter).toLowerCase()
-
-  const matchesFilter =
-    selectedBranchFilter === 'All' ||
-    normalizedCampus.includes(normalizedFilter)
-
-  if (!matchesFilter) {
-    return null
-  }
 
   return (
     <article
@@ -398,7 +348,7 @@ const ModernCourseCard: React.FC<ModernCourseCardProps> = ({
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-950 via-slate-800 to-orange-500">
-            <Sparkles className="h-10 w-10 text-white/70" />
+            <Laptop className="h-10 w-10 text-white/70" />
           </div>
         )}
 
@@ -487,31 +437,7 @@ const ModernCourseCard: React.FC<ModernCourseCardProps> = ({
           </span>
         </div>
 
-        {/* =================================================
-            AVAILABLE LOCATIONS
-        ================================================= */}
-        <div className="mt-4">
-          <div className="mb-2 flex items-center gap-2">
-            <MapPin className="h-3.5 w-3.5 text-orange-500" />
-            <span className="eyebrow-badge text-slate-400">
-              Available Locations
-            </span>
-          </div>
 
-          <div className="flex flex-wrap gap-2">
-            {/* Saravanampatti */}
-            <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-100 bg-orange-50 px-2.5 py-1 text-xs font-semibold text-orange-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm font-sans">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-orange-500" />
-              Saravanampatti
-            </span>
-
-            {/* Gandhipuram */}
-            <span className="inline-flex items-center gap-1.5 rounded-lg border border-orange-100 bg-orange-50 px-2.5 py-1 text-xs font-semibold text-orange-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm font-sans">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-orange-500" />
-              Gandhipuram
-            </span>
-          </div>
-        </div>
 
         {/* =================================================
             BUTTON

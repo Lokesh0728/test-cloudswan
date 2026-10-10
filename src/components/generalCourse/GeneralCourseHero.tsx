@@ -106,25 +106,81 @@ export const GeneralCourseHero: React.FC<GeneralCourseHeroProps> = ({
           {/* Left Column: Heading, Badges, Tagline & Overview */}
           <div className="lg:col-span-7 space-y-6 text-left">
             {/* Accreditation Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-xs">
-              <Sparkles className="w-4 h-4 text-accent-500 shrink-0" />
-              <span>100% Practical Training</span>
-              <span className="text-accent-300">|</span>
-              <span className="normal-case font-semibold text-slate-600">ISO 9001:2015 Certified</span>
+            <div className="inline-flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-xs text-[10.5px] sm:text-xs">
+              <div className="inline-flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-accent-500 shrink-0" />
+                <span className="whitespace-nowrap">100% Practical Training</span>
+              </div>
+              <span className="hidden sm:inline text-accent-300">|</span>
+              <span className="normal-case font-semibold text-slate-600 whitespace-nowrap">ISO 9001:2015 Certified</span>
             </div>
 
-            {/* Course Title with High-Contrast Gradient */}
-            <h1 className="display-h1 text-slate-900">
-              {course.title.replace(' in Coimbatore', '')}{' '}
-              <span className="bg-gradient-to-r from-accent-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
-                in Coimbatore
-              </span>
-            </h1>
+            {/* Catchy Main Headline & Subtitle Matching Home Page Hero */}
+            <div className="space-y-2">
+              <h1 className="display-h1 text-slate-900">
+                {(() => {
+                  if (course.title.includes(' in Coimbatore')) {
+                    const parts = course.title.split(' in Coimbatore')
+                    const prefix = parts[0]
+                    const suffix = parts.slice(1).join(' in Coimbatore').trim()
+                    return (
+                      <>
+                        {prefix} in{' '}
+                        <span className="relative inline-block text-accent-500 whitespace-nowrap">
+                          Coimbatore
+                          {/* Stylized Curved Hand-drawn Underline Accent */}
+                          <svg
+                            className="absolute -bottom-2 left-0 w-full text-accent-500 fill-none overflow-visible"
+                            viewBox="0 0 250 18"
+                            height="14"
+                            preserveAspectRatio="none"
+                          >
+                            <path
+                              d="M 3,13 C 65,4 185,2 247,11 C 190,17 70,16 10,14"
+                              stroke="currentColor"
+                              strokeWidth="3.2"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                        </span>
+                        {suffix ? ` ${suffix}` : null}
+                      </>
+                    )
+                  }
 
-            {/* Tagline */}
-            <p className="font-heading text-lg sm:text-xl font-bold text-slate-800 leading-snug">
-              {course.tagline}
-            </p>
+                  if (course.title.includes('Coimbatore')) {
+                    const [before, after] = course.title.split('Coimbatore')
+                    return (
+                      <>
+                        {before}
+                        <span className="relative inline-block text-accent-500 whitespace-nowrap">
+                          Coimbatore
+                          <svg
+                            className="absolute -bottom-2 left-0 w-full text-accent-500 fill-none overflow-visible"
+                            viewBox="0 0 250 18"
+                            height="14"
+                            preserveAspectRatio="none"
+                          >
+                            <path
+                              d="M 3,13 C 65,4 185,2 247,11 C 190,17 70,16 10,14"
+                              stroke="currentColor"
+                              strokeWidth="3.2"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                        </span>
+                        {after}
+                      </>
+                    )
+                  }
+
+                  return course.title
+                })()}
+              </h1>
+              <p className="display-h3 bg-gradient-to-r from-slate-900 via-slate-800 to-accent-600 bg-clip-text text-transparent pt-1">
+                {course.tagline}
+              </p>
+            </div>
 
             {/* Overview Paragraphs */}
             <div className="space-y-3 lead-paragraph text-slate-600 border-l-2 border-accent-500/40 pl-4 py-1">

@@ -9,7 +9,6 @@ import {
   ExternalLink,
   ArrowRight,
   MessageSquare,
-  Sparkles,
 } from 'lucide-react'
 import {
   GOOGLE_REVIEW_STATS,
@@ -106,13 +105,13 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           ======================================================== */}
       <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
         {/* Google Trust Eyebrow Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-2xs eyebrow-badge text-slate-800 mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 shadow-2xs eyebrow-badge text-slate-800 mb-4 text-[10.5px] sm:text-xs">
           <GoogleIcon size={16} />
-          <span className="font-heading text-slate-900 tracking-wide">
+          <span className="font-heading text-slate-900 tracking-wide whitespace-nowrap">
             Google Verified Reviews
           </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-          <span className="text-amber-500 font-bold flex items-center gap-1 font-heading normal-case text-xs">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+          <span className="text-amber-500 font-bold flex items-center gap-1 font-heading normal-case text-xs whitespace-nowrap">
             <span className="text-slate-900 font-extrabold">4.9</span>
             <span className="text-slate-400 font-normal">/ 5.0</span>
           </span>
@@ -181,8 +180,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Google Business Verified</span>
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-orange-50 text-accent-700 border border-orange-200/80 caption-text">
-                  <Sparkles className="w-3.5 h-3.5 text-accent-500" />
+                <span className="inline-flex items-center px-3 py-0.5 rounded-full bg-orange-50 text-accent-700 border border-orange-200/80 caption-text font-semibold">
                   <span>#1 in Coimbatore</span>
                 </span>
               </div>

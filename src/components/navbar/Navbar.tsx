@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import {
   ChevronDown,
   Menu,
-  PhoneCall,
-  Sparkles,
   ArrowRight,
 } from 'lucide-react'
 import { Logo } from './Logo'
@@ -12,7 +10,6 @@ import { CoursesMegaMenu } from './CoursesMegaMenu'
 import { MobileNav } from './MobileNav'
 import {
   MAIN_NAV_LINKS,
-  CONTACT_INFO,
   type CourseItem,
   type CourseCategory,
 } from '../../data/navigationData'
@@ -113,12 +110,12 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Main Navigation Bar */}
       <div
         className={`w-full bg-white/95 backdrop-blur-md border-b transition-all duration-200 ${isScrolled
-          ? 'border-slate-200 shadow-sm py-1.5'
-          : 'border-slate-100 py-2'
+          ? 'border-slate-200 shadow-sm py-2'
+          : 'border-slate-100 py-2.5'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-4 lg:gap-8">
             {/* Left: Brand Logo */}
             <div className="flex items-center shrink-0" onMouseEnter={handleMouseEnterOther}>
               <Logo onClick={() => onNavigate('/')} />
@@ -126,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Center: Desktop Navigation Links */}
             <nav
-              className="hidden lg:flex items-center space-x-1"
+              className="hidden lg:flex items-center justify-center space-x-1 xl:space-x-2 flex-1"
               aria-label="Main Navigation"
             >
               {MAIN_NAV_LINKS.map((link) => {
@@ -153,8 +150,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                         }}
                         aria-expanded={isCoursesOpen}
                         aria-haspopup="true"
-                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 text-sm xl:text-[15px] font-heading font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 rounded-lg ${isCoursesOpen || isActive
-                          ? 'text-accent-600 font-bold bg-accent-50/60'
+                        className={`inline-flex items-center gap-1.5 px-3.5 py-2 xl:px-4 text-sm xl:text-[15px] font-heading font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 rounded-lg cursor-pointer ${isCoursesOpen || isActive
+                          ? 'text-accent-600 font-bold bg-accent-50/70'
                           : 'text-slate-700 hover:text-accent-600 hover:bg-slate-50'
                           }`}
                       >
@@ -182,8 +179,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                       setIsCoursesOpen(false)
                       onNavigate(link.href)
                     }}
-                    className={`relative inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 text-sm xl:text-[15px] font-heading font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 rounded-lg ${isActive
-                      ? 'text-accent-600 font-bold bg-accent-50/60'
+                    className={`relative inline-flex items-center gap-1.5 px-3.5 py-2 xl:px-4 text-sm xl:text-[15px] font-heading font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 rounded-lg cursor-pointer ${isActive
+                      ? 'text-accent-600 font-bold bg-accent-50/70'
                       : 'text-slate-700 hover:text-accent-600 hover:bg-slate-50'
                       }`}
                   >
@@ -198,33 +195,23 @@ export const Navbar: React.FC<NavbarProps> = ({
               })}
             </nav>
 
-            <div className="flex items-center gap-2 sm:gap-2.5" onMouseEnter={handleMouseEnterOther}>
-              {/* Phone Quick Dial Pill (Desktop Large) */}
-              <a
-                href={`tel:${CONTACT_INFO.phone}`}
-                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs xl:text-sm font-heading font-semibold text-slate-700 hover:text-accent-600 border border-slate-200/80 hover:border-accent-200 hover:bg-slate-50 transition-all"
-                title="Direct Admissions Helpline"
-              >
-                <PhoneCall className="w-3.5 h-3.5 text-accent-500" />
-                <span>{CONTACT_INFO.displayPhone}</span>
-              </a>
-
+            {/* Right: Primary CTA and Mobile Toggle */}
+            <div className="flex items-center gap-3 shrink-0" onMouseEnter={handleMouseEnterOther}>
               {/* Primary CTA Button (Tablet & Desktop: Enquire Now) */}
               <button
                 type="button"
                 onClick={() => onOpenEnquiry('Admissions Inquiry')}
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs sm:text-sm font-heading font-bold tracking-wide text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-xs shadow-accent-500/25 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
+                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-heading font-bold tracking-wide text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-xs shadow-accent-500/25 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 cursor-pointer"
               >
-                <Sparkles className="w-3.5 h-3.5 text-orange-100" />
                 <span>Enquire Now</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-4 h-4" />
               </button>
 
               {/* Mobile Quick Enquire (Small Phones only) */}
               <button
                 type="button"
                 onClick={() => onOpenEnquiry('Mobile Quick Inquiry')}
-                className="sm:hidden inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-heading font-bold tracking-wide text-white bg-accent-500 hover:bg-accent-600"
+                className="sm:hidden inline-flex items-center px-3.5 py-2 rounded-lg text-xs font-heading font-bold tracking-wide text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] cursor-pointer"
               >
                 Enquire
               </button>
@@ -233,7 +220,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+                className="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 cursor-pointer"
                 aria-label="Open mobile menu"
                 aria-expanded={isMobileMenuOpen}
               >

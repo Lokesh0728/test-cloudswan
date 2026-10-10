@@ -36,8 +36,10 @@ export interface TrainingPillar {
   description: string
   bulletPoints: string[]
   icon: typeof HelpCircle
-  accentGradient: string
+  accentGradient?: string
   badgeText: string
+  stepNumber?: string
+  metricBadge?: string
 }
 
 export interface TargetAudience {
@@ -213,64 +215,64 @@ export const TRAINING_ENVIRONMENT_PILLARS: TrainingPillar[] = [
     title: 'Encourage Questions',
     subtitle: 'Zero-Hesitation Doubt Clearing',
     description:
-      'We believe curiosity drives mastery. Our classrooms and smart labs foster a safe, open environment where learners ask questions freely, backed by dedicated 1-on-1 lab mentors.',
+      'Curiosity drives mastery. Our smart labs cultivate an open environment where learners ask questions freely with dedicated 1-on-1 mentors.',
     bulletPoints: [
-      'Unlimited 1:1 question resolution sessions',
-      'Dedicated lab teaching assistants during practical hours',
-      'Safe learning space with zero peer pressure',
-      'Daily Q&A sprints before every new module',
+      'Unlimited 1:1 doubt-clearing sessions',
+      'Dedicated lab mentors in practical hours',
+      'Daily Q&A sprints before each module',
     ],
     icon: HelpCircle,
-    accentGradient: 'from-amber-500 to-orange-500',
     badgeText: 'Culture of Inquiry',
+    stepNumber: '01',
+    metricBadge: '1-on-1 Mentorship',
   },
   {
     id: 'hands-on-practice',
     title: 'Rigorous Practice',
     subtitle: '80% Practical Lab Implementation',
     description:
-      'Programming and cloud skills cannot be absorbed through passive lectures. At Cloudswan Solution, you spend 80% of your time coding, debugging, and building tangible software.',
+      'Skip passive slides. Build muscle memory through dedicated hands-on coding, live architecture labs, and real enterprise capstone software.',
     bulletPoints: [
-      'Daily live coding katas and algorithmic challenges',
-      'Enterprise-grade capstone project repositories',
-      'Modern, air-conditioned computer labs with high-speed setups',
-      'Production bug troubleshooting simulations',
+      '80% hands-on coding lab curriculum',
+      'Production-grade capstone repositories',
+      'Real-world bug debugging simulations',
     ],
     icon: Laptop,
-    accentGradient: 'from-blue-600 to-cyan-600',
     badgeText: 'Hands-on First',
+    stepNumber: '02',
+    metricBadge: '80% Lab Ratio',
   },
   {
     id: 'collaborative-discussion',
     title: 'Collaborative Discussion',
     subtitle: 'Team Standups & Code Reviews',
     description:
-      'Tech companies operate as agile teams. We cultivate group discussions, architectural debates, peer-to-peer code reviews, and mock scrum standups that replicate real IT offices.',
+      'Modern software is built by teams. We replicate agile engineering workflows through peer code reviews, mock standups, and architectural debates.',
     bulletPoints: [
-      'Peer code reviews that cultivate clean code standards',
-      'Agile scrum methodology & weekly sprint retrospectives',
-      'Collaborative hackathons & team project showcases',
-      'Tech debate forums on industry architectural patterns',
+      'Peer-to-peer code review sessions',
+      'Agile scrum sprints & mock standups',
+      'Collaborative architectural whiteboarding',
     ],
     icon: Users,
-    accentGradient: 'from-emerald-500 to-teal-600',
     badgeText: 'Collaborative Synergy',
+    stepNumber: '03',
+    metricBadge: 'Agile Teamwork',
   },
   {
     id: 'continuous-improvement',
     title: 'Continuous Improvement',
     subtitle: 'Iterative Skill Growth & Feedback',
     description:
-      'Learning is an iterative journey. Through weekly skill assessments, personalized feedback scorecards, and resume enhancements, your confidence builds systematically.',
+      'Measure progress through weekly milestone audits, personalized mentor feedback scorecards, and continuous interview coaching until you get hired.',
     bulletPoints: [
-      'Weekly milestone assessments with metric-based feedback',
-      'Personalized mentor reviews to close specific skill gaps',
-      'Iterative project enhancements until production-ready',
-      'Continuous mock interviews until final job offer',
+      'Weekly milestone skill assessments',
+      'Personalized mentor feedback scorecards',
+      'Iterative mock interviews until hired',
     ],
     icon: TrendingUp,
-    accentGradient: 'from-purple-600 to-pink-600',
     badgeText: 'Iterative Mastery',
+    stepNumber: '04',
+    metricBadge: 'Verified Progress',
   },
 ]
 

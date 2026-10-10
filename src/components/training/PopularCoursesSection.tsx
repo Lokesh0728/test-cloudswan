@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import {
-  Sparkles,
   CheckCircle2,
   Play,
   Pause,
@@ -89,9 +88,10 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
       ========================================================= */}
       <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
         {/* Eyebrow Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200/80 text-accent-600 eyebrow-badge mb-4 shadow-2xs">
-          <Sparkles className="w-3.5 h-3.5 text-accent-500" />
-          <span>Industry-Accelerated Tech Tracks • 100% Practical Labs</span>
+        <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-2xl sm:rounded-full bg-orange-50 border border-orange-200/80 text-accent-600 eyebrow-badge mb-4 shadow-2xs text-center max-w-[95%] sm:max-w-none mx-auto text-[10.5px] sm:text-xs">
+          <span className="whitespace-nowrap">Industry-Accelerated Tech Tracks</span>
+          <span className="hidden sm:inline text-orange-300">•</span>
+          <span className="normal-case font-semibold text-accent-700 whitespace-nowrap">100% Practical Labs</span>
         </div>
 
         {/* Primary Requested Title */}
@@ -281,20 +281,15 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
       {/* =========================================================
           BOTTOM HELP / COUNSELING PROMPT
       ========================================================= */}
-      <div className="mt-10 p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 shadow-lg flex flex-col md:flex-row items-center justify-between gap-5">
-        <div className="flex items-center gap-4 text-center md:text-left">
-          <div className="p-3 rounded-2xl bg-white/10 text-accent-400 shrink-0 hidden sm:flex">
-            <Sparkles className="w-6 h-6" />
-          </div>
-          <div>
-            <h3 className="display-card-title text-white">
-              Not Sure Which Technology Path Matches Your Background?
-            </h3>
-            <p className="body-subtext text-slate-400 mt-0.5">
-              Talk directly with our Lead Tech Architects at our Saravanampatti or
-              Gandhipuram center for a free personalized career assessment.
-            </p>
-          </div>
+      <div className="mt-10 p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 border-l-4 border-l-accent-500 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="text-center md:text-left max-w-xl lg:max-w-2xl">
+          <h3 className="display-card-title text-white text-lg sm:text-xl font-bold font-heading">
+            Not Sure Which Technology Path Matches Your Background?
+          </h3>
+          <p className="body-subtext text-slate-300 mt-1 leading-relaxed">
+            Talk directly with our Lead Tech Architects at our Saravanampatti or
+            Gandhipuram center for a free personalized career assessment.
+          </p>
         </div>
 
         <div className="flex items-center gap-3 w-full md:w-auto shrink-0">

@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
 import {
-  Code2,
-  Languages,
-  BadgeCheck,
-  Sparkles,
   ChevronRight,
   GraduationCap,
   Calendar,
-  FileDown,
   ArrowRight,
 } from 'lucide-react'
 import {
@@ -24,13 +19,6 @@ interface CoursesMegaMenuProps {
   onMouseEnter?: () => void
   onMouseLeave?: () => void
   onViewAllCourses?: () => void
-}
-
-const CATEGORY_ICONS = {
-  Code2,
-  Languages,
-  BadgeCheck,
-  Sparkles,
 }
 
 export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
@@ -85,9 +73,8 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
                   onClose()
                   if (onViewAllCourses) onViewAllCourses()
                 }}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 shadow-xs shadow-accent-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 shadow-xs shadow-accent-500/25 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
               >
-                <Sparkles className="w-3.5 h-3.5 text-orange-200" />
                 <span>View All Courses (30+)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
@@ -97,7 +84,7 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
           {/* MAIN CATEGORY-ONLY BROWSER VIEW */}
           <div className="grid grid-cols-12 min-h-[380px]">
             {/* Left Sub-menu / Navigation Rail (Main 5 Categories) */}
-            <div className="col-span-12 md:col-span-5 border-r border-slate-200/80 bg-slate-50/70 p-3 sm:p-4 space-y-1.5">
+            <div className="col-span-12 md:col-span-5 border-r border-slate-200/80 bg-slate-50/70 p-3 sm:p-4 space-y-2">
               {/* Highlighted View All Courses Tile in Category Rail */}
               <button
                 type="button"
@@ -105,70 +92,97 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
                   onClose()
                   if (onViewAllCourses) onViewAllCourses()
                 }}
-                className="w-full flex items-center justify-between p-2.5 sm:p-3 rounded-xl text-left transition-all border border-accent-300/80 bg-gradient-to-r from-accent-50 to-orange-50/80 text-accent-700 hover:border-accent-400 hover:shadow-xs group font-bold mb-2"
+                className="w-full relative flex items-center justify-between p-3 sm:p-3.5 rounded-xl text-left transition-all border border-accent-300/80 bg-gradient-to-r from-orange-50/90 via-accent-50/50 to-white hover:border-accent-400 hover:shadow-xs group mb-2.5 overflow-hidden"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shrink-0 bg-accent-500 text-white shadow-2xs group-hover:scale-105 transition-transform">
-                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-heading text-sm sm:text-[15px] font-bold tracking-tight text-accent-700">
+                {/* Active Left Indicator Strip */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent-500" />
+                <div className="pl-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-heading text-sm sm:text-[15px] font-bold tracking-tight text-accent-700 group-hover:text-accent-800">
                       View All Courses
-                    </div>
-                    <div className="caption-text text-accent-600/90 mt-0.5">
-                      All 30+ Programs & Filters
-                    </div>
+                    </span>
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-accent-500 text-white shadow-2xs font-heading">
+                      30+ Tracks
+                    </span>
+                  </div>
+                  <div className="caption-text text-slate-500 group-hover:text-accent-700/90 mt-0.5 font-sans">
+                    All programs, filters & full curricula
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-accent-600 group-hover:translate-x-1 transition-transform" />
+                <div className="w-7 h-7 rounded-lg bg-accent-100/80 text-accent-600 flex items-center justify-center shrink-0 group-hover:bg-accent-500 group-hover:text-white transition-all ml-2">
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </div>
               </button>
 
-              <p className="eyebrow-badge text-slate-400 px-3 mb-1.5">
-                Select Training Vertical
-              </p>
-              {COURSE_CATEGORIES.map((cat) => {
-                const IconComponent = CATEGORY_ICONS[cat.iconName] || Sparkles
-                const isSelected = cat.id === activeCategory.id
+              <div className="flex items-center justify-between px-2 pt-0.5 pb-1">
+                <p className="eyebrow-badge text-slate-400 text-[11px] tracking-wider uppercase">
+                  Select Training Vertical
+                </p>
+                <span className="text-[11px] font-semibold text-slate-400 font-sans">
+                  {COURSE_CATEGORIES.length} Verticals
+                </span>
+              </div>
 
-                return (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    onMouseEnter={() => setActiveCategoryId(cat.id)}
-                    onClick={() => setActiveCategoryId(cat.id)}
-                    className={`w-full flex items-center justify-between p-2.5 sm:p-3 rounded-xl text-left transition-all ${
-                      isSelected
-                        ? 'bg-white text-accent-600 shadow-sm border border-accent-200/80 font-bold'
-                        : 'text-slate-700 hover:bg-white/90 hover:text-slate-900 font-semibold'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors shadow-2xs ${
-                          isSelected
-                            ? 'bg-accent-500 text-white'
-                            : 'bg-slate-200/80 text-slate-700'
-                        }`}
-                      >
-                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
-                      </div>
-                      <div>
-                        <div className="font-heading text-sm sm:text-[15px] font-bold tracking-tight">
-                          {cat.title}
-                        </div>
-                        <div className="caption-text text-slate-500 mt-0.5">
-                          {cat.courses.length} Specializations
-                        </div>
-                      </div>
-                    </div>
-                    <ChevronRight
-                      className={`w-4 h-4 transition-transform ${
-                        isSelected ? 'text-accent-500 translate-x-1 font-bold' : 'text-slate-400'
+              <div className="space-y-1.5">
+                {COURSE_CATEGORIES.map((cat) => {
+                  const isSelected = cat.id === activeCategory.id
+
+                  return (
+                    <button
+                      key={cat.id}
+                      type="button"
+                      onMouseEnter={() => setActiveCategoryId(cat.id)}
+                      onClick={() => setActiveCategoryId(cat.id)}
+                      className={`relative w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-left transition-all duration-150 group ${
+                        isSelected
+                          ? 'bg-white shadow-xs border border-accent-200/90'
+                          : 'hover:bg-white/90 border border-transparent hover:border-slate-200/60'
                       }`}
-                    />
-                  </button>
-                )
-              })}
+                    >
+                      {/* Left vertical accent indicator */}
+                      <div
+                        className={`absolute left-0 top-2 bottom-2 w-1 rounded-r transition-all duration-200 ${
+                          isSelected ? 'bg-accent-500' : 'bg-transparent'
+                        }`}
+                      />
+
+                      <div className="pl-1.5 pr-2 flex-1">
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`font-heading text-sm sm:text-[15px] font-bold tracking-tight transition-colors ${
+                              isSelected ? 'text-accent-600' : 'text-slate-800 group-hover:text-slate-900'
+                            }`}
+                          >
+                            {cat.title}
+                          </span>
+                          {cat.badge && (
+                            <span
+                              className={`eyebrow-badge text-[10px] px-1.5 py-0.5 rounded leading-none ${
+                                isSelected
+                                  ? 'bg-accent-50 text-accent-600 border border-accent-200/60'
+                                  : 'bg-slate-100 text-slate-500 border border-slate-200/60'
+                              }`}
+                            >
+                              {cat.badge}
+                            </span>
+                          )}
+                        </div>
+                        <div className="caption-text text-slate-500 mt-0.5 line-clamp-1">
+                          {cat.courses.length} Specializations • {cat.subtitle}
+                        </div>
+                      </div>
+
+                      <ChevronRight
+                        className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+                          isSelected
+                            ? 'text-accent-500 translate-x-1 font-bold'
+                            : 'text-slate-400 group-hover:text-slate-600'
+                        }`}
+                      />
+                    </button>
+                  )
+                })}
+              </div>
             </div>
 
             {/* Right Panel: Courses for the Active Category */}
@@ -251,22 +265,38 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
           </div>
 
           {/* Bottom Action Footer Bar */}
-          <div className="bg-slate-50/95 border-t border-slate-200 px-6 sm:px-8 py-2.5 sm:py-3 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-600">
-            <div className="flex items-center gap-2">
-              <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 text-accent-500" />
-              <span className="font-heading font-semibold text-slate-700 text-xs sm:text-sm">Need customized corporate or college training batches?</span>
+          <div className="bg-slate-50/95 border-t border-slate-200 px-6 sm:px-8 py-3 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-slate-600">
+            <div className="flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-lg bg-accent-50 text-accent-600 flex items-center justify-center shrink-0">
+                <GraduationCap className="w-4 h-4" />
+              </div>
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="font-heading font-semibold text-slate-800 text-xs sm:text-sm">
+                  Need customized corporate or college training batches?
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose()
+                    onOpenEnquiry('Custom Corporate / College Training')
+                  }}
+                  className="font-bold text-accent-600 hover:text-accent-700 hover:underline font-heading inline-flex items-center gap-0.5 cursor-pointer"
+                >
+                  <span>Talk to Advisor</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 sm:gap-3">
               <button
                 type="button"
                 onClick={() => {
                   onClose()
                   if (onViewAllCourses) onViewAllCourses()
                 }}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs sm:text-sm font-heading font-bold text-accent-600 hover:text-accent-700 bg-accent-50 hover:bg-accent-100/80 border border-accent-200/90 rounded-lg shadow-2xs transition-all"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-heading font-bold text-accent-600 hover:text-accent-700 bg-white hover:bg-accent-50/70 border border-accent-200/90 rounded-xl shadow-2xs transition-all cursor-pointer"
               >
-                <Sparkles className="w-3.5 h-3.5 text-accent-500" />
                 <span>Explore All 30+ Courses</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
@@ -275,21 +305,9 @@ export const CoursesMegaMenu: React.FC<CoursesMegaMenuProps> = ({
                 type="button"
                 onClick={() => {
                   onClose()
-                  onOpenEnquiry('Download Syllabus')
-                }}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs sm:text-sm font-heading font-bold text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg shadow-2xs transition-all"
-              >
-                <FileDown className="w-3.5 h-3.5 text-slate-500" />
-                <span>Download Syllabus</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  onClose()
                   onOpenEnquiry('Book Free Demo')
                 }}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs sm:text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 rounded-lg shadow-sm shadow-accent-500/25 transition-all"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] rounded-xl shadow-xs shadow-accent-500/25 transition-all cursor-pointer"
               >
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Book Free Demo</span>

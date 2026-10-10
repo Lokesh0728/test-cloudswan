@@ -5,7 +5,6 @@ import {
   MapPin,
   CalendarDays,
   Laptop,
-  Sparkles,
 } from 'lucide-react'
    
 import type {
@@ -191,8 +190,7 @@ export const BatchCard: React.FC<
             TOP LEFT PROGRAM LABEL
         ================================================= */}
 
-          <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full border border-white/20 bg-slate-950/55 px-3 py-1.5 eyebrow-badge text-white backdrop-blur-md">
-            <Sparkles className="h-3 w-3 text-orange-400" />
+          <div className="absolute left-4 top-4 flex items-center rounded-full border border-white/20 bg-slate-950/55 px-3.5 py-1.5 eyebrow-badge text-white backdrop-blur-md">
             <span>Career Program</span>
           </div>
 

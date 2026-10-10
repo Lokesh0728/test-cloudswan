@@ -140,7 +140,10 @@ export default function App() {
             />
 
             {/* Current Ongoing & Upcoming Batches Section */}
-            <CurrentBatchesSection onOpenEnquiry={handleOpenEnquiry} />
+            <CurrentBatchesSection
+              onOpenEnquiry={handleOpenEnquiry}
+              onNavigate={handleNavigate}
+            />
 
             {/* IT Training for Students and Professionals in Coimbatore */}
             <ITTrainingSection onOpenEnquiry={handleOpenEnquiry} />

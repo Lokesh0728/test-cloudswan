@@ -9,7 +9,6 @@ import {
   ArrowRight,
   TrendingUp,
   Layers,
-  Sparkles,
 } from 'lucide-react'
 import type { PopularCourse } from './popularCoursesData'
 
@@ -188,8 +187,7 @@ export const CourseDetailsModal: React.FC<CourseDetailsModalProps> = ({
 
           {/* Skills & Tools Covered */}
           <div>
-            <h4 className="eyebrow-badge text-slate-900 mb-2 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-accent-500" />
+            <h4 className="eyebrow-badge text-slate-900 mb-2">
               <span>Technologies & Tools Mastered</span>
             </h4>
             <div className="flex flex-wrap gap-2">

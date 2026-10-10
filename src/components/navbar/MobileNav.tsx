@@ -3,10 +3,6 @@ import {
   X,
   ChevronDown,
   ChevronRight,
-  Code2,
-  Languages,
-  BadgeCheck,
-  Sparkles,
   Phone,
   ArrowRight,
   GraduationCap,
@@ -27,13 +23,6 @@ interface MobileNavProps {
   onNavigate: (href: string) => void
   onCourseSelect: (course: CourseItem, category: CourseCategory) => void
   onOpenEnquiry: (courseName?: string) => void
-}
-
-const CATEGORY_ICONS = {
-  Code2,
-  Languages,
-  BadgeCheck,
-  Sparkles,
 }
 
 export const MobileNav: React.FC<MobileNavProps> = ({
@@ -134,14 +123,12 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                           className="w-full flex items-center justify-between p-2.5 px-3 rounded-xl bg-gradient-to-r from-accent-500 to-accent-600 text-white font-heading font-bold text-xs sm:text-sm shadow-xs shadow-accent-500/25 transition-all hover:bg-accent-600"
                         >
                           <div className="flex items-center gap-2">
-                            <Sparkles className="w-4 h-4 text-orange-200" />
                             <span>View All Courses (30+)</span>
                           </div>
                           <ArrowRight className="w-4 h-4" />
                         </button>
 
                         {COURSE_CATEGORIES.map((category) => {
-                          const IconComp = CATEGORY_ICONS[category.iconName] || Sparkles
                           const isCatOpen = expandedCategoryId === category.id
 
                           return (
@@ -156,18 +143,20 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                                 className="w-full flex items-center justify-between p-3 text-left hover:bg-slate-50 transition-colors"
                                 aria-expanded={isCatOpen}
                               >
-                                <div className="flex items-center gap-2.5">
-                                  <div className="w-7 h-7 rounded-lg bg-accent-50 text-accent-600 flex items-center justify-center shrink-0">
-                                    <IconComp className="w-4 h-4" />
-                                  </div>
-                                  <div>
-                                    <span className="font-heading text-xs font-bold text-slate-900 block">
+                                <div className="flex-1">
+                                  <div className="flex items-center gap-2">
+                                    <span className="font-heading text-xs sm:text-sm font-bold text-slate-900 block">
                                       {category.title}
                                     </span>
-                                    <span className="caption-text text-slate-400 block font-normal">
-                                      {category.courses.length} Courses
-                                    </span>
+                                    {category.badge && (
+                                      <span className="eyebrow-badge text-[9px] px-1.5 py-0.5 rounded bg-accent-50 text-accent-600">
+                                        {category.badge}
+                                      </span>
+                                    )}
                                   </div>
+                                  <span className="caption-text text-slate-400 block font-normal mt-0.5">
+                                    {category.courses.length} Specializations
+                                  </span>
                                 </div>
                                 <ChevronRight
                                   className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isCatOpen ? 'rotate-90 text-accent-500' : ''
@@ -266,7 +255,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                 <Phone className="w-4 h-4" />
               </div>
               <div>
-                <span className="block caption-text text-slate-400">Coimbatore Campus</span>
+                <span className="block caption-text text-slate-400">Gandhipuram Campus</span>
                 <span className="font-heading font-semibold text-slate-800">{CONTACT_INFO.coimbatoreDisplayPhone}</span>
               </div>
             </a>

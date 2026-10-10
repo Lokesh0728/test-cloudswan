@@ -200,21 +200,21 @@ export const CourseCard: React.FC<CourseCardProps> = ({
   // -------------------------------------------------------------
   return (
     <div
-      className={`group relative bg-white rounded-2xl border border-slate-200/90 hover:border-accent-400/90 shadow-2xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden`}
+      className={`group relative bg-white rounded-2xl border border-slate-200/90 hover:border-accent-400/90 shadow-2xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden h-full`}
     >
       {/* Top Accent Gradient Header Stripe */}
       <div className={`h-1.5 w-full bg-gradient-to-r from-accent-500 via-orange-400 to-amber-500 opacity-80 group-hover:opacity-100 transition-opacity`} />
 
       <div className="p-5 sm:p-6 flex-1 flex flex-col">
-        {/* Top Header Tag Strip */}
-        <div className="flex items-center justify-between gap-2 mb-3">
+        {/* Top Header Tag Strip - Fixed height */}
+        <div className="h-7 flex items-center justify-between gap-2 mb-2.5 shrink-0">
           <span
             className={`eyebrow-badge text-[10px] px-2.5 py-0.5 rounded-full border ${theme.badgeBg}`}
           >
             {course.categoryName}
           </span>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 shrink-0">
             {course.badge && (
               <span
                 className={`eyebrow-badge text-[10px] px-2 py-0.5 rounded-full border flex items-center gap-1 ${getBadgeStyle(
@@ -234,8 +234,8 @@ export const CourseCard: React.FC<CourseCardProps> = ({
           </div>
         </div>
 
-        {/* Course Title */}
-        <h3 className="display-card-title text-slate-900 group-hover:text-accent-600 transition-colors">
+        {/* Course Title - Fixed 2-line height for uniform alignment */}
+        <h3 className="display-card-title text-slate-900 group-hover:text-accent-600 transition-colors h-[54px] sm:h-[58px] line-clamp-2 overflow-hidden flex items-start">
           <a
             href={course.slug}
             onClick={(e) => {
@@ -248,29 +248,29 @@ export const CourseCard: React.FC<CourseCardProps> = ({
           </a>
         </h3>
 
-        {/* Tagline */}
-        <p className="body-subtext text-slate-600 mt-1.5 line-clamp-2">
+        {/* Tagline - Fixed 2-line height for uniform alignment */}
+        <p className="body-subtext text-slate-600 mt-1 line-clamp-2 h-[40px] overflow-hidden flex items-start">
           {course.tagline}
         </p>
 
-        {/* Feature Specs Matrix */}
-        <div className="mt-4 grid grid-cols-2 gap-2 bg-slate-50/80 p-2.5 rounded-xl border border-slate-100 caption-text text-slate-600">
-          <div className="flex items-center gap-1.5">
+        {/* Feature Specs Matrix - Fixed height */}
+        <div className="mt-3.5 grid grid-cols-2 gap-2 bg-slate-50/80 p-2.5 rounded-xl border border-slate-100 caption-text text-slate-600 h-[68px] shrink-0 items-center">
+          <div className="flex items-center gap-1.5 min-w-0">
             <Clock className="w-3.5 h-3.5 text-accent-500 shrink-0" />
             <span className="truncate font-semibold text-slate-700">{course.duration}</span>
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 min-w-0">
             <GraduationCap className="w-3.5 h-3.5 text-slate-400 shrink-0" />
             <span className="truncate">{course.level}</span>
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 min-w-0">
             <Laptop className="w-3.5 h-3.5 text-slate-400 shrink-0" />
             <span className="truncate">Classroom & Live</span>
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 min-w-0">
             {course.hasPlacement ? (
               <span className="flex items-center gap-1 text-emerald-600 font-semibold truncate">
                 <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
@@ -285,30 +285,30 @@ export const CourseCard: React.FC<CourseCardProps> = ({
           </div>
         </div>
 
-        {/* Tech Topic Tags */}
-        <div className="mt-3.5 pt-3 border-t border-slate-100">
-          <div className="caption-text text-slate-400 text-[11px] mb-1.5 font-medium">
+        {/* Tech Topic Tags - Fixed height & clean single-row presentation */}
+        <div className="mt-3.5 pt-3 border-t border-slate-100 shrink-0">
+          <div className="caption-text text-slate-400 text-[11px] mb-1.5 font-medium h-4 flex items-center">
             Core Curriculum Highlights:
           </div>
-          <div className="flex flex-wrap items-center gap-1.5">
-            {course.keyTopics.slice(0, 4).map((topic) => (
+          <div className="h-[28px] overflow-hidden flex flex-wrap items-center gap-1.5">
+            {course.keyTopics.slice(0, 3).map((topic) => (
               <span
                 key={topic}
-                className="caption-text text-[11px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium"
+                className="caption-text text-[11px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium truncate max-w-[120px]"
               >
                 {topic}
               </span>
             ))}
-            {course.keyTopics.length > 4 && (
-              <span className="caption-text text-[11px] text-slate-400 px-1 font-medium">
-                +{course.keyTopics.length - 4}
+            {course.keyTopics.length > 3 && (
+              <span className="caption-text text-[11px] text-slate-400 px-1 font-medium shrink-0">
+                +{course.keyTopics.length - 3}
               </span>
             )}
           </div>
         </div>
 
-        {/* Social Proof / Student Stats */}
-        <div className="mt-auto pt-4 flex items-center justify-between caption-text text-slate-400 text-xs">
+        {/* Social Proof / Student Stats - Fixed height */}
+        <div className="mt-auto pt-3 flex items-center justify-between caption-text text-slate-400 text-xs h-8 shrink-0">
           <span className="flex items-center gap-1">
             <Users className="w-3.5 h-3.5 text-slate-400" />
             <span>{course.studentsTrained}</span>
@@ -320,7 +320,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
       </div>
 
       {/* Card Action Footer */}
-      <div className="p-4 sm:p-5 pt-0 bg-white">
+      <div className="p-4 sm:p-5 pt-0 bg-white shrink-0">
         <div className="pt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
           <button
             type="button"
