@@ -109,7 +109,7 @@ export const CONTACT_INFO = {
   saravanampattiDisplayPhone: '+91 89038 35098',
   email: 'admissions@cloudswan.in',
   location: 'Gandhipuram & Saravanampatti Campuses, Coimbatore',
-  operatingHours: 'Mon - Sat: 9:00 AM - 7:30 PM',
+  operatingHours: 'Mon - Sat: 9:30 AM - 6:30 PM',
 }
 
 /**
