@@ -287,12 +287,12 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
             Not Sure Which Technology Path Matches Your Background?
           </h3>
           <p className="body-subtext text-slate-300 mt-1 leading-relaxed">
-            Talk directly with our Lead Tech Architects at our Saravanampatti or
-            Gandhipuram center for a free personalized career assessment.
+            Talk directly with our Lead Tech Architects at our Gandhipuram (Ramnagar) or
+            Saravanampatti (Main Bus Stop) centers for a free personalized career assessment.
           </p>
         </div>
 
-        <div className="flex items-center gap-3 w-full md:w-auto shrink-0">
+        <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto shrink-0">
           <button
             type="button"
             onClick={() =>
@@ -300,7 +300,7 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
                 'IT Training in Coimbatore - Free Tech Stack Counseling'
               )
             }
-            className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-heading tracking-wide text-slate-900 bg-white hover:bg-slate-100 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-heading tracking-wide text-slate-900 bg-white hover:bg-slate-100 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
           >
             <span>Book Free 1:1 Counseling</span>
             <ArrowRight className="w-4 h-4 text-accent-600" />
@@ -308,10 +308,20 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
 
           <a
             href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
-            className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-heading tracking-wide text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors flex items-center justify-center gap-1.5"
+            className="w-full sm:w-auto px-3.5 py-2.5 rounded-xl text-xs font-bold font-heading tracking-wide text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors flex items-center justify-center gap-1.5"
+            title="Call Gandhipuram (Ramnagar)"
           >
             <PhoneCall className="w-3.5 h-3.5 text-accent-400" />
-            <span>Call Campus</span>
+            <span>Gandhipuram: {CONTACT_INFO.coimbatoreDisplayPhone}</span>
+          </a>
+
+          <a
+            href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
+            className="w-full sm:w-auto px-3.5 py-2.5 rounded-xl text-xs font-bold font-heading tracking-wide text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors flex items-center justify-center gap-1.5"
+            title="Call Saravanampatti (Main Bus Stop)"
+          >
+            <PhoneCall className="w-3.5 h-3.5 text-accent-400" />
+            <span>Saravanampatti: {CONTACT_INFO.saravanampattiDisplayPhone}</span>
           </a>
         </div>
       </div>

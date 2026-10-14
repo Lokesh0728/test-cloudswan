@@ -5,6 +5,7 @@ export interface TestimonialItem {
   company: string
   avatarInitial: string
   avatarBg: string
+  avatarUrl?: string
   rating: number
   postedTime: string
   courseTaken: string
@@ -65,6 +66,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     company: 'Zoho Corporation',
     avatarInitial: 'KS',
     avatarBg: 'bg-gradient-to-br from-amber-500 to-orange-600',
+    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
     rating: 5,
     postedTime: '2 weeks ago',
     courseTaken: 'Python Full Stack Development',
@@ -84,6 +86,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     company: 'Cognizant (CTS)',
     avatarInitial: 'PD',
     avatarBg: 'bg-gradient-to-br from-blue-500 to-indigo-600',
+    avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
     rating: 5,
     postedTime: '3 weeks ago',
     courseTaken: 'MERN Stack Web Development',
@@ -103,6 +106,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     company: 'Kaar Technologies',
     avatarInitial: 'VK',
     avatarBg: 'bg-gradient-to-br from-emerald-500 to-teal-700',
+    avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
     rating: 5,
     postedTime: '1 month ago',
     courseTaken: 'AWS Cloud & DevOps Masterclass',
@@ -122,6 +126,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     company: 'Bosch Global Software',
     avatarInitial: 'AS',
     avatarBg: 'bg-gradient-to-br from-purple-500 to-pink-600',
+    avatarUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
     rating: 5,
     postedTime: '1 month ago',
     courseTaken: 'Selenium & Automation Testing',
@@ -141,6 +146,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     company: 'Infosys Limited',
     avatarInitial: 'SR',
     avatarBg: 'bg-gradient-to-br from-cyan-600 to-blue-700',
+    avatarUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
     rating: 5,
     postedTime: '5 weeks ago',
     courseTaken: 'Java Full Stack & Spring Boot',
@@ -160,6 +166,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     company: 'Tiger Analytics',
     avatarInitial: 'DB',
     avatarBg: 'bg-gradient-to-br from-rose-500 to-amber-600',
+    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
     rating: 5,
     postedTime: '6 weeks ago',
     courseTaken: 'Data Analytics with Power BI & SQL',
@@ -179,6 +186,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     company: 'Hexaware Technologies',
     avatarInitial: 'AP',
     avatarBg: 'bg-gradient-to-br from-indigo-500 to-violet-700',
+    avatarUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80',
     rating: 5,
     postedTime: '2 months ago',
     courseTaken: 'AWS Solutions Architect & Cloud Security',
@@ -198,6 +206,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     company: 'Thoughtworks',
     avatarInitial: 'SR',
     avatarBg: 'bg-gradient-to-br from-teal-500 to-emerald-600',
+    avatarUrl: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80',
     rating: 5,
     postedTime: '2 months ago',
     courseTaken: 'Full Stack Web & System Design',

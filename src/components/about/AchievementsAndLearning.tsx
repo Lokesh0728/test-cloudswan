@@ -405,15 +405,17 @@ export const AchievementsAndLearning: React.FC = () => {
                     <a
                       href="tel:+918903835098"
                       className="hover:text-orange-400 transition-colors"
+                      title="Gandhipuram (Ramnagar)"
                     >
-                      8903835098
+                      89038 35098
                     </a>
                     <span className="text-slate-500">|</span>
                     <a
-                      href="tel:+919585797459"
+                      href="tel:+917708262565"
                       className="hover:text-orange-400 transition-colors"
+                      title="Saravanampatti (Main Bus Stop)"
                     >
-                      9585797459
+                      +91 7708 262 565
                     </a>
                   </div>
                 </div>

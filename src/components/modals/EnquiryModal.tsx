@@ -214,7 +214,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 89038 35098"
                       value={formData.phone}
                       onChange={(e) =>
                         setFormData({
@@ -299,12 +299,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                         Select Location...
                       </option>
 
-                      <option value="Gandhipuram">
-                        Gandhipuram
+                      <option value="Gandhipuram (Ramnagar)">
+                        Gandhipuram - Ramnagar
                       </option>
 
-                      <option value="Saravanampatti">
-                        Saravanampatti
+                      <option value="Saravanampatti (Main Bus Stop)">
+                        Saravanampatti - Main Bus Stop
                       </option>
                     </select>
                   </div>

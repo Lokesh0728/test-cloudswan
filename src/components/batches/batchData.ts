@@ -20,15 +20,15 @@ export const CURRENT_BATCHES_DATA: BatchItem[] = [
     branches: [
       {
         name: 'Saravanampatti',
-        landmark: 'Opp. CHIL SEZ IT Park',
-        address: 'Saravanampatti Campus, Coimbatore',
+        landmark: 'Main Bus Stop, Sathy Road',
+        address: 'Saravanampatti Campus (Main Bus Stop), Coimbatore',
         modeAvailable: 'Classroom & Online',
         isOngoing: true,
       },
       {
         name: 'Gandhipuram',
-        landmark: 'Opp. Cross Cut Road / Near Bus Stand',
-        address: 'Gandhipuram Campus, Coimbatore',
+        landmark: 'Ramnagar (Opp. Cross Cut Rd)',
+        address: 'Gandhipuram Campus (Ramnagar), Coimbatore',
         modeAvailable: 'Classroom & Online',
         isOngoing: true,
       },
@@ -94,15 +94,15 @@ export const CURRENT_BATCHES_DATA: BatchItem[] = [
     branches: [
       {
         name: 'Saravanampatti',
-        landmark: 'Opp. CHIL SEZ IT Park',
-        address: 'Saravanampatti Campus, Coimbatore',
+        landmark: 'Main Bus Stop, Sathy Road',
+        address: 'Saravanampatti Campus (Main Bus Stop), Coimbatore',
         modeAvailable: 'Classroom & Online',
         isOngoing: true,
       },
       {
         name: 'Gandhipuram',
-        landmark: 'Near Central Bus Terminus',
-        address: 'Gandhipuram Campus, Coimbatore',
+        landmark: 'Ramnagar (Near Central Bus Terminus)',
+        address: 'Gandhipuram Campus (Ramnagar), Coimbatore',
         modeAvailable: 'Classroom & Online',
         isOngoing: true,
       },
@@ -168,15 +168,15 @@ export const CURRENT_BATCHES_DATA: BatchItem[] = [
     branches: [
       {
         name: 'Saravanampatti',
-        landmark: 'Opp. CHIL SEZ IT Park',
-        address: 'Saravanampatti Campus, Coimbatore',
+        landmark: 'Main Bus Stop, Sathy Road',
+        address: 'Saravanampatti Campus (Main Bus Stop), Coimbatore',
         modeAvailable: 'Classroom & Online',
         isOngoing: true,
       },
       {
         name: 'Gandhipuram',
-        landmark: 'Cross Cut Road Main Commercial Hub',
-        address: 'Gandhipuram Campus, Coimbatore',
+        landmark: 'Ramnagar (Near Cross Cut Rd)',
+        address: 'Gandhipuram Campus (Ramnagar), Coimbatore',
         modeAvailable: 'Classroom & Online',
         isOngoing: true,
       },
@@ -242,15 +242,15 @@ export const CURRENT_BATCHES_DATA: BatchItem[] = [
     branches: [
       {
         name: 'Saravanampatti',
-        landmark: 'Opp. CHIL SEZ IT Park',
-        address: 'Saravanampatti Campus, Coimbatore',
+        landmark: 'Main Bus Stop, Sathy Road',
+        address: 'Saravanampatti Campus (Main Bus Stop), Coimbatore',
         modeAvailable: 'Classroom & Online',
         isOngoing: true,
       },
       {
         name: 'Gandhipuram',
-        landmark: '7th Street Corner / Cross Cut Rd',
-        address: 'Gandhipuram Campus, Coimbatore',
+        landmark: 'Ramnagar (Cross Cut Rd Corner)',
+        address: 'Gandhipuram Campus (Ramnagar), Coimbatore',
         modeAvailable: 'Classroom & Online',
         isOngoing: true,
       },

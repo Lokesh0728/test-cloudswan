@@ -328,7 +328,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     <div className="min-w-0">
                       <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1.5">
                         <span className="font-semibold text-slate-900 font-heading text-xs">Gandhipuram</span>
-                        <span className="text-slate-500 text-[10.5px] sm:text-[11px] font-sans truncate sm:truncate-none">(Opp. Cross-cut, Ram Nagar)</span>
+                        <span className="text-slate-500 text-[10.5px] sm:text-[11px] font-sans truncate sm:truncate-none">(Ramnagar)</span>
                       </div>
                     </div>
                   </div>
@@ -352,7 +352,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     <div className="min-w-0">
                       <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1.5">
                         <span className="font-semibold text-slate-900 font-heading text-xs">Saravanampatti</span>
-                        <span className="text-slate-500 text-[10.5px] sm:text-[11px] font-sans truncate sm:truncate-none">(Main Bus Stand)</span>
+                        <span className="text-slate-500 text-[10.5px] sm:text-[11px] font-sans truncate sm:truncate-none">(Main Bus Stop)</span>
                       </div>
                     </div>
                   </div>

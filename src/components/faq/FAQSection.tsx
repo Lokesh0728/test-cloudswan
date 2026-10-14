@@ -69,14 +69,14 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenEnquiry }) => {
       className="relative"
     >
       {/* Subtle Background Radial Gradient */}
-      <div className="pointer-events-none absolute -inset-x-4 top-1/3 h-96 bg-gradient-to-r from-blue-500/5 via-accent-500/5 to-purple-500/5 blur-3xl -z-10 rounded-full" />
+      <div className="pointer-events-none absolute -inset-x-4 top-1/3 h-96 bg-gradient-to-r from-accent-500/5 via-orange-500/5 to-amber-500/5 blur-3xl -z-10 rounded-full" />
 
       {/* ========================================================
           1. SECTION HEADER
           ======================================================== */}
       <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 eyebrow-badge mb-4 shadow-2xs text-[10.5px] sm:text-xs">
-          <HelpCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/80 text-accent-700 eyebrow-badge mb-4 shadow-2xs text-[10.5px] sm:text-xs">
+          <HelpCircle className="w-3.5 h-3.5 text-accent-600 shrink-0" />
           <span className="whitespace-nowrap">Clear Guidance • Zero Ambiguity</span>
         </div>
 
@@ -346,39 +346,65 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onOpenEnquiry }) => {
       {/* ========================================================
           4. "STILL HAVE QUESTIONS?" PREMIUM COUNSELOR CARD
           ======================================================== */}
-      <div className="max-w-4xl mx-auto mt-10 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white p-6 sm:p-8 border border-slate-800 shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-accent-500/10 rounded-full blur-2xl pointer-events-none" />
+      <div className="max-w-5xl mx-auto mt-12 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white p-6 sm:p-8 lg:p-9 border border-slate-800/80 shadow-xl relative overflow-hidden">
+        {/* Subtle decorative glow */}
+        <div className="absolute top-0 right-0 w-80 h-80 bg-accent-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-orange-500/5 rounded-full blur-2xl pointer-events-none" />
 
-        <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-          <div className="space-y-2 max-w-lg">
-            <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-accent-500/15 border border-accent-500/30 text-accent-300 eyebrow-badge">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+          {/* Left Column: Heading & Value Proposition */}
+          <div className="flex-1 min-w-0 space-y-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-500/15 border border-accent-500/30 text-accent-300 eyebrow-badge text-[11px]">
+              <PhoneCall className="w-3 h-3 text-accent-400" />
               <span>Personalized Academic Counseling</span>
             </div>
-            <h3 className="display-card-title text-white text-lg sm:text-xl">
+
+            <h3 className="text-xl sm:text-2xl lg:text-[26px] font-bold font-heading text-white tracking-tight leading-snug">
               Still Have Questions? Speak with an Advisor Today
             </h3>
-            <p className="body-subtext text-slate-300">
+
+            <p className="text-sm text-slate-300 leading-relaxed max-w-xl">
               Get 1-on-1 advice on course selection, career transitions, salary benchmarks, and Coimbatore lab visits.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
-            <a
-              href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
-              className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs sm:text-sm font-bold font-heading border border-slate-700 transition-colors flex items-center justify-center gap-2"
-            >
-              <PhoneCall className="w-4 h-4 text-accent-400" />
-              <span>{CONTACT_INFO.coimbatoreDisplayPhone}</span>
-            </a>
-
+          {/* Right Column: Actions properly structured and balanced */}
+          <div className="w-full lg:w-auto lg:min-w-[420px] flex flex-col items-center gap-3 shrink-0">
+            {/* Primary Action Button */}
             <button
               type="button"
               onClick={() => onOpenEnquiry('Free 1-on-1 Course Consultation')}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-xs sm:text-sm font-bold font-heading tracking-wide transition-all shadow-md shadow-accent-500/30 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full px-6 py-3.5 rounded-xl bg-gradient-to-r from-accent-500 to-orange-500 hover:from-accent-600 hover:to-orange-600 text-white text-sm font-bold font-heading tracking-wide transition-all shadow-lg shadow-accent-500/25 hover:shadow-accent-500/40 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Ask Our Counselor</span>
               <ArrowRight className="w-4 h-4" />
             </button>
+
+            {/* Direct Campus Dial Links (Grid matching button width) */}
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <a
+                href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
+                className="px-3 py-2 rounded-lg bg-slate-800/90 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-semibold font-heading border border-slate-700/80 hover:border-slate-600 transition-colors flex items-center justify-center gap-1.5 whitespace-nowrap"
+                title="Gandhipuram (Ramnagar) Admissions"
+              >
+                <PhoneCall className="w-3.5 h-3.5 text-accent-400 shrink-0" />
+                <span>Gandhipuram: {CONTACT_INFO.coimbatoreDisplayPhone}</span>
+              </a>
+
+              <a
+                href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
+                className="px-3 py-2 rounded-lg bg-slate-800/90 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-semibold font-heading border border-slate-700/80 hover:border-slate-600 transition-colors flex items-center justify-center gap-1.5 whitespace-nowrap"
+                title="Saravanampatti (Main Bus Stop) Admissions"
+              >
+                <PhoneCall className="w-3.5 h-3.5 text-accent-400 shrink-0" />
+                <span>Saravanampatti: {CONTACT_INFO.saravanampattiDisplayPhone}</span>
+              </a>
+            </div>
+
+            {/* Micro-Help / Timings */}
+            <span className="text-[11px] text-slate-400 font-sans text-center w-full">
+              Mon – Sat: 9:30 AM – 6:30 PM • Walk-in lab visits welcome
+            </span>
           </div>
         </div>
       </div>

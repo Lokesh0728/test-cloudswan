@@ -16,28 +16,32 @@ export const TopUtilityBar: React.FC<TopUtilityBarProps> = ({ onOpenEnquiry, onM
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-8">
           {/* LEFT SIDE: Campus Contacts */}
-          <div className="flex items-center gap-4 lg:gap-5">
+          <div className="flex items-center gap-3.5 lg:gap-5">
             <a
-              href={`tel:${CONTACT_INFO.coimbatorePhone}`}
-              className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+              href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
+              className="inline-flex items-center gap-1.5 hover:text-white transition-colors group"
+              title="Gandhipuram Campus - Ramnagar"
             >
-              <Phone className="w-3 h-3 text-accent-500 shrink-0" />
+              <Phone className="w-3 h-3 text-accent-500 shrink-0 group-hover:scale-110 transition-transform" />
               <span>
-                Gandhipuram:{' '}
-                <span className="text-slate-200 font-semibold font-heading">
+                <span className="text-slate-300">Gandhipuram - Ramnagar:</span>{' '}
+                <span className="text-slate-100 font-semibold font-heading">
                   {CONTACT_INFO.coimbatoreDisplayPhone}
                 </span>
               </span>
             </a>
 
+            <span className="text-slate-700 hidden sm:inline">|</span>
+
             <a
-              href={`tel:${CONTACT_INFO.saravanampattiPhone}`}
-              className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+              href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
+              className="inline-flex items-center gap-1.5 hover:text-white transition-colors group"
+              title="Saravanampatti Campus - Main Bus Stop"
             >
-              <Phone className="w-3 h-3 text-accent-500 shrink-0" />
+              <Phone className="w-3 h-3 text-accent-500 shrink-0 group-hover:scale-110 transition-transform" />
               <span>
-                Saravanampatti:{' '}
-                <span className="text-slate-200 font-semibold font-heading">
+                <span className="text-slate-300">Saravanampatti - Main Bus Stop:</span>{' '}
+                <span className="text-slate-100 font-semibold font-heading">
                   {CONTACT_INFO.saravanampattiDisplayPhone}
                 </span>
               </span>
@@ -45,7 +49,7 @@ export const TopUtilityBar: React.FC<TopUtilityBarProps> = ({ onOpenEnquiry, onM
           </div>
 
           {/* CENTER / RIGHT: Operating Hours */}
-          <div className="hidden lg:flex items-center gap-1.5 text-slate-400">
+          <div className="hidden xl:flex items-center gap-1.5 text-slate-400">
             <Clock className="w-3 h-3 text-slate-500 shrink-0" />
             <span>{CONTACT_INFO.operatingHours}</span>
           </div>

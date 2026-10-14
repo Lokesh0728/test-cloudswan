@@ -344,7 +344,7 @@ export const GeneralCourseHero: React.FC<GeneralCourseHeroProps> = ({
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 89038 35098"
                         className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:border-accent-500 transition-all"
                       />
                     </div>

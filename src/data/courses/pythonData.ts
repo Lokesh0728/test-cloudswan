@@ -723,7 +723,7 @@ export const pythonCourseData: CourseData = {
       id: 'faq-12',
       question: 'How can I enroll or book a free counselling session?',
       answer:
-        'You can click the "Book a Free Counselling Session" button, reach our team at +91 98765 43210, or visit our Saravanampatti or Gandhipuram campuses in Coimbatore.',
+        'You can click the "Book a Free Counselling Session" button, reach our team at +91 89038 35098 (Gandhipuram - Ramnagar) / +91 7708 262 565 (Saravanampatti - Main Bus Stop), or visit our campuses in Coimbatore.',
     },
   ],
 

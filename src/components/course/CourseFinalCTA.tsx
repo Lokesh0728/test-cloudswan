@@ -80,16 +80,24 @@ export const CourseFinalCTA: React.FC<CourseFinalCTAProps> = ({
             </div>
 
             {/* Quick Contact & Helpline */}
-            <div className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-6 caption-text text-slate-400">
+            <div className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-4 sm:gap-6 caption-text text-slate-400">
               <a
-                href={`tel:${CONTACT_INFO.coimbatorePhone}`}
-                className="flex items-center gap-2 hover:text-white transition-colors"
+                href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
+                className="flex items-center gap-1.5 hover:text-white transition-colors"
+                title="Gandhipuram (Ramnagar)"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-accent-400" />
-                <span>Admissions Helpline: {CONTACT_INFO.coimbatoreDisplayPhone}</span>
+                <span>Gandhipuram (Ramnagar): {CONTACT_INFO.coimbatoreDisplayPhone}</span>
               </a>
-              <span>•</span>
-              <span>Online Interactive & Classroom Batches Available</span>
+              <span className="text-slate-600 hidden sm:inline">•</span>
+              <a
+                href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
+                className="flex items-center gap-1.5 hover:text-white transition-colors"
+                title="Saravanampatti (Main Bus Stop)"
+              >
+                <PhoneCall className="w-3.5 h-3.5 text-accent-400" />
+                <span>Saravanampatti (Main Bus Stop): {CONTACT_INFO.saravanampattiDisplayPhone}</span>
+              </a>
             </div>
           </div>
         </div>

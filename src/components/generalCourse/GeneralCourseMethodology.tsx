@@ -112,13 +112,13 @@ export const GeneralCourseMethodology: React.FC<GeneralCourseMethodologyProps> =
                 <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70">
                   <div className="flex items-center gap-2 font-heading font-bold text-sm text-slate-900">
                     <MapPin className="w-4 h-4 text-accent-500" />
-                    <span>Gandhipuram Campus</span>
+                    <span>Gandhipuram Campus (Ramnagar)</span>
                   </div>
                   <p className="caption-text text-slate-500 mt-1">
-                    Central bus stand proximity, Cross Cut Road, Coimbatore
+                    Ramnagar, central bus stand proximity, Coimbatore
                   </p>
                   <a
-                    href={`tel:${CONTACT_INFO.coimbatorePhone}`}
+                    href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
                     className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-accent-600 hover:text-accent-700"
                   >
                     <Phone className="w-3.5 h-3.5" />
@@ -129,13 +129,13 @@ export const GeneralCourseMethodology: React.FC<GeneralCourseMethodologyProps> =
                 <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70">
                   <div className="flex items-center gap-2 font-heading font-bold text-sm text-slate-900">
                     <MapPin className="w-4 h-4 text-accent-500" />
-                    <span>Saravanampatti Campus</span>
+                    <span>Saravanampatti Campus (Main Bus Stop)</span>
                   </div>
                   <p className="caption-text text-slate-500 mt-1">
-                    Near CHIL SEZ IT Park, Sathy Road, Saravanampatti, Coimbatore
+                    Main Bus Stop, Sathy Road, Saravanampatti, Coimbatore
                   </p>
                   <a
-                    href={`tel:${CONTACT_INFO.saravanampattiPhone}`}
+                    href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
                     className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-accent-600 hover:text-accent-700"
                   >
                     <Phone className="w-3.5 h-3.5" />

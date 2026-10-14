@@ -248,27 +248,27 @@ export const MobileNav: React.FC<MobileNavProps> = ({
               Direct Contact
             </h4>
             <a
-              href={`tel:${CONTACT_INFO.coimbatorePhone}`}
+              href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
               className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 text-slate-700 hover:bg-accent-50 hover:text-accent-600 transition-colors text-xs font-medium border border-slate-100"
             >
               <div className="w-8 h-8 rounded-lg bg-accent-100 text-accent-600 flex items-center justify-center shrink-0">
                 <Phone className="w-4 h-4" />
               </div>
               <div>
-                <span className="block caption-text text-slate-400">Gandhipuram Campus</span>
+                <span className="block caption-text text-slate-500 font-medium">Gandhipuram (Ramnagar)</span>
                 <span className="font-heading font-semibold text-slate-800">{CONTACT_INFO.coimbatoreDisplayPhone}</span>
               </div>
             </a>
 
             <a
-              href={`tel:${CONTACT_INFO.saravanampattiPhone}`}
+              href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
               className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 text-slate-700 hover:bg-accent-50 hover:text-accent-600 transition-colors text-xs font-medium border border-slate-100"
             >
               <div className="w-8 h-8 rounded-lg bg-accent-100 text-accent-600 flex items-center justify-center shrink-0">
                 <Phone className="w-4 h-4" />
               </div>
               <div>
-                <span className="block caption-text text-slate-400">Saravanampatti Campus</span>
+                <span className="block caption-text text-slate-500 font-medium">Saravanampatti (Main Bus Stop)</span>
                 <span className="font-heading font-semibold text-slate-800">{CONTACT_INFO.saravanampattiDisplayPhone}</span>
               </div>
             </a>

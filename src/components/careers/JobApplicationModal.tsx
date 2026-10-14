@@ -281,7 +281,7 @@ export const JobApplicationModal: React.FC<JobApplicationModalProps> = ({
                     required
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 89038 35098"
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500 font-sans"
                   />
                 </div>

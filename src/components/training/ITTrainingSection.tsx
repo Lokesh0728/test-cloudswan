@@ -348,11 +348,11 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
                     </div>
                     <div>
                       <h3 className="display-card-title text-slate-900 text-sm sm:text-base">Saravanampatti Campus</h3>
-                      <span className="caption-text text-slate-500">Near IT Corridor & SEZ</span>
+                      <span className="caption-text text-slate-500">Main Bus Stop (Sathy Road)</span>
                     </div>
                   </div>
                   <p className="body-subtext text-slate-600">
-                    High-tech smart labs, dedicated project development zones, and easy transit access.
+                    High-tech smart labs, dedicated project development zones, and convenient transit at Main Bus Stop.
                   </p>
                   <a
                     href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
@@ -366,20 +366,20 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
                 {/* Branch 2 */}
                 <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2">
                   <div className="flex items-center gap-2">
-                    <div className="p-1.5 rounded-lg bg-blue-100 text-blue-600">
+                    <div className="p-1.5 rounded-lg bg-orange-100 text-accent-600">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
                       <h3 className="display-card-title text-slate-900 text-sm sm:text-base">Gandhipuram Campus</h3>
-                      <span className="caption-text text-slate-500">City Central Junction</span>
+                      <span className="caption-text text-slate-500">Ramnagar (City Central)</span>
                     </div>
                   </div>
                   <p className="body-subtext text-slate-600">
-                    Walkable from bus terminals and train connections with weekday & weekend classrooms.
+                    Located in Ramnagar, walkable from central bus terminals and train connections with weekday & weekend classrooms.
                   </p>
                   <a
                     href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700 font-heading pt-1"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-600 hover:text-accent-700 font-heading pt-1"
                   >
                     <PhoneCall className="w-3.5 h-3.5" />
                     <span>{CONTACT_INFO.coimbatoreDisplayPhone}</span>

@@ -4,7 +4,7 @@ import { AboutIntro } from './AboutIntro'
 import { WhyCloudswan } from './WhyCloudswan'
 import { TrainingApproach } from './TrainingApproach'
 import { AchievementsAndLearning } from './AchievementsAndLearning'
-import { StudentReviews } from './StudentReviews'
+import { TestimonialsSection } from '../testimonials/TestimonialsSection'
 
 interface AboutPageProps {
   onNavigateHome?: () => void
@@ -33,7 +33,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <AboutHero
         onNavigateHome={onNavigateHome}
         onExploreCourses={onExploreCourses}
-        onOpenEnquiry={() => onOpenEnquiry?.('About Us - Consultation')}
+        onOpenEnquiry={(subject) => onOpenEnquiry?.(subject || 'About Us - Consultation')}
       />
 
       {/* 2. INTRODUCTION / WHO WE ARE */}
@@ -51,8 +51,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       {/* 5. CERTIFICATES & ACHIEVEMENTS + CLASSES & LEARNING */}
       <AchievementsAndLearning />
 
-      {/* 6. GOOGLE REVIEWS / STUDENT EXPERIENCES */}
-      <StudentReviews />
+      {/* 6. STUDENT TESTIMONIALS & VERIFIED GOOGLE REVIEWS */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-slate-50 relative overflow-hidden font-sans border-t border-slate-200/80">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <TestimonialsSection
+            onOpenEnquiry={(subj) => onOpenEnquiry?.(subj || 'About Us - Alumni Consultation')}
+            className="mb-0"
+          />
+        </div>
+      </section>
     </article>
   )
 }

@@ -724,7 +724,7 @@ export const fullstackCourseData: CourseData = {
       id: 'faq-12',
       question: 'How can I enroll or book a demo session?',
       answer:
-        'You can click the "Book a Free Counselling Session" button on this page, call our admissions team directly at +91 98765 43210, or walk into our Saravanampatti or Gandhipuram offices in Coimbatore.',
+        'You can click the "Book a Free Counselling Session" button on this page, call our admissions team directly at +91 89038 35098 (Gandhipuram - Ramnagar) / +91 7708 262 565 (Saravanampatti - Main Bus Stop), or walk into our campuses in Coimbatore.',
     },
   ],
 
