@@ -15,7 +15,7 @@ import {
   Clock,
   ChevronRight,
 } from 'lucide-react'
-import introStudentsImg from '../../assets/about/intro-students.jpg'
+import heroStudentsImg from '../../assets/about/about-hero-students.jpg'
 import { CONTACT_INFO } from '../../data/navigationData'
 
 interface AboutHeroProps {
@@ -278,8 +278,8 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
               {/* Main Institute Image Container with Layered Badges */}
               <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200/80 aspect-[16/11] sm:aspect-[16/10] bg-slate-100 shadow-inner group">
                 <img
-                  src={introStudentsImg}
-                  alt="Students and mentor engaged in real-world AWS and cloud computing practical lab training at Cloudswan Solution Coimbatore"
+                  src={heroStudentsImg}
+                  alt="Students and mentor engaged in real-world software and cloud lab training at Cloudswan Solution Coimbatore"
                   className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   loading="eager"
                 />
