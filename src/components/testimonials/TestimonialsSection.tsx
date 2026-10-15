@@ -227,6 +227,8 @@ const ReviewDepthCard: React.FC<ReviewDepthCardProps> = ({
   return (
     <div
       className={`relative w-full h-full p-6 flex flex-col justify-between overflow-hidden rounded-[20px] bg-slate-950 text-white border transition-all duration-300 select-none ${isActive
+        ? 'border-accent-500/70 shadow-[0_25px_60px_-15px_rgba(254,90,44,0.3)] ring-1 ring-accent-500/40'
+        : 'border-slate-800 shadow-2xl hover:border-slate-700'
           ? 'border-accent-500/70 shadow-[0_25px_60px_-15px_rgba(254,90,44,0.3)] ring-1 ring-accent-500/40'
           : 'border-slate-800 shadow-2xl hover:border-slate-700'
         }`}

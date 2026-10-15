@@ -7,7 +7,6 @@ import {
   BriefcaseBusiness,
   MapPin,
 } from 'lucide-react'
-import { CAREER_STATS } from './careersData'
 
 interface CareersHeroProps {
   onExplorePositions: () => void
@@ -230,27 +229,7 @@ export const CareersHero: React.FC<CareersHeroProps> = ({
           </div>
         </div>
 
-        {/* Bottom Metrics Ribbon */}
-        <div className="mt-14 sm:mt-18 pt-8 border-t border-slate-200/80">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {CAREER_STATS.map((stat) => (
-              <div
-                key={stat.label}
-                className="p-4 sm:p-5 rounded-2xl bg-white/90 border border-slate-200/80 shadow-xs backdrop-blur-xs text-center transition-transform hover:-translate-y-0.5"
-              >
-                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-                  {stat.value}
-                </div>
-                <div className="font-heading text-xs sm:text-sm font-bold text-slate-800 mt-1">
-                  {stat.label}
-                </div>
-                <div className="caption-text text-slate-500 mt-0.5">
-                  {stat.sublabel}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   )
