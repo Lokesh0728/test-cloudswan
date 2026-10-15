@@ -9,7 +9,6 @@ import {
   Award,
   MapPin,
   Phone,
-  Sparkles,
   Laptop,
   GraduationCap,
   Clock,
@@ -136,10 +135,8 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
           <div className="lg:col-span-6 space-y-6 text-left">
             {/* Eyebrow Pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50/90 border border-accent-200 text-accent-700 eyebrow-badge shadow-2xs text-[11px]">
-              <Sparkles className="w-3.5 h-3.5 text-accent-500" />
               <span>Who We Are & Our Mission</span>
-              <span className="text-accent-300">•</span>
-              <span className="text-slate-600 font-medium normal-case">Est. Over a Decade</span>
+
             </div>
 
             {/* Display H1 Heading */}
@@ -263,20 +260,20 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
 
             <div className="relative rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-2.5 sm:p-3.5 shadow-xl shadow-slate-900/5">
               {/* Top Banner on Showcase Card */}
-              <div className="mb-2.5 flex items-center justify-between px-2 py-1 text-xs">
-                <div className="flex items-center gap-2">
-                  <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="font-heading font-bold text-slate-800 text-xs">
-                    Live Classroom & Lab Experience
+              <div className="mb-2.5 flex items-center justify-between px-1 text-xs">
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                  <span className="font-heading font-bold text-slate-800 text-[11px] sm:text-xs truncate">
+                    <span className="hidden sm:inline">Live </span>Classroom & Lab Experience
                   </span>
                 </div>
-                <span className="caption-text bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-semibold">
-                  Coimbatore Campuses
+                <span className="caption-text bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-semibold text-[10px] sm:text-xs shrink-0 whitespace-nowrap">
+                  Coimbatore<span className="hidden sm:inline"> Campuses</span>
                 </span>
               </div>
 
               {/* Main Institute Image Container with Layered Badges */}
-              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200/80 aspect-[16/11] sm:aspect-[16/10] bg-slate-100 shadow-inner group">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200/80 aspect-[4/3] sm:aspect-[16/10] bg-slate-100 shadow-inner group">
                 <img
                   src={heroStudentsImg}
                   alt="Students and mentor engaged in real-world software and cloud lab training at Cloudswan Solution Coimbatore"
@@ -288,42 +285,42 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/20 pointer-events-none" />
 
                 {/* Floating Badge Top-Right: Google Rating */}
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 flex items-center gap-2 rounded-xl bg-white/95 px-3 py-1.5 shadow-lg backdrop-blur-md border border-white/80">
+                <div className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 z-10 flex items-center gap-1.5 sm:gap-2 rounded-xl bg-white/95 px-2 sm:px-3 py-1 sm:py-1.5 shadow-lg backdrop-blur-md border border-white/80">
                   <div className="flex items-center text-amber-400">
-                    <Star className="h-3.5 w-3.5 fill-amber-400" />
-                    <Star className="h-3.5 w-3.5 fill-amber-400" />
-                    <Star className="h-3.5 w-3.5 fill-amber-400" />
-                    <Star className="h-3.5 w-3.5 fill-amber-400" />
-                    <Star className="h-3.5 w-3.5 fill-amber-400" />
+                    <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-amber-400" />
+                    <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-amber-400" />
+                    <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-amber-400" />
+                    <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-amber-400" />
+                    <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-amber-400" />
                   </div>
                   <div className="text-left">
-                    <div className="text-xs font-extrabold text-slate-900 font-heading leading-tight">
+                    <div className="text-[11px] sm:text-xs font-extrabold text-slate-900 font-heading leading-tight">
                       4.9 / 5.0
                     </div>
-                    <div className="text-[10px] text-slate-500 font-medium">
+                    <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium">
                       850+ Google Reviews
                     </div>
                   </div>
                 </div>
 
                 {/* Floating Tag Top-Left: Real Projects */}
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 hidden xs:inline-flex items-center gap-1.5 rounded-lg bg-slate-900/85 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-md border border-slate-700/60 shadow-md">
+                <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-slate-900/85 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-md border border-slate-700/60 shadow-md">
                   <Laptop className="h-3.5 w-3.5 text-accent-400" />
                   <span>Hands-on Project Labs</span>
                 </div>
 
                 {/* Floating Glassmorphic Footer Banner over Photo */}
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-xl bg-white/95 p-2.5 sm:p-3 shadow-xl backdrop-blur-md border border-white/90">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-50 text-accent-500 border border-accent-100">
-                        <Award className="h-5 w-5" />
+                <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4 z-10">
+                  <div className="flex items-center justify-between gap-2 rounded-xl bg-white/95 p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/90">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                      <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-accent-50 text-accent-500 border border-accent-100">
+                        <Award className="h-4 w-4 sm:h-5 sm:w-5" />
                       </div>
-                      <div>
-                        <div className="text-xs sm:text-sm font-bold text-slate-900 font-heading">
+                      <div className="min-w-0">
+                        <div className="text-xs sm:text-sm font-bold text-slate-900 font-heading truncate">
                           100% Verified Job Assistance
                         </div>
-                        <div className="text-[11px] text-slate-500 font-medium">
+                        <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium truncate">
                           Dedicated placement cell with mock technical interviews
                         </div>
                       </div>
@@ -332,9 +329,9 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                     <button
                       type="button"
                       onClick={() => onOpenEnquiry?.('About Us - Campus Visit')}
-                      className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white shadow-xs hover:bg-accent-500 transition-colors cursor-pointer"
+                      className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-slate-900 px-2.5 sm:px-3 py-1.5 text-xs font-semibold text-white shadow-xs hover:bg-accent-500 transition-colors cursor-pointer shrink-0"
                     >
-                      <span>Visit Campus</span>
+                      <span>Visit<span className="hidden sm:inline"> Campus</span></span>
                       <ArrowRight className="h-3 w-3" />
                     </button>
                   </div>
@@ -347,7 +344,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
               <div className="mt-3.5 pt-3 border-t border-slate-100">
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-heading font-bold text-xs text-slate-800 flex items-center gap-1.5">
-                    <MapPin className="h-3.5 w-3.5 text-accent-500" />
+                    <MapPin className="h-3.5 w-3.5 text-accent-500 shrink-0" />
                     <span>Our Coimbatore Campuses</span>
                   </span>
                   <span className="text-[11px] text-slate-500 font-medium">
@@ -355,26 +352,26 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                   </span>
                 </div>
 
-                {/* Campus Toggle Pills */}
-                <div className="grid grid-cols-2 gap-2">
+                {/* Campus Toggle Pills: 1 col on mobile, 2 cols on tablet/desktop */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={() => setActiveCampus('gandhipuram')}
-                    className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${activeCampus === 'gandhipuram'
+                    className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer overflow-hidden ${activeCampus === 'gandhipuram'
                       ? 'border-accent-500 bg-accent-50/50 shadow-xs'
                       : 'border-slate-200 bg-slate-50/60 hover:bg-slate-100/70 hover:border-slate-300'
                       }`}
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="font-heading font-bold text-xs text-slate-900">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-heading font-bold text-xs text-slate-900 truncate">
                         Gandhipuram
                       </span>
-                      <span className="text-[10px] font-semibold text-accent-600 bg-accent-100/70 px-1.5 py-0.2 rounded">
+                      <span className="text-[10px] font-semibold text-accent-600 bg-accent-100/70 px-1.5 py-0.5 rounded shrink-0">
                         Ramnagar
                       </span>
                     </div>
-                    <div className="text-[11px] text-slate-600 mt-1 flex items-center gap-1">
-                      <Phone className="h-3 w-3 text-slate-400" />
+                    <div className="text-[11px] text-slate-600 mt-1 flex items-center gap-1.5">
+                      <Phone className="h-3 w-3 text-slate-400 shrink-0" />
                       <span className="font-medium">{CAMPUS_DATA.gandhipuram.phone}</span>
                     </div>
                   </button>
@@ -382,35 +379,35 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                   <button
                     type="button"
                     onClick={() => setActiveCampus('saravanampatti')}
-                    className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${activeCampus === 'saravanampatti'
+                    className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer overflow-hidden ${activeCampus === 'saravanampatti'
                       ? 'border-accent-500 bg-accent-50/50 shadow-xs'
                       : 'border-slate-200 bg-slate-50/60 hover:bg-slate-100/70 hover:border-slate-300'
                       }`}
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="font-heading font-bold text-xs text-slate-900">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-heading font-bold text-xs text-slate-900 truncate">
                         Saravanampatti
                       </span>
-                      <span className="text-[10px] font-semibold text-accent-600 bg-accent-100/70 px-1.5 py-0.2 rounded">
+                      <span className="text-[10px] font-semibold text-accent-600 bg-accent-100/70 px-1.5 py-0.5 rounded shrink-0">
                         IT Corridor
                       </span>
                     </div>
-                    <div className="text-[11px] text-slate-600 mt-1 flex items-center gap-1">
-                      <Phone className="h-3 w-3 text-slate-400" />
+                    <div className="text-[11px] text-slate-600 mt-1 flex items-center gap-1.5">
+                      <Phone className="h-3 w-3 text-slate-400 shrink-0" />
                       <span className="font-medium">{CAMPUS_DATA.saravanampatti.phone}</span>
                     </div>
                   </button>
                 </div>
 
-                {/* Active Campus Quick Address Detail */}
-                <div className="mt-2.5 flex items-center justify-between text-[11px] text-slate-600 px-1">
-                  <div className="flex items-center gap-1.5">
+                {/* Active Campus Quick Address Detail: stacks on mobile, inline on sm */}
+                <div className="mt-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] text-slate-600 px-1">
+                  <div className="flex items-center gap-1.5 shrink-0">
                     <Clock className="h-3 w-3 text-slate-400 shrink-0" />
                     <span>{currentCampus.timing}</span>
                   </div>
-                  <span className="text-slate-400 hidden sm:inline">•</span>
-                  <div className="text-slate-500 truncate max-w-[220px] sm:max-w-none">
-                    {currentCampus.landmark}
+                  <div className="flex items-center gap-1.5 text-slate-500 min-w-0">
+                    <span className="text-slate-300 hidden sm:inline">•</span>
+                    <span className="truncate">{currentCampus.landmark}</span>
                   </div>
                 </div>
               </div>
