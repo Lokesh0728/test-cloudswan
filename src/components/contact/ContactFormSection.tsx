@@ -310,6 +310,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
                               ))}
                             </optgroup>
                           ))}
+                          <option value="Others">Others</option>
                         </select>
                       </div>
                     </div>

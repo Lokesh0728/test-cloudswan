@@ -271,6 +271,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                           ))}
                         </optgroup>
                       ))}
+                      <option value="Others">Others</option>
                     </select>
                   </div>
                 </div>

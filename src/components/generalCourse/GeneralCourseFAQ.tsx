@@ -5,7 +5,6 @@ import {
   UserCheck,
   Calendar,
   ArrowRight,
-  FileDown,
 } from 'lucide-react'
 import type { GeneralCourseData } from '../../types/generalCourse'
 
@@ -87,11 +86,10 @@ export const GeneralCourseFAQ: React.FC<GeneralCourseFAQProps> = ({
               return (
                 <div
                   key={idx}
-                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                    isOpen
-                      ? 'border-accent-300 bg-white shadow-sm'
-                      : 'border-slate-200/80 bg-slate-50/60 hover:bg-white'
-                  }`}
+                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${isOpen
+                    ? 'border-accent-300 bg-white shadow-sm'
+                    : 'border-slate-200/80 bg-slate-50/60 hover:bg-white'
+                    }`}
                 >
                   <button
                     type="button"
@@ -104,9 +102,8 @@ export const GeneralCourseFAQ: React.FC<GeneralCourseFAQProps> = ({
                     </span>
                     <div className="shrink-0 p-1 rounded-lg bg-white border border-slate-200 text-slate-400">
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          isOpen ? 'rotate-180 text-accent-500' : ''
-                        }`}
+                        className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180 text-accent-500' : ''
+                          }`}
                       />
                     </div>
                   </button>
@@ -159,8 +156,8 @@ export const GeneralCourseFAQ: React.FC<GeneralCourseFAQProps> = ({
                 onClick={() => onOpenEnquiry(`${course.shortTitle} - Download Syllabus PDF`)}
                 className="w-full sm:w-auto px-5 py-3.5 text-sm font-bold font-heading text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-xl transition-all flex items-center justify-center gap-2"
               >
-                <FileDown className="w-4 h-4 text-slate-400" />
-                <span>Download Syllabus</span>
+
+                <span>Visit Our Campus</span>
               </button>
             </div>
           </div>

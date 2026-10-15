@@ -102,12 +102,12 @@ export const COURSE_CATEGORIES: CourseCategory[] = [
 
 export const CONTACT_INFO = {
   phone: '+91 89038 35098',
-  displayPhone: '89038 35098',
+  displayPhone: '+91 89038 35098',
   gandhipuramBranch: 'Gandhipuram - Ramnagar',
   gandhipuramPhone: '+91 89038 35098',
   gandhipuramDisplayPhone: '89038 35098',
   coimbatorePhone: '+91 89038 35098',
-  coimbatoreDisplayPhone: '89038 35098',
+  coimbatoreDisplayPhone: '+91 89038 35098',
   saravanampattiBranch: 'Saravanampatti - Main Bus Stop',
   saravanampattiPhone: '+91 7708 262 565',
   saravanampattiDisplayPhone: '+91 7708 262 565',

@@ -98,7 +98,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
                     course.badge
                   )}`}
                 >
-                  <Sparkles className="w-2.5 h-2.5" />
+
                   <span>{course.badge}</span>
                 </span>
               )}
