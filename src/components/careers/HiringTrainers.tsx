@@ -6,16 +6,14 @@ import {
   CheckCircle2,
   ArrowRight,
   Code2,
-  Terminal,
-  Coffee,
-  Palette,
   Cloud,
   Brain,
-  Sparkles,
+  ShieldCheck,
   PhoneCall,
   Send,
   Info,
   Check,
+  X,
 } from 'lucide-react'
 
 export interface TrainerJob {
@@ -31,70 +29,48 @@ export interface TrainerJob {
 
 export const TRAINER_JOBS: TrainerJob[] = [
   {
-    id: 'full-stack-trainer',
-    title: 'Full Stack Development Trainer',
+    id: 'data-science-ai-trainer',
+    title: 'Data Science & AI Trainer',
     description:
-      'Train students in frontend and backend development, including React, Node.js, APIs, and databases.',
-    icon: Code2,
+      'Teach Python-based data analysis, machine learning fundamentals, deep learning, and practical AI projects.',
+    icon: Brain,
     employmentTypes: ['Full-Time', 'Part-Time'],
     experience: '1+ year preferred',
     location: 'Both Branches',
-    skills: ['React.js', 'Node.js', 'REST APIs', 'MongoDB / SQL'],
-  },
-  {
-    id: 'python-trainer',
-    title: 'Python Development Trainer',
-    description:
-      'Teach Python fundamentals, object-oriented programming, practical exercises, and application development.',
-    icon: Terminal,
-    employmentTypes: ['Full-Time', 'Part-Time'],
-    experience: '1+ year preferred',
-    location: 'Both Branches',
-    skills: ['Python Core', 'OOP Concepts', 'Flask / Django', 'Data Structures'],
-  },
-  {
-    id: 'java-trainer',
-    title: 'Java Development Trainer',
-    description:
-      'Guide learners through Java programming, OOP concepts, application development, and coding exercises.',
-    icon: Coffee,
-    employmentTypes: ['Full-Time', 'Part-Time'],
-    experience: '1+ year preferred',
-    location: 'Both Branches',
-    skills: ['Core Java', 'OOP', 'Spring Boot Basics', 'JDBC / Hibernate'],
-  },
-  {
-    id: 'ui-ux-trainer',
-    title: 'UI/UX Design Trainer',
-    description:
-      'Teach user research, wireframing, prototyping, responsive design, and Figma workflows.',
-    icon: Palette,
-    employmentTypes: ['Full-Time', 'Part-Time'],
-    experience: '1+ year preferred',
-    location: 'Both Branches',
-    skills: ['Figma', 'Wireframing', 'Design Systems', 'User Research'],
+    skills: ['Python / Pandas', 'Machine Learning', 'Deep Learning / NLP', 'Data Analytics'],
   },
   {
     id: 'cloud-devops-trainer',
     title: 'Cloud & DevOps Trainer',
     description:
-      'Help learners understand cloud platforms, deployment workflows, CI/CD, and DevOps fundamentals.',
+      'Train learners in cloud architecture (AWS / Azure), Docker containerization, Kubernetes, CI/CD pipelines, and Linux.',
     icon: Cloud,
     employmentTypes: ['Full-Time', 'Part-Time'],
-    experience: '2+ years preferred',
+    experience: '1+ year preferred',
     location: 'Both Branches',
-    skills: ['AWS / Azure', 'Docker', 'CI/CD Pipelines', 'Linux Basics'],
+    skills: ['AWS / Cloud', 'DevOps & CI/CD', 'Docker & K8s', 'Linux Admin'],
   },
   {
-    id: 'data-science-ai-trainer',
-    title: 'Data Science & AI Trainer',
+    id: 'full-stack-trainer',
+    title: 'Full Stack Development Trainer',
     description:
-      'Teach Python-based data analysis, machine learning fundamentals, and practical AI projects.',
-    icon: Brain,
+      'Train students in frontend and backend web development, including React, Node.js, RESTful APIs, and databases.',
+    icon: Code2,
     employmentTypes: ['Full-Time', 'Part-Time'],
-    experience: '2+ years preferred',
+    experience: '1+ year preferred',
     location: 'Both Branches',
-    skills: ['Pandas / NumPy', 'Scikit-Learn', 'ML Models', 'Data Visualization'],
+    skills: ['React.js', 'Node.js / Express', 'REST APIs', 'MongoDB / SQL'],
+  },
+  {
+    id: 'cybersecurity-trainer',
+    title: 'Cybersecurity Trainer',
+    description:
+      'Train learners in network defense, ethical hacking concepts, vulnerability scanning, security operations, and digital forensics.',
+    icon: ShieldCheck,
+    employmentTypes: ['Full-Time', 'Part-Time'],
+    experience: '1+ year preferred',
+    location: 'Both Branches',
+    skills: ['Network Security', 'Ethical Hacking', 'Cyber Defense', 'Kali Linux & Tools'],
   },
 ]
 
@@ -109,6 +85,7 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
   const [selectedRoleTitle, setSelectedRoleTitle] = useState(
     TRAINER_JOBS[0].title
   )
+  const [customRole, setCustomRole] = useState('')
   const [employmentPreference, setEmploymentPreference] = useState<
     'Full-Time' | 'Part-Time' | 'Both / Flexible'
   >('Both / Flexible')
@@ -126,18 +103,38 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSelectRole = (roleTitle: string) => {
-    setSelectedRoleTitle(roleTitle)
-    setIsSubmitted(false)
+  const displayRoleTitle =
+    selectedRoleTitle === 'Others'
+      ? customRole.trim() || 'Specified Role'
+      : selectedRoleTitle
 
-    // Smooth scroll to form on mobile screens
-    if (window.innerWidth < 1024) {
-      const formEl = document.getElementById('trainer-application-form')
-      if (formEl) {
-        formEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  // Lock body scroll and handle Escape key for modal
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        setIsModalOpen(false)
       }
     }
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden'
+      window.addEventListener('keydown', handleKeyDown)
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isModalOpen])
+
+  const handleOpenApplyModal = (roleTitle: string) => {
+    setSelectedRoleTitle(roleTitle)
+    setIsSubmitted(false)
+    setIsModalOpen(true)
   }
+
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -153,6 +150,9 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
 
   const validateForm = () => {
     const errors: { [key: string]: string } = {}
+    if (selectedRoleTitle === 'Others' && !customRole.trim()) {
+      errors.customRole = 'Please enter the role you are applying for'
+    }
     if (!formData.fullName.trim()) {
       errors.fullName = 'Full Name is required'
     }
@@ -179,6 +179,7 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
 
   const handleResetForm = () => {
     setIsSubmitted(false)
+    setCustomRole('')
     setFormData({
       fullName: '',
       email: '',
@@ -187,6 +188,301 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
       message: '',
     })
     setFormErrors({})
+  }
+
+  const renderFormBody = (isInsideModal: boolean) => {
+    if (isSubmitted) {
+      return (
+        <div className="py-6 text-center space-y-4">
+          <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+            <CheckCircle2 className="w-7 h-7" />
+          </div>
+          <div>
+            <h4 className="font-heading font-bold text-lg text-slate-900">
+              Application Details Received!
+            </h4>
+            <p className="text-slate-600 text-xs sm:text-sm font-sans mt-1.5 leading-relaxed">
+              Thank you for applying for{' '}
+              <strong className="text-slate-900">
+                {displayRoleTitle}
+              </strong>
+              . Our team will contact you shortly for a preliminary
+              conversation.
+            </p>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-600 text-left space-y-1">
+            <div>
+              <strong>Employment:</strong> {employmentPreference}
+            </div>
+            <div>
+              <strong>Branch:</strong> {branchPreference}
+            </div>
+            <div>
+              <strong>Applicant:</strong> {formData.fullName} ({formData.phone})
+            </div>
+          </div>
+
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5">
+            <button
+              type="button"
+              onClick={handleResetForm}
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-heading font-bold text-xs shadow-md transition-all cursor-pointer"
+            >
+              Submit Another Application
+            </button>
+            {isInsideModal ? (
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-heading font-semibold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <span>Close Window</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() =>
+                  onOpenEnquiry?.(
+                    `Application follow-up for ${displayRoleTitle}`
+                  )
+                }
+                className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-heading font-semibold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <PhoneCall className="w-3.5 h-3.5 text-accent-500" />
+                <span>Contact Recruiter</span>
+              </button>
+            )}
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Selected Role Dropdown */}
+        <div>
+          <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+            Applying for Role <span className="text-red-500">*</span>
+          </label>
+          <select
+            value={selectedRoleTitle}
+            onChange={(e) => {
+              setSelectedRoleTitle(e.target.value)
+              if (formErrors.customRole) {
+                setFormErrors((prev) => ({ ...prev, customRole: '' }))
+              }
+            }}
+            className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white transition-all cursor-pointer font-medium"
+          >
+            {TRAINER_JOBS.map((job) => (
+              <option key={job.id} value={job.title}>
+                {job.title}
+              </option>
+            ))}
+            <option value="Others">Others (Specify Role)</option>
+          </select>
+        </div>
+
+        {/* Conditional Input Box when Others is selected */}
+        {selectedRoleTitle === 'Others' && (
+          <div className="pt-0.5">
+            <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+              Enter Role / Technology <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="customRole"
+              value={customRole}
+              onChange={(e) => {
+                setCustomRole(e.target.value)
+                if (formErrors.customRole) {
+                  setFormErrors((prev) => ({ ...prev, customRole: '' }))
+                }
+              }}
+              placeholder="e.g. Flutter Trainer, PHP / Laravel, Cyber Security..."
+              className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border ${formErrors.customRole
+                ? 'border-red-400 bg-red-50/30'
+                : 'border-slate-200'
+                } text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white transition-all`}
+            />
+            {formErrors.customRole && (
+              <p className="text-red-500 text-[10px] mt-1 font-medium">
+                {formErrors.customRole}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Preferred Employment & Branch */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+              Employment
+            </label>
+            <select
+              value={employmentPreference}
+              onChange={(e) =>
+                setEmploymentPreference(
+                  e.target.value as
+                  | 'Full-Time'
+                  | 'Part-Time'
+                  | 'Both / Flexible'
+                )
+              }
+              className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white"
+            >
+              <option value="Both / Flexible">Both / Flexible</option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+              Preferred Branch
+            </label>
+            <select
+              value={branchPreference}
+              onChange={(e) =>
+                setBranchPreference(
+                  e.target.value as
+                  | 'Both Branches'
+                  | 'Gandhipuram'
+                  | 'Saravanampatti'
+                )
+              }
+              className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white"
+            >
+              <option value="Both Branches">Both Branches</option>
+              <option value="Gandhipuram">Gandhipuram</option>
+              <option value="Saravanampatti">Saravanampatti</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Full Name */}
+        <div>
+          <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+            Full Name <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleInputChange}
+            placeholder="e.g. Ramesh Kumar"
+            className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border ${formErrors.fullName
+              ? 'border-red-400 bg-red-50/30'
+              : 'border-slate-200'
+              } text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white`}
+          />
+          {formErrors.fullName && (
+            <p className="text-red-500 text-[10px] mt-1 font-medium">
+              {formErrors.fullName}
+            </p>
+          )}
+        </div>
+
+        {/* Row: Email & Phone */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+              Email Address <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="ramesh@example.com"
+              className={`w-full px-3 py-2.5 rounded-xl bg-slate-50 border ${formErrors.email
+                ? 'border-red-400 bg-red-50/30'
+                : 'border-slate-200'
+                } text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white`}
+            />
+            {formErrors.email && (
+              <p className="text-red-500 text-[10px] mt-1 font-medium">
+                {formErrors.email}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+              Phone Number <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              placeholder="+91 89038 35098"
+              className={`w-full px-3 py-2.5 rounded-xl bg-slate-50 border ${formErrors.phone
+                ? 'border-red-400 bg-red-50/30'
+                : 'border-slate-200'
+                } text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white`}
+            />
+            {formErrors.phone && (
+              <p className="text-red-500 text-[10px] mt-1 font-medium">
+                {formErrors.phone}
+              </p>
+            )}
+          </div>
+        </div>
+
+        {/* Experience */}
+        <div>
+          <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+            Relevant Experience
+          </label>
+          <select
+            name="experienceYears"
+            value={formData.experienceYears}
+            onChange={handleInputChange}
+            className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white"
+          >
+            <option value="Less than 1 Year">Less than 1 Year</option>
+            <option value="1 - 2 Years">1 - 2 Years</option>
+            <option value="3 - 5 Years">3 - 5 Years</option>
+            <option value="5+ Years">5+ Years</option>
+          </select>
+        </div>
+
+        {/* Short Message / Portfolio */}
+        <div>
+          <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
+            Short Summary / Profile Notes (Optional)
+          </label>
+          <textarea
+            name="message"
+            rows={2}
+            value={formData.message}
+            onChange={handleInputChange}
+            placeholder="Brief overview of your domains or previous teaching experience..."
+            className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white resize-none"
+          />
+        </div>
+
+        {/* Submit Button */}
+        <div className="pt-2">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full py-3.5 px-5 rounded-xl bg-accent-500 hover:bg-accent-600 disabled:opacity-70 text-white font-heading font-bold text-sm shadow-md shadow-accent-500/25 hover:shadow-accent-500/35 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+          >
+            {isSubmitting ? (
+              <span>Submitting...</span>
+            ) : (
+              <>
+                <Send className="w-4 h-4" />
+                <span>Submit Application</span>
+              </>
+            )}
+          </button>
+        </div>
+      </form>
+    )
   }
 
   return (
@@ -246,7 +542,7 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/90 text-slate-800 font-heading font-semibold text-xs shadow-2xs">
               <Briefcase className="w-3.5 h-3.5 text-accent-500" />
-              <span>6 Open Trainer Roles</span>
+              <span>{TRAINER_JOBS.length}+ Open Trainer Roles</span>
             </div>
 
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-accent-50 border border-accent-200/80 text-accent-800 font-heading font-semibold text-xs shadow-2xs">
@@ -262,26 +558,22 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
         </div>
 
         {/* =========================================================
-            2. TWO-COLUMN LAYOUT: ROLES LIST (LEFT) & FORM (RIGHT)
+            2. OPEN TRAINER POSITIONS LIST
         ========================================================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* =======================================================
-              LEFT COLUMN: LIST OF TRAINER ROLES
-          ======================================================= */}
-          <div className="lg:col-span-7 space-y-4">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-200/80">
-              <div>
-                <h3 className="font-heading font-bold text-lg text-slate-900">
-                  Available Trainer Positions
-                </h3>
-                <p className="text-xs text-slate-500 font-sans mt-0.5">
-                  Click any role to auto-select it in the application form
-                </p>
-              </div>
-              <span className="text-xs font-heading font-bold text-accent-600 bg-accent-50 px-2.5 py-1 rounded-lg border border-accent-200/80">
-                {TRAINER_JOBS.length} Open Roles
-              </span>
+        <div className="max-w-4xl mx-auto space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200/80">
+            <div>
+              <h3 className="font-heading font-bold text-xl text-slate-900">
+                We are Hiring for Multiple Roles
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500 font-sans mt-0.5">
+                Click &ldquo;Apply for Role&rdquo; on any position to open the direct application form, or choose &ldquo;Others&rdquo; to specify your domain
+              </p>
             </div>
+            <span className="self-start sm:self-auto text-xs font-heading font-bold text-accent-600 bg-accent-50 px-3 py-1 rounded-lg border border-accent-200/80 shrink-0">
+              Multiple Open Roles
+            </span>
+          </div>
 
             {/* The List of Roles */}
             <div className="space-y-3.5">
@@ -292,31 +584,28 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
                 return (
                   <div
                     key={job.id}
-                    onClick={() => handleSelectRole(job.title)}
-                    className={`group rounded-2xl bg-white border p-5 sm:p-6 transition-all duration-200 cursor-pointer relative overflow-hidden ${
-                      isSelected
-                        ? 'border-accent-500 ring-2 ring-accent-500/15 shadow-md shadow-accent-500/10'
-                        : 'border-slate-200/90 hover:border-accent-300 hover:shadow-md'
-                    }`}
+                    onClick={() => handleOpenApplyModal(job.title)}
+                    className={`group rounded-2xl bg-white border p-4 sm:p-6 transition-all duration-200 cursor-pointer relative overflow-hidden ${isSelected
+                      ? 'border-accent-500 ring-2 ring-accent-500/15 shadow-md shadow-accent-500/10'
+                      : 'border-slate-200/90 hover:border-accent-300 hover:shadow-md'
+                      }`}
                   >
                     {/* Active Left Indicator Bar */}
                     <div
-                      className={`absolute top-0 bottom-0 left-0 w-1.5 transition-colors ${
-                        isSelected
-                          ? 'bg-accent-500'
-                          : 'bg-transparent group-hover:bg-accent-300'
-                      }`}
+                      className={`absolute top-0 bottom-0 left-0 w-1.5 transition-colors ${isSelected
+                        ? 'bg-accent-500'
+                        : 'bg-transparent group-hover:bg-accent-300'
+                        }`}
                     />
 
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                       {/* Left Side: Icon & Details */}
                       <div className="flex items-start gap-3.5 flex-1">
                         <div
-                          className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                            isSelected
-                              ? 'bg-accent-500 text-white shadow-sm shadow-accent-500/30'
-                              : 'bg-accent-50 border border-accent-100 text-accent-600 group-hover:bg-accent-100'
-                          }`}
+                          className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-colors ${isSelected
+                            ? 'bg-accent-500 text-white shadow-sm shadow-accent-500/30'
+                            : 'bg-accent-50 border border-accent-100 text-accent-600 group-hover:bg-accent-100'
+                            }`}
                         >
                           <Icon className="w-5 h-5" />
                         </div>
@@ -324,11 +613,10 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
                         <div className="space-y-1.5 flex-1">
                           <div className="flex flex-wrap items-center gap-2">
                             <h4
-                              className={`font-heading font-bold text-base sm:text-lg transition-colors leading-snug ${
-                                isSelected
-                                  ? 'text-accent-600'
-                                  : 'text-slate-900 group-hover:text-accent-600'
-                              }`}
+                              className={`font-heading font-bold text-base sm:text-lg transition-colors leading-snug ${isSelected
+                                ? 'text-accent-600'
+                                : 'text-slate-900 group-hover:text-accent-600'
+                                }`}
                             >
                               {job.title}
                             </h4>
@@ -360,26 +648,29 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
                       </div>
 
                       {/* Right Side: Badges & Action Button */}
-                      <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2.5 pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-100 shrink-0">
-                        {/* Badges */}
-                        <div className="flex items-center gap-1.5">
-                          <span className="px-2 py-0.5 rounded-md bg-accent-50 border border-accent-200 text-accent-700 font-heading font-bold text-[10px]">
-                            Full-Time
-                          </span>
-                          <span className="text-slate-300">•</span>
-                          <span className="px-2 py-0.5 rounded-md bg-orange-50 border border-orange-200 text-orange-800 font-heading font-bold text-[10px]">
-                            Part-Time
-                          </span>
-                        </div>
+                      <div className="flex flex-col sm:items-end gap-3 pt-3.5 sm:pt-0 border-t sm:border-t-0 border-slate-100 shrink-0 w-full sm:w-auto">
+                        {/* Badges & Meta Row */}
+                        <div className="flex flex-wrap items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
+                          {/* Badges */}
+                          <div className="flex items-center gap-1.5 shrink-0">
+                            <span className="px-2 py-0.5 rounded-md bg-accent-50 border border-accent-200 text-accent-700 font-heading font-bold text-[10px] whitespace-nowrap">
+                              Full-Time
+                            </span>
+                            <span className="text-slate-300">•</span>
+                            <span className="px-2 py-0.5 rounded-md bg-orange-50 border border-orange-200 text-orange-800 font-heading font-bold text-[10px] whitespace-nowrap">
+                              Part-Time
+                            </span>
+                          </div>
 
-                        {/* Experience & Location */}
-                        <div className="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
-                          <span>{job.experience}</span>
-                          <span>•</span>
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-3 h-3 text-accent-500" />
-                            {job.location}
-                          </span>
+                          {/* Experience & Location */}
+                          <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-medium whitespace-nowrap">
+                            <span>{job.experience}</span>
+                            <span>•</span>
+                            <span className="flex items-center gap-1">
+                              <MapPin className="w-3 h-3 text-accent-500 shrink-0" />
+                              {job.location}
+                            </span>
+                          </div>
                         </div>
 
                         {/* Select / Apply Trigger */}
@@ -387,22 +678,130 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
                           type="button"
                           onClick={(e) => {
                             e.stopPropagation()
-                            handleSelectRole(job.title)
+                            handleOpenApplyModal(job.title)
                           }}
-                          className={`mt-1 px-3.5 py-1.5 rounded-xl font-heading font-bold text-xs transition-all flex items-center gap-1.5 cursor-pointer ${
-                            isSelected
-                              ? 'bg-accent-500 text-white shadow-xs'
-                              : 'bg-slate-100 hover:bg-accent-500 hover:text-white text-slate-700'
-                          }`}
+                          className="w-full sm:w-auto px-4 py-2.5 sm:py-1.5 rounded-xl font-heading font-bold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-accent-500 hover:bg-accent-600 text-white shadow-xs hover:shadow-md active:scale-[0.98] whitespace-nowrap"
                         >
-                          <span>{isSelected ? 'Selected' : 'Apply for Role'}</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
+                          <span>Apply for Role</span>
+                          <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                         </button>
                       </div>
                     </div>
                   </div>
                 )
               })}
+
+              {/* Other Roles Option Card */}
+              {(() => {
+                const isSelected = selectedRoleTitle === 'Others'
+                return (
+                  <div
+                    onClick={() => handleOpenApplyModal('Others')}
+                    className={`group rounded-2xl bg-white border p-4 sm:p-6 transition-all duration-200 cursor-pointer relative overflow-hidden ${isSelected
+                      ? 'border-accent-500 ring-2 ring-accent-500/15 shadow-md shadow-accent-500/10'
+                      : 'border-slate-200/90 hover:border-accent-300 hover:shadow-md'
+                      }`}
+                  >
+                    {/* Active Left Indicator Bar */}
+                    <div
+                      className={`absolute top-0 bottom-0 left-0 w-1.5 transition-colors ${isSelected
+                        ? 'bg-accent-500'
+                        : 'bg-transparent group-hover:bg-accent-300'
+                        }`}
+                    />
+
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                      {/* Left Side: Icon & Details */}
+                      <div className="flex items-start gap-3.5 flex-1">
+                        <div
+                          className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-colors ${isSelected
+                            ? 'bg-accent-500 text-white shadow-sm shadow-accent-500/30'
+                            : 'bg-accent-50 border border-accent-100 text-accent-600 group-hover:bg-accent-100'
+                            }`}
+                        >
+                          <Briefcase className="w-5 h-5" />
+                        </div>
+
+                        <div className="space-y-1.5 flex-1">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <h4
+                              className={`font-heading font-bold text-base sm:text-lg transition-colors leading-snug ${isSelected
+                                ? 'text-accent-600'
+                                : 'text-slate-900 group-hover:text-accent-600'
+                                }`}
+                            >
+                              Other Technical / Training Roles
+                            </h4>
+
+                            {isSelected && (
+                              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-accent-100 text-accent-700 font-heading text-[10px] font-bold">
+                                <Check className="w-3 h-3 text-accent-600" />
+                                Selected
+                              </span>
+                            )}
+                          </div>
+
+                          <p className="text-xs sm:text-sm text-slate-600 font-sans leading-relaxed">
+                            Have expertise in Flutter, PHP, Cyber Security, Software Testing, or another technology? Select this option and enter your role in the application form.
+                          </p>
+
+                          {/* Skill Pills */}
+                          <div className="flex flex-wrap gap-1.5 pt-1">
+                            {['Flutter', 'PHP / Laravel', 'Cyber Security', 'QA / Testing', 'Your Domain'].map((skill) => (
+                              <span
+                                key={skill}
+                                className="px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/70 text-[11px] font-heading font-medium text-slate-600"
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right Side: Badges & Action Button */}
+                      <div className="flex flex-col sm:items-end gap-3 pt-3.5 sm:pt-0 border-t sm:border-t-0 border-slate-100 shrink-0 w-full sm:w-auto">
+                        {/* Badges & Meta Row */}
+                        <div className="flex flex-wrap items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
+                          {/* Badges */}
+                          <div className="flex items-center gap-1.5 shrink-0">
+                            <span className="px-2 py-0.5 rounded-md bg-accent-50 border border-accent-200 text-accent-700 font-heading font-bold text-[10px] whitespace-nowrap">
+                              Full-Time
+                            </span>
+                            <span className="text-slate-300">•</span>
+                            <span className="px-2 py-0.5 rounded-md bg-orange-50 border border-orange-200 text-orange-800 font-heading font-bold text-[10px] whitespace-nowrap">
+                              Part-Time
+                            </span>
+                          </div>
+
+                          {/* Experience & Location */}
+                          <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-medium whitespace-nowrap">
+                            <span>Flexible Exp</span>
+                            <span>•</span>
+                            <span className="flex items-center gap-1">
+                              <MapPin className="w-3 h-3 text-accent-500 shrink-0" />
+                              Both Branches
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Select / Apply Trigger */}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            handleOpenApplyModal('Others')
+                          }}
+                          className="w-full sm:w-auto px-4 py-2.5 sm:py-1.5 rounded-xl font-heading font-bold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer bg-accent-500 hover:bg-accent-600 text-white shadow-xs hover:shadow-md active:scale-[0.98] whitespace-nowrap"
+                        >
+                          <span>Apply for Role</span>
+                          <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })()}
             </div>
 
             {/* Both Branches Quick Card */}
@@ -457,282 +856,61 @@ export const HiringTrainers: React.FC<HiringTrainersProps> = ({
               </span>
             </div>
           </div>
+        </div>
 
-          {/* =======================================================
-              RIGHT COLUMN: INLINE TRAINER APPLICATION FORM
-          ======================================================= */}
+      {/* =========================================================
+          3. APPLICATION POPUP MODAL (SAME FORM)
+      ========================================================= */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-apply-title"
+        >
+          {/* Backdrop */}
           <div
-            id="trainer-application-form"
-            className="lg:col-span-5 lg:sticky lg:top-24"
-          >
-            <div className="rounded-3xl bg-white border-2 border-slate-200/90 shadow-xl overflow-hidden">
-              {/* Form Card Header */}
-              <div className="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white p-6 relative">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-500/20 border border-accent-500/40 text-accent-300 eyebrow-badge text-[10px] mb-2">
-                  <Sparkles className="w-3 h-3 text-accent-400" />
-                  <span>DIRECT APPLICATION FORM</span>
-                </div>
-                <h3 className="font-heading font-bold text-xl text-white">
-                  Apply for Trainer Position
-                </h3>
-                <p className="text-slate-300 text-xs font-sans mt-1">
-                  Fill in your details below and our academic hiring team will
-                  review your profile.
-                </p>
+            className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
+            onClick={() => setIsModalOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Modal Card */}
+          <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border-2 border-slate-200/90 z-10 overflow-hidden my-auto max-h-[92vh] flex flex-col">
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white p-5 sm:p-6 relative shrink-0">
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 sm:top-5 right-4 sm:right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition-all cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-500/20 border border-accent-500/40 text-accent-300 eyebrow-badge text-[10px] mb-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-400" />
+                <span>DIRECT APPLICATION FORM</span>
               </div>
+              <h3
+                id="modal-apply-title"
+                className="font-heading font-bold text-lg sm:text-xl text-white pr-8"
+              >
+                Apply for Trainer Position
+              </h3>
+              <p className="text-slate-300 text-xs font-sans mt-1">
+                Fill in your details below and our academic hiring team will
+                review your profile.
+              </p>
+            </div>
 
-              {/* Form Body */}
-              <div className="p-6">
-                {isSubmitted ? (
-                  <div className="py-6 text-center space-y-4">
-                    <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
-                      <CheckCircle2 className="w-7 h-7" />
-                    </div>
-                    <div>
-                      <h4 className="font-heading font-bold text-lg text-slate-900">
-                        Application Details Received!
-                      </h4>
-                      <p className="text-slate-600 text-xs sm:text-sm font-sans mt-1.5 leading-relaxed">
-                        Thank you for applying for{' '}
-                        <strong className="text-slate-900">
-                          {selectedRoleTitle}
-                        </strong>
-                        . Our team will contact you shortly for a preliminary
-                        conversation.
-                      </p>
-                    </div>
-
-                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-600 text-left space-y-1">
-                      <div>
-                        <strong>Employment:</strong> {employmentPreference}
-                      </div>
-                      <div>
-                        <strong>Branch:</strong> {branchPreference}
-                      </div>
-                      <div>
-                        <strong>Applicant:</strong> {formData.fullName} ({formData.phone})
-                      </div>
-                    </div>
-
-                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5">
-                      <button
-                        type="button"
-                        onClick={handleResetForm}
-                        className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-heading font-bold text-xs shadow-md transition-all cursor-pointer"
-                      >
-                        Submit Another Application
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          onOpenEnquiry?.(
-                            `Application follow-up for ${selectedRoleTitle}`
-                          )
-                        }
-                        className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-heading font-semibold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                      >
-                        <PhoneCall className="w-3.5 h-3.5 text-accent-500" />
-                        <span>Contact Recruiter</span>
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    {/* Selected Role Dropdown */}
-                    <div>
-                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
-                        Applying for Role <span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        value={selectedRoleTitle}
-                        onChange={(e) => setSelectedRoleTitle(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white transition-all cursor-pointer font-medium"
-                      >
-                        {TRAINER_JOBS.map((job) => (
-                          <option key={job.id} value={job.title}>
-                            {job.title}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Preferred Employment & Branch */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div>
-                        <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
-                          Employment
-                        </label>
-                        <select
-                          value={employmentPreference}
-                          onChange={(e) =>
-                            setEmploymentPreference(
-                              e.target.value as
-                                | 'Full-Time'
-                                | 'Part-Time'
-                                | 'Both / Flexible'
-                            )
-                          }
-                          className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white"
-                        >
-                          <option value="Both / Flexible">Both / Flexible</option>
-                          <option value="Full-Time">Full-Time</option>
-                          <option value="Part-Time">Part-Time</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
-                          Preferred Branch
-                        </label>
-                        <select
-                          value={branchPreference}
-                          onChange={(e) =>
-                            setBranchPreference(
-                              e.target.value as
-                                | 'Both Branches'
-                                | 'Gandhipuram'
-                                | 'Saravanampatti'
-                            )
-                          }
-                          className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white"
-                        >
-                          <option value="Both Branches">Both Branches</option>
-                          <option value="Gandhipuram">Gandhipuram</option>
-                          <option value="Saravanampatti">Saravanampatti</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    {/* Full Name */}
-                    <div>
-                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
-                        Full Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleInputChange}
-                        placeholder="e.g. Ramesh Kumar"
-                        className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border ${
-                          formErrors.fullName
-                            ? 'border-red-400 bg-red-50/30'
-                            : 'border-slate-200'
-                        } text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white`}
-                      />
-                      {formErrors.fullName && (
-                        <p className="text-red-500 text-[10px] mt-1 font-medium">
-                          {formErrors.fullName}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Row: Email & Phone */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div>
-                        <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
-                          Email Address <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="ramesh@example.com"
-                          className={`w-full px-3 py-2.5 rounded-xl bg-slate-50 border ${
-                            formErrors.email
-                              ? 'border-red-400 bg-red-50/30'
-                              : 'border-slate-200'
-                          } text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white`}
-                        />
-                        {formErrors.email && (
-                          <p className="text-red-500 text-[10px] mt-1 font-medium">
-                            {formErrors.email}
-                          </p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
-                          Phone Number <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder="+91 89038 35098"
-                          className={`w-full px-3 py-2.5 rounded-xl bg-slate-50 border ${
-                            formErrors.phone
-                              ? 'border-red-400 bg-red-50/30'
-                              : 'border-slate-200'
-                          } text-slate-900 font-sans text-xs focus:outline-hidden focus:border-accent-500 focus:bg-white`}
-                        />
-                        {formErrors.phone && (
-                          <p className="text-red-500 text-[10px] mt-1 font-medium">
-                            {formErrors.phone}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Experience */}
-                    <div>
-                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
-                        Relevant Experience
-                      </label>
-                      <select
-                        name="experienceYears"
-                        value={formData.experienceYears}
-                        onChange={handleInputChange}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white"
-                      >
-                        <option value="Less than 1 Year">Less than 1 Year</option>
-                        <option value="1 - 2 Years">1 - 2 Years</option>
-                        <option value="3 - 5 Years">3 - 5 Years</option>
-                        <option value="5+ Years">5+ Years</option>
-                      </select>
-                    </div>
-
-                    {/* Short Message / Portfolio */}
-                    <div>
-                      <label className="block text-xs font-heading font-bold text-slate-800 mb-1">
-                        Short Summary / Profile Notes (Optional)
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={2}
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Brief overview of your domains or previous teaching experience..."
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 font-sans text-xs sm:text-sm focus:outline-hidden focus:border-accent-500 focus:bg-white resize-none"
-                      />
-                    </div>
-
-                    {/* Submit Button */}
-                    <div className="pt-2">
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full py-3.5 px-5 rounded-xl bg-accent-500 hover:bg-accent-600 disabled:opacity-70 text-white font-heading font-bold text-sm shadow-md shadow-accent-500/25 hover:shadow-accent-500/35 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
-                      >
-                        {isSubmitting ? (
-                          <span>Submitting...</span>
-                        ) : (
-                          <>
-                            <Send className="w-4 h-4" />
-                            <span>Submit Application</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  </form>
-                )}
-              </div>
+            {/* Scrollable Form Body */}
+            <div className="p-5 sm:p-6 overflow-y-auto">
+              {renderFormBody(true)}
             </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   )
 }

@@ -71,9 +71,8 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
     <section
       id="student-testimonials"
       aria-labelledby="testimonials-heading"
-      className={`relative overflow-hidden rounded-3xl bg-slate-950 text-white border border-slate-800/90 py-10 sm:py-14 px-4 sm:px-6 lg:px-8 shadow-2xl ${
-        className !== undefined ? className : 'mb-14 sm:mb-18 lg:mb-20'
-      }`}
+      className={`relative overflow-hidden rounded-3xl bg-slate-950 text-white border border-slate-800/90 py-10 sm:py-14 px-4 sm:px-6 lg:px-8 shadow-2xl ${className !== undefined ? className : 'mb-14 sm:mb-18 lg:mb-20'
+        }`}
     >
       {/* Background Cinematic Atmosphere */}
       <div className="pointer-events-none absolute -top-40 -left-40 w-96 h-96 bg-accent-500/15 rounded-full blur-[120px]" />
@@ -228,11 +227,10 @@ const ReviewDepthCard: React.FC<ReviewDepthCardProps> = ({
 }) => {
   return (
     <div
-      className={`relative w-full h-full p-6 flex flex-col justify-between overflow-hidden rounded-[20px] bg-slate-950 text-white border transition-all duration-300 select-none ${
-        isActive
-          ? 'border-accent-500/70 shadow-[0_25px_60px_-15px_rgba(254,90,44,0.3)] ring-1 ring-accent-500/40'
-          : 'border-slate-800 shadow-2xl hover:border-slate-700'
-      }`}
+      className={`relative w-full h-full p-6 flex flex-col justify-between overflow-hidden rounded-[20px] bg-slate-950 text-white border transition-all duration-300 select-none ${isActive
+        ? 'border-accent-500/70 shadow-[0_25px_60px_-15px_rgba(254,90,44,0.3)] ring-1 ring-accent-500/40'
+        : 'border-slate-800 shadow-2xl hover:border-slate-700'
+        }`}
     >
       {/* Top Subtle Luminous Color Accent */}
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent-500 via-amber-400 to-orange-500 z-20" />
@@ -321,9 +319,8 @@ const ReviewDepthCard: React.FC<ReviewDepthCardProps> = ({
             />
           ) : null}
           <div
-            className={`w-10 h-10 rounded-full ${testimonial.avatarBg} text-white font-heading font-extrabold text-sm flex items-center justify-center shrink-0 border border-white/20 shadow-md ${
-              testimonial.avatarUrl ? 'hidden' : ''
-            }`}
+            className={`w-10 h-10 rounded-full ${testimonial.avatarBg} text-white font-heading font-extrabold text-sm flex items-center justify-center shrink-0 border border-white/20 shadow-md ${testimonial.avatarUrl ? 'hidden' : ''
+              }`}
           >
             {testimonial.avatarInitial}
           </div>

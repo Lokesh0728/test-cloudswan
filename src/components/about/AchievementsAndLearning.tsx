@@ -10,8 +10,6 @@ import {
   ShieldCheck,
   Briefcase,
   TrendingUp,
-  Phone,
-  Globe,
 } from 'lucide-react'
 
 // Achievement Images (Extracted from real reference)
@@ -27,8 +25,6 @@ import learnHandsOn from '../../assets/about/learn-hands-on.jpg'
 import learnPractical from '../../assets/about/learn-practical.jpg'
 import learnInteractive from '../../assets/about/learn-interactive.jpg'
 
-// Brand Logo
-import logoImg from '../../assets/logo.png'
 
 interface AchievementCard {
   id: string
@@ -295,130 +291,67 @@ export const AchievementsAndLearning: React.FC = () => {
         </div>
 
         {/* =========================================================
-            3. BENEFITS STRIP & BRANDING PANEL
+            3. BENEFITS STRIP
         ========================================================= */}
         <div className="mt-8 pt-6 sm:mt-10 sm:pt-8 border-t border-slate-200">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* 4 Benefits Items */}
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-center">
-              {/* Item 1 */}
-              <div className="flex items-start gap-3.5">
-                <span className="text-[#0A2540] shrink-0 mt-0.5">
-                  <Users className="h-7 w-7 sm:h-8 sm:w-8" />
-                </span>
-                <div>
-                  <h4 className="font-bold text-sm sm:text-base text-[#0A2540] leading-snug">
-                    Experienced Trainers
-                  </h4>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Learn from industry experts
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 2 */}
-              <div className="flex items-start gap-3.5 sm:border-l sm:border-slate-200 sm:pl-4 xl:pl-6">
-                <span className="text-[#0A2540] shrink-0 mt-0.5">
-                  <ShieldCheck className="h-7 w-7 sm:h-8 sm:w-8" />
-                </span>
-                <div>
-                  <h4 className="font-bold text-sm sm:text-base text-[#0A2540] leading-snug">
-                    Practical Knowledge
-                  </h4>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Apply real-world concepts
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 3 */}
-              <div className="flex items-start gap-3.5 xl:border-l xl:border-slate-200 xl:pl-6">
-                <span className="text-[#0A2540] shrink-0 mt-0.5">
-                  <Briefcase className="h-7 w-7 sm:h-8 sm:w-8" />
-                </span>
-                <div>
-                  <h4 className="font-bold text-sm sm:text-base text-[#0A2540] leading-snug">
-                    Placement Assistance
-                  </h4>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    100% placement support
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 4 */}
-              <div className="flex items-start gap-3.5 sm:border-l sm:border-slate-200 sm:pl-4 xl:pl-6">
-                <span className="text-[#0A2540] shrink-0 mt-0.5">
-                  <TrendingUp className="h-7 w-7 sm:h-8 sm:w-8" />
-                </span>
-                <div>
-                  <h4 className="font-bold text-sm sm:text-base text-[#0A2540] leading-snug">
-                    Career Growth
-                  </h4>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Build a successful career
-                  </p>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center">
+            {/* Item 1 */}
+            <div className="flex items-start gap-3.5">
+              <span className="text-[#0A2540] shrink-0 mt-0.5">
+                <Users className="h-7 w-7 sm:h-8 sm:w-8" />
+              </span>
+              <div>
+                <h4 className="font-bold text-sm sm:text-base text-[#0A2540] leading-snug">
+                  Experienced Trainers
+                </h4>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Learn from industry experts
+                </p>
               </div>
             </div>
 
-            {/* Right: Dark Navy Cloudswan Solution Branding Panel */}
-            <div className="lg:col-span-4">
-              <div className="bg-[#071b30] rounded-2xl p-5 text-center text-white shadow-xl border border-slate-800 relative overflow-hidden group">
-                {/* Ambient glow in corner */}
-                <div className="absolute -top-12 -right-12 w-28 h-28 bg-orange-500/10 rounded-full blur-2xl pointer-events-none" />
+            {/* Item 2 */}
+            <div className="flex items-start gap-3.5 sm:border-l sm:border-slate-200 sm:pl-6">
+              <span className="text-[#0A2540] shrink-0 mt-0.5">
+                <ShieldCheck className="h-7 w-7 sm:h-8 sm:w-8" />
+              </span>
+              <div>
+                <h4 className="font-bold text-sm sm:text-base text-[#0A2540] leading-snug">
+                  Practical Knowledge
+                </h4>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Apply real-world concepts
+                </p>
+              </div>
+            </div>
 
-                <div className="relative z-10 flex flex-col items-center">
-                  {/* Logo Image */}
-                  <div className="mb-2 flex items-center justify-center bg-white/95 rounded-xl px-3 py-1.5 shadow-sm">
-                    <img
-                      src={logoImg}
-                      alt="Cloudswan Solution Logo"
-                      className="h-7 w-auto object-contain"
-                    />
-                  </div>
+            {/* Item 3 */}
+            <div className="flex items-start gap-3.5 lg:border-l lg:border-slate-200 lg:pl-6">
+              <span className="text-[#0A2540] shrink-0 mt-0.5">
+                <Briefcase className="h-7 w-7 sm:h-8 sm:w-8" />
+              </span>
+              <div>
+                <h4 className="font-bold text-sm sm:text-base text-[#0A2540] leading-snug">
+                  Placement Assistance
+                </h4>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  100% placement support
+                </p>
+              </div>
+            </div>
 
-                  {/* Company Full Name */}
-                  <h3 className="font-extrabold text-sm sm:text-base tracking-wider text-orange-400 uppercase mt-1">
-                    CLOUDSWAN SOLUTION
-                  </h3>
-
-                  {/* Slogan */}
-                  <p className="text-[11px] text-slate-300 italic tracking-wide mt-0.5">
-                    Empowering Your Future
-                  </p>
-
-                  {/* Website link */}
-                  <a
-                    href="https://www.cloudswansolution.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[11px] text-slate-300 hover:text-orange-400 transition-colors mt-2"
-                  >
-                    <Globe className="h-3 w-3 text-orange-400" />
-                    <span>www.cloudswansolution.com</span>
-                  </a>
-
-                  {/* Phone contacts */}
-                  <div className="flex items-center justify-center gap-2 mt-1.5 text-xs font-semibold text-white">
-                    <Phone className="h-3 w-3 text-orange-400 shrink-0" />
-                    <a
-                      href="tel:+918903835098"
-                      className="hover:text-orange-400 transition-colors"
-                      title="Gandhipuram (Ramnagar)"
-                    >
-                      89038 35098
-                    </a>
-                    <span className="text-slate-500">|</span>
-                    <a
-                      href="tel:+917708262565"
-                      className="hover:text-orange-400 transition-colors"
-                      title="Saravanampatti (Main Bus Stop)"
-                    >
-                      +91 7708 262 565
-                    </a>
-                  </div>
-                </div>
+            {/* Item 4 */}
+            <div className="flex items-start gap-3.5 sm:border-l sm:border-slate-200 sm:pl-6 lg:border-l lg:border-slate-200 lg:pl-6">
+              <span className="text-[#0A2540] shrink-0 mt-0.5">
+                <TrendingUp className="h-7 w-7 sm:h-8 sm:w-8" />
+              </span>
+              <div>
+                <h4 className="font-bold text-sm sm:text-base text-[#0A2540] leading-snug">
+                  Career Growth
+                </h4>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Build a successful career
+                </p>
               </div>
             </div>
           </div>
