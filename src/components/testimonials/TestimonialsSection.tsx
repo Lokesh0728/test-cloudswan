@@ -7,7 +7,6 @@ import {
   ArrowRight,
   ShieldCheck,
   Award,
-  Sparkles,
 } from 'lucide-react'
 import DepthCarousel from './DepthCarousel'
 import {
@@ -205,7 +204,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
             onClick={() => onOpenEnquiry('Consultation inspired by Google Reviews')}
             className="px-4 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-xs sm:text-sm font-bold font-heading tracking-wide transition-all shadow-lg shadow-accent-500/25 flex items-center gap-2 cursor-pointer active:scale-95"
           >
-            <Sparkles className="w-3.5 h-3.5" />
+
             <span>Talk to Alumni</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
@@ -230,6 +229,8 @@ const ReviewDepthCard: React.FC<ReviewDepthCardProps> = ({
       className={`relative w-full h-full p-6 flex flex-col justify-between overflow-hidden rounded-[20px] bg-slate-950 text-white border transition-all duration-300 select-none ${isActive
         ? 'border-accent-500/70 shadow-[0_25px_60px_-15px_rgba(254,90,44,0.3)] ring-1 ring-accent-500/40'
         : 'border-slate-800 shadow-2xl hover:border-slate-700'
+          ? 'border-accent-500/70 shadow-[0_25px_60px_-15px_rgba(254,90,44,0.3)] ring-1 ring-accent-500/40'
+          : 'border-slate-800 shadow-2xl hover:border-slate-700'
         }`}
     >
       {/* Top Subtle Luminous Color Accent */}

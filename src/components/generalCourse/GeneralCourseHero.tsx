@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import {
   Home,
   ChevronRight,
-  Sparkles,
   MapPin,
   Clock,
   Laptop,
@@ -108,7 +107,7 @@ export const GeneralCourseHero: React.FC<GeneralCourseHeroProps> = ({
             {/* Accreditation Badge */}
             <div className="inline-flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-xs text-[10.5px] sm:text-xs">
               <div className="inline-flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-accent-500 shrink-0" />
+
                 <span className="whitespace-nowrap">100% Practical Training</span>
               </div>
               <span className="hidden sm:inline text-accent-300">|</span>
@@ -244,7 +243,7 @@ export const GeneralCourseHero: React.FC<GeneralCourseHeroProps> = ({
                 onClick={() => onOpenEnquiry(`${course.shortTitle} - Free Consultation`)}
                 className="inline-flex items-center gap-1.5 font-bold font-heading text-accent-600 hover:text-accent-700 bg-accent-50/80 hover:bg-accent-100/80 px-3 py-1.5 rounded-xl border border-accent-200/60 transition-colors"
               >
-                <Sparkles className="w-3.5 h-3.5" />
+
                 <span>Request Free Callback</span>
               </button>
               <a

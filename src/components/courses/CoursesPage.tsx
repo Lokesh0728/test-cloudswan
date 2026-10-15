@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import {
-  Sparkles,
   PhoneCall,
   Search,
   RotateCcw,
@@ -243,7 +242,7 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
               {/* Eyebrow Pill */}
               <div className="inline-flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-orange-50 border border-accent-200/80 text-accent-700 eyebrow-badge shadow-2xs text-[10.5px] sm:text-xs">
                 <div className="inline-flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-accent-500 shrink-0" />
+
                   <span className="whitespace-nowrap">Comprehensive Course Catalog</span>
                 </div>
                 <span className="hidden sm:inline text-accent-300">•</span>
@@ -534,8 +533,8 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                 <div
                   key={idx}
                   className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
-                      ? 'bg-white border-accent-300 shadow-md shadow-accent-500/5 ring-1 ring-accent-500/10'
-                      : 'bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-slate-300'
+                    ? 'bg-white border-accent-300 shadow-md shadow-accent-500/5 ring-1 ring-accent-500/10'
+                    : 'bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-slate-300'
                     }`}
                 >
                   <button
@@ -549,8 +548,8 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                     <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                       <span
                         className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shrink-0 text-xs font-bold font-heading transition-all ${isOpen
-                            ? 'bg-accent-500 text-white shadow-xs shadow-accent-500/25'
-                            : 'bg-white text-slate-600 border border-slate-200 group-hover:border-accent-200 group-hover:text-accent-600'
+                          ? 'bg-accent-500 text-white shadow-xs shadow-accent-500/25'
+                          : 'bg-white text-slate-600 border border-slate-200 group-hover:border-accent-200 group-hover:text-accent-600'
                           }`}
                       >
                         0{idx + 1}
@@ -565,8 +564,8 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
 
                     <div
                       className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen
-                          ? 'bg-orange-50 text-accent-600 rotate-180'
-                          : 'bg-white text-slate-400 border border-slate-200 group-hover:text-slate-700'
+                        ? 'bg-orange-50 text-accent-600 rotate-180'
+                        : 'bg-white text-slate-400 border border-slate-200 group-hover:text-slate-700'
                         }`}
                     >
                       <ChevronDown className="w-4 h-4" />
@@ -576,8 +575,8 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                   {/* Smooth Accordion Body */}
                   <div
                     className={`grid transition-all duration-300 ease-in-out ${isOpen
-                        ? 'grid-rows-[1fr] opacity-100'
-                        : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                      ? 'grid-rows-[1fr] opacity-100'
+                      : 'grid-rows-[0fr] opacity-0 pointer-events-none'
                       }`}
                   >
                     <div className="overflow-hidden">

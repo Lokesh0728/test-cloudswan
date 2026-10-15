@@ -13,6 +13,8 @@ import { CoursesPage } from './components/courses/CoursesPage'
 import { getCourseByIdOrSlug } from './data/courses'
 import { getGeneralCourseBySlugOrId } from './data/generalCoursesData'
 import type { CourseItem, CourseCategory } from './data/navigationData'
+import { Footer } from './components/footer/Footer'
+import { StippleType } from './components/ui/stipple-type'
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
@@ -159,6 +161,51 @@ export default function App() {
           </>
         )}
       </main>
+
+      {/* Premium Institutional Site Footer */}
+      <Footer
+        currentPath={currentPath}
+        onNavigate={handleNavigate}
+        onOpenEnquiry={handleOpenEnquiry}
+      />
+
+      {/* Animated Brand Showcase Below Footer */}
+      <section
+        aria-label="CloudSwan Solution Stipple Animation"
+        className="w-full bg-[#030712] border-t border-slate-800/80 relative overflow-hidden select-none py-8 sm:py-10 md:py-12"
+      >
+        {/* Subtle ambient lighting effect */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[280px] bg-brand-500/10 rounded-full blur-[120px] opacity-60" />
+          <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[200px] bg-accent-500/10 rounded-full blur-[100px] opacity-40" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center justify-center">
+          {/* Single-line animated Stipple Type headline */}
+          <div className="w-full h-32 sm:h-40 md:h-48  flex items-center justify-center">
+            <StippleType singleLine={true} />
+          </div>
+
+          {/* Attractive inspirational quote below */}
+          <div className="mt-2 sm:mt-4 flex flex-col items-center text-center max-w-2xl px-4">
+            <div className="flex items-center gap-2.5 mb-2">
+              <span className="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent to-accent-500/80" />
+              <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-accent-400">
+                Transforming Careers
+              </span>
+              <span className="h-[1px] w-6 sm:w-10 bg-gradient-to-l from-transparent to-accent-500/80" />
+            </div>
+
+            <blockquote className="text-slate-300 font-sans text-xs sm:text-sm md:text-base italic font-light tracking-wide leading-relaxed">
+              “Empowering Minds, Engineering Futures — Shaping Tomorrow’s Tech Leaders.”
+            </blockquote>
+
+            <p className="mt-2 text-[11px] sm:text-xs text-slate-400 font-medium tracking-wider uppercase">
+              No.1 IT Training Institute In Coimbatore • Gandhipuram & Saravanampatti
+            </p>
+          </div>
+        </div>
+      </section>
 
 
 

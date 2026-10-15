@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Sparkles,
   ArrowRight,
   BookOpen,
   CheckCircle2,
@@ -69,7 +68,7 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
           {/* Accreditation Badge */}
           <div className="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-2 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-xs text-[10.5px] sm:text-xs mx-auto">
             <div className="inline-flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-accent-500 shrink-0" />
+
               <span className="whitespace-nowrap">100% Practical IT Training Institute</span>
             </div>
             <span className="hidden sm:inline text-accent-300">|</span>
@@ -187,8 +186,8 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
                 {course.id.includes('aws')
                   ? 'Hands-on Production AWS Cloud Labs'
                   : course.id.includes('cyber')
-                  ? 'Authorized Virtual Security Labs'
-                  : '100% Practical Hands-on Labs'}
+                    ? 'Authorized Virtual Security Labs'
+                    : '100% Practical Hands-on Labs'}
               </span>
             </div>
             <div className="flex items-center gap-2">
