@@ -241,10 +241,7 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
             <div className="lg:col-span-7 space-y-4 text-left">
               {/* Eyebrow Pill */}
               <div className="inline-flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-orange-50 border border-accent-200/80 text-accent-700 eyebrow-badge shadow-2xs text-[10.5px] sm:text-xs">
-                <div className="inline-flex items-center gap-1.5">
-
-                  <span className="whitespace-nowrap">Comprehensive Course Catalog</span>
-                </div>
+                <span className="whitespace-nowrap">Comprehensive Course Catalog</span>
                 <span className="hidden sm:inline text-accent-300">•</span>
                 <span className="text-slate-600 font-medium normal-case whitespace-nowrap">
                   30 Industry Specializations
@@ -295,8 +292,8 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
               <div className="p-4 sm:p-5 rounded-3xl bg-white/90 border border-slate-200/90 shadow-sm shadow-slate-200/60 backdrop-blur-sm">
                 <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
                   {/* Metric 1 */}
-                  <div className="p-3 sm:p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-accent-200 hover:shadow-xs transition-all text-left group">
-                    <div className="w-8 h-8 rounded-xl bg-orange-100/70 text-accent-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+                  <div className="p-3 sm:p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all text-left group">
+                    <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
                       <BookOpen className="w-4 h-4" />
                     </div>
                     <div className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-bold font-heading text-slate-900 tracking-tight">
@@ -311,11 +308,11 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                   </div>
 
                   {/* Metric 2 */}
-                  <div className="p-3 sm:p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-accent-200 hover:shadow-xs transition-all text-left group">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-100/70 text-emerald-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+                  <div className="p-3 sm:p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all text-left group">
+                    <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
                       <ShieldCheck className="w-4 h-4" />
                     </div>
-                    <div className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-bold font-heading text-accent-500 tracking-tight">
+                    <div className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-bold font-heading text-slate-900 tracking-tight">
                       100%
                     </div>
                     <div className="caption-text font-semibold text-slate-700 mt-0.5 truncate">
@@ -327,8 +324,8 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                   </div>
 
                   {/* Metric 3 */}
-                  <div className="p-3 sm:p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-accent-200 hover:shadow-xs transition-all text-left group">
-                    <div className="w-8 h-8 rounded-xl bg-blue-100/70 text-blue-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+                  <div className="p-3 sm:p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all text-left group">
+                    <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
                       <GraduationCap className="w-4 h-4" />
                     </div>
                     <div className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-bold font-heading text-slate-900 tracking-tight">
@@ -343,8 +340,8 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                   </div>
 
                   {/* Metric 4 */}
-                  <div className="p-3 sm:p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-accent-200 hover:shadow-xs transition-all text-left group">
-                    <div className="w-8 h-8 rounded-xl bg-amber-100/70 text-amber-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+                  <div className="p-3 sm:p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all text-left group">
+                    <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
                       <Building2 className="w-4 h-4" />
                     </div>
                     <div className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-bold font-heading text-slate-900 tracking-tight">
@@ -362,12 +359,12 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                 {/* Sub-Card Trust Bar */}
                 <div className="mt-3.5 pt-3 border-t border-slate-200/70 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 text-xs text-slate-600">
                   <div className="flex items-center gap-1.5 font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                     <span>ISO 9001:2015</span>
                   </div>
                   <span className="text-slate-300 hidden sm:inline">•</span>
                   <div className="flex items-center gap-1.5 font-medium">
-                    <Building2 className="w-3.5 h-3.5 text-accent-500 shrink-0" />
+                    <Building2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                     <span>250+ Hiring Partners</span>
                   </div>
                   <span className="text-slate-300 hidden sm:inline">•</span>

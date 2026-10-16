@@ -8,6 +8,7 @@ import {
   Calendar,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CourseCurriculumProps {
   curriculum: CourseData['curriculum']
@@ -70,9 +71,7 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({
             <span>{curriculum.modules.length} Comprehensive Modules • {totalTopics}+ Topics</span>
           </div>
 
-          <h2 className="display-h2 text-slate-900">
-            {curriculum.subtitle}
-          </h2>
+          <GradientTitle text={curriculum.subtitle} className="display-h2 text-slate-900" />
 
           <p className="mt-3 font-heading font-bold text-base sm:text-lg text-accent-600">
             {curriculum.title}

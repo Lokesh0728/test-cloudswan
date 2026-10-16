@@ -10,6 +10,7 @@ import {
   Layers,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CourseProjectsProps {
   projects: CourseData['projects']
@@ -42,9 +43,7 @@ export const CourseProjects: React.FC<CourseProjectsProps> = ({
             <span>Hands-On Sandbox Projects</span>
           </div>
 
-          <h2 className="display-h2 text-slate-900">
-            {projects.title}
-          </h2>
+          <GradientTitle text={projects.title} className="display-h2 text-slate-900" />
 
           <p className="mt-3 font-heading font-bold text-base sm:text-lg text-accent-600">
             {projects.subtitle}

@@ -11,6 +11,7 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CourseWhyCloudswanProps {
   whyCloudSwan: CourseData['whyCloudSwan']
@@ -41,9 +42,7 @@ export const CourseWhyCloudswan: React.FC<CourseWhyCloudswanProps> = ({
             <span>The CloudSwan Institute Standard</span>
           </div>
 
-          <h2 className="display-h2 text-slate-900">
-            {whyCloudSwan.title}
-          </h2>
+          <GradientTitle text={whyCloudSwan.title} className="display-h2 text-slate-900" />
 
           <p className="mt-3 font-heading font-bold text-base sm:text-lg text-accent-600">
             {whyCloudSwan.subtitle}

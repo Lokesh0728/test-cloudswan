@@ -5,7 +5,7 @@ export interface CatalogCourse {
   slug: string
   categoryId: 'it-training' | 'language-training' | 'global-certifications' | 'general-training'
   categoryName: string
-  categoryIcon: 'Code2' | 'Languages' | 'BadgeCheck' | 'Sparkles'
+  categoryIcon: 'Code2' | 'Languages' | 'BadgeCheck' | 'BookOpen'
   badge?: 'Hot' | 'Trending' | 'Flagship' | 'Global' | 'Popular' | 'Certified' | 'Essential'
   isPopular?: boolean
   tagline: string
@@ -30,12 +30,12 @@ export interface CatalogCourse {
 export interface CategoryOption {
   id: 'all' | 'it-training' | 'language-training' | 'global-certifications' | 'general-training'
   label: string
-  iconName: 'Sparkles' | 'Code2' | 'Languages' | 'BadgeCheck' | 'BookOpen'
+  iconName: 'LayoutGrid' | 'Code2' | 'Languages' | 'BadgeCheck' | 'BookOpen'
   badge?: string
 }
 
 export const CATALOG_CATEGORIES: CategoryOption[] = [
-  { id: 'all', label: 'All Courses', iconName: 'Sparkles' },
+  { id: 'all', label: 'All Courses', iconName: 'LayoutGrid' },
   { id: 'it-training', label: 'IT Training', iconName: 'Code2', badge: '12 Courses' },
   { id: 'language-training', label: 'Language Training', iconName: 'Languages', badge: '6 Courses' },
   { id: 'global-certifications', label: 'Global Certifications', iconName: 'BadgeCheck', badge: '6 Exams' },
@@ -328,31 +328,31 @@ export const ALL_COURSES_CATALOG: CatalogCourse[] = [
     nextBatchInfo: 'Morning, Evening & Weekend',
   },
   {
-    id: 'cloud-computing',
-    name: 'Cloud Computing & Multi-Cloud',
-    shortTitle: 'Cloud Computing',
-    slug: '/courses/cloud-computing',
+    id: 'snowflake',
+    name: 'Snowflake Data Cloud & Warehousing',
+    shortTitle: 'Snowflake',
+    slug: '/courses/snowflake',
     categoryId: 'it-training',
     categoryName: 'IT Training',
     categoryIcon: 'Code2',
-    badge: 'Popular',
-    tagline: 'AWS, Azure, Google Cloud, Hybrid Architecture & Cloud Migration Strategies',
-    description: 'Holistic multi-cloud administration covering compute virtualization, distributed object storage, identity management, networking, and cost optimization.',
-    rating: 4.8,
-    reviewsCount: 460,
-    studentsTrained: '1,200+ Trained',
-    duration: '3 to 4 Months',
-    durationCategory: 'long',
+    badge: 'Hot',
+    tagline: 'Cloud Data Warehousing, Data Pipelines, Snowpark, Snowpipe, Time Travel & Modern Analytics',
+    description: 'Comprehensive Snowflake training covering virtual warehouses, data sharing, Snowpipe streaming, Snowpark Python, semi-structured JSON, and enterprise performance optimization.',
+    rating: 4.9,
+    reviewsCount: 480,
+    studentsTrained: '1,100+ Trained',
+    duration: '2.5 to 3 Months',
+    durationCategory: 'medium',
     mode: 'Classroom & Live Interactive Online',
     modeCategory: 'all',
-    level: 'Beginner to Intermediate',
-    levelCategory: 'beginner',
+    level: 'Beginner to Advanced',
+    levelCategory: 'all-levels',
     hasPlacement: true,
     hasCertification: true,
-    keyTopics: ['Multi-Cloud', 'AWS', 'Azure', 'GCP', 'Virtualization', 'Cloud Security'],
-    modulesCount: 10,
-    projectsCount: 4,
-    nextBatchInfo: 'Hands-on Multi-Cloud Labs',
+    keyTopics: ['Snowflake Architecture', 'Virtual Warehouses', 'Snowpipe & Ingestion', 'Snowpark (Python/SQL)', 'Time Travel & Zero-Copy Cloning', 'Data Sharing & Security'],
+    modulesCount: 11,
+    projectsCount: 5,
+    nextBatchInfo: 'Hands-on Snowflake Cloud Labs',
   },
   {
     id: 'sap',
@@ -745,7 +745,7 @@ export const ALL_COURSES_CATALOG: CatalogCourse[] = [
     slug: '/courses/soft-skills',
     categoryId: 'general-training',
     categoryName: 'General Training',
-    categoryIcon: 'Sparkles',
+    categoryIcon: 'BookOpen',
     badge: 'Essential',
     tagline: 'Emotional Intelligence, Team Collaboration, Time Management & Conflict Resolution',
     description: 'Cultivate high-impact interpersonal behaviors that drive corporate success, team synergy, active listening, and career progression.',
@@ -771,7 +771,7 @@ export const ALL_COURSES_CATALOG: CatalogCourse[] = [
     slug: '/courses/aptitude-training',
     categoryId: 'general-training',
     categoryName: 'General Training',
-    categoryIcon: 'Sparkles',
+    categoryIcon: 'BookOpen',
     badge: 'Hot',
     isPopular: true,
     tagline: 'Quantitative Aptitude, Logical Reasoning, Verbal Ability & MNC Placement Test Prep',
@@ -798,7 +798,7 @@ export const ALL_COURSES_CATALOG: CatalogCourse[] = [
     slug: '/courses/personality-development',
     categoryId: 'general-training',
     categoryName: 'General Training',
-    categoryIcon: 'Sparkles',
+    categoryIcon: 'BookOpen',
     badge: 'Essential',
     tagline: 'Transform Body Language, Confidence, Personal Branding & Social Charm',
     description: 'Master powerful first impressions, commanding vocal tonality, corporate dress etiquette, poise, and magnetic public presence.',
@@ -824,7 +824,7 @@ export const ALL_COURSES_CATALOG: CatalogCourse[] = [
     slug: '/courses/leadership-training',
     categoryId: 'general-training',
     categoryName: 'General Training',
-    categoryIcon: 'Sparkles',
+    categoryIcon: 'BookOpen',
     badge: 'Essential',
     tagline: 'Inspire High-Performing Teams, Lead Change & Make Decisive Strategic Choices',
     description: 'Coaching for new managers and aspiring leaders on delegation, coaching subordinates, psychological safety, and driving team accountability.',
@@ -850,7 +850,7 @@ export const ALL_COURSES_CATALOG: CatalogCourse[] = [
     slug: '/courses/corporate-training',
     categoryId: 'general-training',
     categoryName: 'General Training',
-    categoryIcon: 'Sparkles',
+    categoryIcon: 'BookOpen',
     badge: 'Essential',
     tagline: 'Customized IT & Leadership Up-skilling for MNCs, Startups & Educational Institutions',
     description: 'Tailored corporate workshops on emerging technologies, full-stack up-skilling, cloud certifications, and leadership bootcamps delivered at client premises or virtual labs.',
@@ -876,7 +876,7 @@ export const ALL_COURSES_CATALOG: CatalogCourse[] = [
     slug: '/courses/basic-computer-skills',
     categoryId: 'general-training',
     categoryName: 'General Training',
-    categoryIcon: 'Sparkles',
+    categoryIcon: 'BookOpen',
     badge: 'Essential',
     tagline: 'MS Word, Excel, PowerPoint, Cloud Storage, Email & Digital Productivity',
     description: 'Foundational computer literacy for students, career rebooters, and beginners wanting total confidence with Windows, spreadsheets, internet safety, and typing speed.',

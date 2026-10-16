@@ -48,7 +48,7 @@ export const COURSE_CATEGORIES: CourseCategory[] = [
       { id: 'aws', name: 'AWS Cloud Training', slug: '/courses/aws', isPopular: true, badge: 'Hot' },
       { id: 'full-stack', name: 'Full Stack Development', slug: '/courses/full-stack-development', isPopular: true, badge: 'Hot' },
       { id: 'python', name: 'Python Development', slug: '/courses/python-development', isPopular: true },
-      { id: 'cloud-computing', name: 'Cloud Computing', slug: '/courses/cloud-computing' },
+      { id: 'snowflake', name: 'Snow Flake', slug: '/courses/snowflake', isPopular: true, badge: 'Hot' },
       { id: 'sap', name: 'SAP Training', slug: '/courses/sap', isPopular: true, badge: 'Hot' },
       { id: 'salesforce', name: 'Salesforce Training', slug: '/courses/salesforce', isPopular: true, badge: 'Trending' },
     ],

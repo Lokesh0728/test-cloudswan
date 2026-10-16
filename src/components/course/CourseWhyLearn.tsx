@@ -14,6 +14,7 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CourseWhyLearnProps {
   whyLearn: CourseData['whyLearn']
@@ -50,9 +51,7 @@ export const CourseWhyLearn: React.FC<CourseWhyLearnProps> = ({
             <span>High-Growth Technology Function</span>
           </div>
 
-          <h2 className="display-h2 text-slate-900">
-            {whyLearn.title}
-          </h2>
+          <GradientTitle text={whyLearn.title} className="display-h2 text-slate-900" />
 
           <p className="mt-4 lead-paragraph font-medium text-slate-700 max-w-2xl mx-auto">
             {whyLearn.intro}

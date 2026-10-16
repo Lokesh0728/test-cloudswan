@@ -23,7 +23,7 @@ export const FOOTER_IT_COURSES: FooterLinkItem[] = [
   { name: 'Salesforce CRM Training', href: '/courses/salesforce' },
   { name: 'SAP Enterprise Systems', href: '/courses/sap' },
   { name: 'Digital Marketing & Growth', href: '/courses/digital-marketing' },
-  { name: 'Cloud Computing Architecture', href: '/courses/cloud-computing' },
+  { name: 'Snowflake Data Cloud', href: '/courses/snowflake', badge: 'Hot' },
 ]
 
 export const FOOTER_CERTIFICATIONS_AND_LANGUAGES: FooterLinkItem[] = [

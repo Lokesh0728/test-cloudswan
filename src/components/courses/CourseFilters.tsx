@@ -6,7 +6,6 @@ import {
   RotateCcw,
   LayoutGrid,
   List,
-  Sparkles,
   Code2,
   Languages,
   BadgeCheck,
@@ -44,7 +43,7 @@ interface CourseFiltersProps {
 }
 
 const CATEGORY_ICON_MAP = {
-  Sparkles,
+  LayoutGrid,
   Code2,
   Languages,
   BadgeCheck,
@@ -82,7 +81,7 @@ export const CourseFilters: React.FC<CourseFiltersProps> = ({
          ======================================================== */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar select-none">
         {CATALOG_CATEGORIES.map((cat) => {
-          const IconComp = CATEGORY_ICON_MAP[cat.iconName] || Sparkles
+          const IconComp = CATEGORY_ICON_MAP[cat.iconName] || LayoutGrid
           const isSelected = filterState.categoryId === cat.id
 
           return (
@@ -92,24 +91,24 @@ export const CourseFilters: React.FC<CourseFiltersProps> = ({
               onClick={() =>
                 setFilterState((prev) => ({ ...prev, categoryId: cat.id }))
               }
-              className={`shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs sm:text-sm font-bold tracking-tight transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 shadow-2xs ${
+              className={`shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-heading text-xs sm:text-sm font-bold tracking-tight transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 shadow-2xs group cursor-pointer ${
                 isSelected
                   ? 'bg-accent-500 text-white shadow-md shadow-accent-500/25 scale-[1.02]'
                   : 'bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200/90'
               }`}
             >
               <IconComp
-                className={`w-4 h-4 ${
-                  isSelected ? 'text-white' : 'text-accent-500'
+                className={`w-4 h-4 transition-colors ${
+                  isSelected ? 'text-white' : 'text-slate-400 group-hover:text-slate-600'
                 }`}
               />
               <span>{cat.label}</span>
               {cat.badge && (
                 <span
-                  className={`eyebrow-badge text-[10px] px-1.5 py-0.5 rounded-full ${
+                  className={`eyebrow-badge text-[10px] px-1.5 py-0.5 rounded-full transition-colors ${
                     isSelected
                       ? 'bg-white/20 text-white'
-                      : 'bg-slate-100 text-slate-500'
+                      : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200/70 group-hover:text-slate-700'
                   }`}
                 >
                   {cat.badge}
@@ -242,10 +241,10 @@ export const CourseFilters: React.FC<CourseFiltersProps> = ({
               <button
                 type="button"
                 onClick={() => setViewMode('grid')}
-                className={`p-1.5 rounded-lg transition-all ${
+                className={`p-1.5 rounded-lg transition-all cursor-pointer ${
                   viewMode === 'grid'
-                    ? 'bg-white text-accent-600 shadow-2xs font-bold'
-                    : 'text-slate-500 hover:text-slate-800'
+                    ? 'bg-white text-slate-900 shadow-2xs font-bold'
+                    : 'text-slate-400 hover:text-slate-700'
                 }`}
                 title="Grid View"
                 aria-label="Grid View"
@@ -255,10 +254,10 @@ export const CourseFilters: React.FC<CourseFiltersProps> = ({
               <button
                 type="button"
                 onClick={() => setViewMode('list')}
-                className={`p-1.5 rounded-lg transition-all ${
+                className={`p-1.5 rounded-lg transition-all cursor-pointer ${
                   viewMode === 'list'
-                    ? 'bg-white text-accent-600 shadow-2xs font-bold'
-                    : 'text-slate-500 hover:text-slate-800'
+                    ? 'bg-white text-slate-900 shadow-2xs font-bold'
+                    : 'text-slate-400 hover:text-slate-700'
                 }`}
                 title="List View"
                 aria-label="List View"
@@ -284,13 +283,13 @@ export const CourseFilters: React.FC<CourseFiltersProps> = ({
                   onlyTrending: !prev.onlyTrending,
                 }))
               }
-              className={`px-2.5 py-1 rounded-lg text-xs font-heading font-semibold transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-heading transition-all cursor-pointer border ${
                 filterState.onlyTrending
-                  ? 'bg-rose-50 text-rose-600 border border-rose-300 shadow-2xs'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100'
+                  ? 'bg-slate-900 text-white border-slate-900 shadow-2xs font-semibold'
+                  : 'bg-white text-slate-600 border-slate-200/90 hover:bg-slate-50 hover:text-slate-900 font-medium'
               }`}
             >
-              🔥 Hot & Trending
+              Hot &amp; Trending
             </button>
 
             <button
@@ -301,13 +300,13 @@ export const CourseFilters: React.FC<CourseFiltersProps> = ({
                   onlyPlacement: !prev.onlyPlacement,
                 }))
               }
-              className={`px-2.5 py-1 rounded-lg text-xs font-heading font-semibold transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-heading transition-all cursor-pointer border ${
                 filterState.onlyPlacement
-                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-300 shadow-2xs'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100'
+                  ? 'bg-slate-900 text-white border-slate-900 shadow-2xs font-semibold'
+                  : 'bg-white text-slate-600 border-slate-200/90 hover:bg-slate-50 hover:text-slate-900 font-medium'
               }`}
             >
-              🎓 100% Placement
+              100% Placement
             </button>
 
             <button
@@ -318,13 +317,13 @@ export const CourseFilters: React.FC<CourseFiltersProps> = ({
                   onlyCertification: !prev.onlyCertification,
                 }))
               }
-              className={`px-2.5 py-1 rounded-lg text-xs font-heading font-semibold transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-heading transition-all cursor-pointer border ${
                 filterState.onlyCertification
-                  ? 'bg-amber-50 text-amber-800 border border-amber-300 shadow-2xs'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100'
+                  ? 'bg-slate-900 text-white border-slate-900 shadow-2xs font-semibold'
+                  : 'bg-white text-slate-600 border-slate-200/90 hover:bg-slate-50 hover:text-slate-900 font-medium'
               }`}
             >
-              🏆 Global Certifications
+              Global Certifications
             </button>
 
             <button
@@ -335,13 +334,13 @@ export const CourseFilters: React.FC<CourseFiltersProps> = ({
                   onlyShortTrack: !prev.onlyShortTrack,
                 }))
               }
-              className={`px-2.5 py-1 rounded-lg text-xs font-heading font-semibold transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-heading transition-all cursor-pointer border ${
                 filterState.onlyShortTrack
-                  ? 'bg-blue-50 text-blue-700 border border-blue-300 shadow-2xs'
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100'
+                  ? 'bg-slate-900 text-white border-slate-900 shadow-2xs font-semibold'
+                  : 'bg-white text-slate-600 border-slate-200/90 hover:bg-slate-50 hover:text-slate-900 font-medium'
               }`}
             >
-              ⚡ Fast-Track (&lt; 2 Mos)
+              Fast-Track (&lt; 2 Mos)
             </button>
           </div>
 

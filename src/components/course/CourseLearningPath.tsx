@@ -4,6 +4,7 @@ import {
   CheckCircle2,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CourseLearningPathProps {
   learningPath: CourseData['learningPath']
@@ -24,9 +25,7 @@ export const CourseLearningPath: React.FC<CourseLearningPathProps> = ({
             <span>Structured Knowledge Progression</span>
           </div>
 
-          <h2 className="display-h2 text-slate-900">
-            {learningPath.title}
-          </h2>
+          <GradientTitle text={learningPath.title} className="display-h2 text-slate-900" />
 
           <p className="mt-3 font-heading font-bold text-base sm:text-lg text-accent-600">
             {learningPath.subtitle}

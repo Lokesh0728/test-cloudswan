@@ -5,6 +5,7 @@ import {
   Award,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CoursePortfolioProps {
   portfolio: CourseData['portfolio']
@@ -29,9 +30,7 @@ export const CoursePortfolio: React.FC<CoursePortfolioProps> = ({
               <span>Job-Ready Proof of Competence</span>
             </div>
 
-            <h2 className="display-h2 text-white">
-              {portfolio.title}
-            </h2>
+            <GradientTitle text={portfolio.title} dark={true} className="display-h2 text-white" />
 
             <p className="mt-3 font-heading font-bold text-base sm:text-lg text-accent-400">
               {portfolio.subtitle}

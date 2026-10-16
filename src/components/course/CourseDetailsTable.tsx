@@ -6,6 +6,8 @@ import {
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
 
+import { OrangeGradient } from '../ui/GradientTitle'
+
 interface CourseDetailsTableProps {
   quickSpecs: CourseData['quickSpecs']
   onOpenEnquiry: (subject?: string) => void
@@ -39,7 +41,8 @@ export const CourseDetailsTable: React.FC<CourseDetailsTableProps> = ({
           </div>
 
           <h2 className="display-h2 text-slate-900">
-            Course Details
+            Course{' '}
+            <OrangeGradient>Details</OrangeGradient>
           </h2>
 
           <p className="mt-3 caption-text text-slate-500">

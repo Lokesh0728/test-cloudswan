@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
 import { CONTACT_INFO } from '../../data/navigationData'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CourseFinalCTAProps {
   finalCta: CourseData['finalCta']
@@ -39,9 +40,7 @@ export const CourseFinalCTA: React.FC<CourseFinalCTAProps> = ({
             </div>
 
             {/* Main Headline */}
-            <h2 className="display-h1 text-white">
-              {finalCta.title}
-            </h2>
+            <GradientTitle text={finalCta.title} dark={true} as="h2" className="display-h1 text-white" />
 
             <p className="body-paragraph text-slate-300 max-w-2xl mx-auto text-base sm:text-lg">
               Take the first step towards high-demand {courseTitle} careers. Join hands-on practical labs led by certified practitioners in Coimbatore.

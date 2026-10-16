@@ -9,6 +9,7 @@ import {
   GraduationCap,
 } from 'lucide-react'
 import type { GeneralCourseData } from '../../types/generalCourse'
+import { OrangeGradient } from '../ui/GradientTitle'
 
 interface GeneralCourseCurriculumProps {
   course: GeneralCourseData
@@ -37,7 +38,8 @@ export const GeneralCourseCurriculum: React.FC<GeneralCourseCurriculumProps> = (
               <span>Industry-Aligned Syllabus</span>
             </span>
             <h2 className="display-h2 text-slate-900">
-              Comprehensive Training Curriculum & Learning Modules
+              Comprehensive Training Curriculum &{' '}
+              <OrangeGradient>Learning Modules</OrangeGradient>
             </h2>
             <p className="body-paragraph text-slate-600">
               Carefully structured from foundational concepts to advanced practical real-world scenarios, ensuring 100% conceptual clarity and practical application.

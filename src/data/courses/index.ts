@@ -10,6 +10,7 @@ import { salesforceCourseData } from './salesforceData'
 import { fullstackCourseData } from './fullstackData'
 import { pythonCourseData } from './pythonData'
 import { cloudComputingCourseData } from './cloudComputingData'
+import { snowflakeCourseData } from './snowflakeData'
 import type { CourseData } from '../../types/course'
 
 /**
@@ -62,7 +63,20 @@ export const COURSES_REGISTRY: Record<string, CourseData> = {
   '/courses/python-development': pythonCourseData,
   '/courses/python-programming': pythonCourseData,
 
-  // Cloud Computing mappings
+  // Snowflake Data Cloud mappings
+  snowflake: snowflakeCourseData,
+  'snow-flake': snowflakeCourseData,
+  'snowflake-training': snowflakeCourseData,
+  'snow-flake-training': snowflakeCourseData,
+  'snowflake-data-cloud': snowflakeCourseData,
+  '/snowflake': snowflakeCourseData,
+  '/snow-flake': snowflakeCourseData,
+  '/courses/snowflake': snowflakeCourseData,
+  '/courses/snow-flake': snowflakeCourseData,
+  '/courses/snowflake-training': snowflakeCourseData,
+  '/courses/snow-flake-training': snowflakeCourseData,
+
+  // Cloud Computing mappings (backward compatibility & legacy redirects)
   'cloud-computing': cloudComputingCourseData,
   cloud: cloudComputingCourseData,
   'cloud-engineer': cloudComputingCourseData,
@@ -230,6 +244,7 @@ export {
   fullstackCourseData,
   pythonCourseData,
   cloudComputingCourseData,
+  snowflakeCourseData,
 }
 export * from '../../types/course'
 

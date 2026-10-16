@@ -8,6 +8,7 @@ import {
   MessageSquare,
 } from 'lucide-react'
 import type { CourseFAQItem } from '../../types/course'
+import { OrangeGradient } from '../ui/GradientTitle'
 
 interface CourseFAQProps {
   faqs: CourseFAQItem[]
@@ -56,7 +57,7 @@ export const CourseFAQ: React.FC<CourseFAQProps> = ({
           </div>
 
           <h2 className="display-h2 text-slate-900">
-            Frequently Asked Questions
+            Frequently Asked <OrangeGradient>Questions</OrangeGradient>
           </h2>
 
           <p className="mt-4 body-paragraph text-slate-600 max-w-2xl mx-auto">

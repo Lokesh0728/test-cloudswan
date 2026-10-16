@@ -8,6 +8,7 @@ import {
   FileCheck2,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CourseCertificationProps {
   certification: CourseData['certification']
@@ -28,9 +29,7 @@ export const CourseCertification: React.FC<CourseCertificationProps> = ({
             <span>Course Completion & Industry Validation</span>
           </div>
 
-          <h2 className="display-h2 text-slate-900">
-            {certification.title}
-          </h2>
+          <GradientTitle text={certification.title} className="display-h2 text-slate-900" />
 
           <p className="mt-3 font-heading font-bold text-base sm:text-lg text-accent-600">
             {certification.subtitle}

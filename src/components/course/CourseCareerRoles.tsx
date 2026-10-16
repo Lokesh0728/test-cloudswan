@@ -7,6 +7,7 @@ import {
   Info,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CourseCareerRolesProps {
   careerOpportunities: CourseData['careerOpportunities']
@@ -27,9 +28,7 @@ export const CourseCareerRoles: React.FC<CourseCareerRolesProps> = ({
             <span>High-Demand Career Pathways</span>
           </div>
 
-          <h2 className="display-h2 text-slate-900">
-            {careerOpportunities.title}
-          </h2>
+          <GradientTitle text={careerOpportunities.title} className="display-h2 text-slate-900" />
 
           <p className="mt-3 font-heading font-bold text-base sm:text-lg text-accent-600">
             {careerOpportunities.subtitle}

@@ -6,6 +6,7 @@ import {
   Rocket,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CourseRoadmapProps {
   roadmap: CourseData['roadmap']
@@ -26,9 +27,7 @@ export const CourseRoadmap: React.FC<CourseRoadmapProps> = ({
             <span>12-Stage Career Progression Blueprint</span>
           </div>
 
-          <h2 className="display-h2 text-slate-900">
-            {roadmap.title}
-          </h2>
+          <GradientTitle text={roadmap.title} className="display-h2 text-slate-900" />
 
           <p className="mt-3 font-heading font-bold text-base sm:text-lg text-accent-600">
             {roadmap.subtitle}

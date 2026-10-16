@@ -17,6 +17,7 @@ import {
   Sparkles,
 } from 'lucide-react'
 import type { CourseData } from '../../types/course'
+import { GradientTitle } from '../ui/GradientTitle'
 
 interface CourseToolsStackProps {
   toolsStack: CourseData['toolsStack']
@@ -86,9 +87,7 @@ export const CourseToolsStack: React.FC<CourseToolsStackProps> = ({
             <span>Modern Industry Toolchain</span>
           </div>
 
-          <h2 className="display-h2 text-slate-900">
-            {toolsStack.title}
-          </h2>
+          <GradientTitle text={toolsStack.title} className="display-h2 text-slate-900" />
 
           <p className="mt-3 font-heading font-bold text-base sm:text-lg text-accent-600">
             {toolsStack.subtitle}

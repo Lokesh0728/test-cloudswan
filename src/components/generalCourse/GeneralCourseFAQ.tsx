@@ -7,6 +7,7 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import type { GeneralCourseData } from '../../types/generalCourse'
+import { OrangeGradient } from '../ui/GradientTitle'
 
 interface GeneralCourseFAQProps {
   course: GeneralCourseData
@@ -38,7 +39,7 @@ export const GeneralCourseFAQ: React.FC<GeneralCourseFAQProps> = ({
               <span>Target Profiles</span>
             </span>
             <h2 className="display-h2 text-slate-900 mt-2">
-              Who Should Enroll in {course.shortTitle}?
+              Who Should Enroll in <OrangeGradient>{course.shortTitle}</OrangeGradient>?
             </h2>
             <p className="body-paragraph text-slate-600 mt-2">
               This course is tailored to accelerate progress for multiple profiles, from eager freshers to seasoned industry veterans.
@@ -72,7 +73,7 @@ export const GeneralCourseFAQ: React.FC<GeneralCourseFAQProps> = ({
               <span>Got Questions?</span>
             </span>
             <h2 className="display-h2 text-slate-900 mt-2">
-              Frequently Asked Questions
+              Frequently Asked <OrangeGradient>Questions</OrangeGradient>
             </h2>
             <p className="body-paragraph text-slate-600 mt-2">
               Common questions about batch timings, fees, certifications, and classroom options.
@@ -134,7 +135,7 @@ export const GeneralCourseFAQ: React.FC<GeneralCourseFAQProps> = ({
                 <span>Next Cohort Starts This Monday</span>
               </div>
               <h3 className="display-h2 text-white">
-                Ready to Master {course.shortTitle}?
+                Ready to Master <OrangeGradient dark={true}>{course.shortTitle}</OrangeGradient>?
               </h3>
               <p className="lead-paragraph text-slate-300">
                 Join our upcoming batch at Gandhipuram, Saravanampatti, or Live Interactive Online. Limited to 10-12 seats for dedicated 1:1 mentor attention.

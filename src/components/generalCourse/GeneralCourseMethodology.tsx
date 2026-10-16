@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import type { GeneralCourseData } from '../../types/generalCourse'
 import { CONTACT_INFO } from '../../data/navigationData'
+import { OrangeGradient } from '../ui/GradientTitle'
 
 interface GeneralCourseMethodologyProps {
   course: GeneralCourseData
@@ -56,7 +57,7 @@ export const GeneralCourseMethodology: React.FC<GeneralCourseMethodologyProps> =
             The CloudSwan Advantage
           </span>
           <h2 className="display-h2 text-slate-900 mt-2">
-            Why Learn {course.shortTitle} at CloudSwan?
+            Why Learn <OrangeGradient>{course.shortTitle}</OrangeGradient> at CloudSwan?
           </h2>
           <p className="body-paragraph text-slate-600 mt-2">
             Our student-first training pedagogy is built on over a decade of corporate training excellence in Coimbatore, empowering more than 10,000+ candidates.
@@ -101,7 +102,8 @@ export const GeneralCourseMethodology: React.FC<GeneralCourseMethodologyProps> =
               </div>
 
               <h3 className="display-h3 text-slate-900">
-                State-of-the-Art Training Centers in Gandhipuram & Saravanampatti
+                State-of-the-Art Training Centers{' '}
+                <OrangeGradient>in Gandhipuram & Saravanampatti</OrangeGradient>
               </h3>
 
               <p className="body-paragraph text-slate-600">
