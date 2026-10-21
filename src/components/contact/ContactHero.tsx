@@ -5,7 +5,6 @@ import {
   Mail,
   Clock,
   ArrowRight,
-  Sparkles,
   Building2,
   CheckCircle2,
   MessageSquare,
@@ -293,8 +292,7 @@ export const ContactHero: React.FC<ContactHeroProps> = ({
               key={idx}
               className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-orange-200 transition-all text-center sm:text-left"
             >
-              <div className="flex items-center justify-center sm:justify-start gap-1.5 text-accent-500 mb-1">
-                <Sparkles className="w-3.5 h-3.5" />
+              <div className="flex items-center justify-center sm:justify-start mb-1">
                 <span className="caption-text font-bold text-slate-500 uppercase tracking-wider text-[10px]">
                   {stat.label}
                 </span>

@@ -8,7 +8,6 @@ import {
   Send,
   CheckCircle2,
   MessageSquare,
-  Sparkles,
   PhoneCall,
   Clock,
   ShieldCheck,
@@ -80,7 +79,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
           {/* Left Column: Why Connect & Value Proposition */}
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-accent-500" />
+              <span className="w-2 h-2 rounded-full bg-accent-500 animate-pulse" />
               <span>DIRECT ADMISSIONS DESK</span>
             </div>
 
@@ -174,9 +173,9 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
 
           {/* Right Column: The Contact Form */}
           <div className="lg:col-span-7">
-            <div className="rounded-[2rem] bg-white border border-slate-200/90 shadow-2xl p-6 sm:p-8 lg:p-10 relative">
+            <div className="rounded-[2rem] bg-white border border-slate-200/90 shadow-2xl p-6 sm:p-8 lg:p-10 relative overflow-hidden">
               {/* Top Accent Stripe - Secondary Orange only */}
-              <span className="absolute left-0 top-0 h-1.5 w-full bg-gradient-to-r from-accent-500 via-orange-400 to-accent-600 rounded-t-[2rem]" />
+              <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-accent-500 via-orange-400 to-accent-600" />
 
               {/* Form Heading */}
               <div className="mb-6 pb-4 border-b border-slate-100">

@@ -51,15 +51,20 @@ export const ContactChannelsSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="font-heading font-bold text-sm sm:text-base text-slate-900 group-hover:text-accent-600 transition-colors">
+                  <h3 className="font-heading font-bold text-sm sm:text-base text-slate-900 group-hover:text-accent-600 transition-colors min-h-[2.5rem] sm:min-h-[3rem] flex items-start">
                     {channel.title}
                   </h3>
 
-                  <p className="font-heading font-extrabold text-base sm:text-lg text-slate-800 mt-1 truncate">
-                    {channel.value}
+                  <p
+                    className={`font-heading font-extrabold text-slate-800 mt-1 flex items-center min-h-[1.75rem] sm:min-h-[2rem] ${
+                      channel.icon === 'Mail' ? 'text-xs sm:text-[13px] tracking-tight' : 'text-base sm:text-lg'
+                    }`}
+                    title={channel.value}
+                  >
+                    <span className="truncate">{channel.value}</span>
                   </p>
 
-                  <p className="caption-text text-slate-500 mt-1.5 text-xs line-clamp-2">
+                  <p className="caption-text text-slate-500 mt-1.5 text-xs line-clamp-2 min-h-[2.25rem] sm:min-h-[2.5rem] flex items-start">
                     {channel.subtitle}
                   </p>
                 </div>
