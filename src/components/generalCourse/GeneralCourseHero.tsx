@@ -33,7 +33,8 @@ export const GeneralCourseHero: React.FC<GeneralCourseHeroProps> = ({
     name: '',
     phone: '',
     email: '',
-    mode: 'Classroom (Gandhipuram / Saravanampatti)',
+    location: 'Gandhipuram',
+    mode: 'Offline',
     timing: 'Weekday Morning',
     goal: '',
   })
@@ -301,7 +302,8 @@ export const GeneralCourseHero: React.FC<GeneralCourseHeroProps> = ({
                         name: '',
                         phone: '',
                         email: '',
-                        mode: 'Classroom (Gandhipuram / Saravanampatti)',
+                        location: 'Gandhipuram',
+                        mode: 'Offline',
                         timing: 'Weekday Morning',
                         goal: '',
                       })
@@ -367,20 +369,19 @@ export const GeneralCourseHero: React.FC<GeneralCourseHeroProps> = ({
                     </div>
                   </div>
 
-                  {/* Training Mode & Timing Grid */}
+                  {/* Location & Batch Timing Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     <div>
                       <label className="block text-[11px] font-bold text-slate-700 mb-1">
-                        Preferred Mode
+                        Location
                       </label>
                       <select
-                        value={formData.mode}
-                        onChange={(e) => setFormData({ ...formData, mode: e.target.value })}
-                        className="w-full px-2.5 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:border-accent-500 transition-all"
+                        value={formData.location}
+                        onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                        className="w-full px-2.5 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:border-accent-500 transition-all cursor-pointer"
                       >
-                        <option value="Classroom Gandhipuram">Classroom (Gandhipuram)</option>
-                        <option value="Classroom Saravanampatti">Classroom (Saravanampatti)</option>
-                        <option value="Live Online Interactive">Live Online Interactive</option>
+                        <option value="Gandhipuram">Gandhipuram</option>
+                        <option value="Saravanampatti">Saravanampatti</option>
                       </select>
                     </div>
 
@@ -391,13 +392,57 @@ export const GeneralCourseHero: React.FC<GeneralCourseHeroProps> = ({
                       <select
                         value={formData.timing}
                         onChange={(e) => setFormData({ ...formData, timing: e.target.value })}
-                        className="w-full px-2.5 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:border-accent-500 transition-all"
+                        className="w-full px-2.5 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:border-accent-500 transition-all cursor-pointer"
                       >
                         <option value="Weekday Morning">Weekday Morning (7:30 AM)</option>
                         <option value="Weekday Evening">Weekday Evening (6:30 PM)</option>
                         <option value="Weekend Saturday & Sunday">Weekend Saturday & Sunday</option>
                         <option value="Flexible Schedule">Flexible / 1:1 Fast-track</option>
                       </select>
+                    </div>
+                  </div>
+
+                  {/* Mode Selection (Online / Offline) */}
+                  <div>
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1">
+                      Mode
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <label
+                        className={`flex items-center justify-center gap-2 py-2 px-3 rounded-xl border text-xs font-semibold cursor-pointer transition-all ${
+                          formData.mode === 'Offline'
+                            ? 'border-accent-500 bg-accent-50/80 text-accent-700 shadow-2xs ring-1 ring-accent-500/20'
+                            : 'border-slate-200 bg-slate-50/50 text-slate-600 hover:bg-slate-100 hover:border-slate-300'
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="trainingMode"
+                          value="Offline"
+                          checked={formData.mode === 'Offline'}
+                          onChange={() => setFormData({ ...formData, mode: 'Offline' })}
+                          className="w-3.5 h-3.5 accent-accent-500 text-accent-500 focus:ring-accent-500 cursor-pointer"
+                        />
+                        <span>Offline</span>
+                      </label>
+
+                      <label
+                        className={`flex items-center justify-center gap-2 py-2 px-3 rounded-xl border text-xs font-semibold cursor-pointer transition-all ${
+                          formData.mode === 'Online'
+                            ? 'border-accent-500 bg-accent-50/80 text-accent-700 shadow-2xs ring-1 ring-accent-500/20'
+                            : 'border-slate-200 bg-slate-50/50 text-slate-600 hover:bg-slate-100 hover:border-slate-300'
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="trainingMode"
+                          value="Online"
+                          checked={formData.mode === 'Online'}
+                          onChange={() => setFormData({ ...formData, mode: 'Online' })}
+                          className="w-3.5 h-3.5 accent-accent-500 text-accent-500 focus:ring-accent-500 cursor-pointer"
+                        />
+                        <span>Online</span>
+                      </label>
                     </div>
                   </div>
 

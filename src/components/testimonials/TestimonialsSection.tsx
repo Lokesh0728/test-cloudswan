@@ -70,7 +70,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
     <section
       id="student-testimonials"
       aria-labelledby="testimonials-heading"
-      className={`relative overflow-hidden rounded-3xl bg-slate-950 text-white border border-slate-800/90 py-10 sm:py-14 px-4 sm:px-6 lg:px-8 shadow-2xl ${className !== undefined ? className : 'mb-14 sm:mb-18 lg:mb-20'
+      className={`relative overflow-hidden rounded-3xl bg-slate-950 text-white border border-slate-800/90 py-10 sm:py-14 px-4 sm:px-6 lg:px-8 shadow-2xl max-w-5xl mx-auto ${className !== undefined ? className : 'mb-14 sm:mb-18 lg:mb-20'
         }`}
     >
       {/* Background Cinematic Atmosphere */}
@@ -226,8 +226,11 @@ const ReviewDepthCard: React.FC<ReviewDepthCardProps> = ({
 }) => {
   return (
     <div
-      className={`relative w-full h-full p-6 flex flex-col justify-between overflow-hidden rounded-[20px] bg-slate-950 text-white border transition-all duration-300 select-none ${isActive
-        }`}
+      className={`relative w-full h-full p-6 flex flex-col justify-between overflow-hidden rounded-[20px] bg-slate-950 text-white border transition-all duration-300 select-none ${
+        isActive
+          ? 'border-accent-500/60 shadow-xl shadow-accent-500/10'
+          : 'border-slate-800/80 shadow-md'
+      }`}
     >
       {/* Top Subtle Luminous Color Accent */}
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent-500 via-amber-400 to-orange-500 z-20" />
