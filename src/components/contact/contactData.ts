@@ -17,7 +17,7 @@ export interface CampusBranch {
   landmark: string
   phone: string
   displayPhone: string
-  secondaryPhone?: string
+  secondaryPhone ?: string
   email: string
   admissionsEmail: string
   hours: string
@@ -25,7 +25,7 @@ export interface CampusBranch {
   transit: {
     bus: string
     train: string
-    airport?: string
+    airport ?: string
     parking: string
   }
   facilities: string[]

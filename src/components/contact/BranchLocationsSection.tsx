@@ -8,10 +8,6 @@ import {
   Copy,
   Check,
   Building2,
-  Bus,
-  Car,
-  Mail,
-  Sparkles,
 } from 'lucide-react'
 import { CAMPUS_BRANCHES, type CampusBranch } from './contactData'
 
@@ -64,11 +60,10 @@ export const BranchLocationsSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab('all')}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer ${
-                  activeTab === 'all'
-                    ? 'bg-accent-500 text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                }`}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer ${activeTab === 'all'
+                  ? 'bg-accent-500 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  }`}
               >
                 Both Campuses ({CAMPUS_BRANCHES.length})
               </button>
@@ -76,11 +71,10 @@ export const BranchLocationsSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab('gandhipuram')}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'gandhipuram'
-                    ? 'bg-accent-500 text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                }`}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer flex items-center gap-1.5 ${activeTab === 'gandhipuram'
+                  ? 'bg-accent-500 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  }`}
               >
                 <span className={`w-2 h-2 rounded-full ${activeTab === 'gandhipuram' ? 'bg-white' : 'bg-accent-500'}`} />
                 <span>Gandhipuram</span>
@@ -89,11 +83,10 @@ export const BranchLocationsSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab('saravanampatti')}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'saravanampatti'
-                    ? 'bg-accent-500 text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                }`}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer flex items-center gap-1.5 ${activeTab === 'saravanampatti'
+                  ? 'bg-accent-500 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  }`}
               >
                 <span className={`w-2 h-2 rounded-full ${activeTab === 'saravanampatti' ? 'bg-white' : 'bg-accent-500'}`} />
                 <span>Saravanampatti</span>
@@ -104,9 +97,8 @@ export const BranchLocationsSection: React.FC = () => {
 
         {/* Campuses Grid with Google Maps - Symmetrically Aligned & Premium */}
         <div
-          className={`grid gap-8 lg:gap-10 items-stretch ${
-            activeTab === 'all' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 max-w-4xl mx-auto'
-          }`}
+          className={`grid gap-8 lg:gap-10 items-stretch ${activeTab === 'all' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 max-w-4xl mx-auto'
+            }`}
         >
           {branchesToDisplay.map((branch) => {
             const isCopied = copiedId === branch.id
@@ -226,10 +218,9 @@ export const BranchLocationsSection: React.FC = () => {
                       </span>
                       <a
                         href={`tel:${branch.phone.replace(/\s+/g, '')}`}
-                        className="text-xs sm:text-sm font-bold font-heading text-slate-800 hover:text-accent-600 flex items-center gap-1.5 mt-1 transition-colors"
+                        className="text-xs sm:text-sm font-bold font-heading text-slate-800 hover:text-accent-600 block mt-1 transition-colors"
                       >
-                        <PhoneCall className="w-3.5 h-3.5 text-accent-500 shrink-0" />
-                        <span>{branch.displayPhone}</span>
+                        {branch.displayPhone}
                       </a>
                     </div>
 
@@ -240,9 +231,8 @@ export const BranchLocationsSection: React.FC = () => {
                       </span>
                       <a
                         href={`mailto:${branch.email}`}
-                        className="text-xs sm:text-sm font-bold font-heading text-slate-800 hover:text-accent-600 flex items-center gap-1.5 mt-1 transition-colors truncate"
+                        className="text-xs sm:text-sm font-bold font-heading text-slate-800 hover:text-accent-600 block mt-1 transition-colors truncate"
                       >
-                        <Mail className="w-3.5 h-3.5 text-accent-500 shrink-0" />
                         <span className="truncate">{branch.email}</span>
                       </a>
                     </div>
@@ -251,29 +241,23 @@ export const BranchLocationsSection: React.FC = () => {
                   {/* Row C: Commute & Parking Access (2 Equal Symmetrical Columns) */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {/* Public Transit */}
-                    <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-100 flex items-start gap-2.5">
-                      <Bus className="w-4 h-4 text-accent-500 shrink-0 mt-0.5" />
-                      <div className="min-w-0">
-                        <span className="text-[10px] font-heading font-extrabold uppercase tracking-wider text-slate-400 block">
-                          Public Transit
-                        </span>
-                        <p className="text-xs font-medium text-slate-700 leading-tight mt-0.5">
-                          {branch.transit.bus}
-                        </p>
-                      </div>
+                    <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-100">
+                      <span className="text-[10px] font-heading font-extrabold uppercase tracking-wider text-slate-400 block">
+                        Public Transit
+                      </span>
+                      <p className="text-xs font-medium text-slate-700 leading-tight mt-0.5">
+                        {branch.transit.bus}
+                      </p>
                     </div>
 
                     {/* On-Campus Parking */}
-                    <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-100 flex items-start gap-2.5">
-                      <Car className="w-4 h-4 text-accent-500 shrink-0 mt-0.5" />
-                      <div className="min-w-0">
-                        <span className="text-[10px] font-heading font-extrabold uppercase tracking-wider text-slate-400 block">
-                          Campus Parking
-                        </span>
-                        <p className="text-xs font-medium text-slate-700 leading-tight mt-0.5">
-                          {branch.transit.parking}
-                        </p>
-                      </div>
+                    <div className="p-3 rounded-xl bg-slate-50/80 border border-slate-100">
+                      <span className="text-[10px] font-heading font-extrabold uppercase tracking-wider text-slate-400 block">
+                        Campus Parking
+                      </span>
+                      <p className="text-xs font-medium text-slate-700 leading-tight mt-0.5">
+                        {branch.transit.parking}
+                      </p>
                     </div>
                   </div>
 
@@ -302,7 +286,7 @@ export const BranchLocationsSection: React.FC = () => {
                       className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 shadow-md shadow-accent-500/25 transition-all active:scale-[0.98] cursor-pointer"
                     >
                       <PhoneCall className="w-4 h-4" />
-                      <span>Call Campus: {branch.displayPhone}</span>
+                      <span>Call : {branch.displayPhone}</span>
                     </a>
 
                     <a
@@ -320,38 +304,6 @@ export const BranchLocationsSection: React.FC = () => {
               </article>
             )
           })}
-        </div>
-
-        {/* Bottom Transit Comparison & Commute Guide Banner */}
-        <div className="mt-12 sm:mt-16 rounded-2xl bg-white border border-slate-200/90 p-6 sm:p-8 shadow-xs">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            <div className="space-y-1">
-              <span className="eyebrow-badge text-accent-600 text-[10px]">
-                Travel & Commute Guidance
-              </span>
-              <h4 className="display-card-title text-slate-900">
-                Traveling from Out of Town or Neighboring Districts?
-              </h4>
-              <p className="body-subtext text-slate-600 max-w-2xl text-xs sm:text-sm">
-                Students regularly travel from Tiruppur, Erode, Salem, Pollachi, and Kerala. Both our campuses are situated adjacent to prime arterial transit routes with frequent buses every 2 minutes.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3 shrink-0">
-              <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs font-heading font-semibold text-slate-700">
-                <Car className="w-4 h-4 text-accent-500" />
-                <span>Free Visitor Parking</span>
-              </div>
-              <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs font-heading font-semibold text-slate-700">
-                <Building2 className="w-4 h-4 text-accent-500" />
-                <span>Verified Hostel Assistance</span>
-              </div>
-              <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs font-heading font-semibold text-slate-700">
-                <Sparkles className="w-4 h-4 text-accent-500" />
-                <span>10 Mins from Railway Stn</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
