@@ -7,8 +7,6 @@ import {
   ArrowRight,
   ShieldCheck,
   Award,
-  ChevronLeft,
-  ChevronRight,
 } from 'lucide-react'
 import DepthCarousel from './DepthCarousel'
 import {
