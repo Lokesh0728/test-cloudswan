@@ -5,7 +5,6 @@ import {
   ChevronRight,
   Phone,
   ArrowRight,
-  GraduationCap,
 } from 'lucide-react'
 import { Logo } from './Logo'
 import {
@@ -100,10 +99,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                         }`}
                       aria-expanded={isCoursesExpanded}
                     >
-                      <div className="flex items-center gap-2.5">
-                        <GraduationCap className="w-5 h-5 text-accent-500" />
-                        <span>{link.name}</span>
-                      </div>
+                      <span>{link.name}</span>
                       <ChevronDown
                         className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isCoursesExpanded ? 'rotate-180 text-accent-500' : ''
                           }`}

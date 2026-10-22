@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import {
   Star,
   CheckCircle2,
@@ -7,8 +7,6 @@ import {
   ArrowRight,
   ShieldCheck,
   Award,
-  ChevronLeft,
-  ChevronRight,
 } from 'lucide-react'
 import DepthCarousel from './DepthCarousel'
 import {
@@ -59,7 +57,16 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   onOpenEnquiry,
   className,
 }) => {
-  const [mobileActiveIndex, setMobileActiveIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // Transform testimonials into items format compatible with DepthCarousel
   const items = useMemo(() => {
@@ -74,7 +81,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
     <section
       id="student-testimonials"
       aria-labelledby="testimonials-heading"
-      className={`relative overflow-hidden rounded-3xl bg-slate-950 text-white border border-slate-800/90 py-10 sm:py-14 px-4 sm:px-6 lg:px-8 shadow-2xl max-w-5xl mx-auto scroll-mt-24 sm:scroll-mt-28 ${className !== undefined ? className : 'mb-14 sm:mb-18 lg:mb-20'
+      className={`relative overflow-hidden rounded-3xl bg-slate-950 text-white border border-slate-800/90 py-8 sm:py-14 px-3 sm:px-6 lg:px-8 shadow-2xl max-w-5xl mx-auto ${className !== undefined ? className : 'mb-14 sm:mb-18 lg:mb-20'
         }`}
     >
       {/* Background Cinematic Atmosphere */}
@@ -85,16 +92,16 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
       {/* ========================================================
           1. SLEEK SECTION HEADER & TRUST BADGES
           ======================================================== */}
-      <div className="relative z-10 text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+      <div className="relative z-10 text-center max-w-3xl mx-auto mb-4 sm:mb-8">
         {/* Google Trust Pill */}
-        <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-200 mb-4 shadow-sm">
-          <div className="flex items-center gap-2 shrink-0">
-            <GoogleIcon size={16} />
-            <span className="font-heading text-xs font-semibold tracking-wide text-white">
+        <div className="inline-flex flex-wrap sm:flex-nowrap items-center justify-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-200 mb-3 sm:mb-4 shadow-sm max-w-full text-center">
+          <div className="flex items-center gap-1.5 shrink-0">
+            <GoogleIcon size={15} />
+            <span className="font-heading text-xs font-semibold tracking-wide text-white whitespace-nowrap">
               Google Verified Reviews
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 animate-pulse" />
           </div>
+          <span className="hidden sm:inline w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 animate-pulse" />
           <div className="flex items-center gap-1 font-heading text-xs font-bold text-amber-400 shrink-0">
             <span>4.9</span>
             <div className="flex items-center text-amber-400">
@@ -115,76 +122,32 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         </h2>
 
         {/* Subtitle */}
-        <p className="mt-2.5 text-xs sm:text-base text-slate-300 max-w-xl mx-auto font-sans leading-relaxed">
+        <p className="mt-2 text-xs sm:text-base text-slate-300 max-w-xl mx-auto font-sans leading-relaxed">
           Drag or swipe through verified reviews from graduates in Coimbatore who switched
           careers or landed high-paying tech roles.
         </p>
       </div>
 
       {/* ========================================================
-          2. CAROUSEL SHOWCASE: 3D FOR MD+, NATIVE SLIDER FOR MOBILE
+          2. REACTBITS 3D DEPTH CAROUSEL SHOWCASE (Responsive Height)
           ======================================================== */}
-      {/* Mobile Card View (< md) */}
-      <div className="block md:hidden relative w-full">
-        <div className="relative w-full min-h-[380px] rounded-2xl overflow-hidden">
-          <ReviewDepthCard testimonial={TESTIMONIALS_DATA[mobileActiveIndex]} isActive={true} />
-        </div>
-
-        {/* Mobile Nav Controls */}
-        <div className="mt-4 flex items-center justify-between gap-3 px-1">
-          <button
-            type="button"
-            onClick={() => setMobileActiveIndex((prev) => (prev - 1 + TESTIMONIALS_DATA.length) % TESTIMONIALS_DATA.length)}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-colors active:scale-95"
-            aria-label="Previous review"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-
-          {/* Dots Indicator */}
-          <div className="flex items-center gap-1.5 overflow-hidden">
-            {TESTIMONIALS_DATA.slice(0, 7).map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => setMobileActiveIndex(idx)}
-                className={`h-1.5 rounded-full transition-all ${
-                  mobileActiveIndex === idx ? 'w-6 bg-accent-500' : 'w-1.5 bg-white/30'
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setMobileActiveIndex((prev) => (prev + 1) % TESTIMONIALS_DATA.length)}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-colors active:scale-95"
-            aria-label="Next review"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-        </div>
-      </div>
-
-      {/* Desktop 3D DepthCarousel Showcase (>= md) */}
-      <div style={{ height: '500px', position: 'relative' }} className="hidden md:block w-full">
+      <div className="w-full relative h-[360px] sm:h-[450px] lg:h-[500px]">
         <DepthCarousel
           items={items}
-          depth={220}
-          spread={90}
-          tilt={22}
+          depth={isMobile ? 120 : 220}
+          spread={isMobile ? 40 : 90}
+          tilt={isMobile ? 14 : 22}
           tiltDirection="right"
-          perspective={1400}
-          visibleCards={4}
+          perspective={isMobile ? 900 : 1400}
+          visibleCards={isMobile ? 2 : 4}
           falloff={0.2}
-          blur={6}
+          blur={isMobile ? 2 : 6}
           autoplay
           loop
-          cardWidth={340}
-          cardHeight={430}
+          cardWidth={isMobile ? 270 : 340}
+          cardHeight={isMobile ? 330 : 430}
           renderCard={(item, _index, isActive) => (
-            <ReviewDepthCard testimonial={item.testimonial} isActive={isActive} />
+            <ReviewDepthCard testimonial={item.testimonial} isActive={isActive} isMobile={isMobile} />
           )}
         />
       </div>
@@ -192,7 +155,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
       {/* ========================================================
           3. MINIMALIST HIGH-TRUST SCORECARD & ACTIONS STRIP
           ======================================================== */}
-      <div className="relative z-10 mt-8 pt-6 border-t border-slate-800/90 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="relative z-10 mt-4 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-800/90 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Micro Trust Stats */}
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-8 text-center sm:text-left">
           <div className="flex items-center gap-2.5">
@@ -267,15 +230,19 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
 interface ReviewDepthCardProps {
   testimonial: TestimonialItem
   isActive?: boolean
+  isMobile?: boolean
 }
 
 const ReviewDepthCard: React.FC<ReviewDepthCardProps> = ({
   testimonial,
   isActive = false,
+  isMobile = false,
 }) => {
   return (
     <div
-      className={`relative w-full h-full p-6 flex flex-col justify-between overflow-hidden rounded-[20px] bg-slate-950 text-white border transition-all duration-300 select-none ${
+      className={`relative w-full h-full ${
+        isMobile ? 'p-3.5' : 'p-6'
+      } flex flex-col justify-between overflow-hidden rounded-[20px] bg-slate-950 text-white border transition-all duration-300 select-none ${
         isActive
           ? 'border-accent-500/60 shadow-xl shadow-accent-500/10'
           : 'border-slate-800/80 shadow-md'
@@ -303,15 +270,15 @@ const ReviewDepthCard: React.FC<ReviewDepthCardProps> = ({
       )}
 
       {/* ================= CARD HEADER ================= */}
-      <div className="relative z-10 space-y-2.5">
+      <div className="relative z-10 space-y-2">
         {/* Row 1: Google Identity & Distinct Green Metric Badge */}
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5 min-w-0">
-            <div className="w-8 h-8 rounded-lg bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center p-1.5 shadow-sm shrink-0">
-              <GoogleIcon size={18} />
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className={`${isMobile ? 'w-7 h-7 p-1' : 'w-8 h-8 p-1.5'} rounded-lg bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center shadow-sm shrink-0`}>
+              <GoogleIcon size={isMobile ? 15 : 18} />
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="font-heading text-xs font-bold text-white tracking-wide whitespace-nowrap">
+              <span className={`font-heading ${isMobile ? 'text-[11px]' : 'text-xs'} font-bold text-white tracking-wide whitespace-nowrap`}>
                 Google Review
               </span>
               <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1 leading-tight">
@@ -322,24 +289,24 @@ const ReviewDepthCard: React.FC<ReviewDepthCardProps> = ({
           </div>
 
           {testimonial.highlightMetric && (
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-emerald-600 border border-emerald-400/80 text-white text-[11px] font-bold font-heading tracking-wide shrink-0 shadow-md shadow-emerald-950/60 shadow-[0_0_12px_rgba(16,185,129,0.3)]">
+            <span className={`inline-flex items-center ${isMobile ? 'px-2 py-0.5 text-[10px]' : 'px-3 py-1 text-[11px]'} rounded-full bg-emerald-600 border border-emerald-400/80 text-white font-bold font-heading tracking-wide shrink-0 shadow-md shadow-emerald-950/60 shadow-[0_0_12px_rgba(16,185,129,0.3)]`}>
               {testimonial.highlightMetric}
             </span>
           )}
         </div>
 
         {/* Row 2: Star Ratings & High-Contrast Clean Posted Time */}
-        <div className="flex items-center justify-between pt-1.5 border-t border-white/10 text-xs">
+        <div className="flex items-center justify-between pt-1 border-t border-white/10 text-xs">
           <div className="flex items-center gap-1.5 shrink-0">
             <div className="flex items-center text-amber-400">
               {Array.from({ length: 5 }).map((_, idx) => (
-                <Star key={idx} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                <Star key={idx} className={`${isMobile ? 'w-3 h-3' : 'w-3.5 h-3.5'} fill-amber-400 text-amber-400`} />
               ))}
             </div>
-            <span className="text-xs font-bold font-heading text-amber-300">5.0</span>
+            <span className={`${isMobile ? 'text-[11px]' : 'text-xs'} font-bold font-heading text-amber-300`}>5.0</span>
           </div>
 
-          <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-100 bg-white/15 px-2.5 py-0.5 rounded-full border border-white/20 backdrop-blur-sm shrink-0 shadow-xs">
+          <div className={`flex items-center gap-1.5 ${isMobile ? 'text-[10px] px-2 py-0.5' : 'text-[11px] px-2.5 py-0.5'} font-semibold text-slate-100 bg-white/15 rounded-full border border-white/20 backdrop-blur-sm shrink-0 shadow-xs`}>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
             <span className="whitespace-nowrap">{testimonial.postedTime}</span>
           </div>
@@ -347,52 +314,53 @@ const ReviewDepthCard: React.FC<ReviewDepthCardProps> = ({
       </div>
 
       {/* ================= REVIEW BODY ================= */}
-      <div className="relative z-10 my-auto py-2">
-        <div className="text-accent-400/60 text-3xl font-serif leading-none select-none -mb-2">“</div>
-        <p className="text-white text-[13.5px] sm:text-sm leading-relaxed font-sans font-medium tracking-wide line-clamp-5 drop-shadow-sm">
+      <div className="relative z-10 my-auto py-1">
+        <div className={`text-accent-400/60 ${isMobile ? 'text-2xl -mb-1' : 'text-3xl -mb-2'} font-serif leading-none select-none`}>“</div>
+        <p className={`text-white ${isMobile ? 'text-xs line-clamp-4 leading-snug' : 'text-[13.5px] sm:text-sm leading-relaxed'} font-sans font-medium tracking-wide drop-shadow-sm`}>
           {testimonial.content}
         </p>
       </div>
 
       {/* ================= CARD FOOTER ================= */}
-      <div className="relative z-10 pt-3 border-t border-slate-800/90 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3 min-w-0">
+      <div className="relative z-10 pt-2.5 border-t border-slate-800/90 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2.5 min-w-0">
           {testimonial.avatarUrl ? (
             <img
               src={testimonial.avatarUrl}
               alt={testimonial.name}
-              className="w-10 h-10 rounded-full object-cover border-2 border-accent-500/60 shadow-md shrink-0"
+              className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} rounded-full object-cover border-2 border-accent-500/60 shadow-md shrink-0`}
               onError={(e) => {
                 e.currentTarget.style.display = 'none'
               }}
             />
           ) : null}
           <div
-            className={`w-10 h-10 rounded-full ${testimonial.avatarBg} text-white font-heading font-extrabold text-sm flex items-center justify-center shrink-0 border border-white/20 shadow-md ${testimonial.avatarUrl ? 'hidden' : ''
-              }`}
+            className={`${isMobile ? 'w-8 h-8 text-xs' : 'w-10 h-10 text-sm'} rounded-full ${testimonial.avatarBg} text-white font-heading font-extrabold flex items-center justify-center shrink-0 border border-white/20 shadow-md ${
+              testimonial.avatarUrl ? 'hidden' : ''
+            }`}
           >
             {testimonial.avatarInitial}
           </div>
 
-          <div className="min-w-0 flex-1">
-            <h4 className="font-heading font-bold text-white text-sm truncate leading-tight">
+          <div className="min-w-0">
+            <h4 className={`font-heading font-bold text-white ${isMobile ? 'text-xs' : 'text-sm'} truncate leading-tight`}>
               {testimonial.name}
             </h4>
-            <div className="text-[11px] text-slate-300 flex items-center gap-1 mt-0.5 font-sans min-w-0">
-              <Building2 className="w-3 h-3 text-accent-400 shrink-0" />
-              <span className="text-accent-400 font-semibold shrink-0">{testimonial.company}</span>
-              <span className="text-slate-600 shrink-0">•</span>
-              <span className="text-slate-300 truncate min-w-0">{testimonial.role}</span>
-            </div>
+            <p className={`${isMobile ? 'text-[10px]' : 'text-[11px]'} text-slate-400 truncate flex items-center gap-1 mt-0.5 font-sans`}>
+              <Building2 className={`${isMobile ? 'w-2.5 h-2.5' : 'w-3 h-3'} text-accent-400 shrink-0`} />
+              <span className="text-accent-400 font-semibold">{testimonial.company}</span>
+              <span className="text-slate-600">•</span>
+              <span className="text-slate-300 truncate">{testimonial.role}</span>
+            </p>
           </div>
         </div>
 
-        <div className="shrink-0 flex flex-col items-end gap-1">
-          <span className="text-[10px] px-2 py-0.5 rounded-md bg-white/10 border border-white/15 text-slate-300 font-medium font-heading">
+        <div className="shrink-0 flex flex-col items-end gap-0.5">
+          <span className={`${isMobile ? 'text-[9px] px-1.5 py-0.5' : 'text-[10px] px-2 py-0.5'} rounded-md bg-white/10 border border-white/15 text-slate-300 font-medium font-heading`}>
             {testimonial.campus}
           </span>
-          <span className="text-[10px] text-emerald-400 flex items-center gap-1 font-sans">
-            <CheckCircle2 className="w-3 h-3 text-blue-400" />
+          <span className={`${isMobile ? 'text-[9px]' : 'text-[10px]'} text-emerald-400 flex items-center gap-1 font-sans`}>
+            <CheckCircle2 className={`${isMobile ? 'w-2.5 h-2.5' : 'w-3 h-3'} text-blue-400`} />
             <span>Google</span>
           </span>
         </div>
