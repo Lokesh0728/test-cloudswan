@@ -54,7 +54,7 @@ export const TrainingApproach: React.FC = () => {
     <section
       id="training-approach"
       aria-label="Our Training Approach"
-      className="relative py-20 sm:py-24 lg:py-28 bg-white overflow-hidden selection:bg-accent-500 selection:text-white"
+      className="relative py-14 sm:py-20 lg:py-28 bg-white overflow-hidden selection:bg-accent-500 selection:text-white scroll-mt-24 sm:scroll-mt-28"
     >
       {/* Background architectural mesh / dot pattern */}
       <div
@@ -78,7 +78,7 @@ export const TrainingApproach: React.FC = () => {
         {/* =========================================================
             SECTION HEADER
         ========================================================= */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20">
           {/* Eyebrow badge matching Home Page */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge mb-4 shadow-2xs relative">
             <span className="w-2 h-2 rounded-full bg-accent-500 animate-ping absolute left-3" />
@@ -108,7 +108,7 @@ export const TrainingApproach: React.FC = () => {
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative z-10">
             {STEPS.map((item, index) => {
               const isActive = activeStep === index
 
@@ -116,7 +116,7 @@ export const TrainingApproach: React.FC = () => {
                 <div
                   key={item.step}
                   onMouseEnter={() => setActiveStep(index)}
-                  className={`group rounded-2xl border p-6 pt-5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[235px] text-left cursor-pointer ${
+                  className={`group rounded-2xl border p-5 pt-4.5 sm:p-6 sm:pt-5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[210px] sm:min-h-[235px] text-left cursor-pointer ${
                     isActive
                       ? 'bg-white border-orange-300 shadow-xl shadow-orange-500/10 -translate-y-1.5'
                       : 'bg-slate-50/60 hover:bg-white border-slate-200/80 hover:border-orange-200/90 hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1'

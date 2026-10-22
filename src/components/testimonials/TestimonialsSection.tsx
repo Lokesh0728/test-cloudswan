@@ -7,6 +7,8 @@ import {
   ArrowRight,
   ShieldCheck,
   Award,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react'
 import DepthCarousel from './DepthCarousel'
 import {
@@ -200,12 +202,12 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         </div>
 
         {/* Quick Actions */}
-        <div className="flex items-center gap-3 w-full sm:w-auto justify-center shrink-0">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto justify-center shrink-0">
           <a
             href="https://maps.google.com/?q=Cloudswan+Solution+Coimbatore"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white text-xs sm:text-sm font-bold font-heading tracking-wide transition-all flex items-center gap-2 shadow-sm hover:border-white/30"
+            className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white text-xs sm:text-sm font-bold font-heading tracking-wide transition-all flex items-center justify-center gap-2 shadow-sm hover:border-white/30"
           >
             <GoogleIcon size={16} />
             <span>Verify on Maps</span>
@@ -215,9 +217,8 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           <button
             type="button"
             onClick={() => onOpenEnquiry('Consultation inspired by Google Reviews')}
-            className="px-4 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-xs sm:text-sm font-bold font-heading tracking-wide transition-all shadow-lg shadow-accent-500/25 flex items-center gap-2 cursor-pointer active:scale-95"
+            className="px-4 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-xs sm:text-sm font-bold font-heading tracking-wide transition-all shadow-lg shadow-accent-500/25 flex items-center justify-center gap-2 cursor-pointer active:scale-95"
           >
-
             <span>Talk to Alumni</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>

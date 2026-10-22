@@ -26,7 +26,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   return (
     <article
       id="about-page"
-      className="w-full flex flex-col bg-white text-slate-800"
+      className="w-full flex flex-col bg-white text-slate-800 overflow-x-clip"
       aria-label="About Cloudswan Solution Coimbatore"
     >
       {/* 1. HERO SECTION */}
@@ -52,7 +52,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <AchievementsAndLearning />
 
       {/* 6. STUDENT TESTIMONIALS & VERIFIED GOOGLE REVIEWS */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-slate-50 relative overflow-hidden font-sans border-t border-slate-200/80">
+      <section className="py-10 sm:py-16 lg:py-24 bg-slate-50 relative overflow-hidden font-sans border-t border-slate-200/80">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <TestimonialsSection
             onOpenEnquiry={(subj) => onOpenEnquiry?.(subj || 'About Us - Alumni Consultation')}

@@ -102,7 +102,7 @@ export const WhyCloudswan: React.FC = () => {
       ref={sectionRef}
       id="why-we-are-best"
       aria-label="Why We Are Best"
-      className="relative overflow-hidden bg-slate-50 pt-8 pb-16 sm:pt-14 sm:pb-20 lg:py-28"
+      className="relative overflow-hidden bg-slate-50 pt-8 pb-16 sm:pt-14 sm:pb-20 lg:py-28 scroll-mt-24 sm:scroll-mt-28"
     >
       {/* =====================================================
           BACKGROUND
@@ -275,13 +275,13 @@ export const WhyCloudswan: React.FC = () => {
           ${index === 1 ? 'lg:col-start-9' : ''}
           ${index === 2 ? 'lg:col-start-1' : ''}
           ${index === 3 ? 'lg:col-start-9' : ''}
-          ${index === 4 ? 'lg:col-start-5' : ''}
+          ${index === 4 ? 'sm:col-span-2 sm:max-w-md sm:mx-auto w-full lg:col-span-4 lg:col-start-5 lg:max-w-none' : ''}
         `}
                 >
 
                   {/* ================================================= CARD ================================================= */}
 
-                  <div className="relative h-full min-h-[320px] overflow-hidden rounded-2xl border border-slate-700/40 bg-slate-900 p-5 sm:p-6 shadow-[0_15px_40px_rgba(15,23,42,0.14)] transition-all duration-500 hover:-translate-y-2 hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/20 flex flex-col justify-between">
+                  <div className="relative h-full min-h-[300px] sm:min-h-[320px] overflow-hidden rounded-2xl border border-slate-700/40 bg-slate-900 p-5 sm:p-6 shadow-[0_15px_40px_rgba(15,23,42,0.14)] transition-all duration-500 hover:-translate-y-2 hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/20 flex flex-col justify-between">
 
                     {/* Primary Orange Top Accent */}
                     <span className="absolute left-0 top-0 h-1.5 w-full bg-orange-500 z-20" />

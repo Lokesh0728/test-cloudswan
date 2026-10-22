@@ -68,7 +68,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
     <section
       id="about-hero"
       aria-label="About Cloudswan Solution - Premier IT Training Institute in Coimbatore"
-      className="relative isolate overflow-hidden bg-gradient-to-b from-white via-slate-50/70 to-slate-100/80 border-b border-slate-200/80 pt-6 pb-16 sm:pb-20 lg:pt-8 lg:pb-24"
+      className="relative isolate overflow-hidden bg-gradient-to-b from-white via-slate-50/70 to-slate-100/80 border-b border-slate-200/80 pt-6 pb-16 sm:pb-20 lg:pt-8 lg:pb-24 scroll-mt-24 sm:scroll-mt-28"
     >
       {/* =====================================================
           BACKGROUND AMBIENT DECORATION
@@ -97,7 +97,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
         {/* =====================================================
             TOP BREADCRUMB & ACCREDITATION STRIP
         ===================================================== */}
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 text-xs">
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2">
             <button
@@ -112,16 +112,16 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
           </nav>
 
           {/* Trust Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 shadow-2xs border border-slate-200/80 backdrop-blur-sm">
-            <span className="relative flex h-2 w-2">
+          <div className="inline-flex max-w-full items-center gap-1.5 sm:gap-2 rounded-full bg-white/90 px-2.5 sm:px-3 py-1 shadow-2xs border border-slate-200/80 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
-            <span className="font-heading font-semibold text-[11px] text-slate-700 tracking-wide">
+            <span className="font-heading font-semibold text-[10.5px] sm:text-[11px] text-slate-700 tracking-wide truncate sm:truncate-none">
               ISO 9001:2015 Certified IT Training Institute
             </span>
-            <span className="text-slate-300">•</span>
-            <span className="text-slate-500 font-medium text-[11px]">Coimbatore</span>
+            <span className="text-slate-300 shrink-0">•</span>
+            <span className="text-slate-500 font-medium text-[10.5px] sm:text-[11px] shrink-0">Coimbatore</span>
           </div>
         </div>
 
@@ -208,43 +208,43 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
             </div>
 
             {/* Key Highlight Metrics Strip */}
-            <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
               {/* Stat 1 */}
-              <div className="rounded-xl border border-slate-200/80 bg-white/90 p-3 shadow-2xs hover:border-accent-200 transition-all">
+              <div className="rounded-xl border border-slate-200/80 bg-white/90 p-2.5 sm:p-3 shadow-2xs hover:border-accent-200 transition-all">
                 <div className="text-xl sm:text-2xl font-extrabold font-heading text-slate-900 tracking-tight">
                   10,000<span className="text-accent-500">+</span>
                 </div>
-                <div className="caption-text text-slate-600 font-semibold text-[11px] mt-0.5">
+                <div className="caption-text text-slate-600 font-semibold text-[10.5px] sm:text-[11px] mt-0.5">
                   Careers Launched
                 </div>
               </div>
 
               {/* Stat 2 */}
-              <div className="rounded-xl border border-slate-200/80 bg-white/90 p-3 shadow-2xs hover:border-accent-200 transition-all">
+              <div className="rounded-xl border border-slate-200/80 bg-white/90 p-2.5 sm:p-3 shadow-2xs hover:border-accent-200 transition-all">
                 <div className="text-xl sm:text-2xl font-extrabold font-heading text-slate-900 tracking-tight">
                   350<span className="text-accent-500">+</span>
                 </div>
-                <div className="caption-text text-slate-600 font-semibold text-[11px] mt-0.5">
+                <div className="caption-text text-slate-600 font-semibold text-[10.5px] sm:text-[11px] mt-0.5">
                   Hiring Partners
                 </div>
               </div>
 
               {/* Stat 3 */}
-              <div className="rounded-xl border border-slate-200/80 bg-white/90 p-3 shadow-2xs hover:border-emerald-200 transition-all">
+              <div className="rounded-xl border border-slate-200/80 bg-white/90 p-2.5 sm:p-3 shadow-2xs hover:border-emerald-200 transition-all">
                 <div className="text-xl sm:text-2xl font-extrabold font-heading text-emerald-600 tracking-tight">
                   100%
                 </div>
-                <div className="caption-text text-slate-600 font-semibold text-[11px] mt-0.5">
+                <div className="caption-text text-slate-600 font-semibold text-[10.5px] sm:text-[11px] mt-0.5">
                   Placement Support
                 </div>
               </div>
 
               {/* Stat 4 */}
-              <div className="rounded-xl border border-slate-200/80 bg-white/90 p-3 shadow-2xs hover:border-accent-200 transition-all">
+              <div className="rounded-xl border border-slate-200/80 bg-white/90 p-2.5 sm:p-3 shadow-2xs hover:border-accent-200 transition-all">
                 <div className="text-xl sm:text-2xl font-extrabold font-heading text-slate-900 tracking-tight">
                   10<span className="text-accent-500">+</span> Yrs
                 </div>
-                <div className="caption-text text-slate-600 font-semibold text-[11px] mt-0.5">
+                <div className="caption-text text-slate-600 font-semibold text-[10.5px] sm:text-[11px] mt-0.5">
                   Excellence Legacy
                 </div>
               </div>
@@ -321,7 +321,8 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
                           100% Verified Job Assistance
                         </div>
                         <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium truncate">
-                          Dedicated placement cell with mock technical interviews
+                          <span className="sm:hidden">Dedicated placement cell & interview prep</span>
+                          <span className="hidden sm:inline">Dedicated placement cell with mock technical interviews</span>
                         </div>
                       </div>
                     </div>
