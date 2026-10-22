@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import {
   Star,
   CheckCircle2,
@@ -7,6 +7,8 @@ import {
   ArrowRight,
   ShieldCheck,
   Award,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react'
 import DepthCarousel from './DepthCarousel'
 import {
@@ -57,6 +59,8 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
   onOpenEnquiry,
   className,
 }) => {
+  const [mobileActiveIndex, setMobileActiveIndex] = useState(0)
+
   // Transform testimonials into items format compatible with DepthCarousel
   const items = useMemo(() => {
     return TESTIMONIALS_DATA.map((t) => ({
@@ -70,7 +74,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
     <section
       id="student-testimonials"
       aria-labelledby="testimonials-heading"
-      className={`relative overflow-hidden rounded-3xl bg-slate-950 text-white border border-slate-800/90 py-10 sm:py-14 px-4 sm:px-6 lg:px-8 shadow-2xl max-w-5xl mx-auto ${className !== undefined ? className : 'mb-14 sm:mb-18 lg:mb-20'
+      className={`relative overflow-hidden rounded-3xl bg-slate-950 text-white border border-slate-800/90 py-10 sm:py-14 px-4 sm:px-6 lg:px-8 shadow-2xl max-w-5xl mx-auto scroll-mt-24 sm:scroll-mt-28 ${className !== undefined ? className : 'mb-14 sm:mb-18 lg:mb-20'
         }`}
     >
       {/* Background Cinematic Atmosphere */}
@@ -83,13 +87,15 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           ======================================================== */}
       <div className="relative z-10 text-center max-w-3xl mx-auto mb-8 sm:mb-10">
         {/* Google Trust Pill */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-200 mb-4 shadow-sm">
-          <GoogleIcon size={16} />
-          <span className="font-heading text-xs font-semibold tracking-wide text-white">
-            Google Verified Reviews
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 animate-pulse" />
-          <div className="flex items-center gap-1 font-heading text-xs font-bold text-amber-400">
+        <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-200 mb-4 shadow-sm">
+          <div className="flex items-center gap-2 shrink-0">
+            <GoogleIcon size={16} />
+            <span className="font-heading text-xs font-semibold tracking-wide text-white">
+              Google Verified Reviews
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 animate-pulse" />
+          </div>
+          <div className="flex items-center gap-1 font-heading text-xs font-bold text-amber-400 shrink-0">
             <span>4.9</span>
             <div className="flex items-center text-amber-400">
               {Array.from({ length: 5 }).map((_, i) => (
@@ -109,16 +115,60 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         </h2>
 
         {/* Subtitle */}
-        <p className="mt-2.5 text-sm sm:text-base text-slate-300 max-w-xl mx-auto font-sans leading-relaxed">
+        <p className="mt-2.5 text-xs sm:text-base text-slate-300 max-w-xl mx-auto font-sans leading-relaxed">
           Drag or swipe through verified reviews from graduates in Coimbatore who switched
           careers or landed high-paying tech roles.
         </p>
       </div>
 
       {/* ========================================================
-          2. REACTBITS 3D DEPTH CAROUSEL SHOWCASE (500px)
+          2. CAROUSEL SHOWCASE: 3D FOR MD+, NATIVE SLIDER FOR MOBILE
           ======================================================== */}
-      <div style={{ height: '500px', position: 'relative' }} className="w-full">
+      {/* Mobile Card View (< md) */}
+      <div className="block md:hidden relative w-full">
+        <div className="relative w-full min-h-[380px] rounded-2xl overflow-hidden">
+          <ReviewDepthCard testimonial={TESTIMONIALS_DATA[mobileActiveIndex]} isActive={true} />
+        </div>
+
+        {/* Mobile Nav Controls */}
+        <div className="mt-4 flex items-center justify-between gap-3 px-1">
+          <button
+            type="button"
+            onClick={() => setMobileActiveIndex((prev) => (prev - 1 + TESTIMONIALS_DATA.length) % TESTIMONIALS_DATA.length)}
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-colors active:scale-95"
+            aria-label="Previous review"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+
+          {/* Dots Indicator */}
+          <div className="flex items-center gap-1.5 overflow-hidden">
+            {TESTIMONIALS_DATA.slice(0, 7).map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setMobileActiveIndex(idx)}
+                className={`h-1.5 rounded-full transition-all ${
+                  mobileActiveIndex === idx ? 'w-6 bg-accent-500' : 'w-1.5 bg-white/30'
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setMobileActiveIndex((prev) => (prev + 1) % TESTIMONIALS_DATA.length)}
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-colors active:scale-95"
+            aria-label="Next review"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop 3D DepthCarousel Showcase (>= md) */}
+      <div style={{ height: '500px', position: 'relative' }} className="hidden md:block w-full">
         <DepthCarousel
           items={items}
           depth={220}
@@ -187,12 +237,12 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         </div>
 
         {/* Quick Actions */}
-        <div className="flex items-center gap-3 w-full sm:w-auto justify-center shrink-0">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto justify-center shrink-0">
           <a
             href="https://maps.google.com/?q=Cloudswan+Solution+Coimbatore"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white text-xs sm:text-sm font-bold font-heading tracking-wide transition-all flex items-center gap-2 shadow-sm hover:border-white/30"
+            className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white text-xs sm:text-sm font-bold font-heading tracking-wide transition-all flex items-center justify-center gap-2 shadow-sm hover:border-white/30"
           >
             <GoogleIcon size={16} />
             <span>Verify on Maps</span>
@@ -202,9 +252,8 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           <button
             type="button"
             onClick={() => onOpenEnquiry('Consultation inspired by Google Reviews')}
-            className="px-4 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-xs sm:text-sm font-bold font-heading tracking-wide transition-all shadow-lg shadow-accent-500/25 flex items-center gap-2 cursor-pointer active:scale-95"
+            className="px-4 py-2.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-xs sm:text-sm font-bold font-heading tracking-wide transition-all shadow-lg shadow-accent-500/25 flex items-center justify-center gap-2 cursor-pointer active:scale-95"
           >
-
             <span>Talk to Alumni</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
@@ -325,16 +374,16 @@ const ReviewDepthCard: React.FC<ReviewDepthCardProps> = ({
             {testimonial.avatarInitial}
           </div>
 
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <h4 className="font-heading font-bold text-white text-sm truncate leading-tight">
               {testimonial.name}
             </h4>
-            <p className="text-[11px] text-slate-400 truncate flex items-center gap-1 mt-0.5 font-sans">
+            <div className="text-[11px] text-slate-300 flex items-center gap-1 mt-0.5 font-sans min-w-0">
               <Building2 className="w-3 h-3 text-accent-400 shrink-0" />
-              <span className="text-accent-400 font-semibold">{testimonial.company}</span>
-              <span className="text-slate-600">•</span>
-              <span className="text-slate-300 truncate">{testimonial.role}</span>
-            </p>
+              <span className="text-accent-400 font-semibold shrink-0">{testimonial.company}</span>
+              <span className="text-slate-600 shrink-0">•</span>
+              <span className="text-slate-300 truncate min-w-0">{testimonial.role}</span>
+            </div>
           </div>
         </div>
 

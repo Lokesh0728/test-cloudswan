@@ -24,7 +24,7 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
     <section
       id="about-intro"
       aria-label="Who We Are - Cloudswan Solution"
-      className="relative overflow-hidden bg-white pt-12 pb-6 sm:py-16 lg:py-24"
+      className="relative overflow-hidden bg-white pt-12 pb-6 sm:py-16 lg:py-24 scroll-mt-24 sm:scroll-mt-28"
     >
       {/* =========================================================
           BACKGROUND
@@ -124,12 +124,12 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
                 BUTTONS
             ================================================= */}
 
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <div className="mt-9 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
 
               <button
                 type="button"
                 onClick={onExploreCourses}
-                className="group flex cursor-pointer items-center gap-2 rounded-xl bg-accent-500 px-6 py-3.5 text-sm font-bold font-heading text-white shadow-lg shadow-accent-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-accent-600 hover:shadow-accent-500/30"
+                className="group flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-accent-500 px-6 py-3.5 text-sm font-bold font-heading text-white shadow-lg shadow-accent-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-accent-600 hover:shadow-accent-500/30"
               >
                 <span>Explore Our Courses</span>
 
@@ -139,7 +139,7 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
               <button
                 type="button"
                 onClick={onTalkToCounselor}
-                className="group flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-bold font-heading text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-300 hover:text-accent-600"
+                className="group flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-bold font-heading text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-300 hover:text-accent-600"
               >
                 <Headphones className="h-4 w-4 text-accent-500 transition-transform duration-300 group-hover:rotate-12" />
 
@@ -153,7 +153,7 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
               RIGHT SIDE - LEARNING ORBIT
           ===================================================== */}
 
-          <div className="relative flex h-[290px] xs:h-[320px] sm:h-[400px] lg:h-[500px] w-full items-center justify-center lg:col-span-6 overflow-visible my-2 sm:my-4 lg:my-0">
+          <div className="relative flex h-[300px] sm:h-[400px] lg:h-[500px] w-full items-center justify-center lg:col-span-6 overflow-hidden sm:overflow-visible my-2 sm:my-4 lg:my-0">
             <div className="learning-orbit-stage relative flex items-center justify-center">
 
               {/* Ambient glow */}
@@ -173,8 +173,8 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
 
               <div className="absolute h-[300px] w-[300px] rounded-full border border-slate-100 sm:h-[340px] sm:w-[340px] animate-ring-reverse">
 
-                {/* Traveling dot */}
-                <span className="absolute -top-1 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-orange-500 shadow-lg shadow-orange-500/50 animate-travel-dot" />
+                {/* Traveling dot seamlessly guided along inner ring */}
+                <span className="absolute -top-1 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-orange-500 shadow-lg shadow-orange-500/50" />
 
               </div>
 
@@ -378,36 +378,6 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
         }
 
         /* ---------------------------------------------
-           TRAVELING DOT
-        --------------------------------------------- */
-
-        @keyframes travelDot {
-          0% {
-            transform: translate(-50%, 0) rotate(0deg);
-          }
-
-          25% {
-            transform: translate(145px, 145px) rotate(90deg);
-          }
-
-          50% {
-            transform: translate(-50%, 295px) rotate(180deg);
-          }
-
-          75% {
-            transform: translate(-295px, 145px) rotate(270deg);
-          }
-
-          100% {
-            transform: translate(-50%, 0) rotate(360deg);
-          }
-        }
-
-        .animate-travel-dot {
-          animation: travelDot 8s linear infinite;
-        }
-
-        /* ---------------------------------------------
            ORBIT ITEMS
         --------------------------------------------- */
 
@@ -418,19 +388,19 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
 
         @media (max-width: 380px) {
           .learning-orbit-stage {
-            transform: scale(0.56);
+            transform: scale(0.62);
           }
         }
 
         @media (min-width: 381px) and (max-width: 480px) {
           .learning-orbit-stage {
-            transform: scale(0.64);
+            transform: scale(0.70);
           }
         }
 
         @media (min-width: 481px) and (max-width: 639px) {
           .learning-orbit-stage {
-            transform: scale(0.74);
+            transform: scale(0.76);
           }
         }
 
@@ -664,8 +634,9 @@ export const AboutIntro: React.FC<AboutIntroProps> = ({
         @media (max-width: 640px) {
 
           .orbit-item {
-            width: 125px;
-            margin-left: -62.5px;
+            width: 148px;
+            margin-left: -74px;
+            margin-top: -28px;
           }
 
           @keyframes orbitOne {
@@ -753,23 +724,21 @@ const OrbitCard: React.FC<OrbitCardProps> = ({
   description,
 }) => {
   return (
-    <div className="group w-full cursor-pointer rounded-2xl border border-slate-200/80 bg-white/95 p-3 shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-accent-100/70">
-      <div className="flex items-center gap-2.5">
-
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent-50 text-accent-500 transition-all duration-300 group-hover:bg-accent-500 group-hover:text-white">
+    <div className="group w-full cursor-pointer rounded-xl sm:rounded-2xl border border-slate-200/80 bg-white/95 p-2 sm:p-3 shadow-lg shadow-slate-200/40 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-300 hover:shadow-xl hover:shadow-accent-100/70">
+      <div className="flex items-center gap-2 sm:gap-2.5">
+        <div className="flex h-7 w-7 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-accent-50 text-accent-500 transition-all duration-300 group-hover:bg-accent-500 group-hover:text-white [&>svg]:h-3.5 [&>svg]:w-3.5 sm:[&>svg]:h-5 sm:[&>svg]:w-5">
           {icon}
         </div>
 
-        <div className="min-w-0 flex-1">
-          <div className="whitespace-nowrap font-heading text-xs font-bold text-slate-800 sm:text-sm">
+        <div className="min-w-0 flex-1 overflow-hidden">
+          <div className="truncate font-heading text-[11px] sm:text-xs font-bold text-slate-800 leading-tight">
             {title}
           </div>
 
-          <div className="mt-0.5 whitespace-nowrap eyebrow-badge text-[9px] text-slate-400 sm:text-[10px] normal-case font-medium">
+          <div className="mt-0.5 truncate text-[10px] text-slate-500 font-medium leading-tight">
             {description}
           </div>
         </div>
-
       </div>
     </div>
   )

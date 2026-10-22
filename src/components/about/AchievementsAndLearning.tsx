@@ -128,7 +128,7 @@ export const AchievementsAndLearning: React.FC = () => {
     <section
       id="achievements-learning"
       aria-label="Certificates & Achievements and Classes & Learning"
-      className="relative bg-white py-10 sm:py-12 lg:py-14 border-t border-slate-100"
+      className="relative bg-white py-10 sm:py-12 lg:py-14 border-t border-slate-100 scroll-mt-24 sm:scroll-mt-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* =========================================================
@@ -137,35 +137,35 @@ export const AchievementsAndLearning: React.FC = () => {
         <div className="mb-10 sm:mb-12 lg:mb-14">
           {/* Section Header with Orange Accent Lines */}
           <div className="text-center mb-6 sm:mb-8">
-            <div className="inline-flex items-center justify-center gap-3 sm:gap-4 mb-2">
-              <span className="h-0.5 w-10 sm:w-16 bg-orange-500 rounded-full" />
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#0A2540] uppercase">
+            <div className="inline-flex items-center justify-center gap-2 sm:gap-4 mb-2 max-w-full">
+              <span className="hidden sm:inline-block h-0.5 w-8 sm:w-16 bg-orange-500 rounded-full shrink-0" />
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-[#0A2540] uppercase text-center">
                 CERTIFICATES & ACHIEVEMENTS
               </h2>
-              <span className="h-0.5 w-10 sm:w-16 bg-orange-500 rounded-full" />
+              <span className="hidden sm:inline-block h-0.5 w-8 sm:w-16 bg-orange-500 rounded-full shrink-0" />
             </div>
-            <p className="text-sm sm:text-base font-medium italic text-slate-600">
+            <p className="text-xs sm:text-base font-medium italic text-slate-600">
               Recognizing Achievements. Inspiring Success.
             </p>
           </div>
 
           {/* Carousel Wrapper */}
           <div className="relative group">
-            {/* Left Scroll Button */}
+            {/* Left Scroll Button - visible on sm+ */}
             <button
               type="button"
               onClick={() => scrollContainer(achievementsRef, 'left')}
-              className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg border border-slate-200/90 text-slate-700 hover:text-orange-500 hover:border-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg border border-slate-200/90 text-slate-700 hover:text-orange-500 hover:border-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
               aria-label="Previous achievement cards"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
 
-            {/* Right Scroll Button */}
+            {/* Right Scroll Button - visible on sm+ */}
             <button
               type="button"
               onClick={() => scrollContainer(achievementsRef, 'right')}
-              className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg border border-slate-200/90 text-slate-700 hover:text-orange-500 hover:border-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg border border-slate-200/90 text-slate-700 hover:text-orange-500 hover:border-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
               aria-label="Next achievement cards"
             >
               <ChevronRight className="h-6 w-6" />
@@ -183,7 +183,7 @@ export const AchievementsAndLearning: React.FC = () => {
                 return (
                   <div
                     key={card.id}
-                    className="flex-none w-[220px] sm:w-[240px] lg:w-[calc(20%-16px)] snap-start group/card"
+                    className="flex-none w-[220px] sm:w-[240px] md:w-[250px] lg:w-[250px] xl:w-[calc(20%-16px)] snap-start group/card"
                   >
                     <div className="h-full bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_4px_20px_rgba(15,23,42,0.06)] hover:shadow-xl hover:border-orange-200 transition-all duration-300 flex flex-col">
                       {/* Image Container */}
@@ -197,11 +197,11 @@ export const AchievementsAndLearning: React.FC = () => {
                       </div>
 
                       {/* Bottom Label Area */}
-                      <div className="p-3.5 sm:p-4 bg-white flex items-center gap-2.5 border-t border-slate-100 mt-auto">
+                      <div className="p-3.5 sm:p-4 bg-white flex items-center gap-2.5 border-t border-slate-100 mt-auto min-w-0">
                         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-white shrink-0 shadow-sm shadow-orange-500/20">
                           <IconComponent className="h-4 w-4" />
                         </span>
-                        <span className="font-bold text-xs sm:text-sm text-[#0A2540] tracking-tight leading-tight">
+                        <span className="font-bold text-xs sm:text-sm text-[#0A2540] tracking-tight leading-tight min-w-0">
                           {card.title}
                         </span>
                       </div>
@@ -219,35 +219,35 @@ export const AchievementsAndLearning: React.FC = () => {
         <div className="mb-10 sm:mb-12">
           {/* Section Header with Orange Accent Lines */}
           <div className="text-center mb-6 sm:mb-8">
-            <div className="inline-flex items-center justify-center gap-3 sm:gap-4 mb-2">
-              <span className="h-0.5 w-10 sm:w-16 bg-orange-500 rounded-full" />
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#0A2540] uppercase">
+            <div className="inline-flex items-center justify-center gap-2 sm:gap-4 mb-2 max-w-full">
+              <span className="hidden sm:inline-block h-0.5 w-8 sm:w-16 bg-orange-500 rounded-full shrink-0" />
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-[#0A2540] uppercase text-center">
                 CLASSES & LEARNING
               </h2>
-              <span className="h-0.5 w-10 sm:w-16 bg-orange-500 rounded-full" />
+              <span className="hidden sm:inline-block h-0.5 w-8 sm:w-16 bg-orange-500 rounded-full shrink-0" />
             </div>
-            <p className="text-sm sm:text-base font-medium italic text-slate-600">
+            <p className="text-xs sm:text-base font-medium italic text-slate-600">
               Practical Learning. Real World Skills.
             </p>
           </div>
 
           {/* Carousel Wrapper */}
           <div className="relative group">
-            {/* Left Scroll Button */}
+            {/* Left Scroll Button - visible on sm+ */}
             <button
               type="button"
               onClick={() => scrollContainer(learningRef, 'left')}
-              className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg border border-slate-200/90 text-slate-700 hover:text-orange-500 hover:border-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg border border-slate-200/90 text-slate-700 hover:text-orange-500 hover:border-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
               aria-label="Previous learning cards"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
 
-            {/* Right Scroll Button */}
+            {/* Right Scroll Button - visible on sm+ */}
             <button
               type="button"
               onClick={() => scrollContainer(learningRef, 'right')}
-              className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg border border-slate-200/90 text-slate-700 hover:text-orange-500 hover:border-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg border border-slate-200/90 text-slate-700 hover:text-orange-500 hover:border-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
               aria-label="Next learning cards"
             >
               <ChevronRight className="h-6 w-6" />
@@ -262,7 +262,7 @@ export const AchievementsAndLearning: React.FC = () => {
               {LEARNING_ITEMS.map((item) => (
                 <div
                   key={item.id}
-                  className="flex-none w-[260px] sm:w-[280px] lg:w-[calc(25%-18px)] snap-start group/card"
+                  className="flex-none w-[240px] sm:w-[260px] md:w-[280px] lg:w-[280px] xl:w-[calc(25%-18px)] snap-start group/card"
                 >
                   <div className="h-full bg-[#0A2540] rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_4px_20px_rgba(15,23,42,0.06)] hover:shadow-xl transition-all duration-300 flex flex-col">
                     {/* Image Container */}
@@ -276,12 +276,12 @@ export const AchievementsAndLearning: React.FC = () => {
                     </div>
 
                     {/* Dark Navy Caption Bar with Centered Text and Thin Orange Decorative Lines */}
-                    <div className="py-3.5 px-4 bg-[#0A2540] text-center flex items-center justify-center gap-2 border-t border-slate-800">
-                      <span className="h-0.5 w-5 sm:w-7 bg-orange-500 rounded-full" />
+                    <div className="py-3 sm:py-3.5 px-3 sm:px-4 bg-[#0A2540] text-center flex items-center justify-center gap-2 border-t border-slate-800">
+                      <span className="h-0.5 w-4 sm:w-7 bg-orange-500 rounded-full" />
                       <span className="font-bold text-xs sm:text-sm text-white tracking-wide whitespace-nowrap">
                         {item.title}
                       </span>
-                      <span className="h-0.5 w-5 sm:w-7 bg-orange-500 rounded-full" />
+                      <span className="h-0.5 w-4 sm:w-7 bg-orange-500 rounded-full" />
                     </div>
                   </div>
                 </div>
