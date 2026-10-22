@@ -7,6 +7,7 @@ import {
   ChevronRight,
   Building2,
   BookOpen,
+  Laptop,
 } from 'lucide-react'
 import {
   TARGET_AUDIENCES,
@@ -56,17 +57,17 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
         ========================================================= */}
         <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-16">
           {/* Location & Authority Tag */}
-          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-2xl sm:rounded-full bg-gradient-to-r from-accent-50 to-orange-50 border border-accent-200/70 text-accent-700 eyebrow-badge shadow-2xs mb-4 text-center max-w-[95%] sm:max-w-none mx-auto text-[10.5px] sm:text-xs">
-            <div className="inline-flex items-center gap-1.5">
+          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-2xl sm:rounded-full bg-gradient-to-r from-accent-50 to-orange-50 border border-accent-200/70 text-accent-700 eyebrow-badge shadow-2xs mb-4 text-center max-w-full mx-auto text-[10px] sm:text-xs">
+            <div className="inline-flex items-center justify-center gap-1.5 text-center flex-nowrap">
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-500" />
               </span>
               <MapPin className="w-3.5 h-3.5 text-accent-600 shrink-0" />
-              <span className="whitespace-nowrap">Coimbatore's Premier IT Training Institute</span>
+              <span className="font-bold text-center">Coimbatore's Premier IT Training Institute</span>
             </div>
             <span className="hidden sm:inline text-accent-300">•</span>
-            <span className="font-semibold text-slate-600 normal-case whitespace-nowrap">Saravanampatti & Gandhipuram</span>
+            <span className="font-semibold text-slate-600 normal-case text-center">Saravanampatti & Gandhipuram</span>
           </div>
 
           {/* Main Requested Heading */}
@@ -116,14 +117,14 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
             2. AUDIENCE TARGETING: STUDENTS VS WORKING PROFESSIONALS
         ========================================================= */}
         <div className="mb-16 lg:mb-20">
-          <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 rounded-3xl p-6 sm:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden border border-slate-800">
+          <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 rounded-3xl p-4 sm:p-8 lg:p-10 text-white shadow-xl relative overflow-hidden border border-slate-800">
             {/* Ambient Inner Glow */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-accent-500/15 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* Audience Switcher Tabs */}
-            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div>
+            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="min-w-0">
                 <span className="eyebrow-badge text-accent-400">
                   Personalized Learning Pathways
                 </span>
@@ -133,7 +134,7 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
               </div>
 
               {/* Segment Toggle Buttons */}
-              <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-800/90 border border-slate-700 w-full sm:w-auto">
+              <div className="grid grid-cols-2 sm:flex sm:items-center gap-1.5 p-1 sm:p-1.5 rounded-2xl bg-slate-800/90 border border-slate-700 w-full sm:w-auto shrink-0">
                 {TARGET_AUDIENCES.map((audience) => {
                   const Icon = audience.icon
                   const isActive = activeAudienceId === audience.id
@@ -142,13 +143,13 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
                       key={audience.id}
                       type="button"
                       onClick={() => setActiveAudienceId(audience.id)}
-                      className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-heading transition-all ${isActive
+                      className={`flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-[11px] sm:text-sm font-bold font-heading transition-all ${isActive
                           ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-md shadow-accent-500/20'
                           : 'text-slate-300 hover:text-white hover:bg-slate-700/60'
                         }`}
                     >
-                      <Icon className="w-4 h-4 shrink-0" />
-                      <span>{audience.shortLabel}</span>
+                      <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                      <span className="truncate">{audience.shortLabel}</span>
                     </button>
                   )
                 })}
@@ -158,7 +159,7 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
             {/* Active Audience Content Showcase */}
             <div className="relative z-10 pt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Left Column: Mission & Headline */}
-              <div className="lg:col-span-5 space-y-4">
+              <div className="lg:col-span-5 space-y-4 min-w-0">
                 <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-accent-500/20 text-accent-300 border border-accent-500/30 eyebrow-badge">
                   <span>{activeAudience.badge}</span>
                 </div>
@@ -169,11 +170,11 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
                   {activeAudience.summary}
                 </p>
 
-                <div className="pt-2 flex flex-wrap items-center gap-3">
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
                   <button
                     type="button"
                     onClick={() => onOpenEnquiry(activeAudience.enquirySubject)}
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-bold font-heading tracking-wide shadow-lg shadow-accent-500/30 transition-all hover:translate-x-0.5 active:scale-95"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-sm font-bold font-heading tracking-wide shadow-lg shadow-accent-500/30 transition-all hover:translate-x-0.5 active:scale-95 w-full sm:w-auto"
                   >
                     <span>{activeAudience.primaryCtaText}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -181,7 +182,7 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
                   <button
                     type="button"
                     onClick={() => onOpenEnquiry('Free IT Course Counseling - Coimbatore')}
-                    className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold font-heading border border-slate-700 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold font-heading border border-slate-700 transition-colors w-full sm:w-auto"
                   >
                     <BookOpen className="w-4 h-4 text-accent-400" />
                     <span>Download Brochure</span>
@@ -242,21 +243,21 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4.5 sm:gap-6">
             {TRAINING_ENVIRONMENT_PILLARS.map((pillar, idx) => {
               const Icon = pillar.icon
               const stepNumber = pillar.stepNumber || `0${idx + 1}`
               return (
                 <div
                   key={pillar.id}
-                  className="relative flex flex-col justify-between rounded-3xl bg-white p-6 sm:p-7 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 hover:-translate-y-1.5 group overflow-hidden"
+                  className="relative flex flex-col justify-between rounded-3xl bg-white p-5 sm:p-6 lg:p-4.5 xl:p-6 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-slate-300 transition-all duration-300 hover:-translate-y-1.5 group overflow-hidden"
                 >
                   {/* Subtle Top Accent Hairline on Hover */}
                   <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent group-hover:from-accent-500 group-hover:via-orange-400 group-hover:to-accent-500 transition-all duration-500" />
 
                   <div>
                     {/* Header: Step Indicator & Category Pill */}
-                    <div className="flex items-center justify-between gap-2 mb-5">
+                    <div className="flex items-center justify-between gap-2 mb-3.5 sm:mb-4">
                       <span className="font-heading text-xs font-bold text-slate-300 group-hover:text-accent-500 transition-colors uppercase tracking-widest">
                         {stepNumber}
                       </span>
@@ -265,38 +266,42 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
                       </span>
                     </div>
 
-                    {/* Unified Professional Icon Container (no multi-color rainbow gradients!) */}
-                    <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center border border-slate-800 shadow-sm group-hover:bg-accent-500 group-hover:border-accent-500 group-hover:shadow-md group-hover:shadow-accent-500/20 transition-all duration-300 mb-4">
-                      <Icon className="w-5 h-5 text-white transition-transform group-hover:scale-110" />
+                    {/* Unified Professional Icon Container */}
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center border border-slate-800 shadow-sm group-hover:bg-accent-500 group-hover:border-accent-500 group-hover:shadow-md group-hover:shadow-accent-500/20 transition-all duration-300 mb-3.5 shrink-0">
+                      {Icon ? (
+                        <Icon className="w-5 h-5 text-white transition-transform group-hover:scale-110" />
+                      ) : (
+                        <Laptop className="w-5 h-5 text-white transition-transform group-hover:scale-110" />
+                      )}
                     </div>
 
                     {/* Titles */}
-                    <h3 className="display-card-title text-slate-900 font-bold text-lg">
+                    <h3 className="display-card-title text-slate-900 font-bold text-base sm:text-lg min-h-0 sm:min-h-[3rem] lg:min-h-[3.25rem] flex items-start">
                       {pillar.title}
                     </h3>
-                    <p className="caption-text font-semibold text-accent-600 mt-1 font-heading">
+                    <p className="caption-text font-semibold text-accent-600 mt-1 font-heading min-h-0 sm:min-h-[2.25rem] flex items-start">
                       {pillar.subtitle}
                     </p>
 
                     {/* Concise Punchy Description */}
-                    <p className="body-subtext text-slate-600 mt-2.5 leading-relaxed">
+                    <p className="body-subtext text-slate-600 mt-2.5 leading-relaxed text-xs sm:text-[13px] min-h-0 sm:min-h-[5.25rem] lg:min-h-[6.25rem]">
                       {pillar.description}
                     </p>
 
-                    {/* Bullet Highlights */}
-                    <div className="mt-4 pt-4 border-t border-slate-100/90 space-y-2">
+                    {/* Bullet Highlights - Fully readable without truncation */}
+                    <div className="mt-3.5 pt-3.5 border-t border-slate-100/90 space-y-2 sm:space-y-2.5 min-h-0 sm:min-h-[6.5rem] lg:min-h-[7.25rem]">
                       {pillar.bulletPoints.map((point, pIdx) => (
-                        <div key={pIdx} className="flex items-center gap-2 text-xs font-medium text-slate-700 font-sans">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-accent-500 shrink-0" />
-                          <span>{point}</span>
+                        <div key={pIdx} className="flex items-start gap-2 text-[11.5px] sm:text-xs font-medium text-slate-700 font-sans leading-snug">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-accent-500 shrink-0 mt-0.5" />
+                          <span className="leading-snug">{point}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Footer Metric / Badge */}
-                  <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between">
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-slate-50 text-slate-700 font-semibold text-[11px] border border-slate-200/70 font-heading">
+                  <div className="mt-4 pt-3 sm:mt-5 sm:pt-3.5 border-t border-slate-100 flex items-center justify-between">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-slate-50 text-slate-700 font-semibold text-[10.5px] sm:text-[11px] border border-slate-200/70 font-heading">
                       <span>{pillar.metricBadge || 'Industry Standard'}</span>
                     </span>
                     <span className="text-slate-400 group-hover:text-accent-600 transition-colors text-xs font-semibold flex items-center gap-0.5 font-heading">
@@ -319,10 +324,10 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
         {/* =========================================================
             6. COIMBATORE CAMPUS & FACILITIES SHOWCASE
         ========================================================= */}
-        <div className="mb-14 sm:mb-16 rounded-3xl bg-gradient-to-br from-slate-100 via-white to-orange-50/50 border border-slate-200/90 p-6 sm:p-8 lg:p-10 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="mb-14 sm:mb-16 rounded-3xl bg-gradient-to-br from-slate-100 via-white to-orange-50/50 border border-slate-200/90 p-5 sm:p-8 xl:p-10 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             {/* Campus Info & Locations */}
-            <div className="lg:col-span-6 space-y-4">
+            <div className="lg:col-span-6 space-y-4 min-w-0">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-50 border border-accent-200 text-accent-700 eyebrow-badge">
                 <Building2 className="w-3.5 h-3.5" />
                 <span>Visit Us in Coimbatore</span>
@@ -339,24 +344,26 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
                 Whether you prefer in-person training at our modern Coimbatore centers or interactive live online classes with full lab access, Cloudswan Solution offers you an immersive, high-engagement learning experience.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-2">
                 {/* Branch 1 */}
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="p-1.5 rounded-lg bg-orange-100 text-accent-600">
-                      <MapPin className="w-4 h-4" />
+                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2 flex flex-col justify-between h-full">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 rounded-lg bg-orange-100 text-accent-600 shrink-0">
+                        <MapPin className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="display-card-title text-slate-900 text-sm sm:text-base truncate">Saravanampatti Campus</h3>
+                        <span className="caption-text text-slate-500 block truncate">Main Bus Stop (Sathy Road)</span>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="display-card-title text-slate-900 text-sm sm:text-base">Saravanampatti Campus</h3>
-                      <span className="caption-text text-slate-500">Main Bus Stop (Sathy Road)</span>
-                    </div>
+                    <p className="body-subtext text-slate-600 text-xs sm:text-sm">
+                      High-tech smart labs, dedicated project development zones, and convenient transit at Main Bus Stop.
+                    </p>
                   </div>
-                  <p className="body-subtext text-slate-600">
-                    High-tech smart labs, dedicated project development zones, and convenient transit at Main Bus Stop.
-                  </p>
                   <a
                     href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-600 hover:text-accent-700 font-heading pt-1"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-600 hover:text-accent-700 font-heading pt-2 border-t border-slate-100"
                   >
                     <PhoneCall className="w-3.5 h-3.5" />
                     <span>{CONTACT_INFO.saravanampattiDisplayPhone}</span>
@@ -364,22 +371,24 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
                 </div>
 
                 {/* Branch 2 */}
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="p-1.5 rounded-lg bg-orange-100 text-accent-600">
-                      <MapPin className="w-4 h-4" />
+                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs space-y-2 flex flex-col justify-between h-full">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 rounded-lg bg-orange-100 text-accent-600 shrink-0">
+                        <MapPin className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="display-card-title text-slate-900 text-sm sm:text-base truncate">Gandhipuram Campus</h3>
+                        <span className="caption-text text-slate-500 block truncate">Ramnagar (City Central)</span>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="display-card-title text-slate-900 text-sm sm:text-base">Gandhipuram Campus</h3>
-                      <span className="caption-text text-slate-500">Ramnagar (City Central)</span>
-                    </div>
+                    <p className="body-subtext text-slate-600 text-xs sm:text-sm">
+                      Located in Ramnagar, walkable from central bus terminals and train connections with weekday & weekend classrooms.
+                    </p>
                   </div>
-                  <p className="body-subtext text-slate-600">
-                    Located in Ramnagar, walkable from central bus terminals and train connections with weekday & weekend classrooms.
-                  </p>
                   <a
                     href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-600 hover:text-accent-700 font-heading pt-1"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-accent-600 hover:text-accent-700 font-heading pt-2 border-t border-slate-100"
                   >
                     <PhoneCall className="w-3.5 h-3.5" />
                     <span>{CONTACT_INFO.coimbatoreDisplayPhone}</span>
@@ -389,19 +398,21 @@ export const ITTrainingSection: React.FC<ITTrainingSectionProps> = ({
             </div>
 
             {/* Coimbatore Advantages Key Points */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 min-w-0">
               {COIMBATORE_ADVANTAGES.map((adv, aIdx) => (
                 <div
                   key={aIdx}
-                  className="p-4 rounded-2xl bg-white/80 border border-slate-200/80 shadow-2xs hover:bg-white transition-all space-y-1.5"
+                  className="p-4 rounded-2xl bg-white/80 border border-slate-200/80 shadow-2xs hover:bg-white transition-all flex flex-col justify-between h-full"
                 >
-                  <div className="flex items-center gap-2 text-slate-900 font-bold text-xs sm:text-sm font-heading">
-                    <CheckCircle2 className="w-4 h-4 text-accent-500 shrink-0" />
-                    <span>{adv.title}</span>
+                  <div>
+                    <div className="flex items-center gap-2 text-slate-900 font-bold text-xs sm:text-sm font-heading">
+                      <CheckCircle2 className="w-4 h-4 text-accent-500 shrink-0" />
+                      <span className="truncate">{adv.title}</span>
+                    </div>
+                    <p className="body-subtext text-slate-500 pl-6 text-xs sm:text-sm mt-1">
+                      {adv.description}
+                    </p>
                   </div>
-                  <p className="body-subtext text-slate-500 pl-6">
-                    {adv.description}
-                  </p>
                 </div>
               ))}
             </div>

@@ -93,10 +93,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* 2-Column Hero Grid: Left Content & Right Interactive Global Map Showcase */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column: Headline, Value Propositions & High-Converting CTAs */}
-          <div className="lg:col-span-6 space-y-6 text-left">
+          <div className="order-1 lg:order-1 lg:col-span-7 space-y-6 text-left min-w-0">
             {/* Accreditation Badge */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-accent-50/80 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs text-[10.5px] sm:text-xs">
-              <span className="whitespace-nowrap">100% Placement Assured IT Training Institute</span>
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-accent-50/80 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs text-[10.5px] sm:text-xs max-w-full">
+              <span className="truncate sm:whitespace-nowrap">100% Placement Assured IT Training Institute</span>
               <span className="text-accent-300 font-normal hidden sm:inline">|</span>
               <span className="text-slate-600 font-medium hidden sm:inline normal-case">Coimbatore</span>
             </div>
@@ -164,11 +164,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-3.5">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <button
                 type="button"
                 onClick={() => onOpenEnquiry('Free Career Counseling & Demo Session')}
-                className="px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-lg shadow-accent-500/25 transition-all flex items-center gap-2 group cursor-pointer font-heading tracking-wide"
+                className="w-full sm:w-auto px-5 sm:px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-lg shadow-accent-500/25 transition-all flex items-center justify-center gap-2 group cursor-pointer font-heading tracking-wide"
               >
                 <Calendar className="w-4 h-4 transition-transform group-hover:scale-110" />
                 <span>Book Free Career Counseling</span>
@@ -184,16 +184,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     onOpenEnquiry('Explore Courses Catalog')
                   }
                 }}
-                className="px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 shadow-xs hover:border-slate-400 active:scale-[0.98] transition-all flex items-center gap-2 cursor-pointer font-heading tracking-wide group"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 shadow-xs hover:border-slate-400 active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer font-heading tracking-wide group"
               >
                 <BookOpen className="w-4 h-4 text-slate-500 group-hover:text-accent-600 transition-colors" />
                 <span>View Our Courses</span>
               </button>
             </div>
+          </div>
 
-            {/* Trending Keywords Quick Chips */}
-            <div className="pt-1 flex flex-wrap items-center gap-2 text-xs">
-              <span className="eyebrow-badge text-slate-500">
+          {/* Right Column: Creative Interactive Global Map & Career Mobility Centerpiece */}
+          <div className="order-3 lg:order-2 lg:col-span-5 flex justify-center">
+            <GlobalMapVisual />
+          </div>
+
+          {/* Trending Keywords Quick Chips - Spanning full width across right side also, in a straight line with no scrolling */}
+          <div className="order-2 lg:order-3 lg:col-span-12 pt-1 lg:pt-0">
+            <div className="flex flex-wrap lg:flex-nowrap items-center gap-2 sm:gap-2.5 text-xs">
+              <span className="eyebrow-badge text-slate-500 whitespace-nowrap shrink-0">
                 Trending Tracks:
               </span>
               {popularKeywords.map((kw) => (
@@ -201,29 +208,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   key={kw}
                   type="button"
                   onClick={() => onOpenEnquiry(`Course Enquiry: ${kw}`)}
-                  className="px-2.5 py-1 rounded-lg bg-white border border-slate-200/90 text-slate-700 hover:border-accent-400 hover:text-accent-600 hover:bg-accent-50/50 text-xs font-medium shadow-2xs transition-colors cursor-pointer font-sans"
+                  className="px-2.5 py-1 sm:px-3 sm:py-1 rounded-lg bg-white border border-slate-200/90 text-slate-700 hover:border-accent-400 hover:text-accent-600 hover:bg-accent-50/50 text-xs font-medium shadow-2xs transition-colors cursor-pointer font-sans whitespace-nowrap shrink-0"
                 >
                   {kw}
                 </button>
               ))}
             </div>
-
-
-          </div>
-
-          {/* Right Column: Creative Interactive Global Map & Career Mobility Centerpiece */}
-          <div className="lg:col-span-6">
-            <GlobalMapVisual />
           </div>
         </div>
 
         {/* Animated Statistics Counter Strip (Counts Animated Like Counting) */}
         <div className="mt-14 pt-10 border-t border-slate-200/80">
-          <div className="text-center max-w-xl mx-auto mb-6">
-            <span className="eyebrow-badge text-accent-600 bg-accent-50 px-3 py-1 rounded-full border border-accent-200/60 inline-block">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="eyebrow-badge text-accent-600 bg-accent-50 px-3.5 py-1 rounded-full border border-accent-200/60 inline-block">
               Proven Track Record of Excellence
             </span>
-            <h2 className="display-h2 text-slate-900 mt-2">
+            <h2 className="display-h2 text-slate-900 mt-2.5">
               Empowering Careers with{' '}
               <span className="bg-gradient-to-r from-accent-500 via-orange-500 to-amber-500 bg-clip-text text-transparent">
                 Measurable Impact
@@ -231,86 +231,110 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3.5 sm:gap-4 items-stretch">
             {/* Stat 1: Students Trained */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group">
-              <div className="w-9 h-9 rounded-xl bg-accent-50 text-accent-500 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-                <Users className="w-5 h-5" />
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group flex flex-col justify-between h-full">
+              <div>
+                <div className="w-9 h-9 rounded-xl bg-accent-50 text-accent-500 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+                  <Users className="w-5 h-5" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading">
+                  <AnimatedCounter target={10000} suffix="+" duration={2200} />
+                </div>
               </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading">
-                <AnimatedCounter target={10000} suffix="+" duration={2200} />
+              <div className="mt-3 pt-2 border-t border-slate-100">
+                <div className="caption-text text-slate-700 font-semibold">Students Trained</div>
+                <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">Classroom & Online</div>
               </div>
-              <div className="caption-text text-slate-600 font-semibold mt-1">Students Trained</div>
-              <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">Classroom & Online</div>
             </div>
 
             {/* Stat 2: Placement Assistance */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group">
-              <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-                <ShieldCheck className="w-5 h-5" />
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group flex flex-col justify-between h-full">
+              <div>
+                <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600 tracking-tight font-heading">
+                  <AnimatedCounter target={100} suffix="%" duration={1800} />
+                </div>
               </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600 tracking-tight font-heading">
-                <AnimatedCounter target={100} suffix="%" duration={1800} />
+              <div className="mt-3 pt-2 border-t border-slate-100">
+                <div className="caption-text text-slate-700 font-semibold">Placement Support</div>
+                <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">100% Job Assistance</div>
               </div>
-              <div className="caption-text text-slate-600 font-semibold mt-1">Placement Support</div>
-              <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">100% Job Assistance</div>
             </div>
 
             {/* Stat 3: Hiring Partners */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group">
-              <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-                <Building2 className="w-5 h-5" />
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group flex flex-col justify-between h-full">
+              <div>
+                <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+                  <Building2 className="w-5 h-5" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading">
+                  <AnimatedCounter target={350} suffix="+" duration={2000} />
+                </div>
               </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading">
-                <AnimatedCounter target={350} suffix="+" duration={2000} />
+              <div className="mt-3 pt-2 border-t border-slate-100">
+                <div className="caption-text text-slate-700 font-semibold">Hiring Partners</div>
+                <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">Top MNCs & Startups</div>
               </div>
-              <div className="caption-text text-slate-600 font-semibold mt-1">Hiring Partners</div>
-              <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">Top MNCs & Startups</div>
             </div>
 
             {/* Stat 4: Industry Programs */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group">
-              <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-                <BookOpen className="w-5 h-5" />
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group flex flex-col justify-between h-full">
+              <div>
+                <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading">
+                  <AnimatedCounter target={50} suffix="+" duration={1900} />
+                </div>
               </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading">
-                <AnimatedCounter target={50} suffix="+" duration={1900} />
+              <div className="mt-3 pt-2 border-t border-slate-100">
+                <div className="caption-text text-slate-700 font-semibold">Industry Programs</div>
+                <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">IT, Cloud, AI & Lang</div>
               </div>
-              <div className="caption-text text-slate-600 font-semibold mt-1">Industry Programs</div>
-              <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">IT, Cloud, AI & Lang</div>
             </div>
 
             {/* Stat 5: Global Destinations */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group">
-              <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-                <Globe2 className="w-5 h-5" />
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group flex flex-col justify-between h-full">
+              <div>
+                <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+                  <Globe2 className="w-5 h-5" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-accent-500 tracking-tight font-heading">
+                  <AnimatedCounter target={12} suffix="+" duration={1700} />
+                </div>
               </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-accent-500 tracking-tight font-heading">
-                <AnimatedCounter target={12} suffix="+" duration={1700} />
+              <div className="mt-3 pt-2 border-t border-slate-100">
+                <div className="caption-text text-slate-700 font-semibold">Global Hubs</div>
+                <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">UAE, MY, AU, SG & More</div>
               </div>
-              <div className="caption-text text-slate-600 font-semibold mt-1">Global Hubs</div>
-              <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">UAE, MY, AU, SG & More</div>
             </div>
 
             {/* Stat 6: Average Rating */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group">
-              <div className="w-9 h-9 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-                <Star className="w-5 h-5 fill-amber-400 text-amber-400" />
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-accent-300 hover:shadow-md transition-all group flex flex-col justify-between h-full">
+              <div>
+                <div className="w-9 h-9 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+                  <Star className="w-5 h-5 fill-amber-400 text-amber-400" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading">
+                  <AnimatedCounter target={4.9} decimals={1} suffix="★" duration={1800} />
+                </div>
               </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-heading">
-                <AnimatedCounter target={4.9} decimals={1} suffix="★" duration={1800} />
+              <div className="mt-3 pt-2 border-t border-slate-100">
+                <div className="caption-text text-slate-700 font-semibold">Google Rating</div>
+                <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">1,850+ Student Reviews</div>
               </div>
-              <div className="caption-text text-slate-600 font-semibold mt-1">Google Rating</div>
-              <div className="text-[11px] text-slate-400 mt-0.5 font-medium font-sans">1,850+ Student Reviews</div>
             </div>
           </div>
         </div>
 
         {/* Coimbatore Dual Campus Physical Presence Badge Strip */}
-        <div className="mt-8 p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-slate-300 transition-colors">
+        <div className="mt-8 p-2.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-slate-300 transition-colors">
           <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-3 sm:gap-4 text-xs">
             {/* Campus details with clean professional icons and both mobile numbers */}
-            <div className="flex flex-col lg:flex-row lg:items-center gap-2.5 lg:gap-4">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
               <div className="flex items-center gap-2 shrink-0">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 ring-4 ring-emerald-500/15" />
                 <span className="font-bold text-slate-900 font-heading text-xs tracking-wide">
@@ -318,25 +342,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </span>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 divide-y divide-slate-100 sm:divide-y-0 text-slate-600">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-4 divide-y divide-slate-100 sm:divide-y-0 text-slate-600">
                 {/* Branch 1: Gandhipuram */}
-                <div className="flex items-center justify-between sm:justify-start gap-2 pt-2 first:pt-0 sm:pt-0">
+                <div className="flex items-center justify-between sm:justify-start gap-2 py-1.5 sm:py-0">
                   <div className="flex items-center gap-2 min-w-0">
-                    <div className="w-5 h-5 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 border border-slate-200/60">
-                      <MapPin className="w-3 h-3 text-slate-500" />
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 border border-slate-200/60">
+                      <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-500" />
                     </div>
                     <div className="min-w-0">
-                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1.5">
-                        <span className="font-semibold text-slate-900 font-heading text-xs">Gandhipuram</span>
-                        <span className="text-slate-500 text-[10.5px] sm:text-[11px] font-sans truncate sm:truncate-none">(Ramnagar)</span>
+                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-0 sm:gap-1.5">
+                        <span className="font-semibold text-slate-900 font-heading text-[11.5px] sm:text-xs truncate">Gandhipuram</span>
+                        <span className="text-slate-500 text-[10px] sm:text-[11px] font-sans truncate sm:truncate-none">(Ramnagar)</span>
                       </div>
                     </div>
                   </div>
                   <a
                     href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
-                    className="inline-flex items-center gap-1 font-bold text-accent-600 hover:text-accent-700 font-heading text-xs shrink-0 px-2 py-1 rounded-md bg-accent-50/70 hover:bg-accent-100/70 border border-accent-200/50 transition-colors ml-auto sm:ml-1"
+                    className="inline-flex items-center gap-1 font-bold text-accent-600 hover:text-accent-700 font-heading text-[10.5px] sm:text-xs shrink-0 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md bg-accent-50/70 hover:bg-accent-100/70 border border-accent-200/50 transition-colors ml-auto sm:ml-1 shadow-2xs whitespace-nowrap"
                   >
-                    <Phone className="w-3 h-3 text-accent-500" />
+                    <Phone className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-accent-500 shrink-0" />
                     <span>{CONTACT_INFO.coimbatoreDisplayPhone}</span>
                   </a>
                 </div>
@@ -344,23 +368,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <span className="hidden sm:inline text-slate-300">|</span>
 
                 {/* Branch 2: Saravanampatti */}
-                <div className="flex items-center justify-between sm:justify-start gap-2 pt-2.5 sm:pt-0">
+                <div className="flex items-center justify-between sm:justify-start gap-2 py-1.5 sm:py-0">
                   <div className="flex items-center gap-2 min-w-0">
-                    <div className="w-5 h-5 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 border border-slate-200/60">
-                      <MapPin className="w-3 h-3 text-slate-500" />
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 border border-slate-200/60">
+                      <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-500" />
                     </div>
                     <div className="min-w-0">
-                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1.5">
-                        <span className="font-semibold text-slate-900 font-heading text-xs">Saravanampatti</span>
-                        <span className="text-slate-500 text-[10.5px] sm:text-[11px] font-sans truncate sm:truncate-none">(Main Bus Stop)</span>
+                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-0 sm:gap-1.5">
+                        <span className="font-semibold text-slate-900 font-heading text-[11.5px] sm:text-xs truncate">Saravanampatti</span>
+                        <span className="text-slate-500 text-[10px] sm:text-[11px] font-sans truncate sm:truncate-none">(Main Bus Stop)</span>
                       </div>
                     </div>
                   </div>
                   <a
                     href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
-                    className="inline-flex items-center gap-1 font-bold text-accent-600 hover:text-accent-700 font-heading text-xs shrink-0 px-2 py-1 rounded-md bg-accent-50/70 hover:bg-accent-100/70 border border-accent-200/50 transition-colors ml-auto sm:ml-1"
+                    className="inline-flex items-center gap-1 font-bold text-accent-600 hover:text-accent-700 font-heading text-[10.5px] sm:text-xs shrink-0 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md bg-accent-50/70 hover:bg-accent-100/70 border border-accent-200/50 transition-colors ml-auto sm:ml-1 shadow-2xs whitespace-nowrap"
                   >
-                    <Phone className="w-3 h-3 text-accent-500" />
+                    <Phone className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-accent-500 shrink-0" />
                     <span>{CONTACT_INFO.saravanampattiDisplayPhone}</span>
                   </a>
                 </div>

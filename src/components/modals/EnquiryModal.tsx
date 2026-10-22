@@ -8,6 +8,7 @@ import {
   User,
   BookOpen,
   MapPin,
+  ChevronDown,
 } from 'lucide-react'
 import { COURSE_CATEGORIES } from '../../data/navigationData'
 
@@ -243,7 +244,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                   </label>
 
                   <div className="relative">
-                    <BookOpen className="absolute left-3 top-2.5 sm:top-3 h-4 w-4 text-slate-400" />
+                    <BookOpen className="pointer-events-none absolute left-3 top-2.5 sm:top-3 h-4 w-4 text-slate-400" />
 
                     <select
                       value={formData.course}
@@ -253,7 +254,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                           course: e.target.value,
                         })
                       }
-                      className="w-full rounded-xl border border-slate-200 bg-white py-2 sm:py-2.5 pl-9 pr-3 text-xs sm:text-sm transition-all focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
+                      className="w-full rounded-xl border border-slate-200 bg-white py-2 sm:py-2.5 pl-9 pr-8 text-xs sm:text-sm transition-all focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 appearance-none cursor-pointer"
                     >
                       <option value="">
                         Select a Course...
@@ -273,6 +274,8 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                       ))}
                       <option value="Others">Others</option>
                     </select>
+
+                    <ChevronDown className="pointer-events-none absolute right-3 top-2.5 sm:top-3 h-4 w-4 text-slate-400" />
                   </div>
                 </div>
 
@@ -283,7 +286,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                   </label>
 
                   <div className="relative">
-                    <MapPin className="absolute left-3 top-2.5 sm:top-3 h-4 w-4 text-slate-400" />
+                    <MapPin className="pointer-events-none absolute left-3 top-2.5 sm:top-3 h-4 w-4 text-slate-400" />
 
                     <select
                       required
@@ -294,20 +297,22 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                           location: e.target.value,
                         })
                       }
-                      className="w-full rounded-xl border border-slate-200 bg-white py-2 sm:py-2.5 pl-9 pr-3 text-xs sm:text-sm transition-all focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
+                      className="w-full rounded-xl border border-slate-200 bg-white py-2 sm:py-2.5 pl-9 pr-8 text-xs sm:text-sm transition-all focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 appearance-none cursor-pointer"
                     >
                       <option value="">
                         Select Location...
                       </option>
 
-                      <option value="Gandhipuram (Ramnagar)">
-                        Gandhipuram - Ramnagar
+                      <option value="Gandhipuram Campus">
+                        Gandhipuram Campus
                       </option>
 
-                      <option value="Saravanampatti (Main Bus Stop)">
-                        Saravanampatti - Main Bus Stop
+                      <option value="Saravanampatti Campus">
+                        Saravanampatti Campus
                       </option>
                     </select>
+
+                    <ChevronDown className="pointer-events-none absolute right-3 top-2.5 sm:top-3 h-4 w-4 text-slate-400" />
                   </div>
                 </div>
 

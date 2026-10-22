@@ -281,18 +281,18 @@ export const PopularCoursesSection: React.FC<PopularCoursesSectionProps> = ({
       {/* =========================================================
           BOTTOM HELP / COUNSELING PROMPT
       ========================================================= */}
-      <div className="mt-10 p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 border-l-4 border-l-accent-500 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="text-center md:text-left max-w-xl lg:max-w-2xl">
+      <div className="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 border-l-4 border-l-accent-500 shadow-xl flex flex-col xl:flex-row xl:items-center justify-between gap-6">
+        <div className="text-left max-w-3xl min-w-0">
           <h3 className="display-card-title text-white text-lg sm:text-xl font-bold font-heading">
             Not Sure Which Technology Path Matches Your Background?
           </h3>
-          <p className="body-subtext text-slate-300 mt-1 leading-relaxed">
+          <p className="body-subtext text-slate-300 mt-1.5 leading-relaxed">
             Talk directly with our Lead Tech Architects at our Gandhipuram (Ramnagar) or
             Saravanampatti (Main Bus Stop) centers for a free personalized career assessment.
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto shrink-0">
+        <div className="flex flex-wrap items-center gap-2.5 w-full xl:w-auto shrink-0">
           <button
             type="button"
             onClick={() =>

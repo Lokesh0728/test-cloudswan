@@ -161,38 +161,32 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
         ===================================================== */}
 
         <div className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-
-          <div className="grid grid-cols-1 divide-y divide-slate-200 md:grid-cols-3 md:divide-x md:divide-y-0">
-
+          <div className="flex flex-col md:flex-row divide-y divide-slate-200 md:divide-y-0 md:divide-x">
             {/* Duration */}
-            <div className="flex items-center gap-3 p-5">
-
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
+            <div className="flex items-center gap-2.5 sm:gap-3 p-3.5 sm:p-4 lg:p-5 md:flex-1 shrink-0">
+              <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
                 <Clock className="h-4 w-4" />
               </div>
-
-              <div>
-                <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400">
+              <div className="min-w-0">
+                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
                   Duration
                 </p>
-
-                <p className="text-sm font-bold text-slate-900">
+                <p className="text-xs sm:text-sm font-bold text-slate-900 font-heading whitespace-nowrap">
                   3 Months Fast-Track
                 </p>
               </div>
-
             </div>
 
             {/* Learning Mode */}
-            <div className="flex items-center gap-3 p-5">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
+            <div className="flex items-center gap-2.5 sm:gap-3 p-3.5 sm:p-4 lg:p-5 md:flex-1 shrink-0">
+              <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
                 <Laptop className="h-4 w-4" />
               </div>
-              <div>
-                <p className="caption-text font-semibold uppercase tracking-wider text-slate-400">
+              <div className="min-w-0">
+                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
                   Learning Mode
                 </p>
-                <p className="text-sm font-bold text-slate-900 font-heading">
+                <p className="text-xs sm:text-sm font-bold text-slate-900 font-heading whitespace-nowrap">
                   Classroom + Live Online
                 </p>
               </div>
@@ -206,22 +200,22 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
                   'Custom Batch Timings & Personalized Counseling'
                 )
               }
-              className="group flex items-center justify-between gap-4 p-5 text-left transition duration-300 hover:bg-orange-50"
+              className="group flex items-center justify-between gap-2.5 sm:gap-3 lg:gap-4 p-3.5 sm:p-4 lg:p-5 text-left transition duration-300 hover:bg-orange-50 md:flex-[1.4] shrink-0"
             >
-              <div>
-                <p className="caption-text font-semibold uppercase tracking-wider text-orange-500">
+              <div className="min-w-0">
+                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-orange-500">
                   Need Help?
                 </p>
-                <p className="text-sm font-bold text-slate-900 font-heading">
+                <p className="text-xs sm:text-sm font-bold text-slate-900 font-heading whitespace-nowrap">
                   Talk to a Career Counselor
                 </p>
-                <p className="mt-0.5 caption-text text-slate-500">
+                <p className="mt-0.5 text-[10.5px] sm:text-xs text-slate-500 whitespace-nowrap">
                   Custom batch & weekend options
                 </p>
               </div>
 
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-500 text-white transition-all duration-300 group-hover:bg-orange-600 group-hover:translate-x-1">
-                <ArrowRight className="h-4 w-4" />
+              <span className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full bg-orange-500 text-white transition-all duration-300 group-hover:bg-orange-600 group-hover:translate-x-1">
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </span>
             </button>
           </div>
