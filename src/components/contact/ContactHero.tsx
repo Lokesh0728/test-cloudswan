@@ -109,57 +109,71 @@ export const ContactHero: React.FC<ContactHeroProps> = ({
               Visit our high-tech computer labs, explore syllabus modules, or schedule a free 1-on-1 career consultation with our senior industry mentors at our two prime locations in Coimbatore.
             </p>
 
-            {/* Two Branch Badges / Quick Highlights - Equal presentation */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            {/* Two Branch Badges / Quick Highlights - Equal presentation & alignment across all screens */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 items-stretch">
               {/* Branch 1: Gandhipuram */}
-              <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-xs hover:border-orange-300 hover:shadow-md transition-all">
-                <div className="w-9 h-9 rounded-lg bg-orange-50 text-accent-500 flex items-center justify-center shrink-0 border border-orange-100/80">
-                  <Building2 className="w-5 h-5 text-accent-500" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <h3 className="font-heading text-xs sm:text-sm font-bold text-slate-900">
-                      Gandhipuram Campus
-                    </h3>
-                    <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-orange-50 text-accent-700 font-heading border border-orange-200/60">
-                      Ramnagar
-                    </span>
+              <div className="flex flex-col justify-between h-full p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-orange-300 hover:shadow-md transition-all duration-200 group">
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-orange-50 text-accent-500 flex items-center justify-center shrink-0 border border-orange-100/80 mt-0.5 group-hover:scale-105 transition-transform">
+                    <Building2 className="w-4.5 h-4.5 text-accent-500" />
                   </div>
-                  <p className="caption-text text-slate-500 mt-0.5 text-[11px]">
-                    234, Vivekananda Rd, Ramnagar
-                  </p>
+                  <div className="min-w-0 flex-1">
+                    <div className="space-y-1">
+                      <h3 className="font-heading text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                        Gandhipuram Campus
+                      </h3>
+                      <div>
+                        <span className="inline-block px-1.5 py-0.5 rounded text-[10px] font-bold bg-orange-50 text-accent-700 font-heading border border-orange-200/60">
+                          Ramnagar
+                        </span>
+                      </div>
+                    </div>
+                    <p className="caption-text text-slate-500 mt-1.5 text-[11px] leading-relaxed min-h-[2rem] flex items-start">
+                      234, Vivekananda Rd, Ramnagar
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-3 pt-2.5 border-t border-slate-100/90 flex items-center justify-between">
                   <a
                     href="tel:+918903835098"
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-accent-600 hover:text-accent-700 font-heading mt-1"
+                    className="inline-flex items-center gap-1.5 text-[11px] font-bold text-accent-600 hover:text-accent-700 font-heading transition-colors"
                   >
-                    <PhoneCall className="w-3 h-3 text-accent-500" />
+                    <PhoneCall className="w-3.5 h-3.5 text-accent-500 shrink-0" />
                     <span>+91 89038 35098</span>
                   </a>
                 </div>
               </div>
 
               {/* Branch 2: Saravanampatti */}
-              <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-xs hover:border-orange-300 hover:shadow-md transition-all">
-                <div className="w-9 h-9 rounded-lg bg-orange-50 text-accent-500 flex items-center justify-center shrink-0 border border-orange-100/80">
-                  <Building2 className="w-5 h-5 text-accent-500" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <h3 className="font-heading text-xs sm:text-sm font-bold text-slate-900">
-                      Saravanampatti Campus
-                    </h3>
-                    <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-orange-50 text-accent-700 font-heading border border-orange-200/60">
-                      Main Bus Stop
-                    </span>
+              <div className="flex flex-col justify-between h-full p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs hover:border-orange-300 hover:shadow-md transition-all duration-200 group">
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-orange-50 text-accent-500 flex items-center justify-center shrink-0 border border-orange-100/80 mt-0.5 group-hover:scale-105 transition-transform">
+                    <Building2 className="w-4.5 h-4.5 text-accent-500" />
                   </div>
-                  <p className="caption-text text-slate-500 mt-0.5 text-[11px]">
-                    134/ 2C, Sathy Rd, Main Bus Stop, above Green Leaf Hotel
-                  </p>
+                  <div className="min-w-0 flex-1">
+                    <div className="space-y-1">
+                      <h3 className="font-heading text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                        Saravanampatti Campus
+                      </h3>
+                      <div>
+                        <span className="inline-block px-1.5 py-0.5 rounded text-[10px] font-bold bg-orange-50 text-accent-700 font-heading border border-orange-200/60">
+                          Main Bus Stop
+                        </span>
+                      </div>
+                    </div>
+                    <p className="caption-text text-slate-500 mt-1.5 text-[11px] leading-relaxed min-h-[2rem] flex items-start">
+                      134/ 2C, Sathy Rd, above Green Leaf Hotel
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-3 pt-2.5 border-t border-slate-100/90 flex items-center justify-between">
                   <a
                     href="tel:+917708262565"
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-accent-600 hover:text-accent-700 font-heading mt-1"
+                    className="inline-flex items-center gap-1.5 text-[11px] font-bold text-accent-600 hover:text-accent-700 font-heading transition-colors"
                   >
-                    <PhoneCall className="w-3 h-3 text-accent-500" />
+                    <PhoneCall className="w-3.5 h-3.5 text-accent-500 shrink-0" />
                     <span>+91 7708 262 565</span>
                   </a>
                 </div>
@@ -286,7 +300,7 @@ export const ContactHero: React.FC<ContactHeroProps> = ({
         </div>
 
         {/* Bottom Key Metric Stats Strip */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        <div className="mt-12 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {CONTACT_METRICS.map((stat, idx) => (
             <div
               key={idx}

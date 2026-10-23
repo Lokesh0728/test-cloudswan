@@ -84,20 +84,20 @@ export const CareersHero: React.FC<CareersHeroProps> = ({
             </p>
 
             {/* Key Value Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-              <div className="flex items-center gap-2.5 font-heading text-xs font-semibold text-slate-700 bg-white/90 border border-slate-200/80 p-2.5 rounded-xl shadow-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 items-stretch">
+              <div className="flex items-center gap-2.5 font-heading text-xs font-semibold text-slate-700 bg-white/90 border border-slate-200/80 p-2.5 rounded-xl shadow-xs h-full">
                 <div className="w-6 h-6 rounded-lg bg-accent-100 text-accent-600 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-4 h-4 text-accent-500" />
                 </div>
                 <span>Full-Time & Part-Time Opportunities</span>
               </div>
-              <div className="flex items-center gap-2.5 font-heading text-xs font-semibold text-slate-700 bg-white/90 border border-slate-200/80 p-2.5 rounded-xl shadow-xs">
+              <div className="flex items-center gap-2.5 font-heading text-xs font-semibold text-slate-700 bg-white/90 border border-slate-200/80 p-2.5 rounded-xl shadow-xs h-full">
                 <div className="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                 </div>
                 <span>Two Coimbatore Branches</span>
               </div>
-              <div className="flex items-center gap-2.5 font-heading text-xs font-semibold text-slate-700 bg-white/90 border border-slate-200/80 p-2.5 rounded-xl shadow-xs">
+              <div className="flex items-center gap-2.5 font-heading text-xs font-semibold text-slate-700 bg-white/90 border border-slate-200/80 p-2.5 rounded-xl shadow-xs h-full">
                 <div className="w-6 h-6 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-4 h-4 text-blue-600" />
                 </div>
@@ -204,38 +204,42 @@ export const CareersHero: React.FC<CareersHeroProps> = ({
                 </div>
 
                 {/* Opportunity Highlights */}
-                <div className="relative z-10 mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div className="relative z-10 mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 items-stretch">
 
                   {/* Branch 1 */}
-                  <div className="group rounded-2xl border border-slate-200/80 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/50">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 transition-colors duration-300 group-hover:bg-orange-500 group-hover:text-white">
-                      <MapPin className="h-5 w-5" />
+                  <div className="group rounded-2xl border border-slate-200/80 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/50 h-full flex flex-col justify-between">
+                    <div>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 transition-colors duration-300 group-hover:bg-orange-500 group-hover:text-white">
+                        <MapPin className="h-5 w-5" />
+                      </div>
+
+                      <h4 className="mt-4 text-sm font-bold text-slate-900">
+                        Gandhipuram
+                      </h4>
+
+                      <p className="mt-1 text-xs leading-5 text-slate-500">
+                        Coimbatore Branch
+                      </p>
                     </div>
-
-                    <h4 className="mt-4 text-sm font-bold text-slate-900">
-                      Gandhipuram
-                    </h4>
-
-                    <p className="mt-1 text-xs leading-5 text-slate-500">
-                      Coimbatore Branch
-                    </p>
 
                     <div className="mt-3 h-1 w-8 rounded-full bg-orange-500 transition-all duration-300 group-hover:w-14" />
                   </div>
 
                   {/* Branch 2 */}
-                  <div className="group rounded-2xl border border-slate-200/80 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/50">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 transition-colors duration-300 group-hover:bg-orange-500 group-hover:text-white">
-                      <MapPin className="h-5 w-5" />
+                  <div className="group rounded-2xl border border-slate-200/80 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/50 h-full flex flex-col justify-between">
+                    <div>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 transition-colors duration-300 group-hover:bg-orange-500 group-hover:text-white">
+                        <MapPin className="h-5 w-5" />
+                      </div>
+
+                      <h4 className="mt-4 text-sm font-bold text-slate-900">
+                        Saravanampatti
+                      </h4>
+
+                      <p className="mt-1 text-xs leading-5 text-slate-500">
+                        Coimbatore Branch
+                      </p>
                     </div>
-
-                    <h4 className="mt-4 text-sm font-bold text-slate-900">
-                      Saravanampatti
-                    </h4>
-
-                    <p className="mt-1 text-xs leading-5 text-slate-500">
-                      Coimbatore Branch
-                    </p>
 
                     <div className="mt-3 h-1 w-8 rounded-full bg-orange-500 transition-all duration-300 group-hover:w-14" />
                   </div>
