@@ -7,7 +7,6 @@ import {
   ChevronRight,
   Home,
   Star,
-  Sparkles,
   Laptop,
   Award,
   ShieldCheck,
