@@ -161,34 +161,37 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
         ===================================================== */}
 
         <div className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-          <div className="flex flex-col md:flex-row divide-y divide-slate-200 md:divide-y-0 md:divide-x">
-            {/* Duration */}
-            <div className="flex items-center gap-2.5 sm:gap-3 p-3.5 sm:p-4 lg:p-5 md:flex-1 shrink-0">
-              <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
-                <Clock className="h-4 w-4" />
+          <div className="flex flex-col lg:flex-row divide-y divide-slate-200 lg:divide-y-0 lg:divide-x">
+            {/* Top row on tablet: Duration & Learning Mode */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 lg:flex lg:divide-x lg:divide-y-0 lg:flex-1">
+              {/* Duration */}
+              <div className="flex items-center gap-3 p-4 sm:p-4 lg:p-5 flex-1">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
+                    Duration
+                  </p>
+                  <p className="text-xs sm:text-sm font-bold text-slate-900 font-heading whitespace-nowrap">
+                    3 Months Fast-Track
+                  </p>
+                </div>
               </div>
-              <div className="min-w-0">
-                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Duration
-                </p>
-                <p className="text-xs sm:text-sm font-bold text-slate-900 font-heading whitespace-nowrap">
-                  3 Months Fast-Track
-                </p>
-              </div>
-            </div>
 
-            {/* Learning Mode */}
-            <div className="flex items-center gap-2.5 sm:gap-3 p-3.5 sm:p-4 lg:p-5 md:flex-1 shrink-0">
-              <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
-                <Laptop className="h-4 w-4" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Learning Mode
-                </p>
-                <p className="text-xs sm:text-sm font-bold text-slate-900 font-heading whitespace-nowrap">
-                  Classroom + Live Online
-                </p>
+              {/* Learning Mode */}
+              <div className="flex items-center gap-3 p-4 sm:p-4 lg:p-5 flex-1">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
+                  <Laptop className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
+                    Learning Mode
+                  </p>
+                  <p className="text-xs sm:text-sm font-bold text-slate-900 font-heading whitespace-nowrap">
+                    Classroom + Live Online
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -200,7 +203,7 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
                   'Custom Batch Timings & Personalized Counseling'
                 )
               }
-              className="group flex items-center justify-between gap-2.5 sm:gap-3 lg:gap-4 p-3.5 sm:p-4 lg:p-5 text-left transition duration-300 hover:bg-orange-50 md:flex-[1.4] shrink-0"
+              className="group flex items-center justify-between gap-3 p-4 sm:p-4 lg:p-5 text-left transition duration-300 hover:bg-orange-50 lg:w-auto lg:flex-[1.2] shrink-0 cursor-pointer"
             >
               <div className="min-w-0">
                 <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-orange-500">
@@ -214,8 +217,8 @@ export const CurrentBatchesSection: React.FC<CurrentBatchesSectionProps> = ({
                 </p>
               </div>
 
-              <span className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full bg-orange-500 text-white transition-all duration-300 group-hover:bg-orange-600 group-hover:translate-x-1">
-                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-500 text-white transition-all duration-300 group-hover:bg-orange-600 group-hover:translate-x-1 ml-3 shadow-2xs">
+                <ArrowRight className="h-4 w-4" />
               </span>
             </button>
           </div>
@@ -322,6 +325,7 @@ const ModernCourseCard: React.FC<ModernCourseCardProps> = ({
         duration-500
         hover:-translate-y-2
         hover:shadow-[0_25px_60px_rgba(15,23,42,0.13)]
+        flex flex-col h-full
       "
       style={{
         animation: `fadeUp 0.55s ease-out ${index * 70}ms both`,
@@ -370,7 +374,7 @@ const ModernCourseCard: React.FC<ModernCourseCardProps> = ({
       {/* =====================================================
           CARD CONTENT
       ===================================================== */}
-      <div className="p-5">
+      <div className="p-5 flex-1 flex flex-col justify-between">
 
         {/* Label */}
         <div className="mb-2 flex items-center justify-between gap-2">

@@ -331,72 +331,85 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* Coimbatore Dual Campus Physical Presence Badge Strip */}
-        <div className="mt-8 p-2.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-slate-300 transition-colors">
-          <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-3 sm:gap-4 text-xs">
-            {/* Campus details with clean professional icons and both mobile numbers */}
-            <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
-              <div className="flex items-center gap-2 shrink-0">
+        <div className="mt-8 p-3 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-slate-300 transition-colors">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4 text-xs">
+            {/* Header row on mobile/tablet, integrated on desktop */}
+            <div className="flex items-center justify-between gap-2 shrink-0">
+              <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 ring-4 ring-emerald-500/15" />
                 <span className="font-bold text-slate-900 font-heading text-xs tracking-wide">
                   Coimbatore Campuses:
                 </span>
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-4 divide-y divide-slate-100 sm:divide-y-0 text-slate-600">
-                {/* Branch 1: Gandhipuram */}
-                <div className="flex items-center justify-between sm:justify-start gap-2 py-1.5 sm:py-0">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 border border-slate-200/60">
-                      <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-500" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-0 sm:gap-1.5">
-                        <span className="font-semibold text-slate-900 font-heading text-[11.5px] sm:text-xs truncate">Gandhipuram</span>
-                        <span className="text-slate-500 text-[10px] sm:text-[11px] font-sans truncate sm:truncate-none">(Ramnagar)</span>
-                      </div>
-                    </div>
-                  </div>
-                  <a
-                    href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
-                    className="inline-flex items-center gap-1 font-bold text-accent-600 hover:text-accent-700 font-heading text-[10.5px] sm:text-xs shrink-0 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md bg-accent-50/70 hover:bg-accent-100/70 border border-accent-200/50 transition-colors ml-auto sm:ml-1 shadow-2xs whitespace-nowrap"
-                  >
-                    <Phone className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-accent-500 shrink-0" />
-                    <span>{CONTACT_INFO.coimbatoreDisplayPhone}</span>
-                  </a>
-                </div>
-
-                <span className="hidden sm:inline text-slate-300">|</span>
-
-                {/* Branch 2: Saravanampatti */}
-                <div className="flex items-center justify-between sm:justify-start gap-2 py-1.5 sm:py-0">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 border border-slate-200/60">
-                      <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-500" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-0 sm:gap-1.5">
-                        <span className="font-semibold text-slate-900 font-heading text-[11.5px] sm:text-xs truncate">Saravanampatti</span>
-                        <span className="text-slate-500 text-[10px] sm:text-[11px] font-sans truncate sm:truncate-none">(Main Bus Stop)</span>
-                      </div>
-                    </div>
-                  </div>
-                  <a
-                    href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
-                    className="inline-flex items-center gap-1 font-bold text-accent-600 hover:text-accent-700 font-heading text-[10.5px] sm:text-xs shrink-0 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md bg-accent-50/70 hover:bg-accent-100/70 border border-accent-200/50 transition-colors ml-auto sm:ml-1 shadow-2xs whitespace-nowrap"
-                  >
-                    <Phone className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-accent-500 shrink-0" />
-                    <span>{CONTACT_INFO.saravanampattiDisplayPhone}</span>
-                  </a>
-                </div>
+              {/* On tablet (sm to lg), show CTA in header row on right for perfect symmetry */}
+              <div className="hidden sm:flex lg:hidden items-center shrink-0">
+                <button
+                  type="button"
+                  onClick={() => onOpenEnquiry('Campus Visit Request')}
+                  className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-accent-50 text-slate-700 hover:text-accent-700 border border-slate-200 hover:border-accent-200 transition-all font-heading font-semibold text-xs cursor-pointer group shadow-2xs"
+                >
+                  <span>Schedule Campus Visit</span>
+                  <ArrowRight className="w-3 h-3 text-accent-500 transition-transform group-hover:translate-x-0.5" />
+                </button>
               </div>
             </div>
 
-            {/* Schedule Campus Visit CTA */}
-            <div className="flex items-center pt-2 sm:pt-2 xl:pt-0 border-t xl:border-t-0 border-slate-100 shrink-0">
+            {/* Campuses: 2-column grid on tablet, stacked cards on mobile, inline on desktop */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:items-center gap-2 sm:gap-3 lg:gap-4 flex-1">
+              {/* Branch 1: Gandhipuram */}
+              <div className="flex items-center justify-between gap-2 p-2 sm:px-3 sm:py-1.5 rounded-xl bg-slate-50/80 border border-slate-200/60 lg:bg-transparent lg:border-0 lg:p-0">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-5 h-5 rounded-md bg-white lg:bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 border border-slate-200/70">
+                    <MapPin className="w-3 h-3 text-slate-500" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-0 sm:gap-1.5">
+                      <span className="font-semibold text-slate-900 font-heading text-[11.5px] sm:text-xs truncate">Gandhipuram</span>
+                      <span className="text-slate-500 text-[10.5px] sm:text-[11px] font-sans truncate sm:truncate-none">(Ramnagar)</span>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href={`tel:${CONTACT_INFO.coimbatorePhone.replace(/\s+/g, '')}`}
+                  className="inline-flex items-center gap-1 font-bold text-accent-600 hover:text-accent-700 font-heading text-[11px] sm:text-xs shrink-0 px-2 py-1 rounded-md bg-accent-50/90 hover:bg-accent-100 border border-accent-200/60 transition-colors shadow-2xs whitespace-nowrap ml-2"
+                >
+                  <Phone className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-accent-500 shrink-0" />
+                  <span>{CONTACT_INFO.coimbatoreDisplayPhone}</span>
+                </a>
+              </div>
+
+              <span className="hidden lg:inline text-slate-300">|</span>
+
+              {/* Branch 2: Saravanampatti */}
+              <div className="flex items-center justify-between gap-2 p-2 sm:px-3 sm:py-1.5 rounded-xl bg-slate-50/80 border border-slate-200/60 lg:bg-transparent lg:border-0 lg:p-0">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-5 h-5 rounded-md bg-white lg:bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 border border-slate-200/70">
+                    <MapPin className="w-3 h-3 text-slate-500" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-0 sm:gap-1.5">
+                      <span className="font-semibold text-slate-900 font-heading text-[11.5px] sm:text-xs truncate">Saravanampatti</span>
+                      <span className="text-slate-500 text-[10.5px] sm:text-[11px] font-sans truncate sm:truncate-none">(Main Bus Stop)</span>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href={`tel:${CONTACT_INFO.saravanampattiPhone.replace(/\s+/g, '')}`}
+                  className="inline-flex items-center gap-1 font-bold text-accent-600 hover:text-accent-700 font-heading text-[11px] sm:text-xs shrink-0 px-2 py-1 rounded-md bg-accent-50/90 hover:bg-accent-100 border border-accent-200/60 transition-colors shadow-2xs whitespace-nowrap ml-2"
+                >
+                  <Phone className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-accent-500 shrink-0" />
+                  <span>{CONTACT_INFO.saravanampattiDisplayPhone}</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Schedule Campus Visit CTA (Visible on Desktop lg+ and Mobile <sm) */}
+            <div className="flex sm:hidden lg:flex items-center pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100 shrink-0">
               <button
                 type="button"
                 onClick={() => onOpenEnquiry('Campus Visit Request')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2 sm:py-1.5 rounded-lg bg-slate-50 hover:bg-accent-50 text-slate-700 hover:text-accent-700 border border-slate-200 hover:border-accent-200 transition-all font-heading font-semibold text-xs cursor-pointer group shadow-2xs"
+                className="w-full lg:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-2 lg:py-1.5 rounded-lg bg-slate-50 hover:bg-accent-50 text-slate-700 hover:text-accent-700 border border-slate-200 hover:border-accent-200 transition-all font-heading font-semibold text-xs cursor-pointer group shadow-2xs"
               >
                 <span>Schedule Campus Visit</span>
                 <ArrowRight className="w-3 h-3 text-accent-500 transition-transform group-hover:translate-x-0.5" />
