@@ -11,6 +11,9 @@ import { fullstackCourseData } from './fullstackData'
 import { pythonCourseData } from './pythonData'
 import { cloudComputingCourseData } from './cloudComputingData'
 import { snowflakeCourseData } from './snowflakeData'
+import { generativeAiCourseData } from './generativeAiData'
+import { dataEngineeringCourseData } from './dataEngineeringData'
+import { powerBiCourseData } from './powerBiData'
 import type { CourseData } from '../../types/course'
 
 /**
@@ -165,6 +168,37 @@ export const COURSES_REGISTRY: Record<string, CourseData> = {
   '/courses/sales-force': salesforceCourseData,
   '/courses/salesforce-crm': salesforceCourseData,
   '/courses/salesforce-training': salesforceCourseData,
+
+  // Generative AI mappings
+  'generative-ai': generativeAiCourseData,
+  generativeai: generativeAiCourseData,
+  'gen-ai': generativeAiCourseData,
+  genai: generativeAiCourseData,
+  'prompt-engineering': generativeAiCourseData,
+  '/generative-ai': generativeAiCourseData,
+  '/gen-ai': generativeAiCourseData,
+  '/courses/generative-ai': generativeAiCourseData,
+  '/courses/gen-ai': generativeAiCourseData,
+  '/courses/generative-artificial-intelligence': generativeAiCourseData,
+
+  // Data Engineering mappings
+  'data-engineering': dataEngineeringCourseData,
+  dataengineering: dataEngineeringCourseData,
+  'data-engineer': dataEngineeringCourseData,
+  '/data-engineering': dataEngineeringCourseData,
+  '/dataengineering': dataEngineeringCourseData,
+  '/courses/data-engineering': dataEngineeringCourseData,
+  '/courses/dataengineering': dataEngineeringCourseData,
+
+  // Power BI mappings
+  'power-bi': powerBiCourseData,
+  powerbi: powerBiCourseData,
+  'power-bi-training': powerBiCourseData,
+  '/power-bi': powerBiCourseData,
+  '/powerbi': powerBiCourseData,
+  '/courses/power-bi': powerBiCourseData,
+  '/courses/powerbi': powerBiCourseData,
+  '/courses/power-bi-training': powerBiCourseData,
 }
 
 /**
@@ -245,6 +279,10 @@ export {
   pythonCourseData,
   cloudComputingCourseData,
   snowflakeCourseData,
+  generativeAiCourseData,
+  dataEngineeringCourseData,
+  powerBiCourseData,
 }
 export * from '../../types/course'
+
 

@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo, useEffect, useRef } from 'react'
 import {
   PhoneCall,
   Search,
@@ -12,15 +12,51 @@ import {
   CheckCircle2,
   ChevronDown,
 } from 'lucide-react'
-import { ALL_COURSES_CATALOG } from '../../data/coursesCatalogData'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ALL_COURSES_CATALOG, type CatalogCourse } from '../../data/coursesCatalogData'
 import { CourseFilters, type CourseFilterState } from './CourseFilters'
 import { CourseCard } from './CourseCard'
+import { CourseQuickViewModal } from './CourseQuickViewModal'
 
 interface CoursesPageProps {
   onNavigate: (path: string) => void
   onOpenEnquiry: (subject?: string) => void
   initialCategory?: string
 }
+
+// Career Pathway Preset Goals for the Hero Section
+const CAREER_GOALS = [
+  {
+    id: 'ai-data',
+    label: 'AI & Data Science',
+    category: 'it-training',
+    query: 'AI',
+  },
+  {
+    id: 'fullstack',
+    label: 'Full Stack Development',
+    category: 'it-training',
+    query: 'Full Stack',
+  },
+  {
+    id: 'cloud-devops',
+    label: 'Cloud & DevOps Engineering',
+    category: 'it-training',
+    query: 'DevOps',
+  },
+  {
+    id: 'ielts-languages',
+    label: 'IELTS & Global Languages',
+    category: 'language-training',
+    query: '',
+  },
+  {
+    id: 'cybersecurity',
+    label: 'Cybersecurity & Ethical Hacking',
+    category: 'it-training',
+    query: 'Cybersecurity',
+  },
+]
 
 export const CoursesPage: React.FC<CoursesPageProps> = ({
   onNavigate,
@@ -30,9 +66,15 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
 
-  const [filterState, setFilterState] = useState<CourseFilterState>({
+  // Quick View Modal state
+  const [quickViewCourse, setQuickViewCourse] = useState<CatalogCourse | null>(null)
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false)
+
+  const catalogSectionRef = useRef<HTMLDivElement>(null)
+
+  const [filterState, setFilterState] = useState<CourseFilterState>(() => ({
     searchQuery: '',
-    categoryId: initialCategory,
+    categoryId: initialCategory || 'all',
     levelId: 'all',
     modeId: 'all',
     durationId: 'all',
@@ -41,11 +83,13 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
     onlyPlacement: false,
     onlyCertification: false,
     onlyShortTrack: false,
-  })
+  }))
 
-  // Synchronize initialCategory if it changes via prop
+  // Track initialCategory updates safely
+  const prevCategoryRef = useRef(initialCategory)
   useEffect(() => {
-    if (initialCategory && initialCategory !== 'all') {
+    if (initialCategory && initialCategory !== prevCategoryRef.current) {
+      prevCategoryRef.current = initialCategory
       setFilterState((prev) => ({ ...prev, categoryId: initialCategory }))
     }
   }, [initialCategory])
@@ -63,6 +107,39 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
       onlyCertification: false,
       onlyShortTrack: false,
     })
+  }
+
+  // Handle clicking on a career goal in the hero
+  const handleSelectGoal = (goal: typeof CAREER_GOALS[0]) => {
+    setFilterState((prev) => ({
+      ...prev,
+      categoryId: goal.category,
+      searchQuery: goal.query,
+      levelId: 'all',
+      modeId: 'all',
+      durationId: 'all',
+    }))
+    catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  // Handle topic click from card or modal
+  const handleSelectTopic = (topic: string) => {
+    setFilterState((prev) => ({
+      ...prev,
+      searchQuery: topic,
+    }))
+    catalogSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  // Quick View Handlers
+  const handleOpenQuickView = (course: CatalogCourse) => {
+    setQuickViewCourse(course)
+    setIsQuickViewOpen(true)
+  }
+
+  const handleCloseQuickView = () => {
+    setIsQuickViewOpen(false)
+    setQuickViewCourse(null)
   }
 
   // Filter & Sort Logic
@@ -180,10 +257,10 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
           return a.name.localeCompare(b.name)
         case 'name-desc':
           return b.name.localeCompare(a.name)
-        case 'duration-asc':
-          // short first, then medium, then long
+        case 'duration-asc': {
           const durOrder = { short: 1, medium: 2, long: 3 }
           return durOrder[a.durationCategory] - durOrder[b.durationCategory]
+        }
         case 'popular':
         default:
           if (a.isPopular && !b.isPopular) return -1
@@ -196,16 +273,13 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
   return (
     <div className="min-h-screen bg-slate-50 selection:bg-accent-500 selection:text-white">
       {/* ========================================================
-          1. HERO HEADER SECTION (LIGHT & PREMIUM REDESIGN)
+          1. HERO HEADER SECTION (INTERACTIVE CAREER PATHWAY FINDER)
          ======================================================== */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/70 to-slate-100/50 text-slate-900 py-10 sm:py-14 lg:py-16 border-b border-slate-200/80">
-        {/* Ambient Decorative Lighting & Fine Architectural Texture */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/80 to-slate-100/60 text-slate-900 py-10 sm:py-14 lg:py-18 border-b border-slate-200/80">
+        {/* Ambient Decorative Lighting */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden -z-0">
-          {/* Subtle warm ambient glow top-right */}
-          <div className="absolute -top-24 right-1/4 h-[420px] w-[540px] rounded-full bg-gradient-to-bl from-accent-500/8 via-orange-400/5 to-transparent blur-[120px]" />
-          {/* Subtle soft cool glow bottom-left */}
-          <div className="absolute top-1/2 -left-20 h-[320px] w-[320px] rounded-full bg-blue-500/4 blur-[110px]" />
-          {/* Ultra-subtle grid pattern for high-end SaaS feel */}
+          <div className="absolute -top-24 right-1/4 h-[440px] w-[560px] rounded-full bg-gradient-to-bl from-accent-500/10 via-orange-400/6 to-transparent blur-[130px]" />
+          <div className="absolute top-1/2 -left-20 h-[360px] w-[360px] rounded-full bg-blue-500/6 blur-[120px]" />
           <div
             className="absolute inset-0 opacity-[0.025]"
             style={{
@@ -232,19 +306,19 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
               Home
             </a>
             <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-            <span className="text-slate-900 font-bold">All Courses & Certifications</span>
+            <span className="text-slate-900 font-bold">All Courses &amp; Certifications</span>
           </nav>
 
           {/* 2-Column Responsive Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Heading, Value Proposition & Counselor Action */}
             <div className="lg:col-span-7 space-y-4 text-left">
               {/* Eyebrow Pill */}
-              <div className="inline-flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-orange-50 border border-accent-200/80 text-accent-700 eyebrow-badge shadow-2xs text-[10.5px] sm:text-xs">
-                <span className="whitespace-nowrap">Comprehensive Course Catalog</span>
-                <span className="hidden sm:inline text-accent-300">•</span>
-                <span className="text-slate-600 font-medium normal-case whitespace-nowrap">
-                  30 Industry Specializations
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/90 text-slate-700 eyebrow-badge shadow-2xs text-[10.5px] sm:text-xs">
+                <span>Comprehensive Course Catalog</span>
+                <span className="text-slate-300">•</span>
+                <span className="text-slate-600 font-medium normal-case">
+                  34 Industry Specializations
                 </span>
               </div>
 
@@ -252,7 +326,7 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
               <h1 className="display-h1 text-slate-900 text-2xl sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[48px] leading-[1.15]">
                 Explore Industry-Certified{' '}
                 <span className="bg-gradient-to-r from-accent-600 via-accent-500 to-amber-500 bg-clip-text text-transparent">
-                  Courses & Career Tracks
+                  Courses &amp; Career Tracks
                 </span>
               </h1>
 
@@ -263,6 +337,25 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                 from software engineering, global language tracks, vendor certifications,
                 or corporate leadership programs.
               </p>
+
+              {/* Interactive Career Goals Quick Launcher */}
+              <div className="pt-2">
+                <span className="caption-text text-xs uppercase font-bold text-slate-400 block mb-2 font-heading tracking-wider">
+                  Target Career Pathways:
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {CAREER_GOALS.map((goal) => (
+                    <button
+                      key={goal.id}
+                      type="button"
+                      onClick={() => handleSelectGoal(goal)}
+                      className="px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200/90 hover:border-slate-300 shadow-2xs text-xs font-heading font-semibold transition-all cursor-pointer"
+                    >
+                      {goal.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
               {/* Quick Actions & Social Proof */}
               <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-3 w-full sm:w-auto">
@@ -289,7 +382,7 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
 
             {/* Right Column: 4 Clean Elevated Metric Cards + Trust Strip */}
             <div className="lg:col-span-5">
-              <div className="p-4 sm:p-5 rounded-3xl bg-white/90 border border-slate-200/90 shadow-sm shadow-slate-200/60 backdrop-blur-sm">
+              <div className="p-4 sm:p-5 rounded-3xl bg-white/90 border border-slate-200/90 shadow-xl shadow-slate-200/60 backdrop-blur-sm">
                 <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
                   {/* Metric 1 */}
                   <div className="p-3 sm:p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all text-left group">
@@ -297,13 +390,13 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                       <BookOpen className="w-4 h-4" />
                     </div>
                     <div className="text-lg sm:text-xl md:text-2xl lg:text-[26px] font-bold font-heading text-slate-900 tracking-tight">
-                      30+
+                      34+
                     </div>
                     <div className="caption-text font-semibold text-slate-700 mt-0.5 truncate">
                       Training Programs
                     </div>
                     <div className="text-[11px] text-slate-500 mt-0.5 line-clamp-1">
-                      IT, Cloud & Languages
+                      IT, Cloud &amp; Languages
                     </div>
                   </div>
 
@@ -335,7 +428,7 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                       Graduates Placed
                     </div>
                     <div className="text-[11px] text-slate-500 mt-0.5 line-clamp-1">
-                      Top MNCs & Tech Firms
+                      Top MNCs &amp; Tech Firms
                     </div>
                   </div>
 
@@ -351,7 +444,7 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                       Coimbatore Centers
                     </div>
                     <div className="text-[11px] text-slate-500 mt-0.5 line-clamp-1">
-                      Gandhipuram & Saravanampatti
+                      Gandhipuram &amp; Saravanampatti
                     </div>
                   </div>
                 </div>
@@ -379,7 +472,11 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
       {/* ========================================================
           2. COURSES CATALOG & FILTER CONTAINER
          ======================================================== */}
-      <section className="py-10 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        ref={catalogSectionRef}
+        id="catalog-section"
+        className="py-10 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         {/* Interactive Filters Bar */}
         <div className="mb-8">
           <CourseFilters
@@ -393,25 +490,38 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
           />
         </div>
 
-        {/* Results Grid / List */}
+        {/* Results Grid / List with Framer Motion Animation */}
         {filteredCourses.length > 0 ? (
-          <div
+          <motion.div
+            layout
             className={
               viewMode === 'grid'
-                ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6'
+                ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7'
                 : 'space-y-4'
             }
           >
-            {filteredCourses.map((course) => (
-              <CourseCard
-                key={course.id}
-                course={course}
-                viewMode={viewMode}
-                onNavigate={onNavigate}
-                onOpenEnquiry={onOpenEnquiry}
-              />
-            ))}
-          </div>
+            <AnimatePresence>
+              {filteredCourses.map((course) => (
+                <motion.div
+                  key={course.id}
+                  layout
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <CourseCard
+                    course={course}
+                    viewMode={viewMode}
+                    onNavigate={onNavigate}
+                    onOpenEnquiry={onOpenEnquiry}
+                    onQuickView={handleOpenQuickView}
+                    onSelectTopic={handleSelectTopic}
+                  />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         ) : (
           /* ========================================================
              EMPTY STATE (When no course matches criteria)
@@ -434,7 +544,7 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
               <button
                 type="button"
                 onClick={handleResetFilters}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 transition-all shadow-md shadow-accent-500/25"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 transition-all shadow-md shadow-accent-500/25 cursor-pointer"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset All Filters</span>
@@ -454,7 +564,7 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                   'AWS',
                   'IELTS',
                   'Cybersecurity',
-                  'SAP',
+                  'Power BI',
                   'English Communication',
                 ].map((term) => (
                   <button
@@ -467,7 +577,7 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                         categoryId: 'all',
                       }))
                     }
-                    className="caption-text text-xs px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors"
+                    className="caption-text text-xs px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium transition-colors cursor-pointer"
                   >
                     {term}
                   </button>
@@ -478,9 +588,18 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
         )}
       </section>
 
+      {/* Quick View Modal */}
+      <CourseQuickViewModal
+        course={quickViewCourse}
+        isOpen={isQuickViewOpen}
+        onClose={handleCloseQuickView}
+        onNavigate={onNavigate}
+        onOpenEnquiry={onOpenEnquiry}
+        onSelectTopic={handleSelectTopic}
+      />
 
       {/* ========================================================
-          4. FREQUENTLY ASKED QUESTIONS (ADMISSIONS ACCORDION)
+          3. FREQUENTLY ASKED QUESTIONS (ADMISSIONS ACCORDION)
          ======================================================== */}
       <section className="py-14 sm:py-20 bg-white border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -529,10 +648,11 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
               return (
                 <div
                   key={idx}
-                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
-                    ? 'bg-white border-accent-300 shadow-md shadow-accent-500/5 ring-1 ring-accent-500/10'
-                    : 'bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-slate-300'
-                    }`}
+                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                    isOpen
+                      ? 'bg-white border-accent-300 shadow-md shadow-accent-500/5 ring-1 ring-accent-500/10'
+                      : 'bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-slate-300'
+                  }`}
                 >
                   <button
                     type="button"
@@ -544,26 +664,29 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
                   >
                     <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                       <span
-                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shrink-0 text-xs font-bold font-heading transition-all ${isOpen
-                          ? 'bg-accent-500 text-white shadow-xs shadow-accent-500/25'
-                          : 'bg-white text-slate-600 border border-slate-200 group-hover:border-accent-200 group-hover:text-accent-600'
-                          }`}
+                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shrink-0 text-xs font-bold font-heading transition-all ${
+                          isOpen
+                            ? 'bg-accent-500 text-white shadow-xs shadow-accent-500/25'
+                            : 'bg-white text-slate-600 border border-slate-200 group-hover:border-accent-200 group-hover:text-accent-600'
+                        }`}
                       >
                         0{idx + 1}
                       </span>
                       <span
-                        className={`font-heading font-bold text-sm sm:text-base leading-snug transition-colors ${isOpen ? 'text-accent-600' : 'text-slate-900 group-hover:text-slate-950'
-                          }`}
+                        className={`font-heading font-bold text-sm sm:text-base leading-snug transition-colors ${
+                          isOpen ? 'text-accent-600' : 'text-slate-900 group-hover:text-slate-950'
+                        }`}
                       >
                         {faq.q}
                       </span>
                     </div>
 
                     <div
-                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen
-                        ? 'bg-orange-50 text-accent-600 rotate-180'
-                        : 'bg-white text-slate-400 border border-slate-200 group-hover:text-slate-700'
-                        }`}
+                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                        isOpen
+                          ? 'bg-orange-50 text-accent-600 rotate-180'
+                          : 'bg-white text-slate-400 border border-slate-200 group-hover:text-slate-700'
+                      }`}
                     >
                       <ChevronDown className="w-4 h-4" />
                     </div>
@@ -571,10 +694,11 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
 
                   {/* Smooth Accordion Body */}
                   <div
-                    className={`grid transition-all duration-300 ease-in-out ${isOpen
-                      ? 'grid-rows-[1fr] opacity-100'
-                      : 'grid-rows-[0fr] opacity-0 pointer-events-none'
-                      }`}
+                    className={`grid transition-all duration-300 ease-in-out ${
+                      isOpen
+                        ? 'grid-rows-[1fr] opacity-100'
+                        : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                    }`}
                   >
                     <div className="overflow-hidden">
                       <div className="px-4 pb-4 sm:px-6 sm:pb-5 pt-1 text-slate-600 body-paragraph text-xs sm:text-sm leading-relaxed border-t border-slate-100 mt-1 pl-14 sm:pl-17">
@@ -588,19 +712,19 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
           </div>
 
           {/* Quick Help Box Below Accordion */}
-          <div className="mt-10 p-6 rounded-2xl bg-orange-50/60 border border-orange-200/70 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="mt-10 p-6 rounded-3xl bg-orange-50/70 border border-orange-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xs">
             <div>
               <h4 className="font-heading font-bold text-slate-900 text-sm sm:text-base">
                 Have questions about specific batches or course fees?
               </h4>
               <p className="caption-text text-slate-600 mt-1">
-                Our admissions advisors in Gandhipuram & Saravanampatti are ready to guide you.
+                Our admissions advisors in Gandhipuram &amp; Saravanampatti are ready to guide you.
               </p>
             </div>
             <button
               type="button"
               onClick={() => onOpenEnquiry('Admissions FAQ Assistance')}
-              className="shrink-0 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 transition-all shadow-xs shadow-accent-500/20"
+              className="shrink-0 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-heading font-bold text-white bg-accent-500 hover:bg-accent-600 transition-all shadow-md shadow-accent-500/20 cursor-pointer"
             >
               Ask an Advisor
             </button>
