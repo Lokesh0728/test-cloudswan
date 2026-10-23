@@ -59,6 +59,13 @@ export interface CourseFAQItem {
   answer: string
 }
 
+export interface CourseHeroImageInfo {
+  url: string
+  alt?: string
+  badgeText?: string
+  techPills?: string[]
+}
+
 export interface CourseData {
   id: string
   slug: string
@@ -69,6 +76,7 @@ export interface CourseData {
   heroDescription: string[]
   primaryCtaText: string
   secondaryCtaText: string
+  heroImage?: CourseHeroImageInfo
   
   // Specifications Table
   quickSpecs: CourseQuickSpecs
