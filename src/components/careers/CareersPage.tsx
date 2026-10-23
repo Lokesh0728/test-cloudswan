@@ -32,6 +32,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
       {/* 1. HERO SECTION */}
       <CareersHero
         onExplorePositions={() => scrollToSection('trainer-roles')}
+        onJoinUs={() => scrollToSection('trainer-roles')}
       />
 
       {/* 2. HIRING INFORMATION SECTION */}

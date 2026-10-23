@@ -10,11 +10,14 @@ import {
 
 interface CareersHeroProps {
   onExplorePositions: () => void
+  onJoinUs?: () => void
 }
 
 export const CareersHero: React.FC<CareersHeroProps> = ({
   onExplorePositions,
+  onJoinUs,
 }) => {
+  const handleJoinClick = onJoinUs || onExplorePositions
   return (
     <section
       id="careers-hero"
@@ -113,6 +116,15 @@ export const CareersHero: React.FC<CareersHeroProps> = ({
                 <span>Explore Trainer Roles</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
+
+              <button
+                type="button"
+                onClick={handleJoinClick}
+                className="group px-6 py-3.5 text-sm sm:text-base font-bold font-heading tracking-wide text-slate-700 hover:text-accent-600 bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-accent-200 active:scale-[0.98] rounded-xl shadow-xs transition-all duration-200 flex items-center gap-2.5 cursor-pointer hover:-translate-y-0.5"
+              >
+                <Users className="w-4.5 h-4.5 text-accent-500" />
+                <span>Join Us</span>
+              </button>
             </div>
           </div>
 
@@ -153,13 +165,24 @@ export const CareersHero: React.FC<CareersHeroProps> = ({
                 </p>
 
                 {/* Hiring Status */}
-                <div className="relative z-10 mt-6 flex items-center gap-3 rounded-2xl border border-orange-100 bg-orange-50/80 p-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-orange-500 shadow-sm">
+                <div
+                  onClick={handleJoinClick}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      handleJoinClick()
+                    }
+                  }}
+                  className="relative z-10 mt-6 flex items-center gap-3 rounded-2xl border border-orange-100 bg-orange-50/80 p-4 transition-all duration-200 hover:border-orange-300 hover:bg-orange-100/70 hover:shadow-md cursor-pointer group/card"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-orange-500 shadow-sm group-hover/card:scale-105 transition-transform">
                     <BriefcaseBusiness className="h-5 w-5" />
                   </div>
 
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm font-bold text-slate-900">
+                    <p className="text-sm font-bold text-slate-900 group-hover/card:text-accent-600 transition-colors">
                       Trainer Opportunities
                     </p>
                     <p className="mt-1 text-xs text-slate-500">
@@ -167,9 +190,17 @@ export const CareersHero: React.FC<CareersHeroProps> = ({
                     </p>
                   </div>
 
-                  <span className="shrink-0 rounded-full border border-orange-200 bg-white px-2.5 py-1 text-[10px] font-bold text-orange-600">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handleJoinClick()
+                    }}
+                    className="shrink-0 rounded-full border border-orange-200 bg-white hover:bg-orange-500 hover:text-white hover:border-orange-500 px-3 py-1 text-[10px] font-bold text-orange-600 shadow-2xs hover:shadow-sm transition-all duration-200 cursor-pointer active:scale-95"
+                    aria-label="Join Us"
+                  >
                     JOIN US
-                  </span>
+                  </button>
                 </div>
 
                 {/* Opportunity Highlights */}
