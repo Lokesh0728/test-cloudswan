@@ -20,8 +20,8 @@ export const CourseLearningPath: React.FC<CourseLearningPathProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 eyebrow-badge mb-4 shadow-2xs">
-            <Compass className="w-3.5 h-3.5 text-blue-600" />
+          <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-heading font-bold text-[10.5px] sm:text-xs uppercase tracking-wider mb-3.5 sm:mb-4 shadow-2xs max-w-full">
+            <Compass className="w-3.5 h-3.5 text-blue-600 shrink-0" />
             <span>Structured Knowledge Progression</span>
           </div>
 
@@ -54,7 +54,7 @@ export const CourseLearningPath: React.FC<CourseLearningPathProps> = ({
                 >
                   <div className="flex items-center justify-between mb-3">
                     <span
-                      className={`eyebrow-badge px-2 py-0.5 rounded-full text-[10px] ${
+                      className={`inline-flex items-center font-heading font-bold uppercase tracking-wider px-2 py-0.5 rounded-full text-[10px] ${
                         isLast
                           ? 'bg-white/20 text-white border border-white/30'
                           : 'bg-accent-50 text-accent-600 border border-accent-100'
@@ -93,7 +93,7 @@ export const CourseLearningPath: React.FC<CourseLearningPathProps> = ({
         </div>
 
         {/* Outcome Summary Callout */}
-        <div className="max-w-3xl mx-auto p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-3xl mx-auto p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs text-center flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-left">
             <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
               <CheckCircle2 className="w-5 h-5" />
@@ -106,7 +106,7 @@ export const CourseLearningPath: React.FC<CourseLearningPathProps> = ({
           <button
             type="button"
             onClick={() => onOpenEnquiry(`${learningPath.title} - Learning Path Counselling`)}
-            className="shrink-0 px-4 py-2 text-xs sm:text-sm font-bold font-heading text-slate-700 hover:text-accent-600 bg-slate-50 hover:bg-accent-50 border border-slate-200 rounded-xl transition-all"
+            className="w-full sm:w-auto shrink-0 px-4 py-2 text-xs sm:text-sm font-bold font-heading text-slate-700 hover:text-accent-600 bg-slate-50 hover:bg-accent-50 border border-slate-200 rounded-xl transition-all"
           >
             Get Counselling Call
           </button>

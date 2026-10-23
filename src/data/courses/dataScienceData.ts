@@ -667,7 +667,7 @@ export const dataScienceCourseData: CourseData = {
   finalCta: {
     title: 'Build Your Data Science & Analytics Career',
     subtitle:
-      'Learn the fundamentals. Work with real datasets. Build practical projects. Create your portfolio. Develop modern data skills.',
+      'Master data analytics, machine learning, and visualization with hands-on mentor guidance in Coimbatore.',
     checkpoints: [
       'Learn Excel, SQL, Python, Statistics, Power BI & Machine Learning',
       'Work on 6 real-world data and dashboard projects',

@@ -46,8 +46,8 @@ export const CourseWhyLearn: React.FC<CourseWhyLearnProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/80 text-accent-700 eyebrow-badge mb-4 shadow-2xs">
-            <Lock className="w-3.5 h-3.5 text-accent-600" />
+          <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-accent-50 border border-accent-200/80 text-accent-700 font-heading font-bold text-[10.5px] sm:text-xs uppercase tracking-wider mb-3.5 sm:mb-4 shadow-2xs max-w-full">
+            <Lock className="w-3.5 h-3.5 text-accent-600 shrink-0" />
             <span>High-Growth Technology Function</span>
           </div>
 
@@ -105,9 +105,11 @@ export const CourseWhyLearn: React.FC<CourseWhyLearnProps> = ({
         </div>
 
         {/* Highlight Callout Box */}
-        <div className="rounded-2xl p-6 sm:p-8 bg-gradient-to-r from-accent-50/80 via-white to-slate-50 border border-accent-200/80 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="rounded-2xl p-5 sm:p-8 bg-gradient-to-r from-accent-50/80 via-white to-slate-50 border border-accent-200/80 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6">
           <div className="space-y-2 text-left">
-            <span className="eyebrow-badge text-accent-700">Structured Learning Advantage</span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent-500/10 text-accent-700 border border-accent-500/20 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider">
+              Structured Learning Advantage
+            </span>
             <p className="font-heading font-bold text-base sm:text-lg text-slate-900">
               {whyLearn.summaryNote}
             </p>
@@ -119,7 +121,7 @@ export const CourseWhyLearn: React.FC<CourseWhyLearnProps> = ({
           <button
             type="button"
             onClick={() => onOpenEnquiry(`${whyLearn.title} - Career Transition Inquiry`)}
-            className="shrink-0 px-5 py-3 rounded-xl text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-sm shadow-accent-500/25 transition-all flex items-center gap-2"
+            className="w-full md:w-auto justify-center shrink-0 px-5 py-3 rounded-xl text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-sm shadow-accent-500/25 transition-all flex items-center gap-2"
           >
             <span>Discuss Your Career Transition</span>
             <ArrowRight className="w-4 h-4" />

@@ -663,15 +663,12 @@ export const powerBiCourseData: CourseData = {
   finalCta: {
     title: 'Start Your Power BI Journey',
     subtitle:
-      'Turn Data Into Insights. Build Better Dashboards. Master Power Query, data modeling, DAX, and executive visual reporting.',
+      'Master Power Query, DAX, data modeling, and interactive executive reporting with practical business case studies in Coimbatore.',
     checkpoints: [
-      'Learn how to work with business data',
-      'Master Power Query',
-      'Understand data modeling',
-      'Learn DAX',
-      'Build interactive dashboards',
-      'Analyze business performance',
-      'Create your Power BI portfolio',
+      'Master Power Query & complex data modeling',
+      'Write advanced DAX measures & calculations',
+      'Build interactive business intelligence dashboards',
+      'Create 5 executive reporting portfolio projects',
     ],
     primaryCta: 'Enquire Now',
     secondaryCta: 'Book a Free Counselling Session',

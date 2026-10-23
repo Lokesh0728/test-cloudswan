@@ -82,8 +82,8 @@ export const CourseToolsStack: React.FC<CourseToolsStackProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/80 text-accent-700 eyebrow-badge mb-4 shadow-2xs">
-            <Wrench className="w-3.5 h-3.5 text-accent-600" />
+          <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-accent-50 border border-accent-200/80 text-accent-700 font-heading font-bold text-[10.5px] sm:text-xs uppercase tracking-wider mb-3.5 sm:mb-4 shadow-2xs max-w-full">
+            <Wrench className="w-3.5 h-3.5 text-accent-600 shrink-0" />
             <span>Modern Industry Toolchain</span>
           </div>
 
@@ -143,7 +143,7 @@ export const CourseToolsStack: React.FC<CourseToolsStackProps> = ({
                   <span className="caption-text text-slate-400">
                     {cat.tools.length} Tools Covered
                   </span>
-                  <span className="eyebrow-badge text-[10px] text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                  <span className="inline-flex items-center font-heading font-bold uppercase tracking-wider text-[10px] text-emerald-600 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded shrink-0">
                     Verified Curriculum
                   </span>
                 </div>
@@ -160,7 +160,7 @@ export const CourseToolsStack: React.FC<CourseToolsStackProps> = ({
           <button
             type="button"
             onClick={() => onOpenEnquiry(`${toolsStack.title} - Tools & Virtual Lab Inquiry`)}
-            className="shrink-0 px-4 py-2 text-xs font-bold font-heading text-accent-600 hover:text-accent-700 bg-accent-50 hover:bg-accent-100 rounded-xl transition-colors flex items-center gap-1.5"
+            className="w-full sm:w-auto justify-center shrink-0 px-4 py-2 text-xs font-bold font-heading text-accent-600 hover:text-accent-700 bg-accent-50 hover:bg-accent-100 rounded-xl transition-colors flex items-center gap-1.5"
           >
             <span>Request Lab Access Demo</span>
             <ArrowRight className="w-3.5 h-3.5" />

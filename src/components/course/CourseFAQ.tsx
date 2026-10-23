@@ -51,8 +51,8 @@ export const CourseFAQ: React.FC<CourseFAQProps> = ({
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 eyebrow-badge mb-4 shadow-2xs">
-            <HelpCircle className="w-3.5 h-3.5 text-blue-600" />
+          <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-heading font-bold text-[10.5px] sm:text-xs uppercase tracking-wider mb-3.5 sm:mb-4 shadow-2xs max-w-full">
+            <HelpCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" />
             <span>Got Questions? We Have Answers</span>
           </div>
 
@@ -183,7 +183,7 @@ export const CourseFAQ: React.FC<CourseFAQProps> = ({
         </div>
 
         {/* Still have questions footer */}
-        <div className="mt-10 p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-10 p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center shrink-0">
               <MessageSquare className="w-5 h-5" />
@@ -197,7 +197,7 @@ export const CourseFAQ: React.FC<CourseFAQProps> = ({
           <button
             type="button"
             onClick={() => onOpenEnquiry('Course - Unlisted Question Enquiry')}
-            className="px-4 py-2 text-xs sm:text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 rounded-xl transition-all shrink-0"
+            className="w-full sm:w-auto justify-center px-4 py-2.5 text-xs sm:text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 rounded-xl transition-all shrink-0 text-center"
           >
             Speak with an Instructor
           </button>

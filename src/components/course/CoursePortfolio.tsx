@@ -25,8 +25,8 @@ export const CoursePortfolio: React.FC<CoursePortfolioProps> = ({
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-4xl mx-auto text-center mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-accent-400 eyebrow-badge mb-4">
-              <Award className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/10 border border-white/20 text-accent-400 font-heading font-bold text-[10.5px] sm:text-xs uppercase tracking-wider mb-3.5 sm:mb-4 shadow-2xs max-w-full">
+              <Award className="w-3.5 h-3.5 shrink-0" />
               <span>Job-Ready Proof of Competence</span>
             </div>
 
@@ -49,7 +49,7 @@ export const CoursePortfolio: React.FC<CoursePortfolioProps> = ({
                 className="p-4 rounded-xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/70 hover:border-accent-500/50 transition-all flex items-center gap-3.5"
               >
                 <div className="w-8 h-8 rounded-lg bg-accent-500/20 text-accent-400 border border-accent-500/30 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
+                  <CheckCircle2 className="w-4 h-4 shrink-0" />
                 </div>
                 <div className="text-left">
                   <span className="caption-text text-slate-400 text-[10px] uppercase font-mono tracking-wider">
@@ -68,7 +68,7 @@ export const CoursePortfolio: React.FC<CoursePortfolioProps> = ({
             <button
               type="button"
               onClick={() => onOpenEnquiry(`${portfolio.title} - Mentorship Inquiry`)}
-              className="px-8 py-3.5 rounded-xl text-sm sm:text-base font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-lg shadow-accent-500/30 transition-all inline-flex items-center gap-2"
+              className="w-full sm:w-auto justify-center px-8 py-3.5 rounded-xl text-sm sm:text-base font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-lg shadow-accent-500/30 transition-all inline-flex items-center gap-2"
             >
               <span>{portfolio.ctaText}</span>
               <ArrowRight className="w-4 h-4" />

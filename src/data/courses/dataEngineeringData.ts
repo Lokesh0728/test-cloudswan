@@ -666,14 +666,12 @@ export const dataEngineeringCourseData: CourseData = {
   finalCta: {
     title: 'Start Your Data Engineering Journey',
     subtitle:
-      'Build Data Skills. Build Pipelines. Build Your Career. Learn how modern data systems work and create production data pipelines.',
+      'Build production data pipelines, SQL transformations, and cloud data workflows with hands-on mentorship in Coimbatore.',
     checkpoints: [
-      'Learn how modern data systems work',
-      'Develop SQL and Python skills',
-      'Build data pipelines',
-      'Understand cloud data systems',
-      'Work on practical projects',
-      'Build your professional portfolio',
+      'Master modern data architectures & distributed computing',
+      'Develop advanced SQL, Python, and PySpark skills',
+      'Build automated ETL pipelines & cloud data lakes',
+      'Create 5 production data engineering portfolio capstones',
     ],
     primaryCta: 'Enquire Now',
     secondaryCta: 'Book a Free Counselling Session',

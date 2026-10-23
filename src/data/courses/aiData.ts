@@ -559,13 +559,12 @@ export const aiCourseData: CourseData = {
   finalCta: {
     title: 'Start Your AI & Machine Learning Journey',
     subtitle:
-      'AI is becoming part of many technology and business functions. Building practical skills can help you understand how intelligent systems are designed, trained and applied.',
+      'Build practical skills in Artificial Intelligence and Machine Learning with mentor-led training in Coimbatore.',
     checkpoints: [
-      'Build practical skills with Python, Scikit-learn, TensorFlow & PyTorch',
-      'Complete 5 real-world practical AI and ML projects',
-      'Master the complete machine learning workflow from data to deployment',
-      'Create an industry-ready portfolio for tech interviews',
-      'Receive resume, portfolio and placement guidance',
+      'Hands-on labs with Python, Scikit-learn, TensorFlow & PyTorch',
+      '5 practical AI & Machine Learning capstone projects',
+      'End-to-end model training, evaluation and deployment',
+      '1:1 portfolio building, resume review & placement support',
     ],
     primaryCta: 'Book a Free Counselling Session',
     secondaryCta: 'Explore Course Curriculum',

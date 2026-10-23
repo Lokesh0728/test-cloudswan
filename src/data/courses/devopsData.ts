@@ -743,7 +743,7 @@ export const devopsCourseData: CourseData = {
   finalCta: {
     title: 'Build Your DevOps & Cloud Engineering Career',
     subtitle:
-      'Learn the fundamentals. Work with industry-relevant tools. Build CI/CD pipelines. Deploy applications to the cloud. Automate infrastructure. Build your DevOps portfolio.',
+      'Master CI/CD pipelines, Docker, Kubernetes, and cloud automation with hands-on labs in Coimbatore.',
     checkpoints: [
       'Master Linux, Git, Jenkins, Docker, Kubernetes, Ansible & Cloud Platforms',
       'Execute 6 production-grade practical DevOps projects',
