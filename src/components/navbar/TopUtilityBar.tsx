@@ -55,12 +55,12 @@ export const TopUtilityBar: React.FC<TopUtilityBarProps> = ({ onOpenEnquiry, onM
           </div>
 
           {/* RIGHT SIDE: ISO Certification & Request Callback */}
-          <div className="flex items-center gap-3.5 sm:gap-4">
-            <div className="flex items-center gap-1.5 text-emerald-400 font-semibold">
+          <div className="flex items-center gap-3.5 sm:gap-4 shrink-0">
+            <div className="hidden lg:flex items-center gap-1.5 text-emerald-400 font-semibold">
               <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 stroke-[2.5]" />
               <span>ISO 9001:2015 Certified</span>
             </div>
-            <span className="text-slate-700">|</span>
+            <span className="text-slate-700 hidden lg:inline">|</span>
             <button
               type="button"
               onClick={onOpenEnquiry}
