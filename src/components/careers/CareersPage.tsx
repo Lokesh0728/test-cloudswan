@@ -13,7 +13,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
   // Update document title and scroll to top on mount
   useEffect(() => {
     document.title = 'Careers | Cloudswan Solution - Join Our Team'
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [])
 
   const scrollToSection = (sectionId: string) => {

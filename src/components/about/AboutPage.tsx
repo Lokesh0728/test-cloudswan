@@ -20,7 +20,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   // Update document title and scroll to top on mount
   useEffect(() => {
     document.title = 'About Us | Cloudswan Solution - No.1 IT Training Institute Coimbatore'
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [])
 
   return (

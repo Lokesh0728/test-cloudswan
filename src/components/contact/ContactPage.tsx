@@ -16,10 +16,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   onExploreCourses,
   onOpenEnquiry: _onOpenEnquiry,
 }) => {
-  // Update document title and scroll to top smoothly on mount
+  // Update document title and scroll to top on mount
   useEffect(() => {
     document.title = 'Contact Us | CloudSwan Solution - Gandhipuram & Saravanampatti Branches Coimbatore'
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [])
 
   const scrollToSection = (sectionId: string) => {

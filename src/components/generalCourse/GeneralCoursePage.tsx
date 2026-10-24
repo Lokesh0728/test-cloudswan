@@ -24,7 +24,7 @@ export const GeneralCoursePage: React.FC<GeneralCoursePageProps> = ({
   useEffect(() => {
     // Set dynamic page title for SEO
     document.title = `${course.title} | CloudSwan Institute Coimbatore`
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [course])
 
   return (
