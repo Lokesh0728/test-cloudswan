@@ -22,8 +22,8 @@ export const CourseRoadmap: React.FC<CourseRoadmapProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/80 text-accent-700 eyebrow-badge mb-4 shadow-2xs">
-            <Milestone className="w-3.5 h-3.5 text-accent-600" />
+          <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-accent-50 border border-accent-200/80 text-accent-700 font-heading font-bold text-[10.5px] sm:text-xs uppercase tracking-wider mb-3.5 sm:mb-4 shadow-2xs max-w-full">
+            <Milestone className="w-3.5 h-3.5 text-accent-600 shrink-0" />
             <span>12-Stage Career Progression Blueprint</span>
           </div>
 
@@ -55,7 +55,7 @@ export const CourseRoadmap: React.FC<CourseRoadmapProps> = ({
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span
-                      className={`eyebrow-badge px-2.5 py-1 rounded-full text-[11px] ${
+                      className={`inline-flex items-center font-heading font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full text-[10.5px] sm:text-[11px] ${
                         isMilestone
                           ? 'bg-accent-500 text-white'
                           : 'bg-white text-slate-700 border border-slate-200'
@@ -96,7 +96,7 @@ export const CourseRoadmap: React.FC<CourseRoadmapProps> = ({
           <button
             type="button"
             onClick={() => onOpenEnquiry(`${roadmap.title} - Career Roadmap Consultation`)}
-            className="px-6 py-3 rounded-xl text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-md shadow-accent-500/25 transition-all inline-flex items-center gap-2"
+            className="w-full sm:w-auto justify-center px-6 py-3 rounded-xl text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-md shadow-accent-500/25 transition-all inline-flex items-center gap-2"
           >
             <span>Start Step 1: Book Free Orientation</span>
             <ArrowRight className="w-4 h-4" />

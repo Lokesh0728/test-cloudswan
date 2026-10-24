@@ -138,20 +138,14 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
         </nav>
 
         {/* Top Live Announcement & Location Bar */}
-        <div className="mb-8 flex flex-wrap items-center justify-between gap-3 p-2.5 sm:px-4 sm:py-2 rounded-2xl bg-white/90 border border-slate-200/80 shadow-xs backdrop-blur-md">
-          <div className="flex items-center gap-2.5 flex-wrap">
-            <span className="eyebrow-badge inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent-500/10 text-accent-600 border border-accent-500/20 text-xs">
-              <span className="w-2 h-2 rounded-full bg-accent-500 animate-pulse" />
-              <span>{course.eyebrowBadge}</span>
-            </span>
-            <div className="flex items-center gap-1.5 text-xs text-slate-700 font-medium font-sans">
-              <MapPin className="w-3.5 h-3.5 text-accent-500 shrink-0" />
-              <span>Coimbatore Campus (Gandhipuram & Saravanampatti) • Live Online Batches</span>
-            </div>
+        <div className="mb-6 sm:mb-8 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-white/95 border border-slate-200/80 shadow-xs backdrop-blur-md flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+          <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+            <MapPin className="w-3.5 h-3.5 text-accent-500 shrink-0" />
+            <span>Coimbatore Campus (Gandhipuram & Saravanampatti) • Live Online Batches</span>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600">
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+          <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-emerald-600 shrink-0 pt-1.5 sm:pt-0 border-t border-slate-100 sm:border-0">
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0" />
             <span>Admissions Open for New Batch</span>
           </div>
         </div>
@@ -160,14 +154,18 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
           {/* Left Column: High-Converting Headline, Value Propositions & CTAs */}
           <div className="lg:col-span-7 space-y-5 text-left">
-            {/* Accreditation Badge */}
-            <div className="inline-flex flex-wrap items-center gap-1 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 eyebrow-badge shadow-2xs text-[10.5px] sm:text-xs">
+            {/* Track Eyebrow & Accreditation Pill */}
+            <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/90 text-accent-700 shadow-2xs max-w-full">
               <div className="inline-flex items-center gap-1.5">
-
-                <span className="whitespace-nowrap">100% Practical IT Training Institute</span>
+                <span className="w-2 h-2 rounded-full bg-accent-500 animate-pulse shrink-0" />
+                <span className="font-heading font-bold uppercase tracking-wider text-accent-700 text-[10.5px] sm:text-xs">
+                  {course.eyebrowBadge}
+                </span>
               </div>
-              <span className="text-accent-300 hidden sm:inline">|</span>
-              <span className="normal-case font-semibold text-slate-600 whitespace-nowrap">ISO 9001:2015 Certified</span>
+              <span className="text-accent-300 hidden sm:inline">•</span>
+              <span className="font-semibold text-slate-600 hidden sm:inline text-xs">
+                ISO 9001:2015 Certified
+              </span>
             </div>
 
             {/* Catchy Main Headline & Subtitle */}
@@ -193,11 +191,11 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
             </div>
 
             {/* High-Converting CTA Action Group */}
-            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 type="button"
                 onClick={() => onOpenEnquiry(`${course.shortTitle} - Free Counselling Session`)}
-                className="px-6 py-3.5 text-sm sm:text-base font-bold font-heading tracking-wide text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] rounded-xl shadow-md shadow-accent-500/30 transition-all flex items-center gap-2 group cursor-pointer"
+                className="w-full sm:w-auto justify-center px-6 py-3.5 text-sm sm:text-base font-bold font-heading tracking-wide text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] rounded-xl shadow-md shadow-accent-500/30 transition-all flex items-center gap-2 group cursor-pointer"
               >
                 <span>{course.primaryCtaText}</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -205,7 +203,7 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
 
               <a
                 href="#course-curriculum"
-                className="px-5 py-3.5 text-sm sm:text-base font-bold font-heading text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-300 rounded-xl shadow-2xs transition-all flex items-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto justify-center px-5 py-3.5 text-sm sm:text-base font-bold font-heading text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-300 rounded-xl shadow-2xs transition-all flex items-center gap-2 cursor-pointer"
               >
                 <BookOpen className="w-4 h-4 text-slate-500" />
                 <span>{course.secondaryCtaText}</span>
@@ -313,19 +311,19 @@ export const CourseHero: React.FC<CourseHeroProps> = ({
             </div>
 
             {/* Trust Seals Strip Under Image Frame */}
-            <div className="mt-3.5 flex items-center justify-between gap-2 px-1 text-[11px] sm:text-xs text-slate-600">
+            <div className="mt-3.5 flex flex-wrap items-center justify-center sm:justify-between gap-2.5 sm:gap-2 px-1 text-[11px] sm:text-xs text-slate-600">
               <div className="flex items-center gap-1">
-                <Award className="w-3.5 h-3.5 text-accent-500" />
+                <Award className="w-3.5 h-3.5 text-accent-500 shrink-0" />
                 <span className="font-medium">ISO 9001:2015</span>
               </div>
-              <span className="text-slate-300">•</span>
+              <span className="text-slate-300 hidden sm:inline">•</span>
               <div className="flex items-center gap-1">
-                <Laptop className="w-3.5 h-3.5 text-blue-500" />
+                <Laptop className="w-3.5 h-3.5 text-blue-500 shrink-0" />
                 <span className="font-medium">Classroom & Online</span>
               </div>
-              <span className="text-slate-300">•</span>
+              <span className="text-slate-300 hidden sm:inline">•</span>
               <div className="flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span className="font-medium">Placement Support</span>
               </div>
             </div>

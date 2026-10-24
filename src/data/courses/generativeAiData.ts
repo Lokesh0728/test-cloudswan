@@ -642,12 +642,12 @@ export const generativeAiCourseData: CourseData = {
   finalCta: {
     title: 'Start Your Generative AI Journey',
     subtitle:
-      'Learn AI. Build Practical Skills. Work Smarter. Develop practical Generative AI skills that can support your career, business or professional workflow.',
+      'Develop practical Generative AI and prompt engineering skills with hands-on projects in Coimbatore.',
     checkpoints: [
-      'Learn modern AI tools',
-      'Build practical projects',
-      'Create your AI portfolio',
-      'Apply Generative AI to real-world tasks',
+      'Master prompt engineering & LLM integration',
+      'Build practical AI-powered applications',
+      'Create a verified portfolio of real-world AI projects',
+      'Learn 1:1 with experienced industry practitioners',
     ],
     primaryCta: 'Enquire Now',
     secondaryCta: 'Book a Free Counselling Session',

@@ -246,6 +246,18 @@ export function getCourseByIdOrSlug(idOrSlug: string): CourseData | null {
     return COURSES_REGISTRY[stripped]
   }
 
+  // Also support underscore slug variations (e.g. artificial_intelligence -> artificial-intelligence)
+  const withHyphens = stripped.replace(/_/g, '-')
+  if (COURSES_REGISTRY[withHyphens]) {
+    return COURSES_REGISTRY[withHyphens]
+  }
+  if (COURSES_REGISTRY[`courses/${withHyphens}`]) {
+    return COURSES_REGISTRY[`courses/${withHyphens}`]
+  }
+  if (COURSES_REGISTRY[`/courses/${withHyphens}`]) {
+    return COURSES_REGISTRY[`/courses/${withHyphens}`]
+  }
+
   // 4. Scan registry values by course.id or course.slug
   for (const course of Object.values(COURSES_REGISTRY)) {
     const cId = course.id.toLowerCase()
@@ -255,8 +267,10 @@ export function getCourseByIdOrSlug(idOrSlug: string): CourseData | null {
     if (
       cId === normalized ||
       cId === stripped ||
+      cId === withHyphens ||
       cSlug === normalized ||
-      cSlugStripped === stripped
+      cSlugStripped === stripped ||
+      cSlugStripped === withHyphens
     ) {
       return course
     }

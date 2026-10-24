@@ -24,8 +24,8 @@ export const CourseCertification: React.FC<CourseCertificationProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 eyebrow-badge mb-4 shadow-2xs">
-            <Award className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-heading font-bold text-[10.5px] sm:text-xs uppercase tracking-wider mb-3.5 sm:mb-4 shadow-2xs max-w-full">
+            <Award className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
             <span>Course Completion & Industry Validation</span>
           </div>
 
@@ -151,7 +151,7 @@ export const CourseCertification: React.FC<CourseCertificationProps> = ({
           <button
             type="button"
             onClick={() => onOpenEnquiry(`${certification.title} - Certification Consultation`)}
-            className="px-6 py-3 rounded-xl text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-md shadow-accent-500/25 transition-all inline-flex items-center gap-2"
+            className="w-full sm:w-auto justify-center px-6 py-3 rounded-xl text-sm font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 active:scale-[0.98] shadow-md shadow-accent-500/25 transition-all inline-flex items-center gap-2"
           >
             <span>Ask About Certification Guidance</span>
             <ArrowRight className="w-4 h-4" />

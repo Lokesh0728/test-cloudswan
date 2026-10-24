@@ -66,9 +66,11 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-50 border border-accent-200/80 text-accent-700 eyebrow-badge mb-4 shadow-2xs">
-            <BookOpen className="w-3.5 h-3.5 text-accent-600" />
-            <span>{curriculum.modules.length} Comprehensive Modules • {totalTopics}+ Topics</span>
+          <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-accent-50 border border-accent-200/80 text-accent-700 font-heading font-bold text-[10.5px] sm:text-xs uppercase tracking-wider mb-3.5 sm:mb-4 shadow-2xs max-w-full">
+            <BookOpen className="w-3.5 h-3.5 text-accent-600 shrink-0" />
+            <span>{curriculum.modules.length} Modules</span>
+            <span className="text-accent-300">•</span>
+            <span>{totalTopics}+ Practical Topics</span>
           </div>
 
           <GradientTitle text={curriculum.subtitle} className="display-h2 text-slate-900" />
@@ -83,7 +85,7 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({
         </div>
 
         {/* Search & Accordion Controls Bar */}
-        <div className="mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-2xs">
+        <div className="mb-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-2xs">
           {/* Search Input */}
           <div className="relative w-full sm:max-w-md">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -106,27 +108,27 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({
           </div>
 
           {/* Quick Action Buttons */}
-          <div className="flex items-center gap-2.5 self-end sm:self-center shrink-0">
+          <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto justify-between sm:justify-end shrink-0">
             <button
               type="button"
               onClick={expandAll}
-              className="px-3 py-1.5 text-xs font-semibold font-heading text-slate-600 hover:text-accent-600 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors"
+              className="flex-1 sm:flex-initial text-center justify-center px-3 py-1.5 text-xs font-semibold font-heading text-slate-600 hover:text-accent-600 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors"
             >
               Expand All
             </button>
             <button
               type="button"
               onClick={collapseAll}
-              className="px-3 py-1.5 text-xs font-semibold font-heading text-slate-600 hover:text-accent-600 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors"
+              className="flex-1 sm:flex-initial text-center justify-center px-3 py-1.5 text-xs font-semibold font-heading text-slate-600 hover:text-accent-600 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors"
             >
               Collapse All
             </button>
             <button
               type="button"
               onClick={() => onOpenEnquiry(`${curriculum.title} - Download Complete Syllabus`)}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 rounded-lg shadow-2xs transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 text-xs font-bold font-heading text-white bg-accent-500 hover:bg-accent-600 rounded-lg shadow-2xs transition-colors"
             >
-              <FileDown className="w-3.5 h-3.5" />
+              <FileDown className="w-3.5 h-3.5 shrink-0" />
               <span>Syllabus PDF</span>
             </button>
           </div>
