@@ -34,7 +34,7 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
   useEffect(() => {
     // Dynamically set page title for SEO
     document.title = `${course.title} | CloudSwan Institute`
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [course])
 
   return (

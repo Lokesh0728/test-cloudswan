@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect } from 'react'
 import { Navbar } from './components/navbar/Navbar'
 import { HeroSection } from './components/hero/HeroSection'
 import { CurrentBatchesSection } from './components/batches/CurrentBatchesSection'
@@ -27,6 +27,13 @@ export default function App() {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState<boolean>(false)
   const [enquirySubject, setEnquirySubject] = useState<string>('')
 
+  // Ensure browser doesn't automatically restore outdated scroll positions across SPA route changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+  }, [])
+
   // Sync browser URL when path changes
   useEffect(() => {
     if (typeof window !== 'undefined' && (window.location.pathname + window.location.search) !== currentPath) {
@@ -34,10 +41,29 @@ export default function App() {
     }
   }, [currentPath])
 
+  // Instantly scroll to the top hero section on any route change
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    if (document.documentElement) document.documentElement.scrollTop = 0
+    if (document.body) document.body.scrollTop = 0
+
+    // Extra frame check to prevent scroll jump after asynchronous image/DOM renders
+    const frameId = requestAnimationFrame(() => {
+      window.scrollTo(0, 0)
+      if (document.documentElement) document.documentElement.scrollTop = 0
+      if (document.body) document.body.scrollTop = 0
+    })
+
+    return () => cancelAnimationFrame(frameId)
+  }, [currentPath])
+
   // Handle browser back and forward navigation
   useEffect(() => {
     const handlePopState = () => {
       setCurrentPath((window.location.pathname || '/') + (window.location.search || ''))
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+      if (document.documentElement) document.documentElement.scrollTop = 0
+      if (document.body) document.body.scrollTop = 0
     }
     window.addEventListener('popstate', handlePopState)
     return () => window.removeEventListener('popstate', handlePopState)
@@ -60,7 +86,9 @@ export default function App() {
     } else if (normalized === '/contact') {
       document.title = 'Contact Us | CloudSwan Solution - Gandhipuram & Saravanampatti Branches Coimbatore'
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    if (document.documentElement) document.documentElement.scrollTop = 0
+    if (document.body) document.body.scrollTop = 0
   }
 
   const handleCourseSelect = (course: CourseItem, _category?: CourseCategory) => {

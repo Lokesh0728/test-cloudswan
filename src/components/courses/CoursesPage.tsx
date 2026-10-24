@@ -85,6 +85,11 @@ export const CoursesPage: React.FC<CoursesPageProps> = ({
     onlyShortTrack: false,
   }))
 
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [])
+
   // Track initialCategory updates safely
   const prevCategoryRef = useRef(initialCategory)
   useEffect(() => {
